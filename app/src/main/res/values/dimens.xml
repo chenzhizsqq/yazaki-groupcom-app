@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="refresh_header_height_twitter">60dp</dimen>
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+
+    <dimen name="login_horizontal_margin">30dp</dimen>
+    <dimen name="title_bar_size_main">20sp</dimen>
+    <dimen name="title_bar_size_sub">18sp</dimen>
+    <dimen name="title_bar_return_font">16sp</dimen>
+    <dimen name="notification_dialog_font">16sp</dimen>
+    <dimen name="section_header_font">16sp</dimen>
+    <dimen name="stuff_list_userkara_font">12sp</dimen>
+    <dimen name="stuff_list_username_font">16sp</dimen>
+    <dimen name="stuff_list_phone_font">12sp</dimen>
+    <dimen name="stuff_list_mail_font">12sp</dimen>
+    <dimen name="stuff_list_status_font">12sp</dimen>
+    <dimen name="stuff_list_status_icon_font">15sp</dimen>
+    <dimen name="stuff_list_place_font">12sp</dimen>
+</resources>

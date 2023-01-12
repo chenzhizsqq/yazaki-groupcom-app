@@ -7,4 +7,24 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="md_blue_200">#90CAF9</color>
+    <color name="md_blue_500">#2196F3</color>
+    <color name="md_blue_700">#1976D2</color>
+
+    <color name="system_green">#00FF00</color>
+
+    <!--    iphone style-->
+    <color name="iphone_button_color">#FF9800</color>
+    <color name="iphone_top_menu_bg">#292929</color>
+    <color name="iphone_main_bg">#F2F2F6</color>
+    <color name="iphone_line_bg">#E7E7E7</color>
+    <color name="iphone_line_bg_dark">#DEDEDE</color>
+    <color name="iphone_view_bg">#E5E5E9</color>
+    <!--    iphone style-->
+
+    <color name="ic_app_icon_background">#FFFFFF</color>
+
+
 </resources>
