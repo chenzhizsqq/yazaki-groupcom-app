@@ -161,7 +161,7 @@
             android:gravity="bottom"
             android:layout_marginBottom="20dp"
             >
-
+            <!-- RFID ログイン -->
             <Button
                 android:id="@+id/bt_rfid"
                 android:layout_width="wrap_content"
@@ -186,6 +186,7 @@
             android:gravity="bottom|end"
             android:layout_marginBottom="20dp"
             >
+            <!-- ID ログイン -->
             <Button
                 android:id="@+id/bt_id_login"
                 android:layout_width="wrap_content"

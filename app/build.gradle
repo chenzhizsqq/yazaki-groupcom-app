@@ -57,4 +57,9 @@ dependencies {
 
     // Gson処理
     implementation 'com.google.code.gson:gson:2.8.9'
+
+    //QR code
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+
 }
