@@ -18,4 +18,6 @@
     <string name="CANCEL">キャンセル</string>
     <string name="EDIT">編集</string>
     <string name="et_qr_code_hint">QRコード</string>
+
+    <string name="et_rfid_code_hint">RFIDコード</string>
 </resources>

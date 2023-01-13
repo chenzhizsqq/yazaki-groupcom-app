@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RfidLoginActivity">
+
+    <!-- タイトル -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/titleAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        >
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:background="@color/iphone_top_menu_bg"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/returnHome"
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:paddingStart="5sp"
+                android:orientation="horizontal"
+                android:gravity="start"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 中央部 -->
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:background="@color/white"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+        <!-- ログイン -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:text="@string/login"/>
+        <View
+            android:id="@+id/line"
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            android:background="#FF5722" />
+
+        <!-- RFID -->
+        <EditText
+            android:id="@+id/et_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginTop="30dp"
+            android:hint="@string/et_rfid_code_hint"
+            android:autofillHints=""
+            android:background="@drawable/bg_edittext"
+            android:inputType="text"
+            android:singleLine="true"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- message-->
+        <TextView
+            android:id="@+id/tv_qr_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            android:padding="10dp"
+            android:gravity="center"
+            android:background="@drawable/bg_message_text"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="社員証のRFIDを読\nみ取ってください"
+            tools:ignore="HardcodedText,TextViewEdits" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,9 @@ import com.yazaki_groupcom.app.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
 
-    val TAG: String = "MainActivity"
+    companion object {
+        const val TAG: String = "MainActivity"
+    }
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var qrScanIntegrator: IntentIntegrator
@@ -33,11 +35,13 @@ class MainActivity : BaseActivity() {
         }
 
         binding.btRfid.setOnClickListener {
-
+            val intent =
+                Intent(this@MainActivity, RfidLoginActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition( android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left);
+            finish()
         }
-
-
-
     }
 
     //QR SCAN
