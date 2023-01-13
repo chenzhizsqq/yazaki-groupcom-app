@@ -7,7 +7,7 @@
     <dimen name="refresh_header_height_twitter">60dp</dimen>
     <dimen name="load_more_footer_height_classic">60dp</dimen>
 
-    <dimen name="login_horizontal_margin">30dp</dimen>
+    <dimen name="login_horizontal_margin">50dp</dimen>
     <dimen name="title_bar_size_main">20sp</dimen>
     <dimen name="title_bar_size_sub">18sp</dimen>
     <dimen name="title_bar_return_font">16sp</dimen>

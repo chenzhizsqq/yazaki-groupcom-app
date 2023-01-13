@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/titleAppBarLayout"
         >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -36,6 +37,7 @@
                     android:layout_width="1dp"
                     android:layout_weight="1"
                     android:layout_height="30dp"
+                    android:paddingStart="5sp"
                     android:orientation="horizontal"
                     android:gravity="start"
                     >
@@ -63,10 +65,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="製造実行端末ソフト"
+                        android:paddingEnd="5sp"
                         android:textSize="@dimen/title_bar_return_font"
                         android:textColor="@color/ic_app_icon_background"
                         android:gravity="center|end"
-                        />
+                        tools:ignore="RtlSymmetry" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -78,31 +81,116 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="center|top"
         android:background="@color/white"
         android:id="@+id/ll"
         android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
          android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="2sp"
             android:text="@string/login"/>
-        <TextView
-            android:layout_width="wrap_content"
+        <View
+            android:id="@+id/line"
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            android:background="#FF5722" />
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"/>
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginTop="30dp"
+            android:autofillHints=""
+            android:background="@drawable/bg_edittext"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            tools:ignore="SpeakableTextPresentCheck" />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"/>
-        <TextView
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            android:padding="10dp"
+            android:gravity="center"
+            android:background="@drawable/bg_message_text"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="社員証のQRコードを読\nみ取ってください"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center|bottom"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/login"/>
-        <TextView
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/ic_app_icon_background"
+                android:textSize="15sp"
+                android:layout_marginStart="30sp"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="RFID\nログイン"
+                tools:ignore="TextViewEdits" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/login"/>
+            android:orientation="horizontal"
+            android:gravity="bottom|end"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginEnd="30sp"
+                android:textColor="@color/ic_app_icon_background"
+                android:textSize="15sp"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="ID入力\nログイン"
+                tools:ignore="TextViewEdits" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
