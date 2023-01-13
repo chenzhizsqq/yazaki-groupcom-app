@@ -7,6 +7,7 @@ class Config {
         // 連打判断間隔msec
         const val DOUBLE_CLICK_INTERVAL = 500L
 
+        const val AppUser = "AppUser"
         const val Device = "android"
 
         //初回登録Frag key

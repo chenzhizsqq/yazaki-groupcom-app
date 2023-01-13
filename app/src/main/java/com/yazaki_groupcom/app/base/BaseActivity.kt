@@ -3,6 +3,7 @@ package com.yazaki_groupcom.app.base
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.yazaki_groupcom.app.Tools
 
 /**
  * ベースアクティビティ
@@ -21,4 +22,11 @@ open class BaseActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+    /**
+     * Network判断
+     * @return
+     */
+    open fun isNetworkConnected(): Boolean {
+        return Tools.isNetworkConnected
+    }
 }

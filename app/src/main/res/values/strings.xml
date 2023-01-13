@@ -6,4 +6,16 @@
     <string name="id_login">ID入力\nログイン</string>
     <string name="manage_system">製造工程管理System</string>
     <string name="terminal_software">製造実行端末ソフト</string>
+
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+
+    <!--    MARK: - MESSAGE-->
+    <string name="ERROR">エラー</string>
+    <string name="MESSAGE">新着メッセージ</string>
+    <string name="OK">ＯＫ</string>
+    <string name="CONFIRM">確認</string>
+    <string name="CANCEL">キャンセル</string>
+    <string name="EDIT">編集</string>
+    <string name="et_qr_code_hint">QRコード</string>
 </resources>

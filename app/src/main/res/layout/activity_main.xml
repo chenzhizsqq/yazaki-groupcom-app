@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- title -->
+    <!-- タイトル -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,11 +17,11 @@
         android:layout_height="?attr/actionBarSize"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp"
-        android:background="@color/iphone_top_menu_bg"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
         <LinearLayout
-            android:id="@+id/topLL"
+            android:id="@+id/ll_top"
+            android:background="@color/iphone_top_menu_bg"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentInsetStart="0dp"
@@ -39,8 +39,6 @@
                 android:orientation="horizontal"
                 android:gravity="start"
                 >
-
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -73,7 +71,7 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- main -->
+    <!-- 中央部 -->
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +83,7 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_height="match_parent">
 
         <!-- ログイン -->
@@ -103,16 +102,18 @@
 
         <!-- QR -->
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/et_qr_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:layout_marginEnd="@dimen/login_horizontal_margin"
             android:layout_marginStart="@dimen/login_horizontal_margin"
             android:layout_marginTop="30dp"
+            android:hint="@string/et_qr_code_hint"
             android:autofillHints=""
             android:background="@drawable/bg_edittext"
-            android:inputType="textPassword"
+            android:inputType="text"
+            android:singleLine="true"
             android:minHeight="48dp"
             android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -121,6 +122,7 @@
 
         <!-- QR message-->
         <TextView
+            android:id="@+id/tv_qr_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/label_password"
@@ -138,7 +140,7 @@
             tools:ignore="HardcodedText,TextViewEdits" />
     </LinearLayout>
 
-    <!-- button -->
+    <!-- ボトムエンド -->
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +149,6 @@
         android:orientation="horizontal"
         android:gravity="center|bottom"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
         android:layout_height="match_parent"
         android:baselineAligned="false">
 
@@ -158,9 +159,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="bottom"
+            android:layout_marginBottom="20dp"
             >
 
             <Button
+                android:id="@+id/bt_rfid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -181,8 +184,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="bottom|end"
+            android:layout_marginBottom="20dp"
             >
             <Button
+                android:id="@+id/bt_id_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
