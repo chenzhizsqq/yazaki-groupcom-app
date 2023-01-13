@@ -6,75 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- title -->
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/titleAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        android:background="@color/iphone_top_menu_bg"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
+            android:id="@+id/topLL"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="match_parent"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
-            android:background="@color/iphone_top_menu_bg"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
             <LinearLayout
-                android:id="@+id/topLL"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentInsetStart="0dp"
-                app:contentInsetEnd="0dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/returnHome"
-                    android:layout_width="1dp"
-                    android:layout_weight="1"
-                    android:layout_height="30dp"
-                    android:paddingStart="5sp"
-                    android:orientation="horizontal"
-                    android:gravity="start"
-                    >
+                android:id="@+id/returnHome"
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:paddingStart="5sp"
+                android:orientation="horizontal"
+                android:gravity="start"
+                >
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/title_my_page"
-                        android:textSize="@dimen/title_bar_return_font"
-                        android:textColor="@color/iphone_button_color"
-                        android:gravity="center|start"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="1dp"
-                    android:layout_weight="1"
-                    android:layout_height="30dp"
-                    android:orientation="vertical"
-                    android:gravity="end"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="製造実行端末ソフト"
-                        android:paddingEnd="5sp"
-                        android:textSize="@dimen/title_bar_return_font"
-                        android:textColor="@color/ic_app_icon_background"
-                        android:gravity="center|end"
-                        tools:ignore="RtlSymmetry" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/manage_system"
+                    android:textSize="@dimen/title_bar_return_font"
+                    android:textColor="@color/iphone_button_color"
+                    android:gravity="center|start"
+                    />
 
             </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:orientation="vertical"
+                android:gravity="end"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/terminal_software"
+                    android:paddingEnd="5sp"
+                    android:textSize="@dimen/title_bar_return_font"
+                    android:textColor="@color/ic_app_icon_background"
+                    android:gravity="center|end"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- main -->
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,15 +84,16 @@
         android:background="@color/white"
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_marginTop="80dp"
-         android:layout_height="match_parent">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_height="match_parent">
 
+        <!-- ログイン -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="2sp"
+            android:layout_marginTop="?attr/actionBarSize"
             android:text="@string/login"/>
         <View
             android:id="@+id/line"
@@ -101,7 +101,7 @@
             android:layout_height="2dp"
             android:background="#FF5722" />
 
-
+        <!-- QR -->
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -119,6 +119,7 @@
             app:layout_constraintTop_toBottomOf="@+id/label_password"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <!-- QR message-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,9 +135,10 @@
             android:maxLines="2"
             android:minLines="2"
             android:text="社員証のQRコードを読\nみ取ってください"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,TextViewEdits" />
     </LinearLayout>
 
+    <!-- button -->
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,8 +148,10 @@
         android:gravity="center|bottom"
         android:layout_width="match_parent"
         android:layout_marginBottom="20dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
 
+        <!-- 左 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_weight="1"
@@ -160,15 +164,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textColor="@color/ic_app_icon_background"
+                android:textColor="@color/button_font_color"
                 android:textSize="15sp"
                 android:layout_marginStart="30sp"
                 android:inputType="textMultiLine"
                 android:maxLines="2"
                 android:minLines="2"
-                android:text="RFID\nログイン"
+                android:text="@string/rfid_login"
                 tools:ignore="TextViewEdits" />
         </LinearLayout>
+
+        <!-- 右 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_weight="1"
@@ -181,16 +187,14 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:layout_marginEnd="30sp"
-                android:textColor="@color/ic_app_icon_background"
+                android:textColor="@color/button_font_color"
                 android:textSize="15sp"
                 android:inputType="textMultiLine"
                 android:maxLines="2"
                 android:minLines="2"
-                android:text="ID入力\nログイン"
+                android:text="@string/id_login"
                 tools:ignore="TextViewEdits" />
-
         </LinearLayout>
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
