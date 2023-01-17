@@ -34,38 +34,68 @@
                 android:id="@+id/returnHome"
                 android:layout_width="1dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:paddingStart="5sp"
                 android:orientation="horizontal"
-                android:gravity="start"
+                android:gravity="center|start"
                 >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/manage_system"
-                    android:textSize="@dimen/title_bar_return_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/iphone_button_color"
-                    android:gravity="center|start"
-                    />
+                    android:textSize="20sp"
+                    android:text="作業者"/>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
-                android:orientation="vertical"
-                android:gravity="end"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 >
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/terminal_software"
-                    android:paddingEnd="5sp"
-                    android:textSize="@dimen/title_bar_return_font"
-                    android:textColor="@color/ic_app_icon_background"
-                    android:gravity="center|end"
-                    tools:ignore="RtlSymmetry" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/iphone_button_color"
+                    android:textSize="15sp"
+                    android:text="ログインID:admin"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                >
+                <TextView
+                    android:background="@drawable/ic_round_button_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/button_font_color"
+                    android:textSize="10sp"
+                    android:text="TOP" />
+                <TextView
+                    android:background="@drawable/ic_round_button_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/button_font_color"
+                    android:textSize="10sp"
+                    android:text="ログアウト" />
             </LinearLayout>
 
         </LinearLayout>
@@ -83,7 +113,6 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_height="match_parent">
 
         <!-- ログイン -->
@@ -94,113 +123,5 @@
             android:textSize="20sp"
             android:layout_marginTop="?attr/actionBarSize"
             android:text="@string/login"/>
-        <View
-            android:id="@+id/line"
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            android:background="#FF5722" />
-
-        <!-- QR -->
-        <EditText
-            android:id="@+id/et_qr_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginEnd="@dimen/login_horizontal_margin"
-            android:layout_marginStart="@dimen/login_horizontal_margin"
-            android:layout_marginTop="30dp"
-            android:hint="@string/et_qr_code_hint"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext"
-            android:inputType="text"
-            android:singleLine="true"
-            android:minHeight="48dp"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_password"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <!-- QR message-->
-        <TextView
-            android:id="@+id/tv_qr_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/label_password"
-            android:padding="10dp"
-            android:gravity="center"
-            android:background="@drawable/bg_message_text"
-            android:layout_marginStart="@dimen/login_horizontal_margin"
-            android:layout_marginEnd="@dimen/login_horizontal_margin"
-            android:inputType="textMultiLine"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:maxLines="2"
-            android:minLines="2"
-            android:text="社員証のQRコードを読\nみ取ってください"
-            tools:ignore="HardcodedText,TextViewEdits" />
-    </LinearLayout>
-
-    <!-- ボトムエンド -->
-    <LinearLayout
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
-        android:gravity="center|bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false">
-
-        <!-- 左 -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom"
-            android:layout_marginBottom="20dp"
-            >
-            <!-- RFID ログイン -->
-            <Button
-                android:id="@+id/bt_rfid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/button_font_color"
-                android:textSize="15sp"
-                android:layout_marginStart="30sp"
-                android:inputType="textMultiLine"
-                android:maxLines="2"
-                android:minLines="2"
-                android:text="@string/rfid_login"
-                tools:ignore="TextViewEdits" />
-        </LinearLayout>
-
-        <!-- 右 -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom|end"
-            android:layout_marginBottom="20dp"
-            >
-            <!-- ID ログイン -->
-            <Button
-                android:id="@+id/bt_id_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_marginEnd="30sp"
-                android:textColor="@color/button_font_color"
-                android:textSize="15sp"
-                android:inputType="textMultiLine"
-                android:maxLines="2"
-                android:minLines="2"
-                android:text="@string/id_login"
-                tools:ignore="TextViewEdits" />
-        </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
