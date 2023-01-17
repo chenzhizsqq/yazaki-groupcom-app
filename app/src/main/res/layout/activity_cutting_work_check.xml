@@ -195,12 +195,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="グループNo"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text=""
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -210,12 +210,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="品種"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text=""
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -225,12 +225,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="切断長"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="041"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -249,12 +249,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="切断納期日"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="20230118"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -264,12 +264,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="サイズ"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="1"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -279,12 +279,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="数量"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="50"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -303,12 +303,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="シリアルNo"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text=""
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -318,12 +318,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="色"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="1R7"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
@@ -333,12 +333,12 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
-                                android:text="a"/>
+                                android:text="セミスト"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/bg_layout"
-                                android:text="a text"
+                                android:text="492"
                                 android:gravity="center"
                                 android:textColor="@color/black"/>
 
