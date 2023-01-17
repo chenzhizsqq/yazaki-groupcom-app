@@ -154,8 +154,14 @@
             android:orientation="vertical"
             android:gravity="center|top"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_layout"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@color/silvery"
+            android:scrollbarSize="5dp"
+            android:paddingEnd="5dp"
+            android:scrollbars="vertical"
+            android:background="@drawable/bg_layout">
 
             <!-- Main -->
             <LinearLayout
