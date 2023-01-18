@@ -16,7 +16,7 @@ class FirstActivity : BaseActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, MainActivity::class.java)
+            Intent(this@FirstActivity, PwLoginActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -27,6 +27,11 @@ class FirstActivity : BaseActivity() {
         binding.RfidLoginActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, RfidLoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.PwLoginActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, PwLoginActivity::class.java)
             startActivity(intent)
         }
         binding.CuttingWorkCheckActivity.setOnClickListener {

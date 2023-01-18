@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RfidLoginActivity">
+    tools:context=".PwLoginActivity">
 
     <!-- タイトル -->
     <com.google.android.material.appbar.AppBarLayout
@@ -77,7 +77,7 @@
         android:background="@color/white"
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginTop="@dimen/top_banner_height"
         android:layout_marginBottom="?attr/actionBarSize"
         android:layout_height="match_parent">
 
@@ -86,25 +86,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:layout_marginTop="?attr/actionBarSize"
             android:text="@string/login"/>
         <View
             android:id="@+id/line"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="2dp"
             android:background="#FF5722" />
 
-        <!-- RFID -->
         <EditText
-            android:id="@+id/et_qr_code"
+            android:id="@+id/et_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:layout_marginEnd="@dimen/login_horizontal_margin"
-            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
-            android:hint="@string/et_rfid_code_hint"
+            android:hint="ID"
             android:autofillHints=""
             android:background="@drawable/bg_edittext"
             android:inputType="text"
@@ -115,24 +114,35 @@
             app:layout_constraintTop_toBottomOf="@+id/label_password"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <!-- message-->
-        <TextView
-            android:id="@+id/tv_qr_message"
+        <EditText
+            android:id="@+id/et_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/label_password"
-            android:padding="10dp"
-            android:gravity="center"
-            android:background="@drawable/bg_message_text"
-            android:layout_marginStart="@dimen/login_horizontal_margin"
-            android:layout_marginEnd="@dimen/login_horizontal_margin"
-            android:inputType="textMultiLine"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="70dp"
+            android:hint="パスワード"
+            android:autofillHints=""
+            android:background="@drawable/bg_edittext"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:minHeight="48dp"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:maxLines="2"
-            android:minLines="2"
-            android:text="社員証のRFIDを読\nみ取ってください"
-            tools:ignore="HardcodedText,TextViewEdits" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <Button
+            android:id="@+id/bt_id_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:text="ログイン"
+            tools:ignore="TextViewEdits" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

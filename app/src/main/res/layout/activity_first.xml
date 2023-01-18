@@ -38,6 +38,14 @@
             android:layout_margin="20dp"
             android:text="RfidLoginActivity"/>
         <TextView
+            android:id="@+id/PwLoginActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            android:text="PwLoginActivity"/>
+        <TextView
             android:id="@+id/CuttingWorkCheckActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

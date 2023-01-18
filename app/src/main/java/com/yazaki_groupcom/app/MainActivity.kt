@@ -31,6 +31,12 @@ class MainActivity : BaseActivity() {
         }
 
         binding.btIdLogin.setOnClickListener {
+            val intent =
+                Intent(this@MainActivity, PwLoginActivity::class.java)
+            startActivity(intent)
+//            overridePendingTransition( android.R.anim.slide_out_right,
+//                android.R.anim.slide_in_left);
+            finish()
 
         }
 
