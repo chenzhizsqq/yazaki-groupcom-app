@@ -19,8 +19,8 @@ class RfidLoginActivity : BaseActivity() {
             val intent =
                 Intent(this@RfidLoginActivity, MainActivity::class.java)
             startActivity(intent)
-            overridePendingTransition( android.R.anim.slide_in_left,
-                android.R.anim.slide_out_right);
+//            overridePendingTransition( android.R.anim.slide_in_left,
+//                android.R.anim.slide_out_right);
             finish()
         }
     }

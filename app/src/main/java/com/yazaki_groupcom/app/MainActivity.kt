@@ -38,8 +38,8 @@ class MainActivity : BaseActivity() {
             val intent =
                 Intent(this@MainActivity, RfidLoginActivity::class.java)
             startActivity(intent)
-            overridePendingTransition( android.R.anim.slide_out_right,
-                android.R.anim.slide_in_left);
+//            overridePendingTransition( android.R.anim.slide_out_right,
+//                android.R.anim.slide_in_left);
             finish()
         }
     }
