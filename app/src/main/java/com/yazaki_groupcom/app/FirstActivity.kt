@@ -24,7 +24,11 @@ class FirstActivity : BaseActivity() {
                 Intent(this@FirstActivity, MainActivity::class.java)
             startActivity(intent)
         }
-
+        binding.RfidLoginActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, RfidLoginActivity::class.java)
+            startActivity(intent)
+        }
         binding.CuttingWorkCheckActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, CuttingWorkCheckActivity::class.java)
