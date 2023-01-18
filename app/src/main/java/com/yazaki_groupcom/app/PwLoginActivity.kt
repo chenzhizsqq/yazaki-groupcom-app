@@ -31,6 +31,10 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         binding.etId.setOnClickListener {
             openMenu(it,R.menu.menu_items)
         }
+
+        binding.btIdLogin.setOnClickListener {
+            Tools.showErrorDialog(this,"入力されたIDまたは\nパスワードが正しくありません")
+        }
     }
 
     /**
