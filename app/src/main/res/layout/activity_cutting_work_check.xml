@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/titleAppBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/top_banner_height"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp"
         >
