@@ -212,7 +212,7 @@ object Tools {
     }
 
     /**
-     * 提交共享key的String
+     * 共有keyコミットのString
      *
      * @param key:String
      * @param value:String
@@ -241,7 +241,7 @@ object Tools {
     }
 
     /**
-     * 提交共享key的int
+     * 共有keyコミットのint
      *
      * @param key:String
      * @param value:Int

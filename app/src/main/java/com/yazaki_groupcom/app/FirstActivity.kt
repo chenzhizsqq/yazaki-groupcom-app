@@ -2,10 +2,11 @@ package com.yazaki_groupcom.app
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 
-class FirstActivity : BaseActivity() {
+class FirstActivity : AppCompatActivity() {
     companion object {
         const val TAG: String = "FirstActivity"
     }
