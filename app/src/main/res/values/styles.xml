@@ -1,0 +1,41 @@
+<resources>
+
+    <style name="DialogFullScreen" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
+    <!-- 最小ボタンのスタイル -->
+    <style name="MyButtonStyleSmall" >
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <declare-styleable name="CustomCheckBox">
+        <!-- 选中时圆的颜色 -->
+        <attr name="hcb_check_circle_color" format="color" />
+        <!-- 未选中时圆的颜色 -->
+        <attr name="hcb_uncheck_circle_color" format="color" />
+        <!-- 选中时的钩子的颜色 -->
+        <attr name="hcb_check_hook_color" format="color" />
+        <!-- 未选中时的钩子的颜色 -->
+        <attr name="hcb_uncheck_hook_color" format="color" />
+        <!-- 是否选中 -->
+        <attr name="hcb_is_check" format="boolean" />
+        <!-- 风格 -->
+        <attr name="hcb_style" format="enum">
+            <!-- 普通，对勾是有颜色的 -->
+            <enum name="normal" value="1" />
+            <!-- 镂空，就是对勾是透明的 -->
+            <enum name="hollow_out" value="2" />
+        </attr>
+        <!-- 线宽 -->
+        <attr name="hcb_line_width" format="float|dimension|reference" />
+    </declare-styleable>
+</resources>
