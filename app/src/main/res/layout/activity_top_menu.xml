@@ -73,13 +73,11 @@
                 android:layout_height="match_parent"
                 android:gravity="center|end"
                 >
-                <TextView
-                    android:background="@drawable/ic_round_button_orange"
+                <Button
+                    style="@style/MyButtonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:padding="5dp"
-                    android:layout_margin="5dp"
                     android:textColor="@color/button_font_color"
                     android:textSize="10sp"
                     android:text="ログアウト" />
@@ -98,5 +96,38 @@
         android:layout_marginBottom="0dp"
         android:gravity="center"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/bt_cutting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:minWidth="120dp"
+            android:textSize="15sp"
+            android:layout_margin="10dp"
+            android:text="切断"
+            tools:ignore="TextViewEdits" />
+        <Button
+            android:id="@+id/bt_pre_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:minWidth="120dp"
+            android:layout_margin="10dp"
+            android:text="準完ストア"
+            tools:ignore="TextViewEdits" />
+        <Button
+            android:id="@+id/bt_ssc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:minWidth="120dp"
+            android:layout_margin="10dp"
+            android:text="SSC"
+            tools:ignore="TextViewEdits" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
