@@ -110,7 +110,7 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/top_banner_height"
-        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginBottom="80dp"
         android:layout_height="match_parent">
 
         <!-- ログイン -->
@@ -182,12 +182,90 @@
             android:maxLines="2"
             android:minLines="2"
             android:padding="10dp"
-            android:text="QRコードを読\nみ取ってください"
+            android:text="QRコードを読み\n取ってください"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/label_password"
             tools:ignore="HardcodedText,TextViewEdits" />
 
+        <androidx.core.widget.NestedScrollView
+            android:orientation="vertical"
+            android:gravity="center|top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="5dp"
+            android:scrollbars="vertical">
+
+            <!-- Main -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center|top"
+                android:orientation="vertical">
+
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|top"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/bg_message_text"
+                        android:gravity="center"
+                        android:text="X-01号機"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/label_password"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30sp"
+                        android:text="x"
+                        android:textAlignment="center"
+                        android:textColor="@color/button_font_color"
+                        android:textSize="20sp"
+                        tools:ignore="TextViewEdits" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|top"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/bg_message_text"
+                        android:gravity="center"
+                        android:text="X-02号機"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/label_password"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30sp"
+                        android:text="x"
+                        android:textAlignment="center"
+                        android:textColor="@color/button_font_color"
+                        android:textSize="20sp"
+                        tools:ignore="TextViewEdits" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
     <LinearLayout
