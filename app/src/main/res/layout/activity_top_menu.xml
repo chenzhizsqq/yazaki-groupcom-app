@@ -8,79 +8,81 @@
 
     <!-- タイトル -->
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_marginTop="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/titleAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_banner_height"
-        app:contentInsetStart="0dp"
+        android:layout_marginTop="0dp"
         app:contentInsetEnd="0dp"
-        >
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:id="@+id/ll_top"
-            android:background="@color/phone_top_menu_bg"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentInsetStart="0dp"
-            app:contentInsetEnd="0dp"
+            android:background="@color/phone_top_menu_bg"
+            android:baselineAligned="false"
             android:gravity="center"
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp">
 
             <LinearLayout
                 android:id="@+id/returnHome"
                 android:layout_width="1dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:paddingStart="5sp"
-                android:orientation="horizontal"
+                android:layout_weight="1"
                 android:gravity="center|start"
-                >
+                android:orientation="horizontal"
+                android:paddingStart="5sp">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:gravity="center"
                     app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/phone_button_color"
-                    android:textSize="20sp"
-                    android:text="作業者"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="作業者"
                     android:textColor="@color/phone_button_color"
-                    android:textSize="15sp"
-                    android:text="ログインID:admin"/>
+                    android:textSize="20sp" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="1dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:gravity="center|end"
-                >
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ログインID:admin"
+                    android:textColor="@color/phone_button_color"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|end">
+
                 <Button
                     style="@style/MyButtonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="ログアウト"
                     android:textAlignment="center"
                     android:textColor="@color/button_font_color"
                     android:textSize="10sp"
-                    android:text="ログアウト" />
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
         </LinearLayout>
@@ -92,42 +94,48 @@
         android:id="@+id/ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_banner_height"
         android:layout_marginBottom="0dp"
+        android:layout_marginTop="@dimen/top_banner_height"
         android:gravity="center"
         android:orientation="vertical">
-        <Button
+
+        <com.yazaki_groupcom.app.base.BaseButton
             android:id="@+id/bt_cutting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/button_font_color"
-            android:minWidth="120dp"
-            android:textSize="15sp"
             android:layout_margin="10dp"
-            android:text="切断"
-            tools:ignore="TextViewEdits" />
-        <Button
+            android:minWidth="120dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:bg_color="@color/purple_500"
+            app:bg_corner="1dp"
+            android:text="切断" />
+
+        <com.yazaki_groupcom.app.base.BaseButton
             android:id="@+id/bt_pre_store"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/button_font_color"
-            android:textSize="15sp"
-            android:minWidth="120dp"
             android:layout_margin="10dp"
-            android:text="準完ストア"
-            tools:ignore="TextViewEdits" />
-        <Button
+            android:minWidth="120dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:bg_color="@color/silvery"
+            app:bg_corner="1dp"
+            android:text="準完ストア" />
+
+        <com.yazaki_groupcom.app.base.BaseButton
             android:id="@+id/bt_ssc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/button_font_color"
-            android:textSize="15sp"
-            android:minWidth="120dp"
             android:layout_margin="10dp"
-            android:text="SSC"
-            tools:ignore="TextViewEdits" />
+            android:minWidth="120dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:bg_color="@color/silvery"
+            app:bg_corner="1dp"
+            android:text="SSC" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
