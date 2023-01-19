@@ -1,5 +1,6 @@
 package com.yazaki_groupcom.app.base
 
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -7,8 +8,8 @@ import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.Config
+import com.yazaki_groupcom.app.FirstActivity
 import com.yazaki_groupcom.app.Tools
-import com.yazaki_groupcom.app.YazakiApp
 
 /**
  * ベースアクティビティ
@@ -16,8 +17,11 @@ import com.yazaki_groupcom.app.YazakiApp
  */
 open class BaseActivity : AppCompatActivity()
 {
-    //カウントダウン 倒数器
-    private lateinit var countDownTimer: CountDownTimer
+    //カウントダウン スリープ- 倒数器sleep
+    private  var countDownTimerSleep: CountDownTimer? = null
+
+    //カウントダウン ログアウトに移行- 倒数器logout
+    private  var countDownTimerLogout: CountDownTimer? = null
 
     companion object {
         const val TAG: String = "BaseActivity"
@@ -36,19 +40,31 @@ open class BaseActivity : AppCompatActivity()
 
         //スリープ時間を設定　30分間
         resetSleepTime()
+
+        //ログアウト time リセット 120分間
+        resetLogoutTime()
     }
 
-    //睡眠時間を数え直す 重设睡眠时间
+    //スリープ time リセット
     open fun resetSleepTime() {
+        countDownTimerSleep?.cancel()
         val timeToSleepSS = Config.timeToSleep * 60
-        countDownTimerMM(timeToSleepSS.toLong())
+        countDownTimerSleepSetting(timeToSleepSS.toLong())
+    }
+
+    //ログアウト time リセット
+    open fun resetLogoutTime() {
+        countDownTimerLogout?.cancel()
+        val countDownTimerLogout = Config.timeToLogout * 60
+        countDownTimerLogoutSetting(countDownTimerLogout.toLong())
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        countDownTimer.onFinish()
-        countDownTimer.cancel()
+        countDownTimerSleep?.cancel()
+
+        countDownTimerLogout?.cancel()
     }
 
     /**
@@ -59,13 +75,13 @@ open class BaseActivity : AppCompatActivity()
         return Tools.isNetworkConnected
     }
 
-    //倒数时间的设定
-    fun countDownTimerMM(ss: Long) {
-        countDownTimer = object : CountDownTimer(ss * 1000, 300) {
+    //カウントダウン スリープ setting - 倒数时间的设定
+    private fun countDownTimerSleepSetting(ss: Long) {
+        countDownTimerSleep = object : CountDownTimer(ss * 1000, 300) {
 
             //倒数完的处理
             override fun onFinish() {
-                Log.e(TAG, "countDownTimerSS onFinish(): ")
+                Log.e(TAG, "countDownTimerSleepSetting onFinish(): ")
                 //スリープ状態に移行
                 window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
@@ -75,7 +91,35 @@ open class BaseActivity : AppCompatActivity()
                 val hour = millisUntilFinished / 1000 / 60 / 60
                 val minute = millisUntilFinished / 1000 / 60 % 60
                 val second = millisUntilFinished / 1000 % 60
-                Log.e(TAG, "onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
+                Log.e(TAG, "countDownTimerSleepSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
+
+            }
+        }.start()
+    }
+
+    //カウントダウン logout setting - 倒数时间的设定
+    private fun countDownTimerLogoutSetting(ss: Long) {
+        countDownTimerLogout = object : CountDownTimer(ss * 1000, 300) {
+
+            //倒数完的处理
+            override fun onFinish() {
+                Log.e(TAG, "countDownTimerLogoutSetting onFinish(): ")
+                //スリープ状態に移行
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+                //または2時間（時間は要検討）未操作状態が継続した場合、”スリープ“から自動でログアウト
+                val intent =
+                    Intent(this@BaseActivity, FirstActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //倒数中的状况
+            override fun onTick(millisUntilFinished: Long) {
+                val hour = millisUntilFinished / 1000 / 60 / 60
+                val minute = millisUntilFinished / 1000 / 60 % 60
+                val second = millisUntilFinished / 1000 % 60
+                Log.e(TAG, "countDownTimerLogoutSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
 
             }
         }.start()
