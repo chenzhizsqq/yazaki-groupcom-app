@@ -110,7 +110,7 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/top_banner_height"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_height="match_parent">
 
         <!-- ログイン -->
@@ -188,14 +188,13 @@
             app:layout_constraintTop_toBottomOf="@+id/label_password"
             tools:ignore="HardcodedText,TextViewEdits" />
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:orientation="vertical"
-            android:gravity="center|top"
+            android:background="@color/white"
+            android:id="@+id/ll2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadeScrollbars="false"
-            android:scrollbarSize="5dp"
-            android:scrollbars="vertical">
+            android:layout_marginBottom="80dp"
+            android:layout_height="250dp">
 
             <!-- Main -->
             <LinearLayout
@@ -265,36 +264,32 @@
 
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
     </LinearLayout>
 
+    <!-- ボトムエンド -->
     <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:gravity="end|bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:gravity="center|bottom"
-        android:orientation="horizontal">
-
-        <!-- 左 -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:orientation="horizontal"></LinearLayout>
+        android:baselineAligned="false">
 
         <!-- 右 -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="bottom|end"
-            android:orientation="horizontal">
+            android:layout_marginBottom="20dp"
+            >
             <!-- 登録 -->
             <com.yazaki_groupcom.app.base.BaseButton
-                android:id="@+id/bt_id_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30sp"
@@ -306,5 +301,4 @@
         </LinearLayout>
 
     </LinearLayout>
-    <!-- ボトムエンド -->
 </androidx.constraintlayout.widget.ConstraintLayout>
