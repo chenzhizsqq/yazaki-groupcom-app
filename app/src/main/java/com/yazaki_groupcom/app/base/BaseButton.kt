@@ -40,7 +40,7 @@ class BaseButton : AppCompatButton {
         //获取设置的背景色
         val bgColor = typedArray.getColor(R.styleable.BaseButton_bg_color, default)
         //获取设置的圆角大小
-        val buttonCorner = typedArray.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 0)
+        val buttonCorner = typedArray.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
 
 
         //生成圆角图片
