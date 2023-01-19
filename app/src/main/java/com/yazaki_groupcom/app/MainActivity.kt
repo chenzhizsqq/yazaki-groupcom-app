@@ -3,7 +3,8 @@ package com.yazaki_groupcom.app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.google.zxing.integration.android.IntentIntegrator
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainBinding
 
@@ -15,27 +16,46 @@ class MainActivity : BaseActivity() {
     }
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var qrScanIntegrator: IntentIntegrator
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ScanContractの結果を受け取る
+        val barcodeLauncher = registerForActivityResult(
+            ScanContract()
+        ) { result ->
+            if (result.contents == null) {
+                // ここでQRコードを読み取れなかった場合の処理を書く
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                // ここでQRコードを読み取れた場合の処理を書く
+                // ここではトーストに結果を表示するだけ
+                Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+
+
+        // QRコードリーダーの立ち上げ
+        fun onButtonClick() {
+            // 縦画面に固定
+            val options = ScanOptions().setOrientationLocked(false)
+            barcodeLauncher.launch(options)
+        }
+
         binding.etQrCode.setOnClickListener {
-            qrScan()
+            onButtonClick()
         }
 
         binding.tvQrMessage.setOnClickListener {
-            qrScan()
         }
 
         binding.btIdLogin.setOnClickListener {
             val intent =
                 Intent(this@MainActivity, PwLoginActivity::class.java)
             startActivity(intent)
-//            overridePendingTransition( android.R.anim.slide_out_right,
-//                android.R.anim.slide_in_left);
             finish()
 
         }
@@ -44,33 +64,7 @@ class MainActivity : BaseActivity() {
             val intent =
                 Intent(this@MainActivity, RfidLoginActivity::class.java)
             startActivity(intent)
-//            overridePendingTransition( android.R.anim.slide_out_right,
-//                android.R.anim.slide_in_left);
             finish()
-        }
-    }
-
-    //QR SCAN
-    private fun qrScan() {
-        this.qrScanIntegrator = IntentIntegrator(this)
-        // 縦画面に固定
-        this.qrScanIntegrator.setOrientationLocked(false)
-        // QRコード読み取り後のビープ音を停止
-        this.qrScanIntegrator.setBeepEnabled(false)
-        // スキャン開始
-        this.qrScanIntegrator.initiateScan()
-    }
-
-    // 読取後に呼ばれる
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-
-        if (result != null) {
-            // 読取結果はresult.contentsで参照できる
-            Toast.makeText(this, result.contents, Toast.LENGTH_LONG).show()
-            binding.etQrCode.setText(result.contents)
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 }

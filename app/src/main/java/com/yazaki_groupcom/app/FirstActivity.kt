@@ -17,7 +17,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, TopMenuActivity::class.java)
+            Intent(this@FirstActivity, MainActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
