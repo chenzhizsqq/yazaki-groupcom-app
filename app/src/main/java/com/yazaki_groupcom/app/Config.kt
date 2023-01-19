@@ -16,8 +16,8 @@ class Config {
         //LOCATION KEY
         const val REQUEST_CODE_LOCATION_KEY = 10008
 
-        //DATA KEY：剩余时间，之后就锁机 秒
-        const val remaining_time_ss = "remaining_time_ss"
+        //30分間（分数は要検討）操作が無い場合、スリープ状態に移行。
+        const val timeToSleep = 30
     }
 
 }

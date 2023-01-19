@@ -16,11 +16,8 @@ import com.yazaki_groupcom.app.YazakiApp
  */
 open class BaseActivity : AppCompatActivity()
 {
-    //倒数器
+    //カウントダウン 倒数器
     private lateinit var countDownTimer: CountDownTimer
-
-    //最后剩余时间 秒
-    private var lastRemainingTime_ss: Int = 0
 
     companion object {
         const val TAG: String = "BaseActivity"
@@ -41,10 +38,10 @@ open class BaseActivity : AppCompatActivity()
         resetSleepTime()
     }
 
-    //睡眠時間を数え直す
+    //睡眠時間を数え直す 重设睡眠时间
     open fun resetSleepTime() {
-        val timeSetting_ss = YazakiApp.sharedPreferences.getInt("lock_use_time", 30) * 60
-        countDownTimerMM(timeSetting_ss.toLong())
+        val timeToSleepSS = Config.timeToSleep * 60
+        countDownTimerMM(timeToSleepSS.toLong())
     }
 
     override fun onDestroy() {
@@ -52,14 +49,6 @@ open class BaseActivity : AppCompatActivity()
 
         countDownTimer.onFinish()
         countDownTimer.cancel()
-        YazakiApp.sharedPrePut(Config.remaining_time_ss, lastRemainingTime_ss)
-        Log.d(
-            TAG,
-            "onDestroy: remaining_time" + YazakiApp.sharedPreferences.getInt(
-                Config.remaining_time_ss,
-                0
-            )
-        )
     }
 
     /**
@@ -77,11 +66,8 @@ open class BaseActivity : AppCompatActivity()
             //倒数完的处理
             override fun onFinish() {
                 Log.e(TAG, "countDownTimerSS onFinish(): ")
-
-                YazakiApp.sharedPrePut(Config.remaining_time_ss, 0)
-
                 //スリープ状態に移行
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
 
             //倒数中的状况
@@ -90,7 +76,6 @@ open class BaseActivity : AppCompatActivity()
                 val minute = millisUntilFinished / 1000 / 60 % 60
                 val second = millisUntilFinished / 1000 % 60
                 Log.e(TAG, "onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
-                lastRemainingTime_ss = (millisUntilFinished / 1000).toInt()
 
             }
         }.start()
