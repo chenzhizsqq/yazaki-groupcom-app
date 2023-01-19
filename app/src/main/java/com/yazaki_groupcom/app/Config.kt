@@ -17,10 +17,10 @@ class Config {
         const val REQUEST_CODE_LOCATION_KEY = 10008
 
         //30分間（分数は要検討）操作が無い場合、スリープ状態に移行。
-        const val timeToSleep = 5
+        const val timeToSleep = 30
 
         //2時間（分数は要検討）操作が無い場合、ログアウトに移行。
-        const val timeToLogout = 2
+        const val timeToLogout = 120
     }
 
 }
