@@ -17,6 +17,14 @@
         <item name="android:layout_margin">3dp</item>
     </style>
 
+    <!-- 自定义控件的属性-->
+    <declare-styleable name="BaseButton">
+        <!-- 背景颜色-->
+        <attr name="bg_color" format="color" />
+        <!-- 圆角大小-->
+        <attr name="bg_corner" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="CustomCheckBox">
         <!-- 选中时圆的颜色 -->
         <attr name="hcb_check_circle_color" format="color" />
