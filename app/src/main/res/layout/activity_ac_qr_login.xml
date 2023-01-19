@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AcQrLoginActivity">
 
     <!-- タイトル -->
     <com.google.android.material.appbar.AppBarLayout
@@ -34,38 +34,65 @@
                 android:id="@+id/returnHome"
                 android:layout_width="1dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:paddingStart="5sp"
                 android:orientation="horizontal"
-                android:gravity="start"
+                android:gravity="center|start"
                 >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/manage_system"
-                    android:textSize="@dimen/title_bar_return_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/phone_button_color"
-                    android:gravity="center|start"
-                    />
+                    android:textSize="20sp"
+                    android:text="作業者"/>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
-                android:orientation="vertical"
-                android:gravity="end"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 >
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/terminal_software"
-                    android:paddingEnd="5sp"
-                    android:textSize="@dimen/title_bar_return_font"
-                    android:textColor="@color/ic_app_icon_background"
-                    android:gravity="center|end"
-                    tools:ignore="RtlSymmetry" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/phone_button_color"
+                    android:textSize="15sp"
+                    android:text="ログインID:admin"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingEnd="5dp"
+                >
+
+                <com.yazaki_groupcom.app.base.BaseButton
+                    style="@style/MyButtonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    app:bg_color="@color/purple_500"
+                    android:textSize="10sp"
+                    android:text="TOP" />
+                <com.yazaki_groupcom.app.base.BaseButton
+                    style="@style/MyButtonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    app:bg_color="@color/purple_500"
+                    android:textSize="10sp"
+                    android:text="ログアウト" />
             </LinearLayout>
 
         </LinearLayout>
@@ -87,18 +114,41 @@
         android:layout_height="match_parent">
 
         <!-- ログイン -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:text="@string/login"/>
-        <View
-            android:id="@+id/line"
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            android:background="#FF5722" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- 左 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"/>
+
+            <!-- 右 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <!-- 選択登録 -->
+                <com.yazaki_groupcom.app.base.BaseButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30sp"
+                    android:text="選択登録"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    android:textSize="15sp"
+                    tools:ignore="TextViewEdits" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <!-- QR -->
         <EditText
@@ -108,7 +158,6 @@
             android:layout_marginBottom="30dp"
             android:layout_marginEnd="@dimen/login_horizontal_margin"
             android:layout_marginStart="@dimen/login_horizontal_margin"
-            android:layout_marginTop="30dp"
             android:hint="@string/et_qr_code_hint"
             android:autofillHints=""
             android:background="@drawable/bg_edittext"
@@ -125,82 +174,59 @@
             android:id="@+id/tv_qr_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/label_password"
-            android:padding="10dp"
-            android:gravity="center"
-            android:background="@drawable/bg_message_text"
-            android:layout_marginStart="@dimen/login_horizontal_margin"
             android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:background="@drawable/bg_message_text"
+            android:gravity="center"
             android:inputType="textMultiLine"
-            android:textColor="@color/black"
-            android:textSize="20sp"
             android:maxLines="2"
             android:minLines="2"
-            android:text="社員証のQRコードを読\nみ取ってください"
+            android:padding="10dp"
+            android:text="QRコードを読\nみ取ってください"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
             tools:ignore="HardcodedText,TextViewEdits" />
+
     </LinearLayout>
 
-    <!-- ボトムエンド -->
     <LinearLayout
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
-        android:gravity="center|bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:gravity="center|bottom"
+        android:orientation="horizontal">
 
         <!-- 左 -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom"
             android:layout_marginBottom="20dp"
-            >
-            <!-- RFID ログイン -->
-            <Button
-                android:id="@+id/bt_rfid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/button_font_color"
-                android:textSize="15sp"
-                android:layout_marginStart="30sp"
-                android:inputType="textMultiLine"
-                android:maxLines="2"
-                android:minLines="2"
-                android:text="@string/rfid_login"
-                tools:ignore="TextViewEdits" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal"></LinearLayout>
 
         <!-- 右 -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom|end"
             android:layout_marginBottom="20dp"
-            >
-            <!-- ID ログイン -->
-            <Button
+            android:layout_weight="1"
+            android:gravity="bottom|end"
+            android:orientation="horizontal">
+            <!-- 登録 -->
+            <com.yazaki_groupcom.app.base.BaseButton
                 android:id="@+id/bt_id_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_marginEnd="30sp"
+                android:text="登録"
+                android:textAlignment="center"
                 android:textColor="@color/button_font_color"
                 android:textSize="15sp"
-                android:inputType="textMultiLine"
-                android:maxLines="2"
-                android:minLines="2"
-                android:text="@string/id_login"
                 tools:ignore="TextViewEdits" />
         </LinearLayout>
 
     </LinearLayout>
+    <!-- ボトムエンド -->
 </androidx.constraintlayout.widget.ConstraintLayout>

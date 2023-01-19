@@ -91,7 +91,7 @@ open class BaseActivity : AppCompatActivity()
                 val hour = millisUntilFinished / 1000 / 60 / 60
                 val minute = millisUntilFinished / 1000 / 60 % 60
                 val second = millisUntilFinished / 1000 % 60
-                Log.e(TAG, "countDownTimerSleepSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
+                //Log.e(TAG, "countDownTimerSleepSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
 
             }
         }.start()
@@ -119,7 +119,7 @@ open class BaseActivity : AppCompatActivity()
                 val hour = millisUntilFinished / 1000 / 60 / 60
                 val minute = millisUntilFinished / 1000 / 60 % 60
                 val second = millisUntilFinished / 1000 % 60
-                Log.e(TAG, "countDownTimerLogoutSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
+                //Log.e(TAG, "countDownTimerLogoutSetting onTick: 倒计时"+hour+"小时"+minute+"分"+second+"秒", )
 
             }
         }.start()

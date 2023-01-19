@@ -34,7 +34,7 @@ class BaseButton : AppCompatButton {
 
     private fun initView(context: Context, attrs: AttributeSet?) {
         //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
-        val default = ContextCompat.getColor(context, R.color.black)
+        val default = ContextCompat.getColor(context, R.color.purple_500)
         //获取自定义的属性值
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
         //获取设置的背景色

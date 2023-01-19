@@ -3,7 +3,6 @@ package com.yazaki_groupcom.app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 
 class FirstActivity : AppCompatActivity() {
@@ -17,7 +16,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, MainActivity::class.java)
+            Intent(this@FirstActivity, AcQrLoginActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -45,6 +44,12 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TopMenuActivity::class.java)
             startActivity(intent)
         }
+        binding.AcQrLoginActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, AcQrLoginActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }
