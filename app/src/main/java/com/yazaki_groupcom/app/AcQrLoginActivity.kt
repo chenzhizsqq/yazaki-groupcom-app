@@ -43,5 +43,8 @@ class AcQrLoginActivity : BaseActivity() {
             barcodeLauncher.launch(options)
         }
 
+        binding.etQrCode.setOnClickListener {
+            onButtonClick()
+        }
     }
 }
