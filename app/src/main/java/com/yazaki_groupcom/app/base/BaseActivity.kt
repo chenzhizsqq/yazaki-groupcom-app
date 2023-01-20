@@ -6,13 +6,10 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.WindowManager
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.FirstActivity
 import com.yazaki_groupcom.app.Tools
-import com.yazaki_groupcom.app.db.UserData
-import com.yazaki_groupcom.app.db.UserDbViewModel
 
 /**
  * ベースアクティビティ
@@ -30,20 +27,6 @@ open class BaseActivity : AppCompatActivity()
 
     //カウントダウン ログアウトに移行- 倒数器logout
     private  var countDownTimerLogout: CountDownTimer? = null
-
-    private val userDbViewModel: UserDbViewModel by viewModels()
-
-    open suspend fun getData(){
-        userDbViewModel.selectGetAll()
-    }
-
-    open suspend fun insert(userData: UserData){
-        userDbViewModel.insert(userData)
-    }
-
-    open suspend fun update(userData: UserData){
-        userDbViewModel.update(userData)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

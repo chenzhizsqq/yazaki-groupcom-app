@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
+import com.yazaki_groupcom.app.testRoomDao.TestRoomDaoActivity
 
 class FirstActivity : AppCompatActivity() {
     companion object {
@@ -16,7 +17,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, TestSqlActivity::class.java)
+            Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -64,6 +65,12 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TestSqlActivity::class.java)
             startActivity(intent)
         }
+        binding.TestRoomDaoActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
 
