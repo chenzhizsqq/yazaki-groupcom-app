@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 //数据库的结构
 @Entity(tableName = "m_user")
 data class UserData(
-    @PrimaryKey val user_id: String,
+    @PrimaryKey(autoGenerate = true) val uid: Int,
+    @ColumnInfo(name = "user_id") val user_id: String?,
     @ColumnInfo(name = "user_name") val user_name: String?,
     @ColumnInfo(name = "role_id") val role_id: String?,
     @ColumnInfo(name = "password") val password: String?,

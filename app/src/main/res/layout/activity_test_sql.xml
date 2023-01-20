@@ -20,6 +20,12 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_height="match_parent">
         <EditText
+            android:id="@+id/user_id"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="user_id"
+            android:layout_margin="5dp" />
+        <EditText
             android:id="@+id/user_name"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -50,7 +56,7 @@
             android:hint="insert_time"
             android:layout_margin="5dp" />
         <TextView
-            android:id="@+id/save"
+            android:id="@+id/tv_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -58,7 +64,7 @@
             android:layout_margin="5dp"
             android:text="save"/>
         <TextView
-            android:id="@+id/load"
+            android:id="@+id/tv_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
