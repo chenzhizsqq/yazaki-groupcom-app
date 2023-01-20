@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AcSelectActivity">
+
+
+    <!-- タイトル -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/titleAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_banner_height"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        >
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:background="@color/phone_top_menu_bg"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/returnHome"
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:paddingStart="5sp"
+                android:orientation="horizontal"
+                android:gravity="center|start"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/phone_button_color"
+                    android:textSize="20sp"
+                    android:text="作業者"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/phone_button_color"
+                    android:textSize="15sp"
+                    android:text="ログインID:admin"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingEnd="5dp"
+                >
+
+                <com.yazaki_groupcom.app.base.BaseButton
+                    style="@style/MyButtonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    app:bg_color="@color/purple_500"
+                    android:textSize="10sp"
+                    android:text="TOP" />
+                <com.yazaki_groupcom.app.base.BaseButton
+                    style="@style/MyButtonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    app:bg_color="@color/purple_500"
+                    android:textSize="10sp"
+                    android:text="ログアウト" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 中央部 -->
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:background="@color/white"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/top_banner_height"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:id="@+id/ll2"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="80dp"
+            android:layout_height="250dp">
+
+            <!-- Main -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center|top"
+                android:orientation="vertical">
+
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|top"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/bg_message_text"
+                        android:gravity="center"
+                        android:text="X-01号機"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/label_password"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30sp"
+                        android:text="x"
+                        android:textAlignment="center"
+                        android:textColor="@color/button_font_color"
+                        android:textSize="20sp"
+                        tools:ignore="TextViewEdits" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|top"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/bg_message_text"
+                        android:gravity="center"
+                        android:text="X-02号機"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/label_password"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30sp"
+                        android:text="x"
+                        android:textAlignment="center"
+                        android:textColor="@color/button_font_color"
+                        android:textSize="20sp"
+                        tools:ignore="TextViewEdits" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ボトムエンド -->
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:gravity="end|bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <!-- 右 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom|end"
+            android:layout_marginBottom="20dp"
+            >
+            <!-- 登録 -->
+            <com.yazaki_groupcom.app.base.BaseButton
+                android:id="@+id/bt_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30sp"
+                android:text="登録"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                tools:ignore="TextViewEdits" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
