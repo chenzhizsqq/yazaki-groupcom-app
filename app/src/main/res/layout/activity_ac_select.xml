@@ -154,6 +154,39 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:background="@color/black"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:background="@color/black"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+
         <androidx.core.widget.NestedScrollView
             android:orientation="vertical"
             android:gravity="center|top"
@@ -281,7 +314,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="X-0X"/>
+                        android:text="X-03"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -292,7 +325,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="…"/>
+                        android:text="100/600"/>
                 </LinearLayout>
 
                 <!-- Each -->
@@ -312,6 +345,7 @@
                         app:bg_color="@color/purple_500"
                         android:gravity="center"
                         android:textColor="@color/button_font_color"
+                        android:text="✔︎"
                         />
 
 
@@ -324,7 +358,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="X-01"/>
+                        android:text="X-04"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -353,8 +387,7 @@
                         android:layout_margin="1dp"
                         app:bg_color="@color/purple_500"
                         android:gravity="center"
-                        android:textColor="@color/button_font_color"
-                        android:text="✔︎"/>
+                        android:textColor="@color/button_font_color"/>
 
 
                     <TextView
@@ -366,7 +399,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="X-02"/>
+                        android:text="X-05"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -451,7 +484,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="X-01"/>
+                        android:text="X-0X"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -462,7 +495,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="100/800"/>
+                        android:text="…"/>
                 </LinearLayout>
                 <!-- Each -->
                 <LinearLayout
@@ -480,8 +513,7 @@
                         android:layout_margin="1dp"
                         app:bg_color="@color/purple_500"
                         android:gravity="center"
-                        android:textColor="@color/button_font_color"
-                        android:text="✔︎"/>
+                        android:textColor="@color/button_font_color"/>
 
 
                     <TextView
@@ -493,7 +525,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="X-02"/>
+                        android:text="X-0X"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -504,7 +536,7 @@
                         android:textColor="@color/black"
                         android:background="@drawable/bg_layout"
                         android:textSize="20sp"
-                        android:text="0/500"/>
+                        android:text="…"/>
                 </LinearLayout>
                 <!-- Each -->
                 <LinearLayout
@@ -596,7 +628,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center|start"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
                     <com.yazaki_groupcom.app.base.BaseButton
                         style="@style/MyButtonStyleSmall"
