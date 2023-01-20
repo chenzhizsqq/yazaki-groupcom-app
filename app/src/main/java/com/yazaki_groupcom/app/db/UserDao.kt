@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface UserDao {
     @Query("SELECT * FROM m_user")
-    fun getAll(): List<UserData>
+    suspend fun getAll(): List<UserData>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg post: UserData)

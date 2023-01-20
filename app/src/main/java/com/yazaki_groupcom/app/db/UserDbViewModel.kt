@@ -29,7 +29,7 @@ class UserDbViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun selectGetAll(): List<UserData> {
+    suspend fun selectGetAll(): List<UserData> {
         return dao.getAll()
     }
     fun deleteAll(){

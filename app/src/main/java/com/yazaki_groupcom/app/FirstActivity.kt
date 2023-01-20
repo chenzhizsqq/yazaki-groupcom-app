@@ -16,7 +16,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, AcUpdateActivity::class.java)
+            Intent(this@FirstActivity, TestSqlActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -59,6 +59,12 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, AcUpdateActivity::class.java)
             startActivity(intent)
         }
+        binding.TestSqlActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestSqlActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
 
