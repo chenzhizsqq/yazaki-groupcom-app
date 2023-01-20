@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="MainActivity"/>
         <TextView
             android:id="@+id/RfidLoginActivity"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="RfidLoginActivity"/>
         <TextView
             android:id="@+id/PwLoginActivity"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="PwLoginActivity"/>
         <TextView
             android:id="@+id/CuttingWorkCheckActivity"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="CuttingWorkCheckActivity"/>
         <TextView
             android:id="@+id/TopMenuActivity"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="TopMenuActivity"/>
         <TextView
             android:id="@+id/AcQrLoginActivity"
@@ -67,7 +67,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
             android:text="AcQrLoginActivity"/>
         <TextView
             android:id="@+id/AcSelectActivity"
@@ -75,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:text="AcSelectActivity"/>
 
 

@@ -112,7 +112,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/top_banner_height"
         android:padding="10dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="65dp"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -152,6 +152,466 @@
                 android:textSize="20sp"
                 android:text="進捗"/>
         </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:orientation="vertical"
+            android:gravity="center|top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+
+            <!-- Main -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-01"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="100/800"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="✔︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-02"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="0/500"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-0X"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="…"/>
+                </LinearLayout>
+
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-01"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="100/800"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="✔︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-02"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="0/500"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-0X"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="…"/>
+                </LinearLayout>
+
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-01"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="100/800"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="✔︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-02"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="0/500"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-0X"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="…"/>
+                </LinearLayout>
+                <!-- Each -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:bg_color="@color/purple_500"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:text="︎"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="X-0X"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:background="@drawable/bg_layout"
+                        android:textSize="20sp"
+                        android:text="…"/>
+                </LinearLayout>
+
+                <!-- 全登録 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center|start"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:text="全選択"
+                        android:textAlignment="center"
+                        android:textColor="@color/button_font_color"
+                        android:textSize="15sp"
+                        tools:ignore="TextViewEdits" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
     </LinearLayout>
 
