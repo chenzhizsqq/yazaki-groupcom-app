@@ -16,7 +16,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, AcQrLoginActivity::class.java)
+            Intent(this@FirstActivity, AcSelectActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -47,6 +47,11 @@ class FirstActivity : AppCompatActivity() {
         binding.AcQrLoginActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, AcQrLoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.AcSelectActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, AcSelectActivity::class.java)
             startActivity(intent)
         }
 
