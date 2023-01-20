@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 
 
 //数据库的接口
-@Database(entities = [MathScore::class], version = 1)
+@Database(entities = [UserData::class], version = 1)
 abstract class UserDB : RoomDatabase() {
-    abstract fun mathScoreDao(): MathScoreDao
+    abstract fun userDao(): UserDao
 
 
     companion object {
