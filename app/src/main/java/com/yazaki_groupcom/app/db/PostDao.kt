@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 //数据库各种操作
 @Dao
 interface PostDao {
+    /**
+     * 在 @Dao 注释的 interface 中， vararg 是一种参数修饰符，它可以让一个方法接受多个数量的参数。
+     * 例如：postDao.insert(user1, user2, user3)
+     */
     @Query("SELECT * FROM posts")
     suspend fun getAll(): List<Post>
 
