@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.testRoomDao
+package com.yazaki_groupcom.app.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

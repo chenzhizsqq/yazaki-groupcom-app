@@ -21,6 +21,8 @@ class Config {
 
         //2時間（分数は要検討）操作が無い場合、ログアウトに移行。
         const val timeToLogout = 120
+
+        const val databaseName = "my_database"
     }
 
 }

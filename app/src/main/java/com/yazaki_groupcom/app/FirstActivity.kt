@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
-import com.yazaki_groupcom.app.testRoomDao.TestRoomDaoActivity
+import com.yazaki_groupcom.app.db.TestRoomDaoActivity
 
 class FirstActivity : AppCompatActivity() {
     companion object {

@@ -1,7 +1,6 @@
-package com.yazaki_groupcom.app.testRoomDao
+package com.yazaki_groupcom.app.db
 
 import androidx.room.*
-import com.yazaki_groupcom.app.testRoomDao.Post
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged

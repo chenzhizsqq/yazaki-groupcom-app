@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import androidx.room.Room
-import com.yazaki_groupcom.app.testRoomDao.PostDatabase
+import com.yazaki_groupcom.app.db.PostDatabase
 
 class ThisApp : Application() {
 
@@ -17,16 +17,18 @@ class ThisApp : Application() {
 
         lateinit var sharedPreferences: SharedPreferences
 
-        //本地数据库的测试
+        //本地数据库
         lateinit var mPostDatabase: PostDatabase
 
-        //本地数据库的测试 create
+        //本地数据库
         fun postDBCreate(context: Context){
             mPostDatabase = Room.databaseBuilder(
                 context,
                 PostDatabase::class.java,
-                "my_database"
-            ).build()
+                Config.databaseName
+            )
+                .fallbackToDestructiveMigration()   //直接删除原有的数据库表并重新创建。
+                .build()
         }
 
 
