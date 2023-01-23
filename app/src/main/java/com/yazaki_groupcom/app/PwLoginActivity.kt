@@ -8,6 +8,11 @@ import android.view.View
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityPwLoginBinding
 import androidx.appcompat.widget.PopupMenu
+import com.yazaki_groupcom.app.db.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     companion object {
@@ -35,6 +40,24 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         binding.btIdLogin.setOnClickListener {
             Tools.showErrorDialog(this,"入力されたIDまたは\nパスワードが正しくありません")
         }
+
+        //添加的测试begin
+        binding.btTestAll.setOnClickListener {
+            dataGetAll()
+        }
+        binding.btTestInsert.setOnClickListener {
+            dataInsert(
+                "0"
+                ,"name"
+                ,binding.etId.text.toString()
+                ,binding.etPw.text.toString()
+                ,"user"
+                ,"time")
+        }
+        binding.btTestCheck.setOnClickListener {
+            getUsersList("id", "ps")
+        }
+        //添加的测试end
     }
 
     /**
@@ -65,6 +88,65 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
+
+    private fun dataInsert(user_id: String?,
+                           user_name: String?,
+                           role_id: String?,
+                           password: String?,
+                           insert_user: String?,
+                           insert_time: String?,) {
+
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+
+            val userDao = ThisApp.database.userDao()
+
+            var user = User(
+                userDao.count()+1,
+                user_id,
+                user_name,
+                role_id,
+                password,
+                insert_user,
+                insert_time,)
+
+            userDao.insert(user)
+        }
+    }
+
+    /**
+     *
+    @Query("select * from posts where user_id = :user_id and user_name = :user_name")
+    suspend fun getSelect(user_id: String,user_name:String): List<User>
+     */
+    private fun getUsersList(user_id: String, user_name: String){
+
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+
+            val userDao = ThisApp.database.userDao()
+
+            val getSelect =  userDao.getSelect(user_id, user_name)
+
+            withContext(Dispatchers.Main) {
+                Log.e(TAG, "getUsersList: $getSelect", )
+            }
+        }
+    }
+
+
+    private fun dataGetAll() {
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+
+            val userDao = ThisApp.database.userDao()
+
+            var userList = userDao.getAll()
+
+            withContext(Dispatchers.Main) {
+                Log.e(TAG, "dataGetAll: userList:$userList")
+            }
         }
     }
 }

@@ -78,11 +78,12 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/top_banner_height"
-        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginBottom="0dp"
         android:layout_height="match_parent">
 
         <!-- ログイン -->
         <TextView
+            android:id="@+id/tx_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -145,6 +146,33 @@
             android:textColor="@color/button_font_color"
             android:textSize="15sp"
             android:text="ログイン"
+            tools:ignore="TextViewEdits" />
+        <Button
+            android:id="@+id/bt_test_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:text="bt_test_all"
+            tools:ignore="TextViewEdits" />
+        <Button
+            android:id="@+id/bt_test_insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:text="bt_test_insert"
+            tools:ignore="TextViewEdits" />
+        <Button
+            android:id="@+id/bt_test_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/button_font_color"
+            android:textSize="15sp"
+            android:text="bt_test_check"
             tools:ignore="TextViewEdits" />
 
     </LinearLayout>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.FirstActivity
 import com.yazaki_groupcom.app.Tools
+import kotlinx.coroutines.CoroutineExceptionHandler
 
 /**
  * ベースアクティビティ
@@ -124,5 +125,11 @@ open class BaseActivity : AppCompatActivity()
 
             }
         }.start()
+    }
+
+
+    //有意外发生时的对应线程
+    val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        Log.e(TAG, "throwable: $throwable")
     }
 }

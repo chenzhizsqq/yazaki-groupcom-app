@@ -18,6 +18,9 @@ interface UserDao {
     @Query("SELECT * FROM m_user")
     fun getAllFlow(): Flow<List<User>>
 
+    @Query("select * from m_user where user_id like :user_id and user_name like :user_name")
+    suspend fun getSelect(user_id: String,user_name:String): List<User>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)    //找到相同的ID序列号，就直接替换
     suspend fun insert(vararg user: User)
 

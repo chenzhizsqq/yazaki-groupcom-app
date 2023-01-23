@@ -17,7 +17,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent =
-            Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
+            Intent(this@FirstActivity, PwLoginActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
