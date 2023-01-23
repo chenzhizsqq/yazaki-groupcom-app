@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.databinding.ActivityTestRoomDaoBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
@@ -58,7 +59,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataCount() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             withContext(Dispatchers.Main) {
                 binding.resultsTextview.text = "count:" + postDao.count().toString()
@@ -70,7 +71,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataFlow() {
         runBlocking {
             flow {
-                val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+                val postDao = ThisApp.mPostDatabase.postDao()
                 emit(postDao)
             }
                 .onStart { Log.e(TAG, "flowViewModel: Starting flow") }
@@ -87,7 +88,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataGetSelect() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             posts = postDao.getSelect(1)
             Log.e(TAG, "onCreate: posts:$posts")
@@ -102,7 +103,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataDelete() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             val newPost = Post(1, "1", "1")
             postDao.delete(newPost)
@@ -120,7 +121,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataDeleteAll() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
             postDao.deleteAll()
 
             posts = postDao.getAll()
@@ -136,7 +137,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataGet() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             posts = postDao.getAll()
             Log.e(TAG, "onCreate: posts:$posts")
@@ -152,7 +153,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             var newPost = Post(1, "1", "1")
             postDao.insert(newPost)
@@ -178,7 +179,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = PostDatabase.getInstance(this@TestRoomDaoActivity).postDao()
+            val postDao = ThisApp.mPostDatabase.postDao()
 
             val postList = arrayListOf<Post>()
 

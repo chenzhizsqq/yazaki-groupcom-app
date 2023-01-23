@@ -5,14 +5,30 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
+import androidx.room.Room
+import com.yazaki_groupcom.app.testRoomDao.PostDatabase
 
-class YazakiApp : Application() {
+class ThisApp : Application() {
+
     companion object {
 
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
 
         lateinit var sharedPreferences: SharedPreferences
+
+        //本地数据库的测试
+        lateinit var mPostDatabase: PostDatabase
+
+        //本地数据库的测试 create
+        fun postDBCreate(context: Context){
+            mPostDatabase = Room.databaseBuilder(
+                context,
+                PostDatabase::class.java,
+                "my_database"
+            ).build()
+        }
+
 
         /**
          * 共有keyコミットのString
@@ -83,5 +99,7 @@ class YazakiApp : Application() {
         super.onCreate()
         context = applicationContext
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
+        postDBCreate(this)
     }
 }

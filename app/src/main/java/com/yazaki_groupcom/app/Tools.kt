@@ -218,7 +218,7 @@ object Tools {
      * @param value:String
      */
     fun sharedPrePut(key: String, value: String) {
-        val prefs = YazakiApp.context.getSharedPreferences(
+        val prefs = ThisApp.context.getSharedPreferences(
             Config.AppUser,
             AppCompatActivity.MODE_PRIVATE
         )
@@ -236,7 +236,7 @@ object Tools {
      */
     fun sharedPreGetString(key: String): String {
         val prefs =
-            YazakiApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
+            ThisApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
         return prefs.getString(key, "")!!
     }
 
@@ -247,7 +247,7 @@ object Tools {
      * @param value:Int
      */
     fun sharedPrePut(key: String, value: Int) {
-        val prefs = YazakiApp.context.getSharedPreferences(
+        val prefs = ThisApp.context.getSharedPreferences(
             Config.AppUser,
             AppCompatActivity.MODE_PRIVATE
         )
@@ -265,7 +265,7 @@ object Tools {
      */
     fun sharedPreGetInt(key: String): Int {
         val prefs =
-            YazakiApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
+            ThisApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
         return prefs.getInt(key, 0)
     }
 
@@ -276,7 +276,7 @@ object Tools {
      */
     fun sharedPreRemove(key: String) {
         val pref =
-            YazakiApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
+            ThisApp.context.getSharedPreferences(Config.AppUser, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = pref.edit()
         editor.remove(key)
         editor.apply()
@@ -407,7 +407,7 @@ object Tools {
 
     fun checkSinglePermission(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
-            YazakiApp.context,
+            ThisApp.context,
             permission
         ) == PackageManager.PERMISSION_GRANTED
 
