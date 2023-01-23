@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flowOn
 class TestRoomDaoViewModel(context: Context) : ViewModel() {
 
     private val mTestDao: PostDao by lazy {
-        ThisApp.mPostDatabase.postDao()
+        ThisApp.database.postDao()
     }
 
     fun getListFlow(): Flow<List<Post>> {

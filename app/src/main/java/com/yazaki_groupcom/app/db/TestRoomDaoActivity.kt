@@ -38,28 +38,29 @@ class TestRoomDaoActivity : AppCompatActivity() {
         binding.dataFlow.setOnClickListener { dataFlow() }
         binding.flowListenStart.setOnClickListener {
             //开启协程对数据库的表进行监听
-            flowListen()
+            CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+                flowListen()
+            }
         }
 
 
     }
 
     //开启协程对数据库的表进行监听
-    private fun flowListen() {
-        lifecycleScope.launchWhenCreated {
-            //每当Post表发生变化，Flow都会把Post列表发射出去，那么我们
-            //在collect中就可以获取到
+    private suspend fun flowListen() {
+        withContext(lifecycleScope.coroutineContext) {
             viewModel.getListFlow().collect {
                 binding.flowListenResult.text = it.toString()
             }
         }
+
     }
 
 
     private fun dataCount() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             withContext(Dispatchers.Main) {
                 binding.resultsTextview.text = "count:" + postDao.count().toString()
@@ -71,7 +72,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataFlow() {
         runBlocking {
             flow {
-                val postDao = ThisApp.mPostDatabase.postDao()
+                val postDao = ThisApp.database.postDao()
                 emit(postDao)
             }
                 .onStart { Log.e(TAG, "flowViewModel: Starting flow") }
@@ -88,7 +89,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataGetSelect() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             posts = postDao.getSelect(1)
             Log.e(TAG, "onCreate: posts:$posts")
@@ -103,7 +104,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataDelete() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             val newPost = Post(1, "1", "1")
             postDao.delete(newPost)
@@ -121,7 +122,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataDeleteAll() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
             postDao.deleteAll()
 
             posts = postDao.getAll()
@@ -137,7 +138,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
     private fun dataGet() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             posts = postDao.getAll()
             Log.e(TAG, "onCreate: posts:$posts")
@@ -153,7 +154,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             var newPost = Post(1, "1", "1")
             postDao.insert(newPost)
@@ -179,7 +180,7 @@ class TestRoomDaoActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
-            val postDao = ThisApp.mPostDatabase.postDao()
+            val postDao = ThisApp.database.postDao()
 
             val postList = arrayListOf<Post>()
 
