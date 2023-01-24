@@ -152,6 +152,7 @@
         android:orientation="horizontal"
         android:gravity="center|top"
         android:background="@color/white"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <Button
@@ -176,6 +177,7 @@
         android:orientation="horizontal"
         android:gravity="center|top"
         android:background="@color/white"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <Button
