@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.databinding.AdapterCuttingWorkBinding
 
 class CuttingWorkAdapter (
-    var list: List<CuttingWorkData>,
+    var list: ArrayList<CuttingWorkData>,
 ) : RecyclerView.Adapter<CuttingWorkAdapter.ViewHolder>() {
 
     inner class ViewHolder(binding: AdapterCuttingWorkBinding) :
@@ -30,5 +30,10 @@ class CuttingWorkAdapter (
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun notifyDataSetChanged(list: ArrayList<CuttingWorkData>) {
+        this.list = list
+        notifyDataSetChanged()
     }
 }
