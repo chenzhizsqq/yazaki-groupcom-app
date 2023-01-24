@@ -3,6 +3,8 @@ package com.yazaki_groupcom.app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.yazaki_groupcom.app.cuttingWork.CuttingWorkActivity
+import com.yazaki_groupcom.app.cuttingWork.CuttingWorkCheckActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
 

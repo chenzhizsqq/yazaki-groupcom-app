@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Yazakigroupcomapp"
         tools:targetApi="31">
         <activity
-            android:name=".CuttingWorkActivity"
+            android:name=".cuttingWork.CuttingWorkActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -94,7 +94,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CuttingWorkCheckActivity"
+            android:name=".cuttingWork.CuttingWorkCheckActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">

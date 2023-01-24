@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.cuttingWork
 
 data class CuttingWorkData(
     var longitude: String,      // 勤務場所経度

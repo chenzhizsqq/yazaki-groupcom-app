@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.cuttingWork
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

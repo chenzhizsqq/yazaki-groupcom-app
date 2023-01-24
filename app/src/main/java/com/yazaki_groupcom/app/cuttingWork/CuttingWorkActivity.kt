@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.cuttingWork
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
