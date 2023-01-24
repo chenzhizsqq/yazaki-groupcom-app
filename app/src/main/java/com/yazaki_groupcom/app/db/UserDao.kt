@@ -19,7 +19,7 @@ interface UserDao {
     fun getAllFlow(): Flow<List<User>>
 
     @Query("select * from m_user where user_id like :user_id and password like :password")
-    suspend fun getSelect(user_id: String,password:String): List<User>
+    suspend fun getSelectList(user_id: String, password:String): List<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)    //找到相同的ID序列号，就直接替换
     suspend fun insert(vararg user: User)

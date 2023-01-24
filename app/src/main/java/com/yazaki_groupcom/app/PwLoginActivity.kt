@@ -106,7 +106,6 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
             val userDao = ThisApp.database.userDao()
-
             var user = User(
                 userDao.count(),
                 user_id,
@@ -131,10 +130,24 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
 
             val userDao = ThisApp.database.userDao()
 
-            val getSelect =  userDao.getSelect(user_id,password)
+            val getSelectList =  userDao.getSelectList(user_id,password)
 
             withContext(Dispatchers.Main) {
-                Log.e(TAG, "getUsersList: $getSelect", )
+                Log.e(TAG, "getUsersList: $getSelectList", )
+
+                when(getSelectList.count()){
+                    0 -> {
+
+                        Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 0")
+                    }
+                    1 -> {
+
+                        Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: ok")
+                    }else->{
+
+                        Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 大于1")
+                    }
+                }
             }
         }
     }
@@ -148,6 +161,7 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
             var userList = userDao.getAll()
 
             withContext(Dispatchers.Main) {
+                Tools.showErrorDialog(this@PwLoginActivity, "userList:$userList")
                 Log.e(TAG, "dataGetAll: userList:$userList")
             }
         }
