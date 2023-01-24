@@ -42,20 +42,23 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         }
 
         //添加的测试begin
-        binding.btTestAll.setOnClickListener {
+        binding.dataGetAll.setOnClickListener {
             dataGetAll()
         }
-        binding.btTestInsert.setOnClickListener {
+        binding.dataInsert.setOnClickListener {
             dataInsert(
-                "0"
-                ,"name"
+                binding.etId.text.toString()
+                ,binding.etId.text.toString()
                 ,binding.etId.text.toString()
                 ,binding.etPw.text.toString()
-                ,"user"
+                ,binding.etId.text.toString()
                 ,"time")
         }
-        binding.btTestCheck.setOnClickListener {
-            getUsersList("id", "ps")
+        binding.getUsersList.setOnClickListener {
+            getUsersList(binding.etId.text.toString(), binding.etPw.text.toString())
+        }
+        binding.deleteAll.setOnClickListener {
+            deleteAll()
         }
         //添加的测试end
     }
@@ -105,7 +108,7 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
             val userDao = ThisApp.database.userDao()
 
             var user = User(
-                userDao.count()+1,
+                userDao.count(),
                 user_id,
                 user_name,
                 role_id,
@@ -122,13 +125,13 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     @Query("select * from posts where user_id = :user_id and user_name = :user_name")
     suspend fun getSelect(user_id: String,user_name:String): List<User>
      */
-    private fun getUsersList(user_id: String, user_name: String){
+    private fun getUsersList(user_id: String, password: String){
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
             val userDao = ThisApp.database.userDao()
 
-            val getSelect =  userDao.getSelect(user_id, user_name)
+            val getSelect =  userDao.getSelect(user_id,password)
 
             withContext(Dispatchers.Main) {
                 Log.e(TAG, "getUsersList: $getSelect", )
@@ -146,6 +149,20 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
 
             withContext(Dispatchers.Main) {
                 Log.e(TAG, "dataGetAll: userList:$userList")
+            }
+        }
+    }
+
+    //deleteAll
+    private fun deleteAll() {
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+
+            val userDao = ThisApp.database.userDao()
+
+            val userList = userDao.deleteAll()
+
+            withContext(Dispatchers.Main) {
+                Log.e(TAG, "deleteAll: userList:$userList")
             }
         }
     }
