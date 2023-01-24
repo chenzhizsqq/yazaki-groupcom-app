@@ -19,17 +19,22 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         const val TAG: String = "PwLoginActivity"
     }
     private lateinit var binding: ActivityPwLoginBinding
+
+    //ヒントメニューのデータ
+    var menuStringList = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPwLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //ヒントメニューのデータの取得
+        getMenuData()
+
         binding.returnHome.setOnClickListener {
             val intent =
                 Intent(this@PwLoginActivity, MainActivity::class.java)
             startActivity(intent)
-//            overridePendingTransition( android.R.anim.slide_in_left,
-//                android.R.anim.slide_out_right);
             finish()
         }
 
@@ -70,7 +75,24 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         val popup = PopupMenu(this, anchor)
         popup.inflate(resId)
         popup.setOnMenuItemClickListener(this)             // リスナーの登録
+
+        if (menuStringList.count() >0){
+            val item1 = popup.menu.findItem(R.id.menu_item1)
+            item1.title = menuStringList[0]
+        }
+
+        if (menuStringList.count() >1) {
+            val item2 = popup.menu.findItem(R.id.menu_item2)
+            item2.title = menuStringList[1]
+        }
+
+        if (menuStringList.count() >2) {
+            val item3 = popup.menu.findItem(R.id.menu_item3)
+            item3.title = menuStringList[2]
+        }
+
         popup.show()
+
     }
 
     /**
@@ -79,23 +101,24 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     override fun onMenuItemClick(item: MenuItem): Boolean { // リスナーの実装
         return when (item.itemId) {
             R.id.menu_item1 -> {
-                Log.e(TAG, "!!! onMenuItemClick: 1" )
+                binding.etId.setText(item.title)
                 true
             }
             R.id.menu_item2 -> {
-                Log.e(TAG, "!!! onMenuItemClick: 2" )
+                binding.etId.setText(item.title)
                 true
             }
             R.id.menu_item3 -> {
-                Log.e(TAG, "!!! onMenuItemClick: 3" )
+                binding.etId.setText(item.title)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-
-
+    /**
+     * データ挿入ユーザーリスト
+     */
     private fun dataInsert(user_id: String?,
                            user_name: String?,
                            role_id: String?,
@@ -106,7 +129,7 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
             val userDao = ThisApp.database.userDao()
-            var user = User(
+            val user = User(
                 userDao.count(),
                 user_id,
                 user_name,
@@ -120,9 +143,7 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     }
 
     /**
-     *
-    @Query("select * from posts where user_id = :user_id and user_name = :user_name")
-    suspend fun getSelect(user_id: String,user_name:String): List<User>
+     *データ取得ユーザーのリスト
      */
     private fun getUsersList(user_id: String, password: String){
 
@@ -145,8 +166,8 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
                         Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: ok")
                     }else->{
 
-                        Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 大于1")
-                    }
+                    Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 大于1")
+                }
                 }
             }
         }
@@ -158,7 +179,7 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
 
             val userDao = ThisApp.database.userDao()
 
-            var userList = userDao.getAll()
+            val userList = userDao.getAll()
 
             withContext(Dispatchers.Main) {
                 Tools.showErrorDialog(this@PwLoginActivity, "userList:$userList")
@@ -167,7 +188,41 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         }
     }
 
-    //deleteAll
+    /**
+     * ヒントメニューのデータの取得
+     */
+    private fun getMenuData() {
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+
+            val userDao = ThisApp.database.userDao()
+
+            val userList = userDao.getAll()
+
+            withContext(Dispatchers.Main) {
+                //データ消去
+                menuStringList.clear()
+
+                //データ設定
+                var i = 0
+                userList.forEach lit@{
+                    if (i>=3){
+                        return@lit
+                    }
+                    it.role_id?.let { it1 -> menuStringList.add(it1) }
+                    i++
+                }
+                for (j in 0..2) {
+                    if (menuStringList.count()<3){
+                        menuStringList.add("user_$j")
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * データをすべて削除
+     */
     private fun deleteAll() {
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
