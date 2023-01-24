@@ -150,6 +150,14 @@
             android:id="@+id/rv_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@color/purple_500"
+            android:orientation="vertical"
+            android:paddingEnd="5dp"
+            android:scrollbarSize="5dp"
             app:layoutManager="LinearLayoutManager"/>
     </LinearLayout>
 
