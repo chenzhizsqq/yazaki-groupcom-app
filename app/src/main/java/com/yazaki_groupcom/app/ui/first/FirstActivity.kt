@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.yazaki_groupcom.app.TestRetrofitActivity
 import com.yazaki_groupcom.app.TestSmartRefreshLayoutActivity
 import com.yazaki_groupcom.app.TestSqlActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
@@ -68,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestSmartRefreshLayoutActivity::class.java)
+            Intent(this@FirstActivity, TestRetrofitActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -135,6 +136,12 @@ class FirstActivity : AppCompatActivity() {
         binding.TestSmartRefreshLayoutActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, TestSmartRefreshLayoutActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.TestRetrofitActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestRetrofitActivity::class.java)
             startActivity(intent)
         }
 

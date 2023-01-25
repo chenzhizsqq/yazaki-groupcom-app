@@ -116,10 +116,14 @@
             android:textSize="20sp"
             android:layout_margin="5dp"
             android:text="TestSmartRefreshLayoutActivity"/>
-
-
-
-
+        <TextView
+            android:id="@+id/TestRetrofitActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:text="TestRetrofitActivity"/>
 
 
 
