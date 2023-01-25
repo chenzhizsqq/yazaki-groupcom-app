@@ -171,6 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_layout"
+                    android:gravity="center"
                     android:orientation="vertical">
 
 
@@ -423,191 +424,10 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- part a-->
+                    <!-- part C-->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="230dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:orientation="vertical">
-
-                        <!-- part a horizontal-->
-                        <LinearLayout
-                            android:weightSum="3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal">
-
-                            <!-- part a horizontal part1-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="グループNo"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="品種"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="切断長"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="041"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                            <!-- part a horizontal part2-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="切断納期日"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="20230118"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="サイズ"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="1"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="数量"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="50"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                            <!-- part a horizontal part3-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="シリアルNo"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="色"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="1R7"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="セミスト"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="492"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-                    <!-- part c-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_layout"
                         android:layout_margin="2dp"
                         android:paddingStart="5dp"
                         android:paddingTop="10dp"
@@ -615,110 +435,63 @@
                         android:paddingRight="3dp"
                         android:orientation="vertical">
 
-                        <!-- part b Title -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:paddingStart="3dp"
-                            android:text="B側"/>
-                        <!-- part B horizontal-->
+                        <!-- part C1 horizontal-->
                         <LinearLayout
-                            android:weightSum="4"
+                            android:weightSum="3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="3dp"
                             android:orientation="horizontal">
 
-                            <!-- part B horizontal part1-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                            <TextView
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="皮むき寸法"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="055"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part2-->
-                            <LinearLayout
-                                android:layout_width="1dp"
                                 android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:layout_marginEnd="10dp"
+                                android:text="固着力"/>
+                            <EditText
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
+                                android:layout_weight="2"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/bg_layout"
+                                android:text="2"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子付き条件"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="2"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part3-->
-                            <LinearLayout
-                                android:layout_width="1dp"
+                        <!-- part C2 horizontal-->
+                        <LinearLayout
+                            android:weightSum="3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:layout_marginEnd="10dp"
+                                android:text="バリ"/>
+                            <EditText
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子品番"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="7116504202"
-                                    android:singleLine="true"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part4-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="ゴム栓"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="XXX"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
+                                android:layout_weight="2"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/bg_layout"
+                                android:text="2"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/black"/>
                         </LinearLayout>
                     </LinearLayout>
 
