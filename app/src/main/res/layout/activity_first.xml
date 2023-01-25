@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:background="@color/white"
-        android:id="@+id/ll"
+        android:id="@+id/ll_main"
         android:layout_width="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginBottom="?attr/actionBarSize"
@@ -114,5 +114,23 @@
 
 
 
+    </LinearLayout>
+
+    <!-- ロードのレイアウト-->
+    <LinearLayout
+        android:id="@+id/ll_progressbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@android:style/Widget.Material.Light.ProgressBar.Inverse" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

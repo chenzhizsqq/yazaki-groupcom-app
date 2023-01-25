@@ -1,8 +1,13 @@
 package com.yazaki_groupcom.app.ui.first
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.TestSqlActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
@@ -22,14 +27,52 @@ class FirstActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityFirstBinding
+    private lateinit var viewModel:FirstViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFirstBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent =
-            Intent(this@FirstActivity, CuttingWorkActivity::class.java)
-        startActivity(intent)
+        //設定画面を開いたままにする
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        // 縦画面
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+
+        // タイトルバー非表示
+        supportActionBar?.hide()
+
+        viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
+
+        //loading状態のmvvm設定。
+        viewModel.isLoading.observe(this, Observer {
+            it?.let {
+                if (it) {
+                    // 表示ロード
+                    binding.llProgressbar.visibility = View.VISIBLE
+                } else {
+                    // ロードの非表示
+                    binding.llProgressbar.visibility = View.GONE
+                }
+            }
+        })
+
+        //以下都是测试的
+        test()
+
+    }
+
+    /**
+     * 以下都是测试的
+     */
+    private fun test() {
+        //        val intent =
+        //            Intent(this@FirstActivity, CuttingWorkActivity::class.java)
+        //        startActivity(intent)
+
+        binding.llMain.setOnClickListener {
+            viewModel.isLoading.value = viewModel.isLoading.value != true
+        }
 
         binding.MainActivity.setOnClickListener {
             val intent =
@@ -87,7 +130,5 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, CuttingWorkActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 }
