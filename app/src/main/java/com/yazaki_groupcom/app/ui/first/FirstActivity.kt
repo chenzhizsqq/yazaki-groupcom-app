@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.yazaki_groupcom.app.TestSmartRefreshLayoutActivity
 import com.yazaki_groupcom.app.TestSqlActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
@@ -66,9 +67,9 @@ class FirstActivity : AppCompatActivity() {
      * 以下都是测试的
      */
     private fun test() {
-        //        val intent =
-        //            Intent(this@FirstActivity, CuttingWorkActivity::class.java)
-        //        startActivity(intent)
+        val intent =
+            Intent(this@FirstActivity, TestSmartRefreshLayoutActivity::class.java)
+        startActivity(intent)
 
         binding.llMain.setOnClickListener {
             viewModel.isLoading.value = viewModel.isLoading.value != true
@@ -130,5 +131,12 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, CuttingWorkActivity::class.java)
             startActivity(intent)
         }
+
+        binding.TestSmartRefreshLayoutActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestSmartRefreshLayoutActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
