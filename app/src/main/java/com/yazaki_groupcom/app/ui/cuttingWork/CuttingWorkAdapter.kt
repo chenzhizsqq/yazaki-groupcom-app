@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.cuttingWork
+package com.yazaki_groupcom.app.ui.cuttingWork
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.databinding.AdapterCuttingWorkBinding
 
-class CuttingWorkAdapter (
+class CuttingWorkAdapter(
     var list: ArrayList<CuttingWorkData>,
 ) : RecyclerView.Adapter<CuttingWorkAdapter.ViewHolder>() {
 

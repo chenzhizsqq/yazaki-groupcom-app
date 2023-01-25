@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.cuttingWork
+package com.yazaki_groupcom.app.ui.cuttingWork
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,6 +10,7 @@ class CuttingWorkActivity : BaseActivity() {
     companion object {
         const val TAG: String = "CuttingWorkActivity"
     }
+
     private lateinit var mAdapter: CuttingWorkAdapter
     private lateinit var binding: ActivityCuttingWorkBinding
 
@@ -35,7 +36,13 @@ class CuttingWorkActivity : BaseActivity() {
 
                 //最後のローに移動すると、自動的に更新されます
                 if (lastVisibleItem >= totalItemCount - 1) {
-                    dataArray.add(CuttingWorkData(totalItemCount.toString(), totalItemCount.toString(), totalItemCount.toString()))
+                    dataArray.add(
+                        CuttingWorkData(
+                            totalItemCount.toString(),
+                            totalItemCount.toString(),
+                            totalItemCount.toString()
+                        )
+                    )
                     mAdapter.notifyDataSetChanged(dataArray)
                 }
             }

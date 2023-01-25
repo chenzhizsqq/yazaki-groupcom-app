@@ -1,17 +1,26 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.first
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yazaki_groupcom.app.cuttingWork.CuttingWorkActivity
-import com.yazaki_groupcom.app.cuttingWork.CuttingWorkCheckActivity
+import com.yazaki_groupcom.app.TestSqlActivity
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
+import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
+import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
+import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
+import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkActivity
+import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity
+import com.yazaki_groupcom.app.ui.main.MainActivity
+import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
+import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
+import com.yazaki_groupcom.app.ui.topMenu.TopMenuActivity
 
 class FirstActivity : AppCompatActivity() {
     companion object {
         const val TAG: String = "FirstActivity"
     }
+
     private lateinit var binding: ActivityFirstBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,10 +87,6 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, CuttingWorkActivity::class.java)
             startActivity(intent)
         }
-
-
-
-
 
 
     }

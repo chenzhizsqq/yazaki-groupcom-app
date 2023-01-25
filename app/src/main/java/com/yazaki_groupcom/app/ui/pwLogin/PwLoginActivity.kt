@@ -1,23 +1,28 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.pwLogin
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.PopupMenu
+import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.ThisApp
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityPwLoginBinding
-import androidx.appcompat.widget.PopupMenu
 import com.yazaki_groupcom.app.db.User
+import com.yazaki_groupcom.app.ui.main.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
+class PwLoginActivity : BaseActivity(), PopupMenu.OnMenuItemClickListener {
     companion object {
         const val TAG: String = "PwLoginActivity"
     }
+
     private lateinit var binding: ActivityPwLoginBinding
 
     //ヒントメニューのデータ
@@ -39,11 +44,11 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         }
 
         binding.etId.setOnClickListener {
-            openMenu(it,R.menu.menu_items)
+            openMenu(it, R.menu.menu_items)
         }
 
         binding.btIdLogin.setOnClickListener {
-            Tools.showErrorDialog(this,"入力されたIDまたは\nパスワードが正しくありません")
+            Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
         }
 
         //添加的测试begin
@@ -52,12 +57,13 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         }
         binding.dataInsert.setOnClickListener {
             dataInsert(
-                binding.etId.text.toString()
-                ,binding.etId.text.toString()
-                ,binding.etId.text.toString()
-                ,binding.etPw.text.toString()
-                ,binding.etId.text.toString()
-                ,"time")
+                binding.etId.text.toString(),
+                binding.etId.text.toString(),
+                binding.etId.text.toString(),
+                binding.etPw.text.toString(),
+                binding.etId.text.toString(),
+                "time"
+            )
         }
         binding.getUsersList.setOnClickListener {
             getUsersList(binding.etId.text.toString(), binding.etPw.text.toString())
@@ -76,17 +82,17 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
         popup.inflate(resId)
         popup.setOnMenuItemClickListener(this)             // リスナーの登録
 
-        if (menuStringList.count() >0){
+        if (menuStringList.count() > 0) {
             val item1 = popup.menu.findItem(R.id.menu_item1)
             item1.title = menuStringList[0]
         }
 
-        if (menuStringList.count() >1) {
+        if (menuStringList.count() > 1) {
             val item2 = popup.menu.findItem(R.id.menu_item2)
             item2.title = menuStringList[1]
         }
 
-        if (menuStringList.count() >2) {
+        if (menuStringList.count() > 2) {
             val item3 = popup.menu.findItem(R.id.menu_item3)
             item3.title = menuStringList[2]
         }
@@ -119,12 +125,14 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     /**
      * データ挿入ユーザーリスト
      */
-    private fun dataInsert(user_id: String?,
-                           user_name: String?,
-                           role_id: String?,
-                           password: String?,
-                           insert_user: String?,
-                           insert_time: String?,) {
+    private fun dataInsert(
+        user_id: String?,
+        user_name: String?,
+        role_id: String?,
+        password: String?,
+        insert_user: String?,
+        insert_time: String?,
+    ) {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
@@ -136,7 +144,8 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
                 role_id,
                 password,
                 insert_user,
-                insert_time,)
+                insert_time,
+            )
 
             userDao.insert(user)
         }
@@ -145,18 +154,18 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
     /**
      *データ取得ユーザーのリスト
      */
-    private fun getUsersList(user_id: String, password: String){
+    private fun getUsersList(user_id: String, password: String) {
 
         CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
 
             val userDao = ThisApp.database.userDao()
 
-            val getSelectList =  userDao.getSelectList(user_id,password)
+            val getSelectList = userDao.getSelectList(user_id, password)
 
             withContext(Dispatchers.Main) {
-                Log.e(TAG, "getUsersList: $getSelectList", )
+                Log.e(TAG, "getUsersList: $getSelectList")
 
-                when(getSelectList.count()){
+                when (getSelectList.count()) {
                     0 -> {
 
                         Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 0")
@@ -164,10 +173,11 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
                     1 -> {
 
                         Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: ok")
-                    }else->{
+                    }
+                    else -> {
 
-                    Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 大于1")
-                }
+                        Tools.showErrorDialog(this@PwLoginActivity, "getUsersList: 大于1")
+                    }
                 }
             }
         }
@@ -205,14 +215,14 @@ class PwLoginActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener {
                 //データ設定
                 var i = 0
                 userList.forEach lit@{
-                    if (i>=3){
+                    if (i >= 3) {
                         return@lit
                     }
                     it.role_id?.let { it1 -> menuStringList.add(it1) }
                     i++
                 }
                 for (j in 0..2) {
-                    if (menuStringList.count()<3){
+                    if (menuStringList.count() < 3) {
                         menuStringList.add("user_$j")
                     }
                 }

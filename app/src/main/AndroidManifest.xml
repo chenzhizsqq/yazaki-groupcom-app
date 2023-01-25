@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Yazakigroupcomapp"
         tools:targetApi="31">
         <activity
-            android:name=".cuttingWork.CuttingWorkActivity"
+            android:name=".ui.cuttingWork.CuttingWorkActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -38,21 +38,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AcUpdateActivity"
+            android:name=".ui.acUpdate.AcUpdateActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AcSelectActivity"
+            android:name=".ui.acSelect.AcSelectActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AcQrLoginActivity"
+            android:name=".ui.acQrLogin.AcQrLoginActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
@@ -61,14 +61,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TopMenuActivity"
+            android:name=".ui.topMenu.TopMenuActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PwLoginActivity"
+            android:name=".ui.pwLogin.PwLoginActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
@@ -77,7 +77,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FirstActivity"
+            android:name=".ui.first.FirstActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
@@ -94,7 +94,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".cuttingWork.CuttingWorkCheckActivity"
+            android:name=".ui.cuttingWork.CuttingWorkCheckActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
@@ -103,7 +103,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".RfidLoginActivity"
+            android:name=".ui.rfidLogin.RfidLoginActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
@@ -112,7 +112,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">

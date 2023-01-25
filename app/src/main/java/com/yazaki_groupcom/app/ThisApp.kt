@@ -21,7 +21,7 @@ class ThisApp : Application() {
         lateinit var database: AppDatabase
 
         //本地数据库
-        fun localDBCreate(context: Context){
+        fun localDBCreate(context: Context) {
             if (!this::database.isInitialized) {
                 database = Room.databaseBuilder(
                     context,

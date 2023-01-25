@@ -1,14 +1,16 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.rfidLogin
 
 import android.content.Intent
 import android.os.Bundle
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityRfidLoginBinding
+import com.yazaki_groupcom.app.ui.main.MainActivity
 
 class RfidLoginActivity : BaseActivity() {
     companion object {
         const val TAG: String = "RfidLoginActivity"
     }
+
     private lateinit var binding: ActivityRfidLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

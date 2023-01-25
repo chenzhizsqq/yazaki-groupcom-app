@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.topMenu
 
 import android.os.Bundle
 import com.yazaki_groupcom.app.base.BaseActivity
@@ -8,6 +8,7 @@ class TopMenuActivity : BaseActivity() {
     companion object {
         const val TAG: String = "TopMenuActivity"
     }
+
     private lateinit var binding: ActivityTopMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

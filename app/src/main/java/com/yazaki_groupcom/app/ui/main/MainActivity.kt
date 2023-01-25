@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainBinding
+import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
+import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
 
 
 class MainActivity : BaseActivity() {
@@ -14,6 +16,7 @@ class MainActivity : BaseActivity() {
     companion object {
         const val TAG: String = "MainActivity"
     }
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

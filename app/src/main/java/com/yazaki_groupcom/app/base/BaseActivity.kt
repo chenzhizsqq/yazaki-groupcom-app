@@ -8,8 +8,8 @@ import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.Config
-import com.yazaki_groupcom.app.FirstActivity
 import com.yazaki_groupcom.app.Tools
+import com.yazaki_groupcom.app.ui.first.FirstActivity
 import kotlinx.coroutines.CoroutineExceptionHandler
 
 /**

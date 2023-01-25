@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.cuttingWork
+package com.yazaki_groupcom.app.ui.cuttingWork
 
 import android.os.Bundle
 import com.yazaki_groupcom.app.base.BaseActivity
@@ -12,6 +12,7 @@ class CuttingWorkCheckActivity : BaseActivity() {
     companion object {
         const val TAG: String = "CuttingWorkCheckActivity"
     }
+
     private lateinit var binding: ActivityCuttingWorkCheckBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

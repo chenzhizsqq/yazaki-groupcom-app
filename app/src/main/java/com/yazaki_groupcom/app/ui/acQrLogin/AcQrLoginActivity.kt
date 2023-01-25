@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.ui.acQrLogin
 
 import android.os.Bundle
 import android.widget.Toast
@@ -12,6 +12,7 @@ class AcQrLoginActivity : BaseActivity() {
     companion object {
         const val TAG: String = "AcQrLoginActivity"
     }
+
     private lateinit var binding: ActivityAcQrLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
