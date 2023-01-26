@@ -89,8 +89,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textColor="@color/button_font_color"
-                    app:bg_color="@color/purple_500"
+                    android:textColor="@color/black"
+                    app:bg_color="@color/silvery"
                     android:textSize="14sp"
                     android:text="ﾛｸﾞｱｳﾄ" />
             </LinearLayout>
@@ -226,6 +226,7 @@
                                     android:singleLine="true"
                                     android:imeOptions="actionDone"
                                     android:text="055"
+                                    android:maxLength="10"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
@@ -253,6 +254,7 @@
                                     android:singleLine="true"
                                     android:imeOptions="actionDone"
                                     android:text="2"
+                                    android:maxLength="10"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
@@ -280,6 +282,7 @@
                                     android:singleLine="true"
                                     android:imeOptions="actionDone"
                                     android:text="7116504202"
+                                    android:maxLength="20"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
@@ -307,6 +310,7 @@
                                     android:singleLine="true"
                                     android:imeOptions="actionDone"
                                     android:text="XXX"
+                                    android:maxLength="10"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
@@ -354,6 +358,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/bg_layout"
                                 android:text="0797"
+                                android:maxLength="10"
                                 android:gravity="center"
                                 android:inputType="number"
                                 android:imeOptions="actionDone"
@@ -372,6 +377,7 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/bg_layout"
                                 android:text="1394"
+                                android:maxLength="10"
                                 android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
@@ -407,6 +413,7 @@
                                 android:background="@drawable/bg_layout"
                                 android:layout_marginEnd="5dp"
                                 android:text="1410"
+                                android:maxLength="10"
                                 android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
@@ -425,6 +432,7 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/bg_layout"
                                 android:text="1521"
+                                android:maxLength="10"
                                 android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
@@ -468,6 +476,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/bg_layout"
                                 android:text="86"
+                                android:maxLength="10"
                                 android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="textEmailAddress"
@@ -498,6 +507,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/bg_layout"
                                 android:text="XX"
+                                android:maxLength="10"
                                 android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="textEmailAddress"
@@ -582,7 +592,7 @@
                     </LinearLayout>
 
 
-                    <!-- part d-->
+                    <!-- part button-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -594,18 +604,15 @@
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
                             app:bg_color="@color/silvery"
-                            android:layout_margin="10dp"
-                            android:inputType="textMultiLine"
                             android:maxLines="2"
                             android:minLines="2"
                             android:paddingStart="10dp"
                             android:paddingEnd="10dp"
                             android:textSize="10sp"
-                            android:text="サンプル品\n完了" />
-
+                            android:text="サンプル品\n完了"/>
                         <com.yazaki_groupcom.app.base.BaseButton
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
@@ -617,201 +624,23 @@
                             android:text="完了" />
                     </LinearLayout>
                 </LinearLayout>
-                <!-- Each Old-->
+
+                <!-- Each -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_layout"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <!-- part a-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:orientation="vertical">
 
-                        <!-- part a horizontal-->
-                        <LinearLayout
-                            android:weightSum="3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal">
-
-                            <!-- part a horizontal part1-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="グループNo"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="品種"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="切断長"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="041"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                            <!-- part a horizontal part2-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="切断納期日"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="20230118"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="サイズ"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="1"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="数量"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="50"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                            <!-- part a horizontal part3-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="シリアルNo"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text=""
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="色"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="1R7"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="セミスト"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="492"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- part b-->
+                    <!-- part A-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_layout"
                         android:layout_margin="2dp"
-                        android:paddingStart="5dp"
+                        android:paddingStart="3dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="3dp"
                         android:paddingRight="3dp"
@@ -827,15 +656,15 @@
                             android:text="A側"/>
                         <!-- part B horizontal-->
                         <LinearLayout
-                            android:weightSum="4"
+                            android:weightSum="23"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <!-- part B horizontal part1-->
                             <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_weight="5"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="3dp"
                                 android:orientation="vertical">
@@ -846,18 +675,24 @@
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:text="皮むき寸法"/>
-                                <TextView
+
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_layout"
-                                    android:text="055"
                                     android:gravity="center"
-                                    android:textColor="@color/black"/>
+                                    android:inputType="textEmailAddress"
+                                    android:singleLine="true"
+                                    android:imeOptions="actionDone"
+                                    android:text="055"
+                                    android:maxLength="10"
+                                    android:textColor="@color/black"
+                                    tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
                             <!-- part B horizontal part2-->
                             <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="3dp"
                                 android:orientation="vertical">
@@ -868,18 +703,24 @@
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:text="端子付き条件"/>
-                                <TextView
+
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_layout"
-                                    android:text="2"
                                     android:gravity="center"
-                                    android:textColor="@color/black"/>
+                                    android:inputType="textEmailAddress"
+                                    android:singleLine="true"
+                                    android:imeOptions="actionDone"
+                                    android:text="2"
+                                    android:maxLength="10"
+                                    android:textColor="@color/black"
+                                    tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
                             <!-- part B horizontal part3-->
                             <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_weight="7"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="3dp"
                                 android:orientation="vertical">
@@ -890,19 +731,24 @@
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:text="端子品番"/>
-                                <TextView
+
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_layout"
-                                    android:text="7116504202"
-                                    android:singleLine="true"
                                     android:gravity="center"
-                                    android:textColor="@color/black"/>
+                                    android:inputType="textEmailAddress"
+                                    android:singleLine="true"
+                                    android:imeOptions="actionDone"
+                                    android:text="7116504202"
+                                    android:maxLength="20"
+                                    android:textColor="@color/black"
+                                    tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
                             <!-- part B horizontal part4-->
                             <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_weight="5"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="3dp"
                                 android:orientation="vertical">
@@ -913,22 +759,27 @@
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:text="ゴム栓"/>
-                                <TextView
+
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_layout"
-                                    android:text="XXX"
                                     android:gravity="center"
-                                    android:textColor="@color/black"/>
+                                    android:inputType="textEmailAddress"
+                                    android:singleLine="true"
+                                    android:imeOptions="actionDone"
+                                    android:text="XXX"
+                                    android:maxLength="10"
+                                    android:textColor="@color/black"
+                                    tools:ignore="TouchTargetSizeCheck" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- part c-->
+                    <!-- part B-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_layout"
                         android:layout_margin="2dp"
                         android:paddingStart="5dp"
                         android:paddingTop="10dp"
@@ -936,146 +787,266 @@
                         android:paddingRight="3dp"
                         android:orientation="vertical">
 
-                        <!-- part b Title -->
+                        <!-- part B1 Title -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
+                            android:textSize="20sp"
                             android:paddingStart="3dp"
-                            android:text="B側"/>
-                        <!-- part B horizontal-->
+                            android:text="前足"/>
+                        <!-- part B1 horizontal-->
                         <LinearLayout
-                            android:weightSum="4"
+                            android:weightSum="8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <!-- part B horizontal part1-->
-                            <LinearLayout
-                                android:layout_width="1dp"
-                                android:layout_weight="1"
+                            <TextView
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="皮むき寸法"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="055"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part2-->
-                            <LinearLayout
-                                android:layout_width="1dp"
                                 android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="C/H"/>
+                            <EditText
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子付き条件"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="2"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part3-->
-                            <LinearLayout
-                                android:layout_width="1dp"
+                                android:layout_weight="3"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/bg_layout"
+                                android:text="0788"
+                                android:maxLength="10"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:imeOptions="actionDone"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="C/W"/>
+                            <EditText
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
+                                android:layout_weight="3"
+                                android:background="@drawable/bg_layout"
+                                android:text="1388"
+                                android:maxLength="10"
+                                android:imeOptions="actionDone"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+                        <!-- part B2 Title -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:paddingStart="3dp"
+                            android:text="後足"/>
+                        <!-- part B2 horizontal-->
+                        <LinearLayout
+                            android:weightSum="8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子品番"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="7116504202"
-                                    android:singleLine="true"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
-                            <!-- part B horizontal part4-->
-                            <LinearLayout
-                                android:layout_width="1dp"
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="C/H"/>
+                            <EditText
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="ゴム栓"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:text="XXX"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"/>
-                            </LinearLayout>
+                                android:layout_weight="3"
+                                android:background="@drawable/bg_layout"
+                                android:layout_marginEnd="5dp"
+                                android:text="1488"
+                                android:maxLength="10"
+                                android:imeOptions="actionDone"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="C/W"/>
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/bg_layout"
+                                android:text="1588"
+                                android:maxLength="10"
+                                android:imeOptions="actionDone"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:textColor="@color/black"/>
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- part d-->
+                    <!-- part C-->
+                    <LinearLayout
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:paddingStart="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="3dp"
+                        android:paddingRight="3dp"
+                        android:orientation="vertical">
+
+                        <!-- part C1 horizontal-->
+                        <LinearLayout
+                            android:weightSum="3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:layout_marginEnd="10dp"
+                                android:text="固着力"/>
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/bg_layout"
+                                android:text="86"
+                                android:maxLength="10"
+                                android:imeOptions="actionDone"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <!-- part C2 horizontal-->
+                        <LinearLayout
+                            android:weightSum="3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:layout_marginEnd="10dp"
+                                android:text="バリ"/>
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/bg_layout"
+                                android:text="XX"
+                                android:maxLength="10"
+                                android:imeOptions="actionDone"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- part D-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:gravity="center|end"
-                        android:orientation="horizontal">
+                        android:layout_margin="2dp"
+                        android:paddingStart="5dp"
+                        android:paddingRight="3dp"
+                        android:orientation="vertical">
+                        <!-- part D1 horizontal-->
+                        <LinearLayout
+                            android:weightSum="7"
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:background="@drawable/ic_round_button_silvery"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:inputType="textMultiLine"
-                            android:maxLines="2"
-                            android:minLines="2"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:textSize="10sp"
-                            android:text="サンプル品\n完了" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="ベントアップ"/>
 
-                        <TextView
-                            android:background="@drawable/ic_round_button_silvery"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:layout_margin="1dp"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:text="完了" />
+                            <CheckBox
+                                style="@style/CustomCheckbox02"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="確認しました"/>
+                        </LinearLayout>
+                        <!-- part D2 horizontal-->
+                        <LinearLayout
+                            android:weightSum="7"
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="ベントダウン"/>
+                            <CheckBox
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                style="@style/CustomCheckbox02"
+                                android:checked="true"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="確認しました"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 

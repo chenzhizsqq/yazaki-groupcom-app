@@ -32,40 +32,62 @@ class BaseButton : AppCompatButton {
 
     }
 
+    //是否已经被选中了
+    private var isTouched = false
+    fun setTouch(isTouch:Boolean,context: Context, attrs: AttributeSet?){
+        this.isTouched = isTouch
+        if (!this.isTouched){
+
+            //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
+            val default = ContextCompat.getColor(context, R.color.purple_500)
+            //获取自定义的属性值
+            val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
+            //获取设置的背景色
+            val bgColor = typedBaseButton.getColor(R.styleable.BaseButton_bg_color, default)
+            //获取设置的圆角大小
+            val buttonCorner = typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+        }else{
+            initView(context, null)
+        }
+    }
+
     private fun initView(context: Context, attrs: AttributeSet?) {
         //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
         val default = ContextCompat.getColor(context, R.color.purple_500)
         //获取自定义的属性值
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
+        val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
         //获取设置的背景色
-        val bgColor = typedArray.getColor(R.styleable.BaseButton_bg_color, default)
+        val bgColor = typedBaseButton.getColor(R.styleable.BaseButton_bg_color, default)
         //获取设置的圆角大小
-        val buttonCorner = typedArray.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+        val buttonCorner = typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+        //是否已经被选中了
+        isTouched = typedBaseButton.getBoolean(R.styleable.BaseButton_is_touched, false)
 
+        if (!isTouched){
+            //生成圆角图片
+            val bgcDrawable = GradientDrawable()
+            //设置图片颜色
+            bgcDrawable.setColor(bgColor)
+            //设置圆角大小
+            bgcDrawable.cornerRadius = buttonCorner.toFloat()
 
-        //生成圆角图片
-        val bgcDrawable = GradientDrawable()
-        //设置图片颜色
-        bgcDrawable.setColor(bgColor)
-        //设置圆角大小
-        bgcDrawable.cornerRadius = buttonCorner.toFloat()
+            //生成一张半透明的灰色图片 #31000000为遮罩颜色 可自定义
+            val bgcDrawable1 = GradientDrawable()
+            bgcDrawable1.setColor(Color.parseColor("#31000000"))
+            bgcDrawable1.cornerRadius = buttonCorner.toFloat()
 
-        //生成一张半透明的灰色图片 #31000000为遮罩颜色 可自定义
-        val bgcDrawable1 = GradientDrawable()
-        bgcDrawable1.setColor(Color.parseColor("#31000000"))
-        bgcDrawable1.cornerRadius = buttonCorner.toFloat()
+            //生成一个图层叠加的图片 上面用灰色盖住 模拟变暗效果
+            val arr = arrayOf(bgcDrawable, bgcDrawable1)
+            val layerDrawable = LayerDrawable(arr)
 
-        //生成一个图层叠加的图片 上面用灰色盖住 模拟变暗效果
-        val arr = arrayOf(bgcDrawable, bgcDrawable1)
-        val layerDrawable = LayerDrawable(arr)
+            //设置点击后 变暗效果
+            val stateListDrawable = StateListDrawable()
+            stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), layerDrawable)
+            stateListDrawable.addState(intArrayOf(), bgcDrawable)
 
-        //设置点击后 变暗效果
-        val stateListDrawable = StateListDrawable()
-        stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), layerDrawable)
-        stateListDrawable.addState(intArrayOf(), bgcDrawable)
-
-        background = stateListDrawable
-        typedArray.recycle()
+            background = stateListDrawable
+            typedBaseButton.recycle()
+        }
     }
 
 }
