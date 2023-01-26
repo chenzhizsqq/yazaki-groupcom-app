@@ -7,18 +7,30 @@
     tools:context=".ui.first.FirstActivity">
 
     <!-- 中央部 -->
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@color/silvery"
+        android:scrollbarSize="5dp"
+        android:paddingEnd="5dp"
+        android:scrollbars="vertical"
+        android:background="@drawable/bg_layout">
+        <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
         android:background="@color/white"
         android:id="@+id/ll_main"
         android:layout_width="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_height="match_parent">
 
         <TextView
@@ -53,6 +65,14 @@
             android:textSize="20sp"
             android:layout_margin="5dp"
             android:text="CuttingWorkCheckActivity"/>
+        <TextView
+            android:id="@+id/CuttingWorkCheckActivity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:text="CuttingWorkCheckActivity2"/>
         <TextView
             android:id="@+id/TopMenuActivity"
             android:layout_width="wrap_content"
@@ -128,6 +148,7 @@
 
 
     </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- ロードのレイアウト-->
     <LinearLayout

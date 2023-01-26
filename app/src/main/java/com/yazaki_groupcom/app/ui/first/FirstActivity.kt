@@ -18,6 +18,7 @@ import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
 import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkActivity
 import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity
+import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity2
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
@@ -69,7 +70,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestRetrofitActivity::class.java)
+            Intent(this@FirstActivity, CuttingWorkCheckActivity2::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -94,6 +95,11 @@ class FirstActivity : AppCompatActivity() {
         binding.CuttingWorkCheckActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, CuttingWorkCheckActivity::class.java)
+            startActivity(intent)
+        }
+        binding.CuttingWorkCheckActivity2.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, CuttingWorkCheckActivity2::class.java)
             startActivity(intent)
         }
         binding.TopMenuActivity.setOnClickListener {
