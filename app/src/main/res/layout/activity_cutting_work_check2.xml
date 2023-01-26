@@ -224,6 +224,7 @@
                                     android:gravity="center"
                                     android:inputType="textEmailAddress"
                                     android:singleLine="true"
+                                    android:imeOptions="actionDone"
                                     android:text="055"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
@@ -250,6 +251,7 @@
                                     android:gravity="center"
                                     android:inputType="textEmailAddress"
                                     android:singleLine="true"
+                                    android:imeOptions="actionDone"
                                     android:text="2"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
@@ -276,6 +278,7 @@
                                     android:gravity="center"
                                     android:inputType="textEmailAddress"
                                     android:singleLine="true"
+                                    android:imeOptions="actionDone"
                                     android:text="7116504202"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
@@ -302,6 +305,7 @@
                                     android:gravity="center"
                                     android:inputType="textEmailAddress"
                                     android:singleLine="true"
+                                    android:imeOptions="actionDone"
                                     android:text="XXX"
                                     android:textColor="@color/black"
                                     tools:ignore="TouchTargetSizeCheck" />
@@ -352,6 +356,7 @@
                                 android:text="2"
                                 android:gravity="center"
                                 android:inputType="number"
+                                android:imeOptions="actionDone"
                                 android:textColor="@color/black"/>
                             <TextView
                                 android:layout_width="0dp"
@@ -367,6 +372,7 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/bg_layout"
                                 android:text="2"
+                                android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
                                 android:textColor="@color/black"/>
@@ -401,6 +407,7 @@
                                 android:background="@drawable/bg_layout"
                                 android:layout_marginEnd="5dp"
                                 android:text="2"
+                                android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
                                 android:textColor="@color/black"/>
@@ -418,6 +425,7 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/bg_layout"
                                 android:text="2"
+                                android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="number"
                                 android:textColor="@color/black"/>
@@ -460,6 +468,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/bg_layout"
                                 android:text="2"
+                                android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="textEmailAddress"
                                 android:textColor="@color/black"/>
@@ -489,6 +498,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/bg_layout"
                                 android:text="2"
+                                android:imeOptions="actionDone"
                                 android:gravity="center"
                                 android:inputType="textEmailAddress"
                                 android:textColor="@color/black"/>
