@@ -47,6 +47,17 @@ open class BaseActivity : AppCompatActivity()
         resetLogoutTime()
     }
 
+    //按左下角的 "三角"按钮后，触发的返回函数
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
+    //整个Activity()终结后，调用的函数
+    override fun finish() {
+        intent.putExtra(Config.LastActivityName,this.javaClass.name )
+        super.finish()
+    }
+
     //スリープ time リセット
     open fun resetSleepTime() {
         countDownTimerSleep?.cancel()

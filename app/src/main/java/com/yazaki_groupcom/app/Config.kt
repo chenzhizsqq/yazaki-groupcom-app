@@ -1,5 +1,7 @@
 package com.yazaki_groupcom.app
 
+import androidx.appcompat.app.AppCompatActivity
+
 class Config {
     companion object {
         const val ApiUrl = "https://localhost/"
@@ -10,8 +12,8 @@ class Config {
         const val AppUser = "AppUser"
         const val Device = "android"
 
-        //初回登録Frag key
-        const val FragKey = "selectFragKey"
+        //最后运行的Activity
+        const val LastActivityName = "LastActivityName"
 
         //LOCATION KEY
         const val REQUEST_CODE_LOCATION_KEY = 10008

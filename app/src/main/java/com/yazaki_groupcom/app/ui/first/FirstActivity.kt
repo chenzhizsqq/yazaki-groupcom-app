@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.TestRetrofitActivity
 import com.yazaki_groupcom.app.TestSmartRefreshLayoutActivity
 import com.yazaki_groupcom.app.TestSqlActivity
@@ -70,7 +71,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, CuttingWorkCheckActivity2::class.java)
+            Intent(this@FirstActivity, TestRetrofitActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
