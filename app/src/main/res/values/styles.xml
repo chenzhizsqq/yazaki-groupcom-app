@@ -46,4 +46,10 @@
         <!-- 线宽 -->
         <attr name="hcb_line_width" format="float|dimension|reference" />
     </declare-styleable>
+
+    <style name="CustomCheckbox02" parent="Theme.MaterialComponents.CompactMenu" >
+        <item name="android:button">@drawable/checkbox_selector</item>
+        <item name="android:colorSecondary">@color/purple_500</item>
+
+    </style>
 </resources>

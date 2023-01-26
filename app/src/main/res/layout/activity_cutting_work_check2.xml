@@ -495,6 +495,83 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!-- part D-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:paddingStart="5dp"
+                        android:paddingRight="3dp"
+                        android:orientation="vertical">
+                        <!-- part D1 horizontal-->
+                        <LinearLayout
+                            android:weightSum="7"
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="ベントアップ"/>
+
+                            <CheckBox
+                                style="@style/CustomCheckbox02"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="確認しました"/>
+                        </LinearLayout>
+                        <!-- part D2 horizontal-->
+                        <LinearLayout
+                            android:weightSum="7"
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="ベントダウン"/>
+                            <CheckBox
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                style="@style/CustomCheckbox02"
+                                android:checked="false"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:text="確認しました"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
                     <!-- part d-->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -503,12 +580,14 @@
                         android:gravity="center|end"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:background="@drawable/bg_layout"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:textAlignment="center"
+                        <com.yazaki_groupcom.app.base.BaseButton
+                            style="@style/MyButtonStyleSmall"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:textColor="@color/black"
+                            app:bg_color="@color/silvery"
+                            android:layout_margin="10dp"
                             android:inputType="textMultiLine"
                             android:maxLines="2"
                             android:minLines="2"
@@ -517,16 +596,14 @@
                             android:textSize="10sp"
                             android:text="サンプル品\n完了" />
 
-                        <TextView
-                            android:background="@drawable/ic_round_button_orange"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
+                        <com.yazaki_groupcom.app.base.BaseButton
+                            style="@style/MyButtonStyleSmall"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textColor="@color/button_font_color"
-                            android:textSize="15sp"
-                            android:layout_margin="1dp"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
+                            android:padding="10dp"
+                            android:layout_margin="10dp"
                             android:text="完了" />
                     </LinearLayout>
                 </LinearLayout>
