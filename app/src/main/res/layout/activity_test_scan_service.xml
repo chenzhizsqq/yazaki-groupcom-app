@@ -33,11 +33,35 @@
             android:id="@+id/ll_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <Button
-                android:id="@+id/bt_test"
+            <TextView
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_layout"
+                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test"
+                android:text="Unitech Scan Serviceの開始"
+                android:id="@+id/tv_start"
+                />
+            <TextView
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_layout"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan To Keyを終了する"
+                android:id="@+id/tv_scan2key_false"
+                />
+            <TextView
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_layout"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unitech Scan Serviceの終了"
+                android:id="@+id/tv_close"
                 />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
