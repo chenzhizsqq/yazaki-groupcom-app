@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestScanActivity::class.java)
+            Intent(this@FirstActivity, TestNfcActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -147,6 +147,12 @@ class FirstActivity : AppCompatActivity() {
         binding.TestRetrofitActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, TestRetrofitActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.TestNfcActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestNfcActivity::class.java)
             startActivity(intent)
         }
 

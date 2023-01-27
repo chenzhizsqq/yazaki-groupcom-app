@@ -145,6 +145,14 @@
                 android:layout_margin="5dp"
                 android:text="TestRetrofitActivity"/>
             <TextView
+                android:id="@+id/TestNfcActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:text="TestNfcActivity"/>
+            <TextView
                 android:id="@+id/TestScanServiceActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
