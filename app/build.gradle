@@ -4,6 +4,44 @@ plugins {
     id 'kotlin-kapt'
 }
 
+ext {
+    /* Version code for *next* release, bump *after* a release is created. */
+    // 1 or more digits
+    versionMajor = 1
+    // exactly 2 digit
+    versionMinor = 1
+    // exactly 2 digits
+    versionBuild = 17
+    versionRC = 0
+
+    // setupSigning
+    setupSigning = this.&setupSigning
+}
+
+def setupSigning(deviceName) {
+    def ksFile = rootProject.file("./keystore/keystore.${deviceName}.properties")
+    def props = new Properties()
+    if (ksFile.canRead()) {
+        props.load(new FileInputStream(ksFile))
+
+        if (props != null) {
+            android.signingConfigs."${deviceName}".storeFile file(props['storeFile'])
+            android.signingConfigs."${deviceName}".keyPassword props['keyPassword']
+            android.signingConfigs."${deviceName}".keyAlias props['keyAlias']
+            android.signingConfigs."${deviceName}".storePassword props['storePassword']
+            println "The key for device ${deviceName} has been setup"
+        } else {
+            println 'some entries in \'keystore.properties\' not found!'
+        }
+    } else {
+        println '\'keystore.properties\' not found!'
+    }
+}
+
+android.signingConfigs.whenObjectAdded { signing ->
+    setupSigning(signing.name)
+}
+
 android {
     namespace 'com.yazaki_groupcom.app'
     compileSdk 33

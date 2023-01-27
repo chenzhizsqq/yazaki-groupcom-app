@@ -20,4 +20,8 @@
     <string name="et_qr_code_hint">QRコード</string>
 
     <string name="et_rfid_code_hint">RFIDコード</string>
+
+    <string name="select_a_feature">Select a feature:</string>
+    <string name="button_go">Go</string>
+    <string name="label">label</string>
 </resources>

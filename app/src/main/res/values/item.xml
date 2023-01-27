@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="apn">
+        <!--        <item>HW: enable flash</item>-->
+        <!--        <item>HW: disable flash</item>-->
+        <!--        <item>HW: get flash Status</item>-->
+        <!--        <item>SW: enable nfc</item>-->
+        <!--        <item>SW: disable nfc</item>-->
+        <!-- Apn 1-->
+        <item></item>
+        <item>ApnAddProfile</item>
+        <item>ApnDeleteProfile</item>
+        <item>ApnProfileIsExist</item>
+        <item>ApnUpdateProfile</item>
+        <item>ApnDeleteAll</item>
+        <item>ApnSetActiveProfile</item>
+        <item>ApnGetActivieProfileApnName</item>
+        <item>ApnGetNameList</item>
+        <item>ApnGetProfile</item>
+        <item>setAirplaneMode_Enable</item>
+        <item>setAirplaneMode_Disable</item>
+    </string-array>
+
+    <string-array name="appmanagement">
+        <item></item>
+        <item>installApp</item>
+        <item>removeApp</item>
+        <item>activateApp</item>
+        <item>deactivateApp</item>
+        <item>enableApp</item>
+        <item>disableApp</item>
+        <item>clearAppData</item>
+        <item>getRunningAppNameList</item>
+        <item>getRunningPkgNameList</item>
+        <item>getInstallAppNameList</item>
+        <item>getInstallPkgNameList</item>
+        <item>getBuiltinSystemAppNameList</item>
+        <item>getBuiltinSystemPkgNameList</item>
+        <item>getDisabledAppNameList</item>
+        <item>getDisabledPkgNameList</item>
+        <item>osUpdate</item>
+        <item>runSysCmd</item>
+        <item>getAppInfoByAppName</item>
+        <item>getAppInfoByPkgName</item>
+        <item>setDefaultApp</item>
+        <item>clearDefaultApps_with_PackageNameArray</item>
+        <item>clearDefaultApps_Action_CategoriesArray</item>
+    </string-array>
+
+    <string-array name="audio">
+        <item></item>
+        <item>setDefaultNotificationSound</item>
+        <item>setRingtoneSound</item>
+        <item>setDialPadTouchTones_Enable</item>
+        <item>setDialPadTouchTones_Disable</item>
+        <item>setTouchSound_Enable</item>
+        <item>setTouchSound_Disable</item>
+        <item>setVibrateOnTouch_Enable</item>
+        <item>setVibrateOnTouch_Disable</item>
+        <item>setVolume</item>
+    </string-array>
+
+    <string-array name="clock">
+        <item></item>
+        <item>setNTPServer</item>
+        <item>getNTPServer</item>
+        <item>setTimeMode_Enable</item>
+        <item>setTimeMode_Disable</item>
+        <item>getTimeMode</item>
+        <item>setManualDate</item>
+        <item>setManualTime</item>
+        <item>getManualTime</item>
+        <item>setTimeZoneMode_Enable</item>
+        <item>setTimeZoneMode_Disable</item>
+        <item>getTimeZoneMode</item>
+        <item>setTimeZone</item>
+        <item>getTimeZone</item>
+        <item>setTimeFormat_24</item>
+        <item>setTimeFormat_12</item>
+        <item>getTimeFormat</item>
+    </string-array>
+
+    <string-array name="debugging">
+        <item></item>
+        <item>saveLogcatFile</item>
+        <item>stopSaveLogcat</item>
+    </string-array>
+
+    <string-array name="display">
+        <item></item>
+        <item>SetDisplayTimeout</item>
+        <item>GetDisplayTimeout</item>
+        <item>SetStayAwake_Enable</item>
+        <item>SetStayAwake_Disable</item>
+        <item>GetStayAwake</item>
+        <item>SetFontSize</item>
+        <item>GetFontSize</item>
+        <item>SetScreenBacklightLevel</item>
+        <item>GetScreenBacklightLevel</item>
+        <item>SetAutoBrightness_Enable</item>
+        <item>SetAutoBrightness_Disable</item>
+        <item>DisableScreenLock</item>
+        <item>SetAutoRotation_Enable</item>
+        <item>SetAutoRotation_Disable</item>
+        <item>setDisplayBatteryPercentage_Enable</item>
+        <item>setDisplayBatteryPercentage_Disable</item>
+        <item>SetGloveMode_Enable</item>
+        <item>SetGloveMode_Disable</item>
+        <item>GetGloveMode</item>
+        <item>ShowLockScreenNotification</item>
+        <item>HideLockScreenNotification</item>
+        <item>SetScreenOrientationDisable</item>
+        <item>SetScreenOrientationPortrait</item>
+        <item>SetScreenOrientationLandscape</item>
+        <item>SetScreenOrientationRevertPortrait</item>
+        <item>SetScreenOrientationRevertLandscape</item>
+        <item>SetScreenOrientationAuto</item>
+    </string-array>
+
+    <string-array name="dmi">
+        <item></item>
+        <item>HW_Flash_Enable</item>
+        <item>HW_Flash_Disable</item>
+        <item>HW_Flash_Get_Status</item>
+        <item>HW_Camera_Enable</item>
+        <item>HW_Camera_Disable</item>
+        <item>HW_Camera_Get_Status</item>
+        <item>HW_Keyboard_Enable</item>
+        <item>HW_Keyboard_Disable</item>
+        <item>HW_Keyboard_Get_Status</item>
+        <item>HW_Usb_Enable</item>
+        <item>HW_Usb_Disable</item>
+        <item>HW_Usb_Get_Status</item>
+        <item>HW_Usb_MTP_Mode_Enable</item>
+        <item>HW_Usb_MTP_Mode_Disable</item>
+        <item>HW_Usb_MTP_Mode_Get_Status</item>
+        <item>HW_Gps_Enable</item>
+        <item>HW_Gps_Disable</item>
+        <item>HW_Gps_Get_Status</item>
+        <item>HW_WWAN_Enable</item>
+        <item>HW_WWAN_Disable</item>
+        <item>HW_WWAN_Get_Status</item>
+        <item>HW_Scanner_Enable</item>
+        <item>HW_Scanner_Disable</item>
+        <item>HW_Scanner_Get_Status</item>
+        <item>HW_Ime_Enable</item>
+        <item>HW_Ime_Disable</item>
+        <item>HW_Ime_Get_Status</item>
+        <item>HW_WLAN_Enable</item>
+        <item>HW_WLAN_Disable</item>
+        <item>HW_WLAN_Get_Status</item>
+        <item>HW_Bluetooth_Enable</item>
+        <item>HW_Bluetooth_Disable</item>
+        <item>HW_Bluetooth_Get_Status</item>
+        <item>HW_Touch_Enable</item>
+        <item>HW_Touch_Disable</item>
+        <item>HW_Touch_Get_Status</item>
+        <item>HW_DozeMode_Enable</item>
+        <item>HW_DozeMode_Disable</item>
+        <item>HW_DozeMode_Get_Status</item>
+    </string-array>
+
+    <string-array name="file">
+        <item></item>
+        <item>writeUTF8ToFile</item>
+        <item>writeToFile</item>
+        <item>readFromFile</item>
+        <item>copyFile</item>
+        <item>createFile</item>
+        <item>deleteFile</item>
+        <item>createFileStream</item>
+        <item>exists</item>
+        <item>isDirectory</item>
+        <item>list</item>
+        <item>openFile</item>
+        <item>renameTo</item>
+        <item>canWrite</item>
+        <item>canRead</item>
+    </string-array>
+
+    <string-array name="fota">
+        <item></item>
+        <item>silentOSUpdate</item>
+    </string-array>
+
+    <string-array name="general">
+        <item></item>
+        <item>setLanguage</item>
+        <item>setImeCurrentKeyboard</item>
+        <item>getDeviceSerialNumber</item>
+        <item>getDeviceBuildNumber</item>
+    </string-array>
+
+    <string-array name="keymap">
+        <item></item>
+        <item>enableKeyMapping_Enable</item>
+        <item>enableKeyMapping_Disable</item>
+        <item>addKeyMappings_Keycode</item>
+        <item>addKeyMappings_LaunchApp</item>
+        <item>resetKeyMappings</item>
+        <item>importKeyMappings</item>
+        <item>exportKeyMappings</item>
+    </string-array>
+
+    <string-array name="location">
+        <item></item>
+        <item>SW_setLocationMode_Enable</item>
+        <item>SW_setLocationMode_Disable</item>
+    </string-array>
+
+    <string-array name="nfc">
+        <item></item>
+        <item>SW_nfc_Enable</item>
+        <item>SW_nfc_Disable</item>
+    </string-array>
+
+    <string-array name="power">
+        <item></item>
+        <item>ColdBoot</item>
+        <item>WarmBoot</item>
+        <item>acquireWakeLock</item>
+        <item>releaseWakeLock</item>
+    </string-array>
+
+    <string-array name="safemodelock">
+        <item></item>
+        <item>setSafeModeLock</item>
+    </string-array>
+
+    <string-array name="scanner">
+        <item></item>
+        <item>importSettings</item>
+        <item>exportSettings</item>
+        <item>importEaSeriesSettings</item>
+        <item>exportEaSeriesSettings</item>
+    </string-array>
+
+    <string-array name="uapps">
+        <item></item>
+        <item>Elauncher_setEnabled</item>
+        <item>Elauncher_setKioskApp</item>
+        <item>Elauncher_setLauncherAppList</item>
+        <item>Elauncher_setWallpaper</item>
+        <item>Elauncher_setPINCode</item>
+        <item>Elauncher_setMode</item>
+        <item>MoboLink_SetServerURL</item>
+        <item>MoboLink_SetRebootstrap</item>
+        <item>MoboLink_SetShowUI</item>
+        <item>MoboLink_SetConnectionNotification</item>
+        <item>MoboLink_SetEventNotification</item>
+        <item>MoboLink_SetUserConfigurable</item>
+        <item>MoboLink_SetAutoRun</item>
+        <item>MoboLink_SetMoboLinkConfig</item>
+        <item>SoftwareUpdate_updateConfig</item>
+        <item>SoftwareUpdate_exportSettings</item>
+        <item>SoftwareUpdate_importSettings</item>
+        <item>SoftwareUpdate_resetSettings</item>
+        <item>StageGo_setReportPath</item>
+        <item>StageGo_setReportMaxNum</item>
+        <item>StageGo_enabledBootupScript</item>
+        <item>StageGo_setBootupScript</item>
+        <item>StageGo_setPasscode</item>
+        <item>StageGo_setScanMode</item>
+        <item>RFID2Key_importSettings</item>
+        <item>RFID2Key_exportSettings</item>
+        <item>RFID2Key_resetSettings</item>
+        <item>RFID2Key_setMode</item>
+        <!--item>RFID2Key_updateSettings</item-->
+    </string-array>
+
+    <string-array name="security">
+        <item></item>
+        <item>setAdbDebugging_Enable</item>
+        <item>setAdbDebugging_Disable</item>
+    </string-array>
+
+    <string-array name="wlan">
+        <item></item>
+        <item>setWifiProfile</item>
+        <item>getWifiProfile</item>
+        <item>setIpAssignmentProfile</item>
+        <item>getIpAssignmentProfile</item>
+        <item>setProxyProfile</item>
+        <item>getProxyProfile</item>
+        <item>deleteProfile</item>
+        <item>isProfileExisted</item>
+        <item>connectProfile</item>
+        <item>getConnectedProfile</item>
+        <item>removeAllProfiles</item>
+        <item>isProfilesEmpty</item>
+        <item>SW_Wifi_Enable</item>
+        <item>SW_Wifi_Disable</item>
+        <item>setWifiEnterpriseProfile</item>
+        <item>setCaptivePortalMode</item>
+        <item>setCaptivePortalUseHttps</item>
+        <item>setCaptivePortalHttpUrl</item>
+        <item>setCaptivePortalHttpsUrl</item>
+        <item>setWiFiRandomizeMAC</item>
+        <item>getWiFiRandomizeMACStatus</item>
+    </string-array>
+
+    <string-array name="wlanadvanced">
+        <item></item>
+        <item>importSettings</item>
+        <item>exportSettings</item>
+        <item>setNewSetting</item>
+    </string-array>
+
+    <string-array name="usu">
+        <item></item>
+        <item>getPairingBarcode</item>
+        <item>getTargetScanner</item>
+        <item>askScannerToUnpair</item>
+        <item>getScannerSerialNumber</item>
+        <item>getScannerBluetoothName</item>
+        <item>getScannerBluetoothMacAddress</item>
+        <item>getScannerFirmwareVersion</item>
+        <item>getScannerBatteryLevel</item>
+        <item>getScannerTriggerKey</item>
+        <item>setScannerTriggerKey</item>
+        <item>startDecode</item>
+        <item>stopDecode</item>
+        <item>getDataACK</item>
+        <item>setDataACK</item>
+        <item>getAutoConnection</item>
+        <item>setAutoConnection</item>
+        <item>getScannerSymbologyConfiguration</item>
+        <item>setScannerSymbologyConfiguration</item>
+        <item>getScannerBtSignalCheckingLevel</item>
+        <item>setScannerBtSignalCheckingLevel</item>
+        <item>getScannerDataTerminator</item>
+        <item>setScannerDataTerminator</item>
+        <item>enterIntoSsiMode</item>
+        <item>enterIntoRawMode</item>
+        <item>receiveCurrentDataMode</item>
+        <item>sendACKIndicator</item>
+        <item>exportSettings</item>
+        <item>importSettings</item>
+        <item>uploadSettings</item>
+    </string-array>
+
+</resources>

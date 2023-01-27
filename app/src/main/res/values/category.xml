@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item></item>
+        <item>Apn</item>
+        <item>AppManagement</item>
+        <item>Audio</item>
+        <item>Clock</item>
+        <item>Debugging</item>
+        <item>Display</item>
+        <item>DMI</item>
+        <item>File</item>
+        <item>Fota</item>
+        <item>General</item>
+        <item>Keymap</item>
+        <item>Location</item>
+        <item>Nfc</item>
+        <item>Power</item>
+        <item>Safemodelock</item>
+        <item>Sacnner</item>
+        <item>Uapps</item>
+        <item>Security</item>
+        <item>Wlan</item>
+        <item>WlanAdvanced</item>
+        <item>USU</item>
+    </string-array>
+</resources>

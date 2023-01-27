@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.*
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
+import com.yazaki_groupcom.app.testScan.TestScanActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
@@ -68,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestScanServiceActivity::class.java)
+            Intent(this@FirstActivity, TestScanActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -154,6 +155,13 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TestScanServiceActivity::class.java)
             startActivity(intent)
         }
+
+        binding.TestScanActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestScanActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }
