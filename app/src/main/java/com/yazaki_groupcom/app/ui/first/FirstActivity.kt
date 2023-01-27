@@ -8,10 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.yazaki_groupcom.app.Config
-import com.yazaki_groupcom.app.TestRetrofitActivity
-import com.yazaki_groupcom.app.TestSmartRefreshLayoutActivity
-import com.yazaki_groupcom.app.TestSqlActivity
+import com.yazaki_groupcom.app.*
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
@@ -71,7 +68,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestRetrofitActivity::class.java)
+            Intent(this@FirstActivity, TestScanServiceActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -151,6 +148,13 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TestRetrofitActivity::class.java)
             startActivity(intent)
         }
+
+        binding.TestScanServiceActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestScanServiceActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
