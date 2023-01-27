@@ -60,6 +60,16 @@
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Scan To Keyを有効"
+                android:id="@+id/tv_scan2key_true"
+                />
+            <TextView
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_layout"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Unitech Scan Serviceの終了"
                 android:id="@+id/tv_close"
                 />

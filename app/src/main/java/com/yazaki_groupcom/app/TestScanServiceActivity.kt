@@ -40,6 +40,16 @@ class TestScanServiceActivity : AppCompatActivity() {
             }
         }
 
+        //Scan To Keyを有効
+        binding.tvScan2keyTrue.setOnClickListener {
+            Intent().also { intent ->
+                intent.action = "unitech.scanservice.scan2key_setting"
+                intent.putExtra("scan2key", true)
+                sendBroadcast(intent)
+                Toast.makeText(this, "scan2key_setting : scan2key, true", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         //Unitech Scan Serviceの終了
         binding.tvClose.setOnClickListener {
             Intent().also { intent ->
