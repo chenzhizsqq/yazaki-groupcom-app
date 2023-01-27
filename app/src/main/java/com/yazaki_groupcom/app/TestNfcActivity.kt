@@ -2,6 +2,7 @@ package com.yazaki_groupcom.app
 
 import android.app.PendingIntent
 import android.content.Intent
+import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.os.Bundle
@@ -48,18 +49,30 @@ class TestNfcActivity : BaseActivity() {
         if (intent != null && NfcAdapter.ACTION_TAG_DISCOVERED == intent.action) {
             val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
             val id = tag?.id
-            // Do something with the ID
 
-            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show()
-            Log.e(TAG, "NFC onNewIntent tag?.id: "+id.toString() )
+            Toast.makeText(this, id!!.toList().toString(), Toast.LENGTH_SHORT).show()
 
-            Toast.makeText(this, intent.toString(), Toast.LENGTH_SHORT).show()
-            Log.e(TAG, "NFC onNewIntent intent: $intent")
+            //获取卡的id编号
+            id?.forEach { str ->
+                Log.e(TAG, "读取NFC卡的 id 编号: id foreach :$str")
+            }
 
+        }
+
+        //？
+        if (intent != null) {
+            if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
+                intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)?.also { rawMessages ->
+                    val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
+                    // Process the messages array.
+
+                    Log.e(TAG, "onNewIntent: messages : $messages")
+                }
+            }
         }
     }
 
-    //
+    //？
     override fun onPause() {
         super.onPause()
         if (nfcAdapter != null) {
