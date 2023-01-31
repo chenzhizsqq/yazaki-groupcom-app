@@ -15,6 +15,7 @@ class TestNfcActivity : BaseActivity() {
     companion object {
         const val TAG: String = "TestNfcActivity"
     }
+
     private lateinit var nfcAdapter: NfcAdapter
 
     private lateinit var binding: ActivityTestNfcBinding
@@ -23,22 +24,34 @@ class TestNfcActivity : BaseActivity() {
         binding = ActivityTestNfcBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+        try {
+            nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+        } catch (e: Exception) {
+            Log.e(TAG, "onCreate: nfcAdapter", e)
+        }
 
-        //开始读NFC
+        //NFC読み取り開始
         binding.readNfcButton.setOnClickListener {
-            if (nfcAdapter != null && nfcAdapter.isEnabled) {
-                val intent = Intent(this, javaClass)
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-                nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
+            try {
+                if (nfcAdapter != null && nfcAdapter.isEnabled) {
+                    val intent = Intent(this, javaClass)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+                    nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
 
-                Toast.makeText(this, "NFC is start", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "NFC is start" )
-            } else {
-                // NFC is not enabled, show a message to the user
-                Toast.makeText(this, "NFC is not enabled, show a message to the user", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "NFC is not enabled" )
+                    Toast.makeText(this, "NFC is start", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "NFC is start")
+                } else {
+                    // NFC is not enabled, show a message to the user
+                    Toast.makeText(
+                        this,
+                        "NFC is not enabled, show a message to the user",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.e(TAG, "NFC is not enabled")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "onCreate: readNfcButton", e)
             }
         }
     }
@@ -59,25 +72,28 @@ class TestNfcActivity : BaseActivity() {
 
         }
 
-        //？
         if (intent != null) {
             if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
-                intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)?.also { rawMessages ->
-                    val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
-                    // Process the messages array.
+                intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
+                    ?.also { rawMessages ->
+                        val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
+                        // Process the messages array.
 
-                    Log.e(TAG, "onNewIntent: messages : $messages")
-                }
+                        Log.e(TAG, "onNewIntent: messages : $messages")
+                    }
             }
         }
     }
 
-    //？
     override fun onPause() {
         super.onPause()
-        if (nfcAdapter != null) {
-            nfcAdapter.disableForegroundDispatch(this)
-            Log.e(TAG, "NFC is disableForegroundDispatch" )
+        try {
+            if (nfcAdapter != null) {
+                nfcAdapter.disableForegroundDispatch(this)
+                Log.e(TAG, "NFC is disableForegroundDispatch")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "onPause: nfcAdapter disableForegroundDispatch", e)
         }
     }
 }
