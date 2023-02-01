@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import androidx.room.Room
-import com.yazaki_groupcom.app.db.AppDatabase
+//import com.yazaki_groupcom.app.db.AppDatabase
 
 class ThisApp : Application() {
 
@@ -18,20 +18,20 @@ class ThisApp : Application() {
         lateinit var sharedPreferences: SharedPreferences
 
         //本地数据库
-        lateinit var database: AppDatabase
-
-        //本地数据库
-        fun localDBCreate(context: Context) {
-            if (!this::database.isInitialized) {
-                database = Room.databaseBuilder(
-                    context,
-                    AppDatabase::class.java,
-                    Config.databaseName
-                )
-                    .fallbackToDestructiveMigration()   //直接删除原有的数据库表并重新创建。
-                    .build()
-            }
-        }
+//        lateinit var database: AppDatabase
+//
+//        //本地数据库
+//        fun localDBCreate(context: Context) {
+//            if (!this::database.isInitialized) {
+//                database = Room.databaseBuilder(
+//                    context,
+//                    AppDatabase::class.java,
+//                    Config.databaseName
+//                )
+//                    .fallbackToDestructiveMigration()   //直接删除原有的数据库表并重新创建。
+//                    .build()
+//            }
+//        }
 
 
         /**
@@ -104,6 +104,6 @@ class ThisApp : Application() {
         context = applicationContext
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
-        localDBCreate(this)
+        //localDBCreate(this)
     }
 }

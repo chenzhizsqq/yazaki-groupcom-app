@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 ext {
@@ -44,12 +45,12 @@ android.signingConfigs.whenObjectAdded { signing ->
 
 android {
     namespace 'com.yazaki_groupcom.app'
-    compileSdk 33
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.yazaki_groupcom.app"
         minSdk 29
-        targetSdk 33
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -78,8 +79,8 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -107,11 +108,19 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
 
     //room Database
-    implementation "androidx.room:room-runtime:2.5.0"
-    annotationProcessor "androidx.room:room-compiler:2.5.0"
-    implementation 'androidx.room:room-common:2.5.0'
-    implementation 'androidx.room:room-ktx:2.5.0'
-    kapt "androidx.room:room-compiler:2.5.0"
+//    implementation "androidx.room:room-runtime:2.5.0"
+//    annotationProcessor "androidx.room:room-compiler:2.5.0"
+//    implementation 'androidx.room:room-common:2.5.0'
+//    implementation 'androidx.room:room-ktx:2.5.0'
+//    kapt "androidx.room:room-compiler:2.5.0"
+
+    def room_version = "2.4.1" // check latest version from docs
+
+    //room 数据
+    implementation 'androidx.room:room-common:2.4.1'
+    //room Database 数据库
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 

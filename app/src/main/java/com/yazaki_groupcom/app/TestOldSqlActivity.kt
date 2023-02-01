@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityTestOldSqlBinding
-import com.yazaki_groupcom.app.dbMath.MathScoreDbViewModel
 
 class TestOldSqlActivity : BaseActivity() {
     companion object {
@@ -13,7 +12,7 @@ class TestOldSqlActivity : BaseActivity() {
 
     private lateinit var binding: ActivityTestOldSqlBinding
 
-    val mathScoreDbViewModel: MathScoreDbViewModel by viewModels()
+    //val mathScoreDbViewModel: MathScoreDbViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,7 @@ class TestOldSqlActivity : BaseActivity() {
 
         }
         binding.cleanData.setOnClickListener {
-            mathScoreDbViewModel.deleteAll()
+            //mathScoreDbViewModel.deleteAll()
         }
     }
 }
