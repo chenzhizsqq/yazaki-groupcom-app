@@ -40,7 +40,7 @@ class TestNfcActivity : BaseActivity() {
                     nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
 
                     Toast.makeText(this, "NFC is start", Toast.LENGTH_SHORT).show()
-                    Log.e(TAG, "NFC is start")
+                    Log.i(TAG, "NFC is start")
                 } else {
                     // NFC is not enabled, show a message to the user
                     Toast.makeText(
@@ -61,17 +61,24 @@ class TestNfcActivity : BaseActivity() {
         super.onNewIntent(intent)
         if (intent != null && NfcAdapter.ACTION_TAG_DISCOVERED == intent.action) {
             val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
+//            val tag = if (Build.VERSION.SDK_INT >= 33) {
+//                intent.getParcelableExtra(NfcAdapter.EXTRA_TAG, Tag::class.java)
+//            } else {
+//                intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
+//            }
+
             val id = tag?.id
 
             Toast.makeText(this, id!!.toList().toString(), Toast.LENGTH_SHORT).show()
 
             //获取卡的id编号
             id?.forEach { str ->
-                Log.e(TAG, "读取NFC卡的 id 编号: id foreach :$str")
+                Log.i(TAG, "读取NFC卡的 id 编号: id foreach :$str")
             }
 
         }
 
+        //得到所有读取到的 NDEF 消息。
         if (intent != null) {
             if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
                 intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
@@ -79,7 +86,7 @@ class TestNfcActivity : BaseActivity() {
                         val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
                         // Process the messages array.
 
-                        Log.e(TAG, "onNewIntent: messages : $messages")
+                        Log.i(TAG, "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages")
                     }
             }
         }
@@ -90,7 +97,7 @@ class TestNfcActivity : BaseActivity() {
         try {
             if (nfcAdapter != null) {
                 nfcAdapter.disableForegroundDispatch(this)
-                Log.e(TAG, "NFC is disableForegroundDispatch")
+                Log.i(TAG, "NFC is disableForegroundDispatch ok")
             }
         } catch (e: Exception) {
             Log.e(TAG, "onPause: nfcAdapter disableForegroundDispatch", e)
