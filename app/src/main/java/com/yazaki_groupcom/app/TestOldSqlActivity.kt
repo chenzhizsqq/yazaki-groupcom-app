@@ -17,7 +17,6 @@ class TestOldSqlActivity : BaseActivity() {
     }
 
     private val mathScoreDbViewModel: MathScoreDbViewModel by viewModels()
-
     private lateinit var binding: ActivityTestOldSqlBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

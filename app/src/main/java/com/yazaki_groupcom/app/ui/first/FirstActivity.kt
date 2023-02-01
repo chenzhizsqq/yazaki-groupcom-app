@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.*
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
-//import com.yazaki_groupcom.app.db.TestRoomDaoActivity
+import com.yazaki_groupcom.app.db.TestRoomDaoActivity
 import com.yazaki_groupcom.app.testScan.TestScanActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
@@ -132,11 +132,11 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TestSqlActivity::class.java)
             startActivity(intent)
         }
-//        binding.TestRoomDaoActivity.setOnClickListener {
-//            val intent =
-//                Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.TestRoomDaoActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.CuttingWorkActivity.setOnClickListener {
             val intent =
