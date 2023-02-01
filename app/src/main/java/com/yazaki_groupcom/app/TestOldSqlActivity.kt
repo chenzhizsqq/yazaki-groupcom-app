@@ -24,11 +24,8 @@ class TestOldSqlActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.selectGetAll.setOnClickListener {
-            CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-                mathScoreDbViewModel.selectGetAll().forEach {
-                    Log.e(TAG, "mathScoreDbViewModel.selectGetAll: $it")
-                }
-            }
+            binding.tvLog.text = ""
+            getData()
             Tools.showMsg(binding.root,"selectGetAll")
         }
         binding.btInsert.setOnClickListener {
@@ -36,11 +33,26 @@ class TestOldSqlActivity : BaseActivity() {
             mathScoreDbViewModel.insert(mathScore)
             Tools.showMsg(binding.root,"btInsert")
 
+            binding.tvLog.text = ""
+            getData()
+
         }
 
         binding.cleanData.setOnClickListener {
             mathScoreDbViewModel.deleteAll()
             Tools.showMsg(binding.root,"cleanData")
+
+            binding.tvLog.text = ""
+            getData()
+        }
+    }
+
+    private fun getData() {
+        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+            mathScoreDbViewModel.selectGetAll().forEach {
+                Log.e(TAG, "mathScoreDbViewModel.selectGetAll: $it")
+                binding.tvLog.text = binding.tvLog.text.toString() + it + "\n"
+            }
         }
     }
 }
