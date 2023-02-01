@@ -108,19 +108,11 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
 
     //room Database
-    implementation "androidx.room:room-runtime:2.4.0"
-    annotationProcessor "androidx.room:room-compiler:2.4.0"
-    implementation 'androidx.room:room-common:2.4.0'
-    implementation 'androidx.room:room-ktx:2.4.0'
-    kapt "androidx.room:room-compiler:2.4.0"
-
-    def room_version = "2.4.1" // check latest version from docs
-
-    //room 数据
+    implementation "androidx.room:room-runtime:2.4.1"
+    annotationProcessor "androidx.room:room-compiler:2.4.1"
     implementation 'androidx.room:room-common:2.4.1'
-    //room Database 数据库
-    implementation "androidx.room:room-ktx:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    implementation 'androidx.room:room-ktx:2.4.1'
+    kapt "androidx.room:room-compiler:2.4.1"
 
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
