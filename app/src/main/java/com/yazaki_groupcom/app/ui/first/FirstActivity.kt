@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestNfcActivity::class.java)
+            Intent(this@FirstActivity, TestOldSqlActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -119,6 +119,12 @@ class FirstActivity : AppCompatActivity() {
         binding.AcUpdateActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, AcUpdateActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.TestOldSqlActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestOldSqlActivity::class.java)
             startActivity(intent)
         }
         binding.TestSqlActivity.setOnClickListener {
