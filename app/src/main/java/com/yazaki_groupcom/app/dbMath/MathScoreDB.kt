@@ -25,7 +25,9 @@ abstract class MathScoreDB : RoomDatabase() {
                     context.applicationContext,
                     MathScoreDB::class.java,
                     DATABASE_NAME
-                ).build()
+                )
+                .fallbackToDestructiveMigration()   //直接删除原有的数据库表并重新创建。
+                .build()
             }
             return mMathScoreDB
         }

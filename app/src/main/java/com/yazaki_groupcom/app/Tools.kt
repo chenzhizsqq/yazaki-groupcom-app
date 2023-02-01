@@ -22,6 +22,8 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.properties.Delegates
 
@@ -184,6 +186,13 @@ object Tools {
                     tms.get(Calendar.DAY_OF_MONTH).toString()
         }
 
+    }
+
+    fun getDateTime():String{
+        val dt = ZonedDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("YYYYMMddHHmmss")
+        val datetime = dt.format(formatter)
+        return datetime
     }
 
     /**

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestSqlActivity">
+    tools:context=".TestOldSqlActivity">
 
     <!-- 中央部 -->
     <LinearLayout
@@ -19,58 +19,22 @@
         android:layout_width="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_height="match_parent">
-        <EditText
-            android:id="@+id/user_id"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="user_id"
-            android:layout_margin="5dp" />
-        <EditText
-            android:id="@+id/user_name"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="user_name"
-            android:layout_margin="5dp" />
-        <EditText
-            android:id="@+id/role_id"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="role_id"
-            android:layout_margin="5dp" />
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            android:layout_margin="5dp" />
-        <EditText
-            android:id="@+id/insert_user"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="insert_user"
-            android:layout_margin="5dp" />
-        <EditText
-            android:id="@+id/insert_time"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="insert_time"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/tv_save"
+        <Button
+            android:id="@+id/bt_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_margin="5dp"
-            android:text="save"/>
-        <TextView
-            android:id="@+id/tv_load"
+            android:text="insert"/>
+        <Button
+            android:id="@+id/selectGetAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_margin="5dp"
-            android:text="load"/>
+            android:text="selectGetAll"/>
 
         <TextView
             android:layout_width="wrap_content"
