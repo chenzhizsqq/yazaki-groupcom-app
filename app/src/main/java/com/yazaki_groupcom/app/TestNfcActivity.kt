@@ -40,7 +40,7 @@ class TestNfcActivity : BaseActivity() {
                     nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
 
                     Toast.makeText(this, "NFC is start", Toast.LENGTH_SHORT).show()
-                    Log.i(TAG, "NFC is start")
+                    Log.e(TAG, "NFC is start")
                 } else {
                     // NFC is not enabled, show a message to the user
                     Toast.makeText(
@@ -73,7 +73,7 @@ class TestNfcActivity : BaseActivity() {
 
             //获取卡的id编号
             id?.forEach { str ->
-                Log.i(TAG, "读取NFC卡的 id 编号: id foreach :$str")
+                Log.e(TAG, "读取NFC卡的 id 编号: id foreach :$str")
             }
 
         }
@@ -86,7 +86,7 @@ class TestNfcActivity : BaseActivity() {
                         val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
                         // Process the messages array.
 
-                        Log.i(TAG, "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages")
+                        Log.e(TAG, "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages")
                     }
             }
         }
@@ -97,7 +97,7 @@ class TestNfcActivity : BaseActivity() {
         try {
             if (nfcAdapter != null) {
                 nfcAdapter.disableForegroundDispatch(this)
-                Log.i(TAG, "NFC is disableForegroundDispatch ok")
+                Log.e(TAG, "NFC is disableForegroundDispatch ok")
             }
         } catch (e: Exception) {
             Log.e(TAG, "onPause: nfcAdapter disableForegroundDispatch", e)
