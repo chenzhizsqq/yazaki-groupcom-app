@@ -13,5 +13,12 @@ class TestButtonActivity : BaseActivity()  {
         super.onCreate(savedInstanceState)
         binding = ActivityTestButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.testButton2.setOnClickListener {
+            binding.testButton2.changeState(2)
+        }
+        binding.testButton3.setOnClickListener {
+            binding.testButton3.changeState(3)
+        }
     }
 }
