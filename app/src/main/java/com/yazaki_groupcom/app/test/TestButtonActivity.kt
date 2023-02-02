@@ -16,13 +16,10 @@ class TestButtonActivity : BaseActivity()  {
         setContentView(binding.root)
 
         binding.testButton2.setOnClickListener {
-            binding.testButton2.changeSrcByState(BaseButton.Companion.ButtonState.MULTIPLE_SELECTED.state)
+            binding.testButton2.changeSrcByState(BaseButton.Companion.ButtonState.NORMAL.state)
         }
         binding.testButton3.setOnClickListener {
-            binding.testButton3.changeSrcByState(BaseButton.Companion.ButtonState.MULTIPLE_UNSELECT.state)
-        }
-        binding.testButton4.setOnClickListener {
-            binding.testButton4.changeSrcByState(BaseButton.Companion.ButtonState.NORMAL.state)
+            binding.testButton3.changeSrcByState(BaseButton.Companion.ButtonState.NORMAL.state)
         }
     }
 }

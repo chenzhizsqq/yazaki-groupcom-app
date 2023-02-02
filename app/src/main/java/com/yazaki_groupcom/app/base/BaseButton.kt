@@ -22,9 +22,8 @@ open class BaseButton : AppCompatButton {
 
         enum class ButtonState(val state: Int) {
             NORMAL(1),      //有効ボタン1：押下可能なボタン
-            MULTIPLE_UNSELECT(2),    //有効ボタン2：複数の有効ボタンを差別化したい場合に使用
-            MULTIPLE_SELECTED(3),    //有効ボタン2：複数の有効ボタンを差別化したい場合に使用
-            INVALID(4),     //無効ボタン：押下不可能なボタン
+            MULTIPLE(2),    //有効ボタン2：複数の有効ボタンを差別化したい場合に使用
+            INVALID(3),     //無効ボタン：押下不可能なボタン
         }
     }
     constructor(context: Context) : super(context) {
@@ -51,10 +50,6 @@ open class BaseButton : AppCompatButton {
 
     //按钮的样式
     private var buttonState = 0
-
-    fun getButtonState():Int{
-        return buttonState
-    }
 
     private fun initView(context: Context, attrs: AttributeSet?) {
         //获取自定义的属性值
@@ -88,27 +83,18 @@ open class BaseButton : AppCompatButton {
 
                 changeButtonColor(textColor, bgColor)
             }
-            ButtonState.MULTIPLE_UNSELECT.state -> {
+            ButtonState.MULTIPLE.state -> {
 
                 Log.e(TAG, "changeState: 2")
 
-                val textColor = R.color.black
-                val bgColor = R.color.phone_view_bg
-
-                changeButtonColor(textColor, bgColor)
-            }
-            ButtonState.MULTIPLE_SELECTED.state -> {
-
-                Log.e(TAG, "changeState: 3")
-
-                val textColor = R.color.black
-                val bgColor = R.color.purple_500
+                val textColor = Color.BLACK
+                val bgColor = R.color.ic_app_icon_background
 
                 changeButtonColor(textColor, bgColor)
             }
             ButtonState.INVALID.state -> {
 
-                Log.e(TAG, "changeState: 4")
+                Log.e(TAG, "changeState: 3")
 
                 val textColor = Color.BLACK
                 val bgColor = R.color.silvery
