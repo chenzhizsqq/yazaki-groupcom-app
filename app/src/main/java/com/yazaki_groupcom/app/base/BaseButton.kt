@@ -46,7 +46,7 @@ open class BaseButton : AppCompatButton {
     private var attrs: AttributeSet? = null
 
     //是否已经被选中了
-    private var isTouched = false
+    var isTouched = false
 
     //按钮的样式
     private var buttonState = 0
@@ -86,11 +86,20 @@ open class BaseButton : AppCompatButton {
             ButtonState.MULTIPLE.state -> {
 
                 Log.e(TAG, "changeState: 2")
+                if (isTouched){
 
-                val textColor = Color.BLACK
-                val bgColor = R.color.ic_app_icon_background
+                    val textColor = Color.BLACK
+                    val bgColor = R.color.ic_app_icon_background
 
-                changeButtonColor(textColor, bgColor)
+                    changeButtonColor(textColor, bgColor)
+                }else{
+
+                    val textColor = Color.BLACK
+                    val bgColor = R.color.phone_button_color
+
+                    changeButtonColor(textColor, bgColor)
+                }
+
             }
             ButtonState.INVALID.state -> {
 
@@ -107,9 +116,6 @@ open class BaseButton : AppCompatButton {
     private fun changeButtonColor(textCol: Int, bgCol: Int) {
         //获取自定义的属性值
         val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
-
-        //是否已经被选中了
-        isTouched = typedBaseButton.getBoolean(R.styleable.BaseButton_is_touched, false)
 
         this.setTextColor(textCol)
 
