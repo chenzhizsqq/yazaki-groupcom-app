@@ -176,6 +176,15 @@
                 android:textSize="20sp"
                 android:layout_margin="5dp"
                 android:text="UnitechSDK的官方demo：但是暂时说不支持EA520。UnitechSDK_Tester_v1.1.17"/>
+            <TextView
+                android:id="@+id/TestDatePickerActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:text="TestDatePickerActivity：测试年月选择"/>
+
 
 
 
