@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.test
 
 import android.os.Bundle
 import com.yazaki_groupcom.app.base.BaseActivity

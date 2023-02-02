@@ -16,18 +16,17 @@ import kotlinx.coroutines.CoroutineExceptionHandler
  * ベースアクティビティ
  * アクティビティ共通処理をここで処理する。
  */
-open class BaseActivity : AppCompatActivity()
-{
+open class BaseActivity : AppCompatActivity() {
 
     companion object {
         const val TAG: String = "BaseActivity"
     }
 
     //カウントダウン スリープ- 倒数器sleep
-    private  var countDownTimerSleep: CountDownTimer? = null
+    private var countDownTimerSleep: CountDownTimer? = null
 
     //カウントダウン ログアウトに移行- 倒数器logout
-    private  var countDownTimerLogout: CountDownTimer? = null
+    private var countDownTimerLogout: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +53,7 @@ open class BaseActivity : AppCompatActivity()
 
     //整个Activity()终结后，调用的函数
     override fun finish() {
-        intent.putExtra(Config.LastActivityName,this.javaClass.name )
+        intent.putExtra(Config.LastActivityName, this.javaClass.name)
         super.finish()
     }
 

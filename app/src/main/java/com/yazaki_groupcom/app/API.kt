@@ -1,5 +1,6 @@
 package com.yazaki_groupcom.app
 
+import com.yazaki_groupcom.app.test.PostsData
 import retrofit2.Response
 import retrofit2.http.GET
 

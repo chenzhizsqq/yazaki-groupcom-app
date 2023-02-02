@@ -1,8 +1,9 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.test
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityTestOldSqlBinding
 import com.yazaki_groupcom.app.dbMath.MathScore
@@ -26,12 +27,12 @@ class TestOldSqlActivity : BaseActivity() {
         binding.selectGetAll.setOnClickListener {
             binding.tvLog.text = ""
             getData()
-            Tools.showMsg(binding.root,"selectGetAll")
+            Tools.showMsg(binding.root, "selectGetAll")
         }
         binding.btInsert.setOnClickListener {
             val mathScore = MathScore(0, TAG, 2, Tools.getDate(), Tools.getDateTime())
             mathScoreDbViewModel.insert(mathScore)
-            Tools.showMsg(binding.root,"btInsert")
+            Tools.showMsg(binding.root, "btInsert")
 
             binding.tvLog.text = ""
             getData()
@@ -40,7 +41,7 @@ class TestOldSqlActivity : BaseActivity() {
 
         binding.cleanData.setOnClickListener {
             mathScoreDbViewModel.deleteAll()
-            Tools.showMsg(binding.root,"cleanData")
+            Tools.showMsg(binding.root, "cleanData")
 
             binding.tvLog.text = ""
             getData()

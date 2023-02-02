@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Yazakigroupcomapp"
         tools:targetApi="31">
         <activity
-            android:name=".TestNfcActivity"
+            android:name=".test.TestNfcActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -32,21 +32,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TestScanServiceActivity"
+            android:name=".test.TestScanServiceActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TestRetrofitActivity"
+            android:name=".test.TestRetrofitActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TestSmartRefreshLayoutActivity"
+            android:name=".test.TestSmartRefreshLayoutActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -67,14 +67,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TestOldSqlActivity"
+            android:name=".test.TestOldSqlActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TestSqlActivity"
+            android:name=".test.TestSqlActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

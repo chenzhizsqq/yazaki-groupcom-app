@@ -1,13 +1,14 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.test
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.yazaki_groupcom.app.API
 import com.yazaki_groupcom.app.databinding.ActivityTestRetrofitBinding
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -43,10 +44,10 @@ class TestRetrofitActivity : AppCompatActivity() {
         viewModel.strData.observe(this) {
             binding.tvTest.text = it
         }
-        viewModel.postsDataList.observe(this){
+        viewModel.postsDataList.observe(this) {
             it.forEach { postsData ->
-                Log.e(TAG, "onCreate: postsData.id - "+postsData.id )
-                Log.e(TAG, "onCreate: postsData.title - "+postsData.title )
+                Log.e(TAG, "onCreate: postsData.id - " + postsData.id)
+                Log.e(TAG, "onCreate: postsData.title - " + postsData.title)
             }
         }
 
@@ -56,13 +57,13 @@ class TestRetrofitActivity : AppCompatActivity() {
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
 
-        binding.button.setOnClickListener{
+        binding.button.setOnClickListener {
             lifecycleScope.launch {
                 val api = retrofit.create(API::class.java)
                 val response = api.getResponseGson()
                 // Do something with the users
 
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     viewModel.strData.postValue(response.body().toString())
                     viewModel.postsDataList.postValue(response.body())
                 }

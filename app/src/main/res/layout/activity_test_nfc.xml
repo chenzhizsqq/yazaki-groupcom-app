@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestNfcActivity">
+    tools:context=".test.TestNfcActivity">
 
     <!-- 中央部 -->
     <androidx.core.widget.NestedScrollView

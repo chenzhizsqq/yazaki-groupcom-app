@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.test
 
 import android.app.PendingIntent
 import android.content.Intent
@@ -86,7 +86,10 @@ class TestNfcActivity : BaseActivity() {
                         val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
                         // Process the messages array.
 
-                        Log.e(TAG, "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages")
+                        Log.e(
+                            TAG,
+                            "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages"
+                        )
                     }
             }
         }

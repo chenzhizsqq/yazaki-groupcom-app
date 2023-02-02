@@ -1,7 +1,5 @@
 package com.yazaki_groupcom.app
 
-import androidx.appcompat.app.AppCompatActivity
-
 class Config {
     companion object {
         const val ApiUrl = "https://localhost/"

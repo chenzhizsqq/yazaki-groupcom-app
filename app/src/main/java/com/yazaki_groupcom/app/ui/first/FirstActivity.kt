@@ -8,9 +8,9 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.yazaki_groupcom.app.*
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
+import com.yazaki_groupcom.app.test.*
 import com.yazaki_groupcom.app.testScan.TestScanActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity

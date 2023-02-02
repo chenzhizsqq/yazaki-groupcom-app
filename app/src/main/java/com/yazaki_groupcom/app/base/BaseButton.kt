@@ -34,9 +34,9 @@ class BaseButton : AppCompatButton {
 
     //是否已经被选中了
     private var isTouched = false
-    fun setTouch(isTouch:Boolean,context: Context, attrs: AttributeSet?){
+    fun setTouch(isTouch: Boolean, context: Context, attrs: AttributeSet?) {
         this.isTouched = isTouch
-        if (!this.isTouched){
+        if (!this.isTouched) {
 
             //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
             val default = ContextCompat.getColor(context, R.color.purple_500)
@@ -45,8 +45,9 @@ class BaseButton : AppCompatButton {
             //获取设置的背景色
             val bgColor = typedBaseButton.getColor(R.styleable.BaseButton_bg_color, default)
             //获取设置的圆角大小
-            val buttonCorner = typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
-        }else{
+            val buttonCorner =
+                typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+        } else {
             initView(context, null)
         }
     }
@@ -59,11 +60,12 @@ class BaseButton : AppCompatButton {
         //获取设置的背景色
         val bgColor = typedBaseButton.getColor(R.styleable.BaseButton_bg_color, default)
         //获取设置的圆角大小
-        val buttonCorner = typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+        val buttonCorner =
+            typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
         //是否已经被选中了
         isTouched = typedBaseButton.getBoolean(R.styleable.BaseButton_is_touched, false)
 
-        if (!isTouched){
+        if (!isTouched) {
             //生成圆角图片
             val bgcDrawable = GradientDrawable()
             //设置图片颜色

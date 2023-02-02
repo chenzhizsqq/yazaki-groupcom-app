@@ -1,7 +1,7 @@
-package com.yazaki_groupcom.app
+package com.yazaki_groupcom.app.test
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.footer.BallPulseFooter
@@ -15,6 +15,7 @@ class TestSmartRefreshLayoutActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTestSmartRefreshLayoutBinding
     private lateinit var mAdapter: CuttingWorkAdapter
+
     //情報データアレイ
     private var dataArray = ArrayList<CuttingWorkData>()
 
