@@ -73,15 +73,31 @@
                 style="@style/MyButtonStyleSmall"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:textColor="@color/black"
                 app:bg_color="@color/white"
-                android:maxLines="2"
-                android:minLines="2"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="10sp"
-                android:text="新样式"/>
+                android:text="新样式1"/>
+            <com.yazaki_groupcom.app.base.BaseButton
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                app:bg_color="@color/white"
+                android:text="新样式2"/>
+            <com.yazaki_groupcom.app.base.BaseButton
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                app:bg_color="@color/white"
+                app:is_touched="true"
+                android:text="新样式3"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
