@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestDatePickerActivity::class.java)
+            Intent(this@FirstActivity, TestButtonActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -176,6 +176,11 @@ class FirstActivity : AppCompatActivity() {
         binding.TestDatePickerActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, TestDatePickerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.TestButtonActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestButtonActivity::class.java)
             startActivity(intent)
         }
 

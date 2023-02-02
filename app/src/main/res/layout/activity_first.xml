@@ -184,6 +184,14 @@
                 android:textSize="20sp"
                 android:layout_margin="5dp"
                 android:text="TestDatePickerActivity：测试年月选择"/>
+            <TextView
+                android:id="@+id/TestButtonActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:text="TestButtonActivity：测试按钮的样式"/>
 
 
 
