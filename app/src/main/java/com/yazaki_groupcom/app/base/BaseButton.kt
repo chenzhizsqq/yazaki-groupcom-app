@@ -87,8 +87,8 @@ open class BaseButton : AppCompatButton {
 
                 Log.e(TAG, "changeState: 2")
 
-                val textColor = Color.RED
-                val bgColor = R.color.md_blue_700
+                val textColor = R.color.black
+                val bgColor = R.color.phone_view_bg
 
                 changeButtonColor(textColor, bgColor)
             }
@@ -97,7 +97,7 @@ open class BaseButton : AppCompatButton {
                 Log.e(TAG, "changeState: 3")
 
                 val textColor = Color.BLACK
-                val bgColor = R.color.purple_200
+                val bgColor = R.color.silvery
 
                 changeButtonColor(textColor, bgColor)
             }
