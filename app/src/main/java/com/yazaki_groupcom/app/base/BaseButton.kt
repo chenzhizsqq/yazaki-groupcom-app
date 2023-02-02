@@ -15,6 +15,15 @@ import com.yazaki_groupcom.app.R
  * 自定义圆角类按钮
  */
 class BaseButton : AppCompatButton {
+
+    companion object {
+        const val TAG: String = "BaseButton"
+        enum class ButtonType(val type: Int) {
+            NORMAL(1),      //有効ボタン1：押下可能なボタン
+            MULTIPLE(2),    //有効ボタン2：複数の有効ボタンを差別化したい場合に使用
+            INVALID(3),     //無効ボタン：押下不可能なボタン
+        }
+    }
     constructor(context: Context) : super(context) {
         initView(context, null)
     }
@@ -52,10 +61,10 @@ class BaseButton : AppCompatButton {
         isTouched = typedBaseButton.getBoolean(R.styleable.BaseButton_is_touched, false)
 
         //按钮的样式
-        buttonState = typedBaseButton.getInt(R.styleable.BaseButton_button_state, 1)
+        buttonState = typedBaseButton.getInt(R.styleable.BaseButton_button_state, ButtonType.NORMAL.type)
 
         when(buttonState){
-            1 ->{
+            ButtonType.NORMAL.type ->{
                 //生成圆角图片
                 val bgcDrawable = GradientDrawable()
                 //设置图片颜色
@@ -79,6 +88,12 @@ class BaseButton : AppCompatButton {
 
                 background = stateListDrawable
                 typedBaseButton.recycle()
+            }
+            ButtonType.MULTIPLE.type ->{
+
+            }
+            ButtonType.INVALID.type ->{
+
             }
         }
     }
