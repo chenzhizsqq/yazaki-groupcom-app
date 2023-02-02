@@ -32,20 +32,35 @@
             android:id="@+id/ll_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <TextView
-                android:id="@+id/record"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:id="@+id/selectedYear"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_margin="5dp"
-                android:text="record"/>
+                android:text="selectedYear"/>
+            <TextView
+                android:id="@+id/selectedMonth"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:text="selectedMonth"/>
+            <TextView
+                android:id="@+id/selectedDay"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:text="selectedDay"/>
             <Button
                 android:id="@+id/TestDatePickerActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TestDatePickerActivity" />
+                android:text="点击选择日期" />
 
 
         </LinearLayout>
