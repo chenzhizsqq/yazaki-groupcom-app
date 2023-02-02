@@ -71,6 +71,7 @@
                 android:text="完了" />
             <com.yazaki_groupcom.app.base.BaseButton
                 style="@style/MyButtonStyleSmall"
+                app:button_state="normal"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -79,7 +80,7 @@
                 android:id="@+id/testButton1"
                 android:text="新样式1"/>
             <com.yazaki_groupcom.app.base.BaseButton
-                app:button_state="2"
+                app:button_state="multiple"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -88,7 +89,7 @@
                 android:id="@+id/testButton2"
                 android:text="新样式2"/>
             <com.yazaki_groupcom.app.base.BaseButton
-                app:button_state="3"
+                app:button_state="invalid"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"

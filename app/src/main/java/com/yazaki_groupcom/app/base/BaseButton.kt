@@ -19,6 +19,12 @@ open class BaseButton : AppCompatButton {
 
     companion object {
         const val TAG: String = "BaseButton"
+
+        enum class ButtonState(val state: Int) {
+            NORMAL(1),      //有効ボタン1：押下可能なボタン
+            MULTIPLE(2),    //有効ボタン2：複数の有効ボタンを差別化したい場合に使用
+            INVALID(3),     //無効ボタン：押下不可能なボタン
+        }
     }
     constructor(context: Context) : super(context) {
         initView(context, null)
@@ -49,45 +55,46 @@ open class BaseButton : AppCompatButton {
         //获取自定义的属性值
         val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
         //按钮的样式
-        buttonState = typedBaseButton.getInt(R.styleable.BaseButton_button_state, 1)
+        buttonState =
+            typedBaseButton.getInt(R.styleable.BaseButton_button_state, ButtonState.NORMAL.state)
+        //Log.e(TAG, "!!!initView: buttonState:$buttonState", )
 
         //是否已经被选中了
         isTouched = typedBaseButton.getBoolean(R.styleable.BaseButton_is_touched, false)
 
         this.attrs = attrs
 
-        changeState(buttonState)
+        changeSrcByState(buttonState)
 
 
     }
 
-     fun changeState(buttonState:Int){
+    fun changeSrcByState(buttonState: Int) {
 
-         Log.e(TAG, "changeState: name:"+this.text )
-         Log.e(TAG, "changeState: buttonState:$buttonState", )
+//         Log.e(TAG, "changeState: name:"+this.text )
+//         Log.e(TAG, "changeState: buttonState:$_buttonState", )
 
-
-        when(buttonState){
-            1 ->{
-                Log.e(TAG, "changeState: 1", )
+        when (buttonState) {
+            ButtonState.NORMAL.state -> {
+                Log.e(TAG, "changeState: 1")
 
                 val textColor = Color.WHITE
                 val bgColor = R.color.purple_500
 
                 changeButtonColor(textColor, bgColor)
             }
-            2 ->{
+            ButtonState.MULTIPLE.state -> {
 
-                Log.e(TAG, "changeState: 2", )
+                Log.e(TAG, "changeState: 2")
 
                 val textColor = Color.RED
                 val bgColor = R.color.md_blue_700
 
                 changeButtonColor(textColor, bgColor)
             }
-            3 ->{
+            ButtonState.INVALID.state -> {
 
-                Log.e(TAG, "changeState: 3", )
+                Log.e(TAG, "changeState: 3")
 
                 val textColor = Color.BLACK
                 val bgColor = R.color.purple_200

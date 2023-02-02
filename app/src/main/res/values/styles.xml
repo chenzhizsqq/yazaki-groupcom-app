@@ -26,15 +26,14 @@
         <!-- 是否被按了-->
         <attr name="is_touched" format="boolean" />
         <!-- 按键状态-->
-        <attr name="button_state" format="integer" />
-<!--        <attr name="button_state" format="enum">-->
-<!--            &lt;!&ndash; 有効ボタン1：押下可能なボタン &ndash;&gt;-->
-<!--            <enum name="normal" value="1" />-->
-<!--            &lt;!&ndash; 有効ボタン2：複数の有効ボタンを差別化したい場合に使用&ndash;&gt;-->
-<!--            <enum name="multiple" value="2" />-->
-<!--            &lt;!&ndash; 無効ボタン：押下不可能なボタン &ndash;&gt;-->
-<!--            <enum name="invalid" value="3" />-->
-<!--        </attr>-->
+        <attr name="button_state" format="enum">
+            <!-- 有効ボタン1：押下可能なボタン -->
+            <enum name="normal" value="1" />
+            <!-- 有効ボタン2：複数の有効ボタンを差別化したい場合に使用-->
+            <enum name="multiple" value="2" />
+            <!-- 無効ボタン：押下不可能なボタン -->
+            <enum name="invalid" value="3" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="CustomCheckBox">
