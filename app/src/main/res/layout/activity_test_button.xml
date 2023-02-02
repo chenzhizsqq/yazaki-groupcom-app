@@ -82,6 +82,7 @@
                 android:paddingEnd="10dp"
                 android:textSize="10sp"
                 android:text="新样式"/>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
