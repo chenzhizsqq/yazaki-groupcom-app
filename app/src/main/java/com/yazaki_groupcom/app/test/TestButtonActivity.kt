@@ -1,7 +1,6 @@
 package com.yazaki_groupcom.app.test
 
 import android.os.Bundle
-import android.util.Log
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.ActivityTestButtonBinding
@@ -20,10 +19,10 @@ class TestButtonActivity : BaseActivity()  {
 
             binding.testButton2.isTouched = !binding.testButton2.isTouched
             //Log.e(TAG, "onCreate: binding.testButton2.isTouched:"+binding.testButton2.isTouched )
-            binding.testButton2.changeSrcByState(BaseButton.Companion.ButtonState.MULTIPLE.state)
+            binding.testButton2.changeColorByState(BaseButton.Companion.ButtonState.MULTIPLE.state)
         }
         binding.testButton3.setOnClickListener {
-            binding.testButton3.changeSrcByState(BaseButton.Companion.ButtonState.NORMAL.state)
+            binding.testButton3.changeColorByState(BaseButton.Companion.ButtonState.NORMAL.state)
         }
     }
 }

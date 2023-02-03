@@ -54,9 +54,10 @@ open class BaseButton : AppCompatButton {
     private fun initView(context: Context, attrs: AttributeSet?) {
         //获取自定义的属性值
         val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
+
         //按钮的样式
         buttonState =
-            typedBaseButton.getInt(R.styleable.BaseButton_button_state, ButtonState.NORMAL.state)
+            typedBaseButton.getInt(R.styleable.BaseButton_button_state, 0)
         //Log.e(TAG, "!!!initView: buttonState:$buttonState", )
 
         //是否已经被选中了
@@ -64,19 +65,18 @@ open class BaseButton : AppCompatButton {
 
         this.attrs = attrs
 
-        changeSrcByState(buttonState)
-
+        changeColorByState(buttonState)
 
     }
 
-    fun changeSrcByState(buttonState: Int) {
+    fun changeColorByState(buttonState: Int) {
 
 //         Log.e(TAG, "changeState: name:"+this.text )
 //         Log.e(TAG, "changeState: buttonState:$_buttonState", )
 
         when (buttonState) {
             ButtonState.NORMAL.state -> {
-                Log.e(TAG, "changeState: 1")
+                Log.e(TAG, "changeColorByState: 1")
 
                 val textColor = Color.WHITE
                 val bgColor = R.color.purple_500
@@ -85,7 +85,7 @@ open class BaseButton : AppCompatButton {
             }
             ButtonState.MULTIPLE.state -> {
 
-                Log.e(TAG, "changeState: 2")
+                Log.e(TAG, "changeColorByState: 2")
                 if (isTouched){
 
                     val textColor = Color.BLACK
@@ -103,10 +103,19 @@ open class BaseButton : AppCompatButton {
             }
             ButtonState.INVALID.state -> {
 
-                Log.e(TAG, "changeState: 3")
+                Log.e(TAG, "changeColorByState: 3")
 
                 val textColor = Color.BLACK
                 val bgColor = R.color.silvery
+
+                changeButtonColor(textColor, bgColor)
+            }
+            else ->{
+
+                Log.e(TAG, "changeColorByState: else")
+
+                val textColor = Color.WHITE
+                val bgColor = R.color.purple_500
 
                 changeButtonColor(textColor, bgColor)
             }
