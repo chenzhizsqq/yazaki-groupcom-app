@@ -3,6 +3,9 @@ package com.yazaki_groupcom.app.test
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -22,11 +25,19 @@ class TestComposeActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    DefaultPreview()
                 }
             }
         }
     }
+}
+
+data class Message(val author: String, val body: String)
+
+@Composable
+fun MessageCard(msg: Message) {
+    Text(text = msg.author)
+    Text(text = msg.body)
 }
 
 @Composable
@@ -38,6 +49,9 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     YazakigroupcomappTheme {
-        Greeting("Android")
+        Row() {
+            Greeting("Android")
+            MessageCard(Message("Android", "Jetpack Compose"))
+        }
     }
 }
