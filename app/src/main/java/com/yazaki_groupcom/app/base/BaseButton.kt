@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 
 
@@ -78,8 +79,8 @@ open class BaseButton : AppCompatButton {
             ButtonState.NORMAL.state -> {
                 Log.e(TAG, "changeColorByState: 1")
 
-                val textColor = Color.WHITE
-                val bgColor = R.color.purple_500
+                val textColor = Color.parseColor("#FFFFFFFF")
+                val bgColor = Config.buttonBgColor
 
                 changeButtonColor(textColor, bgColor)
             }
@@ -111,34 +112,36 @@ open class BaseButton : AppCompatButton {
                 changeButtonColor(textColor, bgColor)
             }
             else ->{
-
                 Log.e(TAG, "changeColorByState: else")
-
-                val textColor = Color.WHITE
-                val bgColor = R.color.purple_500
-
-                changeButtonColor(textColor, bgColor)
+                changeButtonColor(null, null)
             }
         }
     }
 
-    private fun changeButtonColor(textCol: Int, bgCol: Int) {
+    private fun changeButtonColor(textCol: Int?, bgCol: Int?) {
         //获取自定义的属性值
         val typedBaseButton = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
 
-        this.setTextColor(textCol)
+        if (textCol != null) {
+            this.setTextColor(textCol)
+        }
 
         //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
-        val default = ContextCompat.getColor(context, bgCol)
+        var default = bgCol?.let { ContextCompat.getColor(context, it) }
+        if (bgCol==null){
+            default = ContextCompat.getColor(context, Config.buttonBgColor)
+        }
         //获取设置的背景色
-        val bgColor = typedBaseButton.getColor(R.styleable.BaseButton_bg_color, default)
+        val bgColor = default?.let { typedBaseButton.getColor(R.styleable.BaseButton_bg_color, it) }
         //获取设置的圆角大小
         val buttonCorner =
-            typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 3)
+            typedBaseButton.getDimensionPixelSize(R.styleable.BaseButton_bg_corner, 5)
         //生成圆角图片
         val bgcDrawable = GradientDrawable()
         //设置图片颜色
-        bgcDrawable.setColor(bgColor)
+        if (bgColor != null) {
+            bgcDrawable.setColor(bgColor)
+        }
         //设置圆角大小
         bgcDrawable.cornerRadius = buttonCorner.toFloat()
 

@@ -23,6 +23,9 @@ class Config {
         const val timeToLogout = 120
 
         const val databaseName = "my_database"
+
+        //默认按键背景颜色
+        const val buttonBgColor = R.color.purple_500
     }
 
 }
