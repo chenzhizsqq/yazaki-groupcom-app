@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestButtonActivity::class.java)
+            Intent(this@FirstActivity, TestComposeActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -181,6 +181,11 @@ class FirstActivity : AppCompatActivity() {
         binding.TestButtonActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, TestButtonActivity::class.java)
+            startActivity(intent)
+        }
+        binding.TestComposeActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestComposeActivity::class.java)
             startActivity(intent)
         }
 

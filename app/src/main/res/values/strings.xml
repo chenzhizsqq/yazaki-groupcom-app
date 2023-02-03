@@ -24,4 +24,5 @@
     <string name="select_a_feature">Select a feature:</string>
     <string name="button_go">Go</string>
     <string name="label">label</string>
+    <string name="title_activity_test_compose">TestComposeActivity</string>
 </resources>
