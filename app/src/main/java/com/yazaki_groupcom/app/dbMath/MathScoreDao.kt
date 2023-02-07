@@ -26,7 +26,7 @@ interface MathScoreDao {
     fun getMaxScoreLive(date: String, id: String): LiveData<Int>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(vararg post: MathScore)
+    suspend fun insert(vararg post: MathScore)
 
     @Update
     suspend fun updateMathScore(vararg users: MathScore)

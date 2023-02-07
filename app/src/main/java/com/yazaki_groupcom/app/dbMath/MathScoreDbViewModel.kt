@@ -37,7 +37,7 @@ class MathScoreDbViewModel(application: Application) : AndroidViewModel(applicat
 
     fun insert(mathScore: MathScore) {
         viewModelScope.launch(Dispatchers.IO) {
-            dao.insertAll(mathScore)
+            dao.insert(mathScore)
         }
     }
 

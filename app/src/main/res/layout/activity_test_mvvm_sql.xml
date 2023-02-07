@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.TestOldSqlActivity">
+    tools:context=".test.TestMvvmSqlActivity">
 
     <!-- 中央部 -->
     <androidx.core.widget.NestedScrollView
@@ -32,11 +32,21 @@
             android:id="@+id/ll_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用Mvvm流来监听数据库"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:id="@+id/use_flow"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:textColor="@color/black"
-                android:id="@+id/tv_log"
+                android:background="@color/zxing_possible_result_points"
+                android:id="@+id/tv_log2"
                 />
             <Button
                 android:id="@+id/bt_insert"
@@ -55,7 +65,7 @@
                 android:layout_margin="5dp"
                 android:text="selectGetAll"/>
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="清空记录"
@@ -63,21 +73,11 @@
                 android:textSize="20sp"
                 android:layout_margin="5dp"
                 android:id="@+id/clean_data"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="使用流来监听数据库"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="5dp"
-                android:id="@+id/use_flow"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:textColor="@color/black"
-                android:background="@color/zxing_possible_result_points"
-                android:id="@+id/tv_log2"
+                android:id="@+id/tv_log"
                 />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

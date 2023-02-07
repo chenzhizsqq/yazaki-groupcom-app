@@ -90,7 +90,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".test.TestOldSqlActivity"
+            android:name=".test.TestMvvmSqlActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
