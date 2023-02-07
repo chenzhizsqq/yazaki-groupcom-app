@@ -46,6 +46,13 @@ class TestOldSqlActivity : BaseActivity() {
             binding.tvLog.text = ""
             getData()
         }
+
+        //这个就是直接的mvvm
+        mathScoreDbViewModel.liveListMathScore.observe(this){
+            Log.e(TAG, "onCreate: !!!************************** mathScoreDbViewModel.liveListMathScore", )
+            binding.tvLog2.text = it.toString()
+        }
+
     }
 
     private fun getData() {

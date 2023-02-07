@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestComposeActivity::class.java)
+            Intent(this@FirstActivity, TestOldSqlActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
