@@ -26,4 +26,16 @@ class RfidLoginActivity : BaseActivity() {
             finish()
         }
     }
+
+    /**
+     * 携帯電話のリターンボタンをクリックすると特定のActivityにジャンプします。
+     */
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val intent =
+            Intent(this@RfidLoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }
