@@ -18,6 +18,13 @@
         android:theme="@style/Theme.Yazakigroupcomapp"
         tools:targetApi="31">
         <activity
+            android:name=".test.TestScannerSettingsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".test.TestComposeActivity"
             android:exported="false"
             android:label="@string/title_activity_test_compose"
@@ -200,15 +207,12 @@
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
     </application>
-
-    <uses-feature
-        android:name="android.hardware.nfc"
-        android:required="true" /> <!-- NFC -->
-    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.NFC" />
 
 </manifest>

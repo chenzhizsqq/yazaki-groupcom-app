@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestMvvmSqlActivity::class.java)
+            Intent(this@FirstActivity, TestScannerSettingsActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
@@ -162,6 +162,11 @@ class FirstActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.TestScannerSettingsActivity.setOnClickListener {
+            val intent =
+                Intent(this@FirstActivity, TestScannerSettingsActivity::class.java)
+            startActivity(intent)
+        }
         binding.TestScanServiceActivity.setOnClickListener {
             val intent =
                 Intent(this@FirstActivity, TestScanServiceActivity::class.java)
