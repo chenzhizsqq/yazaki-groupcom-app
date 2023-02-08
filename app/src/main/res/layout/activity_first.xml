@@ -12,8 +12,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="?attr/actionBarSize"
         android:orientation="vertical"
         android:gravity="center|top"
         android:layout_width="match_parent"
@@ -39,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="MainActivity"/>
             <TextView
                 android:id="@+id/RfidLoginActivity"
@@ -47,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="RfidLoginActivity"/>
             <TextView
                 android:id="@+id/PwLoginActivity"
@@ -55,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="PwLoginActivity"/>
             <TextView
                 android:id="@+id/CuttingWorkCheckActivity"
@@ -63,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="CuttingWorkCheckActivity"/>
             <TextView
                 android:id="@+id/CuttingWorkCheckActivity2"
@@ -71,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="CuttingWorkCheckActivity2"/>
             <TextView
                 android:id="@+id/TopMenuActivity"
@@ -79,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TopMenuActivity"/>
             <TextView
                 android:id="@+id/AcQrLoginActivity"
@@ -94,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="AcSelectActivity"/>
             <TextView
                 android:id="@+id/AcUpdateActivity"
@@ -102,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="AcUpdateActivity"/>
             <TextView
                 android:id="@+id/TestOldSqlActivity"
@@ -110,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestMvvmSql_用Sql实现Mvvm"/>
             <TextView
                 android:id="@+id/TestSqlActivity"
@@ -118,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestSqlActivity"/>
             <TextView
                 android:id="@+id/TestRoomDaoActivity"
@@ -126,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestRoomDaoActivity"/>
             <TextView
                 android:id="@+id/CuttingWorkActivity"
@@ -134,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="CuttingWorkActivity"/>
             <TextView
                 android:id="@+id/TestSmartRefreshLayoutActivity"
@@ -142,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestSmartRefreshLayoutActivity"/>
             <TextView
                 android:id="@+id/TestRetrofitActivity"
@@ -150,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestRetrofitActivity"/>
             <TextView
                 android:id="@+id/TestNfcActivity"
@@ -158,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestNfcActivity"/>
 
             <TextView
@@ -167,15 +165,15 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
-                android:text="TestScannerSettingsActivity EA520的红外线扫描条形码或二维码"/>
+                android:layout_margin="10dp"
+                android:text="TestScannerSettingsActivity: EA520的红外线扫描条形码或二维码\n尽量不要修改了。当作是标准的demo" />
             <TextView
                 android:id="@+id/TestScanServiceActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestScanServiceActivity"/>
             <TextView
                 android:id="@+id/TestScanActivity"
@@ -183,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="UnitechSDK的官方demo：但是暂时说不支持EA520。UnitechSDK_Tester_v1.1.17"/>
             <TextView
                 android:id="@+id/TestDatePickerActivity"
@@ -191,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestDatePickerActivity：测试年月选择"/>
             <TextView
                 android:id="@+id/TestButtonActivity"
@@ -199,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestButtonActivity：测试按钮的样式"/>
             <TextView
                 android:id="@+id/TestComposeActivity"
@@ -207,7 +205,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TestComposeActivity：测试 Compose Activity"/>
 
 
