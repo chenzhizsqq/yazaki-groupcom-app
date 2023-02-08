@@ -168,7 +168,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_margin="5dp"
-                android:text="TestScannerSettingsActivity EA520的红外线扫描"/>
+                android:text="TestScannerSettingsActivity EA520的红外线扫描条形码或二维码"/>
             <TextView
                 android:id="@+id/TestScanServiceActivity"
                 android:layout_width="wrap_content"

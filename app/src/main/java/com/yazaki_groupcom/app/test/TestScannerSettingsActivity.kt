@@ -23,7 +23,7 @@ class TestScannerSettingsActivity : AppCompatActivity() {
             if (intent.action == "unitech.scanservice.data") {
                 val barcodeData = intent.getStringExtra("text")
                 Log.e(TAG, "onReceive: barcodeData:$barcodeData", )
-                Toast.makeText(context, "onReceive: barcodeData:$barcodeData", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "接收的条形码或二维码:\n $barcodeData", Toast.LENGTH_SHORT).show()
             }
         }
     }

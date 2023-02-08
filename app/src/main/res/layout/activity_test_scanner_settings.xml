@@ -29,7 +29,7 @@
             android:textColor="@color/black"
             android:background="@color/md_blue_200"
             android:textSize="20sp"
-            android:text="直接按手机左右两边的蓝色按钮，就能够获得条形码的编码了"/>
+            android:text="直接按手机左右两边的蓝色按钮：\n就能够获得接收的条形码或二维码"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
