@@ -69,7 +69,7 @@ class FirstActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@FirstActivity, TestScannerSettingsBaseActivity::class.java)
+            Intent(this@FirstActivity, MainActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
