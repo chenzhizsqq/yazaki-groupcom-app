@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityTestScannerSettingsBinding
+import kotlin.concurrent.thread
 
 
 class TestScannerSettingsActivity : AppCompatActivity() {
@@ -16,26 +17,23 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         const val TAG: String = "TestScannerSettingsActivity"
     }
 
-    private val filter = IntentFilter("unitech.scanservice.data")
-
-    private val receiver: BroadcastReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent) {
-            if (intent.action == "unitech.scanservice.data") {
-                val barcodeData = intent.getStringExtra("text")
-                Log.e(TAG, "onReceive: barcodeData:$barcodeData")
-                Toast.makeText(context, "接收的条形码或二维码:\n $barcodeData", Toast.LENGTH_SHORT).show()
-            }
+    private val filter by lazy {
+        IntentFilter().apply {
+            addAction("unitech.scanservice.data")
         }
     }
-    private val runnable = Runnable {
-        try {
-            Log.e(TAG, "runnable start")
-            startUSS()
-            Thread.sleep(500) // USS の開始を 500 ミリ秒以上待機します
-            closeScanToKey()
-            Log.e(TAG, "runnable close")
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
+
+    private val receiver by lazy {
+        object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                intent ?: return
+                //扫描后获取的数据
+                if (intent.action.equals("unitech.scanservice.data")) {
+                    val barcodeData = intent.getStringExtra("text")
+                    Log.e(TAG, "onReceive: barcodeData:$barcodeData")
+                    Toast.makeText(context, "接收的条形码或二维码:\n $barcodeData", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
@@ -45,7 +43,16 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         binding = ActivityTestScannerSettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        runnable.run()
+        //runnable.run()
+        thread(start = true) {
+            try {
+                startScanService()
+                Thread.sleep(500) // USS の開始を 500 ミリ秒以上待機します
+                closetScanToKey()
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onResume() {
@@ -58,18 +65,20 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         unregisterReceiver(receiver)
     }
 
-    private fun startUSS() {
-        val intent = Intent()
-        intent.action = "unitech.scanservice.start"
-        sendBroadcast(intent)
+    private fun startScanService() {
+        Intent().also { intent ->
+            intent.setAction("unitech.scanservice.start")
+            sendBroadcast(intent)
+        }
     }
 
-    private fun closeScanToKey() {
-        val bundle = Bundle()
-        bundle.putBoolean("scan2key", false)
-        val intent = Intent()
-        intent.action = "unitech.scanservice.scan2key_setting"
-        intent.putExtras(bundle)
-        sendBroadcast(intent)
+    private fun closetScanToKey() {
+        Intent().also { intent ->
+            intent.setAction("unitech.scanservice.scan2key_setting")
+            intent.putExtras(Bundle().apply {
+                putBoolean("scan2key", false)
+            })
+            sendBroadcast(intent)
+        }
     }
 }
