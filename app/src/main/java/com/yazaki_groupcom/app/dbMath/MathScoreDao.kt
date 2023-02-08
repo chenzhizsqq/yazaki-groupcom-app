@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.Flow
 //数据库各种操作
 @Dao
 interface MathScoreDao {
-    @Query("SELECT * FROM MathScore order by dateTime desc")
+    @Query("SELECT * FROM MathScore order by uid desc")
     fun getAll(): List<MathScore>
 
-    @Query("SELECT * FROM MathScore order by dateTime desc")
+    @Query("SELECT * FROM MathScore order by uid desc")
     fun getAllLive(): LiveData<List<MathScore>>
 
-    @Query("SELECT * FROM MathScore order by dateTime desc")
+    @Query("SELECT * FROM MathScore order by uid desc")
     fun getAllFlow(): Flow<List<MathScore>>
 
     @Query("SELECT * FROM MathScore where date = :date order by dateTime desc")
