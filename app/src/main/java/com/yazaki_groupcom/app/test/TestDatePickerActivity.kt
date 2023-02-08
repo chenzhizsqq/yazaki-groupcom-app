@@ -31,7 +31,8 @@ class TestDatePickerActivity : BaseActivity() {
                     binding.selectedYear.text = selectedYear.toString()
                     binding.selectedMonth.text = selectedMonth.toString()
                     binding.selectedDay.text = selectedDay.toString()
-                }, year, month, day)
+                }, year, month, day
+            )
 
             datePickerDialog.show()
         }

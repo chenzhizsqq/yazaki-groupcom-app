@@ -49,8 +49,8 @@ class TestMvvmSqlActivity : BaseActivity() {
         //这里是mvc，按了之后，需要再去处理数据 end
 
         //这个就是直接的mvvm，按了之后，就能够直接处理数据 begin
-        mathScoreDbViewModel.liveListMathScore.observe(this){
-            Log.e(TAG, "mvvm !!!************************** mathScoreDbViewModel.liveListMathScore", )
+        mathScoreDbViewModel.liveListMathScore.observe(this) {
+            Log.e(TAG, "mvvm !!!************************** mathScoreDbViewModel.liveListMathScore")
             binding.tvLog2.text = it.toString()
         }
         //这个就是直接的mvvm，按了之后，就能够直接处理数据 end

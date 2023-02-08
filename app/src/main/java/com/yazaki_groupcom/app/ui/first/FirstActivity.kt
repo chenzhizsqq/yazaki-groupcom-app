@@ -29,7 +29,7 @@ class FirstActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityFirstBinding
-    private lateinit var viewModel:FirstViewModel
+    private lateinit var viewModel: FirstViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFirstBinding.inflate(layoutInflater)
@@ -193,7 +193,6 @@ class FirstActivity : AppCompatActivity() {
                 Intent(this@FirstActivity, TestComposeActivity::class.java)
             startActivity(intent)
         }
-
 
 
     }

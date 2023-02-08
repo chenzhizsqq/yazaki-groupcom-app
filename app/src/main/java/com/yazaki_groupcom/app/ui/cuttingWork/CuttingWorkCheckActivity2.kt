@@ -1,9 +1,9 @@
 package com.yazaki_groupcom.app.ui.cuttingWork
 
 import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkCheck2Binding
 
 class CuttingWorkCheckActivity2 : AppCompatActivity() {

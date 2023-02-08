@@ -18,9 +18,11 @@ class MathScoreDbViewModel(application: Application) : AndroidViewModel(applicat
     companion object {
         const val TAG: String = "MathScoreDbViewModel"
     }
+
     private val dao: MathScoreDao
 
     private val getFlow: Flow<List<MathScore>>
+
     init {
         val db = MathScoreDB.getInstance(application) // DBにアクセスするclassで一度だけDBをビルドする
         dao = db.mathScoreDao() // 使用するDaoを指定
@@ -28,11 +30,12 @@ class MathScoreDbViewModel(application: Application) : AndroidViewModel(applicat
         getFlow = dao.getAllFlow()
         getFlow.onEach {
             //do something with each user list
-            Log.e(TAG, "init : getFlow:$it", )
+            Log.e(TAG, "init : getFlow:$it")
             liveListMathScore.value = it
         }.launchIn(viewModelScope)
     }
-    var liveListMathScore= MutableLiveData<List<MathScore>>()
+
+    var liveListMathScore = MutableLiveData<List<MathScore>>()
 
 
     fun insert(mathScore: MathScore) {

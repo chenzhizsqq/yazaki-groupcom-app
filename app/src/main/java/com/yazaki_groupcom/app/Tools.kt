@@ -188,7 +188,7 @@ object Tools {
 
     }
 
-    fun getDateTime():String{
+    fun getDateTime(): String {
         val dt = ZonedDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("YYYYMMddHHmmss")
         val datetime = dt.format(formatter)

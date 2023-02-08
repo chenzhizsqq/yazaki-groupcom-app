@@ -5,10 +5,11 @@ import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.ActivityTestButtonBinding
 
-class TestButtonActivity : BaseActivity()  {
+class TestButtonActivity : BaseActivity() {
     companion object {
         const val TAG: String = "TestButtonActivity"
     }
+
     private lateinit var binding: ActivityTestButtonBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

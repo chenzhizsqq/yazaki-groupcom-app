@@ -22,18 +22,18 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         override fun onReceive(context: Context?, intent: Intent) {
             if (intent.action == "unitech.scanservice.data") {
                 val barcodeData = intent.getStringExtra("text")
-                Log.e(TAG, "onReceive: barcodeData:$barcodeData", )
+                Log.e(TAG, "onReceive: barcodeData:$barcodeData")
                 Toast.makeText(context, "接收的条形码或二维码:\n $barcodeData", Toast.LENGTH_SHORT).show()
             }
         }
     }
     private val runnable = Runnable {
         try {
-            Log.e(TAG, "runnable start"  )
+            Log.e(TAG, "runnable start")
             startUSS()
             Thread.sleep(500) // USS の開始を 500 ミリ秒以上待機します
             closeScanToKey()
-            Log.e(TAG, "runnable close"  )
+            Log.e(TAG, "runnable close")
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

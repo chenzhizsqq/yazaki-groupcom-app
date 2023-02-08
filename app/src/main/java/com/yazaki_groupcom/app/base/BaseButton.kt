@@ -27,6 +27,7 @@ open class BaseButton : AppCompatButton {
             INVALID(3),     //無効ボタン：押下不可能なボタン
         }
     }
+
     constructor(context: Context) : super(context) {
         initView(context, null)
     }
@@ -87,13 +88,13 @@ open class BaseButton : AppCompatButton {
             ButtonState.MULTIPLE.state -> {
 
                 Log.e(TAG, "changeColorByState: 2")
-                if (isTouched){
+                if (isTouched) {
 
                     val textColor = Color.BLACK
                     val bgColor = R.color.ic_app_icon_background
 
                     changeButtonColor(textColor, bgColor)
-                }else{
+                } else {
 
                     val textColor = Color.BLACK
                     val bgColor = R.color.phone_button_color
@@ -111,7 +112,7 @@ open class BaseButton : AppCompatButton {
 
                 changeButtonColor(textColor, bgColor)
             }
-            else ->{
+            else -> {
                 Log.e(TAG, "changeColorByState: else")
                 changeButtonColor(null, null)
             }
@@ -128,7 +129,7 @@ open class BaseButton : AppCompatButton {
 
         //获取默认的颜色值 如果按钮没有设置颜色值 默认为这个颜色
         var default = bgCol?.let { ContextCompat.getColor(context, it) }
-        if (bgCol==null){
+        if (bgCol == null) {
             default = ContextCompat.getColor(context, Config.buttonBgColor)
         }
         //获取设置的背景色
