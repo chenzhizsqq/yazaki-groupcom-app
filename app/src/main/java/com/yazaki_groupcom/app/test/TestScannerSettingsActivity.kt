@@ -43,7 +43,6 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         binding = ActivityTestScannerSettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //runnable.run()
         thread(start = true) {
             try {
                 startScanService()
@@ -65,6 +64,9 @@ class TestScannerSettingsActivity : AppCompatActivity() {
         unregisterReceiver(receiver)
     }
 
+    /**
+     * Unitech Scan Service の開始
+     */
     private fun startScanService() {
         Intent().also { intent ->
             intent.setAction("unitech.scanservice.start")
