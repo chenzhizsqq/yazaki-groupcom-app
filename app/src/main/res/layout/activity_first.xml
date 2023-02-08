@@ -167,6 +167,16 @@
                 android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:text="TestScannerSettingsActivity: EA520的红外线扫描条形码或二维码\n尽量不要修改了。当作是标准的demo" />
+
+            <TextView
+                android:id="@+id/TestScannerSettingsBaseActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="TestScannerSettingsBaseActivity: 按照上面的例子，去修改为整个系统的样式" />
+
             <TextView
                 android:id="@+id/TestScanServiceActivity"
                 android:layout_width="wrap_content"
