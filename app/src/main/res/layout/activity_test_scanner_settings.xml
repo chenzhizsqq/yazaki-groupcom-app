@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".test.TestScannerSettingsActivity">
 
+    <!-- 中央部 -->
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:background="@color/white"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/top_banner_height"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+        <!-- ログイン -->
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textColor="@color/black"
+            android:background="@color/md_blue_200"
+            android:textSize="20sp"
+            android:text="直接按手机左右两边的蓝色按钮，就能够获得条形码的编码了"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
