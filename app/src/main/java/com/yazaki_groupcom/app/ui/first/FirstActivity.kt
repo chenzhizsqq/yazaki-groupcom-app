@@ -60,10 +60,10 @@ class FirstActivity : AppCompatActivity() {
         }
 
         //去到第一个页面上
-        gotoMain()
+        //gotoMain()
 
         //以下都是测试的
-        //test()
+        test()
 
     }
 
