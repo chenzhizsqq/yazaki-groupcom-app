@@ -25,6 +25,8 @@ class MainActivity : BaseScanActivity() {
             val intent =
                 Intent(this@MainActivity, PwLoginActivity::class.java)
             startActivity(intent)
+//            overridePendingTransition( android.R.anim.slide_out_right,
+//                android.R.anim.slide_in_left);
             finish()
         }
 
@@ -32,6 +34,8 @@ class MainActivity : BaseScanActivity() {
             val intent =
                 Intent(this@MainActivity, RfidLoginActivity::class.java)
             startActivity(intent)
+//            overridePendingTransition( android.R.anim.slide_out_right,
+//                android.R.anim.slide_in_left);
             finish()
         }
 
