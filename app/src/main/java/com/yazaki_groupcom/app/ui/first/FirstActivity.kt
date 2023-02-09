@@ -47,7 +47,7 @@ class FirstActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
 
         //loading状態のmvvm設定。
-        viewModel.isLoading.observe(this, Observer {
+        viewModel.isLoading.observe(this) {
             it?.let {
                 if (it) {
                     // 表示ロード
@@ -57,17 +57,34 @@ class FirstActivity : AppCompatActivity() {
                     binding.llProgressbar.visibility = View.GONE
                 }
             }
-        })
+        }
+
+        //去到第一个页面上
+        gotoMain()
 
         //以下都是测试的
-        test()
+        //test()
 
+    }
+
+    /**
+     * 最初のページに移動
+     */
+    private fun gotoMain() {
+        binding.llMain.visibility = View.GONE
+        viewModel.isLoading.value = true
+        val intent =
+            Intent(this@FirstActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     /**
      * 以下都是测试的
      */
     private fun test() {
+        binding.llMain.visibility = View.VISIBLE
+        viewModel.isLoading.value = false
         val intent =
             Intent(this@FirstActivity, MainActivity::class.java)
         startActivity(intent)

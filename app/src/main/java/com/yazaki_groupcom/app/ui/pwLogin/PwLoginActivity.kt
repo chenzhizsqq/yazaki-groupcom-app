@@ -245,4 +245,16 @@ class PwLoginActivity : BaseActivity(), PopupMenu.OnMenuItemClickListener {
             }
         }
     }
+
+    /**
+     * 携帯電話のリターンボタンをクリックすると特定のActivityにジャンプします。
+     */
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val intent =
+            Intent(this@PwLoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

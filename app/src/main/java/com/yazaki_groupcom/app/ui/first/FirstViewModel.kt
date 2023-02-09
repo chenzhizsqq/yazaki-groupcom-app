@@ -6,5 +6,5 @@ import androidx.lifecycle.ViewModel
 class FirstViewModel : ViewModel() {
 
     //現在loading状態
-    val isLoading = MutableLiveData(false)
+    val isLoading = MutableLiveData(true)
 }
