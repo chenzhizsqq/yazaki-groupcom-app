@@ -177,10 +177,10 @@ class RfidLoginActivity : BaseActivity() {
             val nfcF: NfcF = NfcF.get(tag)
             val systemCode: ByteArray = nfcF.systemCode
 
-            Log.i(TAG, "procFelica: idm:$idm",)
-            Log.i(TAG, "procFelica: tag:$tag",)
-            Log.i(TAG, "procFelica: nfcF:$nfcF",)
-            Log.i(TAG, "procFelica: systemCode:$systemCode",)
+            Log.i(TAG, "procFelica: idm:$idm")
+            Log.i(TAG, "procFelica: tag:$tag")
+            Log.i(TAG, "procFelica: nfcF:$nfcF")
+            Log.i(TAG, "procFelica: systemCode:$systemCode")
             idm?.forEach {
                 Log.i(TAG, "procFelica: idm:$it")
             }
@@ -189,8 +189,19 @@ class RfidLoginActivity : BaseActivity() {
             systemCode.forEach {
                 Log.i(TAG, "procFelica: systemCode:$it")
             }
+
+            //对于systemCode的转换处理
+            Log.i(TAG, "procFelica: systemCode.toUByteArray:${systemCode.toUByteArray()}", )
+            Log.i(TAG, "procFelica: bytesToInt(systemCodeInt) : "+bytesToInt(systemCode) )
+
         } catch (e: Exception) {
             Log.e(TAG, "procFelica: Exception", e)
         }
+    }
+
+
+    fun bytesToInt(bytes: ByteArray): Int {
+        return (bytes[0].toInt() and 0xff shl 8) or
+                (bytes[1].toInt() and 0xff)
     }
 }
