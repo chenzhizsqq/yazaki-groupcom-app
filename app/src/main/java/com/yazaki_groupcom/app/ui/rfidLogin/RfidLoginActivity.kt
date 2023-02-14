@@ -37,9 +37,12 @@ class RfidLoginActivity : BaseActivity() {
 
         try {
             nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+            Log.e(TAG, "onCreate: nfcAdapter　create")
         } catch (e: Exception) {
             Log.e(TAG, "onCreate: nfcAdapter", e)
         }
+
+
 
         //NFC読み取り開始
         binding.tvQrMessage.setOnClickListener {
@@ -50,7 +53,7 @@ class RfidLoginActivity : BaseActivity() {
                     val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
                     nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
 
-                    Toast.makeText(this, "RFID読み取り開始", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "RFID読み取り", Toast.LENGTH_SHORT).show()
                     //Log.e(TAG,"NFC is start" )
                 } else {
                     // NFC is not enabled, show a message to the user
@@ -63,6 +66,32 @@ class RfidLoginActivity : BaseActivity() {
         }
     }
 
+
+    override fun onResume() {
+        super.onResume()
+
+        //自動NFC読み取り開始
+        try {
+            //Log.e(TAG, "onResume: nfcAdapter　try")
+            if (nfcAdapter != null && nfcAdapter.isEnabled) {
+                //Log.e(TAG, "onResume: nfcAdapter　isEnabled")
+                val intent = Intent(this, javaClass)
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+                nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null)
+
+                Toast.makeText(this, "RFID読み取り", Toast.LENGTH_SHORT).show()
+                //Log.e(TAG,"NFC is start" )
+            } else {
+                // NFC is not enabled, show a message to the user
+                Toast.makeText(this,"RFID読み取りは使用できません", Toast.LENGTH_SHORT).show()
+                //Log.e(TAG, "NFC is not enabled")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "onResume: readNfcButton", e)
+        }
+    }
+
     //
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -71,11 +100,13 @@ class RfidLoginActivity : BaseActivity() {
 
             val id = tag?.id
 
-            Toast.makeText(this, id!!.toList().toString(), Toast.LENGTH_SHORT).show()
-            binding.etQrCode.setText(id.toList().toString())
+            //Toast.makeText(this, id!!.toList().toString(), Toast.LENGTH_SHORT).show()
+            if (id != null) {
+                binding.etQrCode.setText(id.toList().toString())
+            }
 
             //获取卡的id编号
-            id.forEach { str ->
+            id?.forEach { str ->
                 Log.i(TAG, "读取NFC卡的 id 编号: id foreach :$str")
             }
 
