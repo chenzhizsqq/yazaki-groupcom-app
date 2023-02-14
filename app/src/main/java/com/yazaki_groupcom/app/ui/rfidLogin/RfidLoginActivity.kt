@@ -5,6 +5,7 @@ import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.nfc.Tag
+import android.nfc.tech.NfcF
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -110,6 +111,19 @@ class RfidLoginActivity : BaseActivity() {
                 Log.i(TAG, "读取NFC卡的 id 编号: id foreach :$str")
             }
 
+            //获取卡的更详细的资料
+            val techList = tag?.techList
+            if (techList != null) {
+                for (teach in techList){
+                    Log.i(TAG, "读取NFC卡的 详细资料: teach:$teach")
+
+                    //如果是：Suicaのカード : android.nfc.tech.NfcF
+                    if(teach.equals("android.nfc.tech.NfcF")){
+                        procFelica(intent)
+                    }
+                }
+            }
+
         }
 
         //得到所有读取到的 NDEF 消息。
@@ -149,5 +163,34 @@ class RfidLoginActivity : BaseActivity() {
             Intent(this@RfidLoginActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    /**
+     * Felica Cardの処理 对应suica的详细处理
+     *
+     * @param intent
+     */
+    private fun procFelica(intent: Intent) {
+        try {
+            val idm = intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)
+            val tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG) as Tag?
+            val nfcF: NfcF = NfcF.get(tag)
+            val systemCode: ByteArray = nfcF.systemCode
+
+            Log.i(TAG, "procFelica: idm:$idm",)
+            Log.i(TAG, "procFelica: tag:$tag",)
+            Log.i(TAG, "procFelica: nfcF:$nfcF",)
+            Log.i(TAG, "procFelica: systemCode:$systemCode",)
+            idm?.forEach {
+                Log.i(TAG, "procFelica: idm:$it")
+            }
+
+            Log.i(TAG, "procFelica: nfcF.isConnected:${nfcF.isConnected}")
+            systemCode.forEach {
+                Log.i(TAG, "procFelica: systemCode:$it")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "procFelica: Exception", e)
+        }
     }
 }

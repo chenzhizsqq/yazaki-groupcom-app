@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
@@ -86,7 +85,7 @@ class FirstActivity : AppCompatActivity() {
         binding.llMain.visibility = View.VISIBLE
         viewModel.isLoading.value = false
         val intent =
-            Intent(this@FirstActivity, MainActivity::class.java)
+            Intent(this@FirstActivity, RfidLoginActivity::class.java)
         startActivity(intent)
 
         binding.llMain.setOnClickListener {
