@@ -90,43 +90,84 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- ll_title -->
-    <LinearLayout
+    <HorizontalScrollView
         android:id="@+id/ll_title"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAppBarLayout"
-        android:orientation="horizontal"
         android:gravity="top|start"
         android:layout_width="match_parent"
         android:layout_margin="0dp"
         android:padding="0dp"
-        android:layout_height="30dp">
-
-        <TextView
-            android:background="@drawable/ic_round_button_orange"
+        android:layout_height="30dp"
+        android:scrollbars="none">
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/button_font_color"
-            android:textSize="20sp"
-            android:layout_margin="1dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="C385-01" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:background="@drawable/ic_round_button_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/button_font_color"
+                android:textSize="20sp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="C385-01" />
 
-        <TextView
-            android:background="@drawable/bg_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_margin="1dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="C373-01"  />
+            <TextView
+                android:background="@drawable/bg_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="C373-01"  />
 
-    </LinearLayout>
+            <TextView
+                android:background="@drawable/bg_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="C373-02"  />
+
+            <TextView
+                android:background="@drawable/bg_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="C373-03"  />
+
+            <TextView
+                android:background="@drawable/bg_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="1dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="C373-04"  />
+        </LinearLayout>
+    </HorizontalScrollView>
+
 
 
     <!-- 中央部 -->
