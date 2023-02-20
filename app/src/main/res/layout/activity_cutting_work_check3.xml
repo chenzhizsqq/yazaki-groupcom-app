@@ -258,12 +258,13 @@
 
                     <!-- part B-->
                     <TableLayout
-                        android:id="@+id/tl_data"
+                        android:id="@+id/tl_data1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingEnd="50dp"
                         android:paddingStart="50dp"
                         android:showDividers="middle"
+                        android:layout_margin="5dp"
                         android:stretchColumns="*">
 
                         <TableRow
@@ -306,7 +307,7 @@
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="切断納期日"/>
+                                android:text="実績数"/>
 
                             <TextView
                                 android:background="@drawable/bg_layout_black"
@@ -316,9 +317,76 @@
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="01/31" />
+                                android:text="12138本" />
 
                         </TableRow>
+
+                        <TableRow
+                            android:weightSum="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="指示数"/>
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="21381本" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:weightSum="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="進捗率"/>
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="51.7%" />
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <!-- part B-->
+                    <TableLayout
+                        android:id="@+id/tl_data2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="50dp"
+                        android:paddingStart="50dp"
+                        android:showDividers="middle"
+                        android:layout_margin="5dp"
+                        android:stretchColumns="*">
 
                         <TableRow
                             android:weightSum="2"
@@ -360,7 +428,7 @@
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="切断納期日"/>
+                                android:text="実績数"/>
 
                             <TextView
                                 android:background="@drawable/bg_layout_black"
@@ -370,7 +438,61 @@
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="01/31" />
+                                android:text="12138本" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:weightSum="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="指示数"/>
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="21381本" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:weightSum="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="進捗率"/>
+
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="51.7%" />
 
                         </TableRow>
 
@@ -382,22 +504,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:gravity="center|end"
+                        android:gravity="center"
                         android:orientation="horizontal">
-
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            app:bg_color="@color/silvery"
-                            android:maxLines="2"
-                            android:minLines="2"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:textSize="10sp"
-                            android:text="サンプル品\n完了"/>
                         <com.yazaki_groupcom.app.base.BaseButton
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
@@ -406,457 +514,7 @@
                             android:textColor="@color/button_font_color"
                             android:padding="10dp"
                             android:layout_margin="10dp"
-                            android:text="完了" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- old-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_layout"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <!-- part A-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_layout"
-                        android:layout_margin="2dp"
-                        android:paddingStart="3dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="3dp"
-                        android:paddingRight="3dp"
-                        android:orientation="vertical">
-
-                        <!-- part b Title -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:paddingStart="3dp"
-                            android:text="A側"/>
-                        <!-- part B horizontal-->
-                        <LinearLayout
-                            android:weightSum="23"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <!-- part B horizontal part1-->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="5"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="皮むき寸法"/>
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:gravity="center"
-                                    android:inputType="textEmailAddress"
-                                    android:singleLine="true"
-                                    android:imeOptions="actionDone"
-                                    android:text="055"
-                                    android:maxLength="10"
-                                    android:textColor="@color/black"
-                                    tools:ignore="TouchTargetSizeCheck" />
-                            </LinearLayout>
-                            <!-- part B horizontal part2-->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="6"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子付き条件"/>
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:gravity="center"
-                                    android:inputType="textEmailAddress"
-                                    android:singleLine="true"
-                                    android:imeOptions="actionDone"
-                                    android:text="2"
-                                    android:maxLength="10"
-                                    android:textColor="@color/black"
-                                    tools:ignore="TouchTargetSizeCheck" />
-                            </LinearLayout>
-                            <!-- part B horizontal part3-->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="7"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="端子品番"/>
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:gravity="center"
-                                    android:inputType="textEmailAddress"
-                                    android:singleLine="true"
-                                    android:imeOptions="actionDone"
-                                    android:text="7116504202"
-                                    android:maxLength="20"
-                                    android:textColor="@color/black"
-                                    tools:ignore="TouchTargetSizeCheck" />
-                            </LinearLayout>
-                            <!-- part B horizontal part4-->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="5"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="3dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp"
-                                    android:text="ゴム栓"/>
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_layout"
-                                    android:gravity="center"
-                                    android:inputType="textEmailAddress"
-                                    android:singleLine="true"
-                                    android:imeOptions="actionDone"
-                                    android:text="XXX"
-                                    android:maxLength="10"
-                                    android:textColor="@color/black"
-                                    tools:ignore="TouchTargetSizeCheck" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- part B-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:paddingStart="5dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="3dp"
-                        android:paddingRight="3dp"
-                        android:orientation="vertical">
-
-                        <!-- part B1 Title -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:paddingStart="3dp"
-                            android:text="前足"/>
-                        <!-- part B1 horizontal-->
-                        <LinearLayout
-                            android:weightSum="8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="C/H"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:layout_marginEnd="5dp"
-                                android:background="@drawable/bg_layout"
-                                android:text="0797"
-                                android:maxLength="10"
-                                android:gravity="center"
-                                android:inputType="number"
-                                android:imeOptions="actionDone"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="C/W"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:background="@drawable/bg_layout"
-                                android:text="1394"
-                                android:maxLength="10"
-                                android:imeOptions="actionDone"
-                                android:gravity="center"
-                                android:inputType="number"
-                                android:textColor="@color/black"/>
-                        </LinearLayout>
-                        <!-- part B2 Title -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:paddingStart="3dp"
-                            android:text="後足"/>
-                        <!-- part B2 horizontal-->
-                        <LinearLayout
-                            android:weightSum="8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="C/H"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:background="@drawable/bg_layout"
-                                android:layout_marginEnd="5dp"
-                                android:text="1410"
-                                android:maxLength="10"
-                                android:imeOptions="actionDone"
-                                android:gravity="center"
-                                android:inputType="number"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="C/W"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:background="@drawable/bg_layout"
-                                android:text="1521"
-                                android:maxLength="10"
-                                android:imeOptions="actionDone"
-                                android:gravity="center"
-                                android:inputType="number"
-                                android:textColor="@color/black"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- part C-->
-                    <LinearLayout
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:paddingStart="5dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="3dp"
-                        android:paddingRight="3dp"
-                        android:orientation="vertical">
-
-                        <!-- part C1 horizontal-->
-                        <LinearLayout
-                            android:weightSum="3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="3dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:layout_marginEnd="10dp"
-                                android:text="固着力"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:layout_marginEnd="5dp"
-                                android:background="@drawable/bg_layout"
-                                android:text="86"
-                                android:maxLength="10"
-                                android:imeOptions="actionDone"
-                                android:gravity="center"
-                                android:inputType="textEmailAddress"
-                                android:textColor="@color/black"/>
-                        </LinearLayout>
-
-                        <!-- part C2 horizontal-->
-                        <LinearLayout
-                            android:weightSum="3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="3dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:layout_marginEnd="10dp"
-                                android:text="バリ"/>
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:layout_marginEnd="5dp"
-                                android:background="@drawable/bg_layout"
-                                android:text="XX"
-                                android:maxLength="10"
-                                android:imeOptions="actionDone"
-                                android:gravity="center"
-                                android:inputType="textEmailAddress"
-                                android:textColor="@color/black"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- part D-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:paddingStart="5dp"
-                        android:paddingRight="3dp"
-                        android:orientation="vertical">
-                        <!-- part D1 horizontal-->
-                        <LinearLayout
-                            android:weightSum="7"
-                            android:paddingTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="ベントアップ"/>
-
-                            <CheckBox
-                                style="@style/CustomCheckbox02"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:checked="true"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="確認しました"/>
-                        </LinearLayout>
-                        <!-- part D2 horizontal-->
-                        <LinearLayout
-                            android:weightSum="7"
-                            android:paddingTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="ベントダウン"/>
-                            <CheckBox
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                style="@style/CustomCheckbox02"
-                                android:checked="false"
-                                android:textSize="16sp"/>
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:textSize="20sp"
-                                android:text="確認しました"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <!-- part button-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:gravity="center|end"
-                        android:orientation="horizontal">
-
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            app:bg_color="@color/silvery"
-                            android:maxLines="2"
-                            android:minLines="2"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:textSize="10sp"
-                            android:text="サンプル品\n完了"/>
+                            android:text="更新" />
                         <com.yazaki_groupcom.app.base.BaseButton
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
@@ -865,7 +523,7 @@
                             android:textColor="@color/button_font_color"
                             android:padding="10dp"
                             android:layout_margin="10dp"
-                            android:text="完了" />
+                            android:text="次へ" />
                     </LinearLayout>
                 </LinearLayout>
 
