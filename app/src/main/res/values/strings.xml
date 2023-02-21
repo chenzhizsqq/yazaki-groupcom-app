@@ -25,4 +25,20 @@
     <string name="button_go">Go</string>
     <string name="label">label</string>
     <string name="title_activity_test_compose">TestComposeActivity</string>
+
+    <!-- 通信エラー -->
+    <string name="communication_error">指示データを確認できませんでした。</string>
+    <string name="communication_message">通信状況を確認してください。</string>
+
+    <!-- 重複エラー -->
+    <string name="duplicate_error">読込み済みのタグを再度読み込みました。</string>
+    <string name="duplicate_message">タグを確認して下さい。</string>
+
+    <!-- 読み取りエラー -->
+    <string name="reading_error">タグを確認して下さい。</string>
+    <string name="reading_message">QRコードを確認して下さい。</string>
+
+    <!-- 照合エラー -->
+    <string name="collation_error">照合項目が一致しません。</string>
+    <string name="collation_message">基準タグと同一格納先のタグを読み取ってください。</string>
 </resources>
