@@ -39,11 +39,15 @@ open class BaseActivity : AppCompatActivity() {
         // タイトルバー非表示
         supportActionBar?.hide()
 
-        //スリープ時間を設定　30分間
-        resetSleepTime()
-
-        //ログアウト time リセット 120分間
-        resetLogoutTime()
+//        //スリープ時間を設定　30分間
+//        resetSleepTime()
+//
+//        //ログアウト time リセット 120分間
+//        resetLogoutTime()
+//
+//        countDownTimerSleep?.cancel()
+//
+//        countDownTimerLogout?.cancel()
     }
 
     //按左下角的 "三角"按钮后，触发的返回函数
