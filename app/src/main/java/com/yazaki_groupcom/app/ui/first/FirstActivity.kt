@@ -35,7 +35,7 @@ class FirstActivity : AppCompatActivity() {
         binding = ActivityFirstBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //設定画面を開いたままにする
+        //FLAG_KEEP_SCREEN_ON  一直开着屏幕的设定
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 縦画面
