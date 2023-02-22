@@ -30,7 +30,7 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //設定画面を開いたままにする
+        //設定画面を開いたままにする  スリープ状態はなし
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 縦画面

@@ -18,9 +18,6 @@ class CuttingWorkCheckActivity2 : AppCompatActivity() {
         binding = ActivityCuttingWorkCheck2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //設定画面を開いたままにする
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
         // 縦画面
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 

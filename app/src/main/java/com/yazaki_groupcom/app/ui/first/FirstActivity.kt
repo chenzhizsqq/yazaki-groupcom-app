@@ -36,7 +36,7 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //FLAG_KEEP_SCREEN_ON  一直开着屏幕的设定
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        //window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 縦画面
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
