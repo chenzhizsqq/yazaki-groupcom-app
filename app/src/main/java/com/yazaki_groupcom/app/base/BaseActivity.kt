@@ -30,8 +30,6 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //設定画面を開いたままにする  スリープ状態はなし
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 縦画面
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
@@ -39,9 +37,10 @@ open class BaseActivity : AppCompatActivity() {
         // タイトルバー非表示
         supportActionBar?.hide()
 
+        //設定画面を開いたままにする  スリープ状態はなし sleep off
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         //スリープ時間を設定　30分間
         resetSleepTime()
-
         //ログアウト time リセット 120分間
         resetLogoutTime()
     }
