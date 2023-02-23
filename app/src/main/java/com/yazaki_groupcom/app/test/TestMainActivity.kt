@@ -19,7 +19,7 @@ import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
-import com.yazaki_groupcom.app.ui.topMenu.TopMenuActivity
+import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
 class TestMainActivity : AppCompatActivity() {
     companion object {
@@ -50,7 +50,7 @@ class TestMainActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@TestMainActivity, CuttingWorkCheckActivity3::class.java)
+            Intent(this@TestMainActivity, MainMenuActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
@@ -83,9 +83,9 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, CuttingWorkCheckActivity3::class.java)
             startActivity(intent)
         }
-        binding.TopMenuActivity.setOnClickListener {
+        binding.MainMenuActivity.setOnClickListener {
             val intent =
-                Intent(this@TestMainActivity, TopMenuActivity::class.java)
+                Intent(this@TestMainActivity, MainMenuActivity::class.java)
             startActivity(intent)
         }
         binding.AcQrLoginActivity.setOnClickListener {

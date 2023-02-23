@@ -69,10 +69,10 @@
                 android:text="CuttingWorkCheckActivity3"/>
             <Button
                 android:textAllCaps="false"
-                android:id="@+id/TopMenuActivity"
+                android:id="@+id/MainMenuActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TopMenuActivity"/>
+                android:text="MainMenuActivity - メインメニュー" />
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/AcQrLoginActivity"
