@@ -50,7 +50,7 @@ class TestMainActivity : AppCompatActivity() {
      */
     private fun test() {
         val intent =
-            Intent(this@TestMainActivity, MainMenuActivity::class.java)
+            Intent(this@TestMainActivity, MainActivity::class.java)
         startActivity(intent)
 
         binding.MainActivity.setOnClickListener {
