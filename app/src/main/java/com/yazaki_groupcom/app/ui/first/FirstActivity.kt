@@ -4,24 +4,11 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
-import com.yazaki_groupcom.app.db.TestRoomDaoActivity
 import com.yazaki_groupcom.app.test.*
-import com.yazaki_groupcom.app.testScan.TestScanActivity
-import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
-import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
-import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity2
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
 import com.yazaki_groupcom.app.ui.main.MainActivity
-import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
-import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
-import com.yazaki_groupcom.app.ui.topMenu.TopMenuActivity
 
 class FirstActivity : AppCompatActivity() {
     companion object {
@@ -45,6 +32,7 @@ class FirstActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
+        viewModel.isLoading.value = true
 
         //loading状態のmvvm設定。
         viewModel.isLoading.observe(this) {
@@ -60,10 +48,8 @@ class FirstActivity : AppCompatActivity() {
         }
 
         //去到第一个页面上
-        //gotoMain()
+        gotoMain()
 
-        //以下都是测试的
-        test()
 
     }
 
@@ -77,152 +63,5 @@ class FirstActivity : AppCompatActivity() {
             Intent(this@FirstActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    /**
-     * 以下都是测试的
-     */
-    private fun test() {
-        binding.llMain.visibility = View.VISIBLE
-        viewModel.isLoading.value = false
-        val intent =
-            Intent(this@FirstActivity, CuttingWorkCheckActivity3::class.java)
-        startActivity(intent)
-
-        binding.llMain.setOnClickListener {
-            viewModel.isLoading.value = viewModel.isLoading.value != true
-        }
-
-        binding.MainActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, MainActivity::class.java)
-            startActivity(intent)
-        }
-        binding.RfidLoginActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, RfidLoginActivity::class.java)
-            startActivity(intent)
-        }
-        binding.PwLoginActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, PwLoginActivity::class.java)
-            startActivity(intent)
-        }
-        binding.CuttingWorkCheckActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, CuttingWorkCheckActivity::class.java)
-            startActivity(intent)
-        }
-        binding.CuttingWorkCheckActivity2.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, CuttingWorkCheckActivity2::class.java)
-            startActivity(intent)
-        }
-        binding.CuttingWorkCheckActivity3.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, CuttingWorkCheckActivity3::class.java)
-            startActivity(intent)
-        }
-        binding.TopMenuActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TopMenuActivity::class.java)
-            startActivity(intent)
-        }
-        binding.AcQrLoginActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, AcQrLoginActivity::class.java)
-            startActivity(intent)
-        }
-        binding.AcSelectActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, AcSelectActivity::class.java)
-            startActivity(intent)
-        }
-        binding.AcUpdateActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, AcUpdateActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestOldSqlActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestMvvmSqlActivity::class.java)
-            startActivity(intent)
-        }
-        binding.TestSqlActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestSqlActivity::class.java)
-            startActivity(intent)
-        }
-        binding.TestRoomDaoActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestRoomDaoActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.CuttingWorkActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, CuttingWorkActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestSmartRefreshLayoutActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestSmartRefreshLayoutActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestRetrofitActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestRetrofitActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestNfcActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestNfcActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestScannerSettingsActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestScannerSettingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestScannerSettingsBaseActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestScannerSettingsBaseActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestScanServiceActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestScanServiceActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.TestScanActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestScanActivity::class.java)
-            startActivity(intent)
-        }
-        binding.TestDatePickerActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestDatePickerActivity::class.java)
-            startActivity(intent)
-        }
-        binding.TestButtonActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestButtonActivity::class.java)
-            startActivity(intent)
-        }
-        binding.TestComposeActivity.setOnClickListener {
-            val intent =
-                Intent(this@FirstActivity, TestComposeActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
 }
