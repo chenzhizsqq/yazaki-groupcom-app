@@ -30,14 +30,12 @@ class MainActivity : BaseScanActivity() {
             finish()
         }
 
-        binding.btRfid.setOnClickListener {
-            val intent =
-                Intent(this@MainActivity, RfidLoginActivity::class.java)
-            startActivity(intent)
-//            overridePendingTransition( android.R.anim.slide_out_right,
-//                android.R.anim.slide_in_left);
-            finish()
-        }
+//        binding.btRfid.setOnClickListener {
+//            val intent =
+//                Intent(this@MainActivity, RfidLoginActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {

@@ -22,6 +22,15 @@
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
+            <!-- 起動設定 -->
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 起動設定 -->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -32,15 +41,6 @@
             android:exported="true"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation">
-            <!-- 起動設定 -->
-            <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN"
-                    android:screenOrientation="portrait" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <!-- 起動設定 -->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
