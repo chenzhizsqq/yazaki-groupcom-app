@@ -209,7 +209,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cuttingWork.CuttingWorkCheckActivity"
+            android:name=".ui.cuttingWork.CuttingWorkCheckActivity1"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">

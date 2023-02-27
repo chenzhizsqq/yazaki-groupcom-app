@@ -7,7 +7,7 @@ import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkCheckBinding
 /**
  * 切断作業チェック
  */
-class CuttingWorkCheckActivity : BaseActivity() {
+class CuttingWorkCheckActivity1 : BaseActivity() {
 
     companion object {
         const val TAG: String = "CuttingWorkCheckActivity"

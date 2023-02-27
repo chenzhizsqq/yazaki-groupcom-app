@@ -51,22 +51,22 @@
                 android:text="PwLoginActivity"/>
             <Button
                 android:textAllCaps="false"
-                android:id="@+id/CuttingWorkCheckActivity"
+                android:id="@+id/CuttingWorkCheckActivity1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CuttingWorkCheckActivity"/>
+                android:text="CuttingWorkCheckActivity1 最初的测试样本"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/CuttingWorkCheckActivity2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CuttingWorkCheckActivity2"/>
+                android:text="CuttingWorkCheckActivity2 测试样本2"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/CuttingWorkCheckActivity3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CuttingWorkCheckActivity3"/>
+                android:text="CuttingWorkCheckActivity3 测试样本3"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/MainMenuActivity"

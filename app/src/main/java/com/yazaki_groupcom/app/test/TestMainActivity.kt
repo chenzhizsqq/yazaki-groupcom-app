@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.WindowManager
-import com.yazaki_groupcom.app.test.*
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityTestMainBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
@@ -13,7 +12,7 @@ import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
 import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity
+import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity1
 import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity2
 import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
 import com.yazaki_groupcom.app.ui.main.MainActivity
@@ -68,9 +67,9 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, PwLoginActivity::class.java)
             startActivity(intent)
         }
-        binding.CuttingWorkCheckActivity.setOnClickListener {
+        binding.CuttingWorkCheckActivity1.setOnClickListener {
             val intent =
-                Intent(this@TestMainActivity, CuttingWorkCheckActivity::class.java)
+                Intent(this@TestMainActivity, CuttingWorkCheckActivity1::class.java)
             startActivity(intent)
         }
         binding.CuttingWorkCheckActivity2.setOnClickListener {
