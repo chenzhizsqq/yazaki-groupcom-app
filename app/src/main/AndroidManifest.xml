@@ -46,7 +46,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cuttingWork.CuttingWorkCheckActivity3"
+            android:name=".test.testCuttingWork.CuttingWorkCheckActivity3"
             android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
@@ -135,7 +135,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cuttingWork.CuttingWorkActivity"
+            android:name=".test.testCuttingWork.TestCuttingWorkActivity"
             android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
@@ -209,7 +209,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cuttingWork.CuttingWorkCheckActivity1"
+            android:name=".test.testCuttingWork.CuttingWorkCheckActivity1"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">
@@ -218,7 +218,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cuttingWork.CuttingWorkCheckActivity2"
+            android:name=".test.testCuttingWork.CuttingWorkCheckActivity2"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">

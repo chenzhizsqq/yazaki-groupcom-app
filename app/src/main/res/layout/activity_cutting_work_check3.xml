@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cuttingWork.CuttingWorkCheckActivity3">
+    tools:context=".test.testCuttingWork.CuttingWorkCheckActivity3">
 
     <!-- タイトル -->
     <com.google.android.material.appbar.AppBarLayout

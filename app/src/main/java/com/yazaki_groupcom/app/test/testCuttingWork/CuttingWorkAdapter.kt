@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.ui.cuttingWork
+package com.yazaki_groupcom.app.test.testCuttingWork
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.databinding.AdapterCuttingWorkBinding
 
+//运用在TestCuttingWorkActivity的
 class CuttingWorkAdapter(
     var list: ArrayList<CuttingWorkData>,
 ) : RecyclerView.Adapter<CuttingWorkAdapter.ViewHolder>() {

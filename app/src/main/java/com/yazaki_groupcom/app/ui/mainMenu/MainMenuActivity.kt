@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainMenuBinding
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity3
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 

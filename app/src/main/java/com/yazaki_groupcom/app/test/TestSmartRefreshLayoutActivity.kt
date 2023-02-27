@@ -8,8 +8,8 @@ import com.scwang.smart.refresh.footer.BallPulseFooter
 import com.scwang.smart.refresh.header.BezierRadarHeader
 import com.scwang.smart.refresh.layout.constant.SpinnerStyle
 import com.yazaki_groupcom.app.databinding.ActivityTestSmartRefreshLayoutBinding
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkAdapter
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkData
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkAdapter
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkData
 
 class TestSmartRefreshLayoutActivity : AppCompatActivity() {
 

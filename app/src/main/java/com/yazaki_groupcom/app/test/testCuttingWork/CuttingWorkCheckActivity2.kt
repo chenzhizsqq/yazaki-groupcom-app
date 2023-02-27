@@ -1,8 +1,7 @@
-package com.yazaki_groupcom.app.ui.cuttingWork
+package com.yazaki_groupcom.app.test.testCuttingWork
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkCheck2Binding
 

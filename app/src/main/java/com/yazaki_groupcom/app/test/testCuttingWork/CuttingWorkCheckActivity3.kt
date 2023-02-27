@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.ui.cuttingWork
+package com.yazaki_groupcom.app.test.testCuttingWork
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -7,7 +7,6 @@ import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkCheck3Binding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
-import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
 class CuttingWorkCheckActivity3 : BaseActivity() {

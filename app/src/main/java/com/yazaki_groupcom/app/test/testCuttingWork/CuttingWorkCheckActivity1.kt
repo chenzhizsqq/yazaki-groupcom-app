@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.ui.cuttingWork
+package com.yazaki_groupcom.app.test.testCuttingWork
 
 import android.os.Bundle
 import com.yazaki_groupcom.app.base.BaseActivity

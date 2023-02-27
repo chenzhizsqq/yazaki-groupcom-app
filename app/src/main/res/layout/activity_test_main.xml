@@ -111,10 +111,10 @@
                 android:text="TestRoomDaoActivity"/>
             <Button
                 android:textAllCaps="false"
-                android:id="@+id/CuttingWorkActivity"
+                android:id="@+id/TestCuttingWorkActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CuttingWorkActivity"/>
+                android:text="TestCuttingWorkActivity 测试 Adapter的使用"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/TestSmartRefreshLayoutActivity"

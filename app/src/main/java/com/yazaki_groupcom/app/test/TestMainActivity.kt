@@ -11,10 +11,10 @@ import com.yazaki_groupcom.app.testScan.TestScanActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkActivity
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity1
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity2
-import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
+import com.yazaki_groupcom.app.test.testCuttingWork.TestCuttingWorkActivity
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity1
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity2
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity3
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
@@ -119,9 +119,9 @@ class TestMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.CuttingWorkActivity.setOnClickListener {
+        binding.TestCuttingWorkActivity.setOnClickListener {
             val intent =
-                Intent(this@TestMainActivity, CuttingWorkActivity::class.java)
+                Intent(this@TestMainActivity, TestCuttingWorkActivity::class.java)
             startActivity(intent)
         }
 

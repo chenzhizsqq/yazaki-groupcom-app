@@ -1,4 +1,4 @@
-package com.yazaki_groupcom.app.ui.cuttingWork
+package com.yazaki_groupcom.app.test.testCuttingWork
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkBinding
 
-class CuttingWorkActivity : BaseActivity() {
+class TestCuttingWorkActivity : BaseActivity() {
     companion object {
         const val TAG: String = "CuttingWorkActivity"
     }
