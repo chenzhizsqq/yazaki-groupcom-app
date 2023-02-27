@@ -44,11 +44,11 @@ class TestMainActivity : AppCompatActivity() {
             Intent(this@TestMainActivity, MainActivity::class.java)
         startActivity(intent)
 
-        //以下都是测试的
-        test()
-
         //以下都是测试成功的版本
         testOk()
+
+        //以下都是测试的
+        test()
     }
 
 
@@ -69,6 +69,11 @@ class TestMainActivity : AppCompatActivity() {
         binding.PwLoginActivity.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, PwLoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.MainMenuActivity.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, MainMenuActivity::class.java)
             startActivity(intent)
         }
     }

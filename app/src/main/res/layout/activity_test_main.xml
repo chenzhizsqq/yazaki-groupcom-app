@@ -31,11 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- 以下都是测试成功的版本 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="以下都是测试成功的版本"/>
-
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/MainActivity"
@@ -44,10 +44,10 @@
                 android:text="MainActivity"/>
             <Button
                 android:textAllCaps="false"
-                android:id="@+id/RfidLoginActivity"
+                android:id="@+id/MainMenuActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RfidLoginActivity"/>
+                android:text="MainMenuActivity - メインメニュー" />
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/PwLoginActivity"
@@ -55,6 +55,15 @@
                 android:layout_height="wrap_content"
                 android:text="PwLoginActivity"/>
 
+            <!-- 这个可能暂时不再需要了 -->
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/RfidLoginActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RfidLoginActivity"/>
+
+            <!-- 以下都是测试的 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,12 +86,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CuttingWorkCheckActivity3 测试样本3"/>
-            <Button
-                android:textAllCaps="false"
-                android:id="@+id/MainMenuActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MainMenuActivity - メインメニュー" />
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/AcQrLoginActivity"
