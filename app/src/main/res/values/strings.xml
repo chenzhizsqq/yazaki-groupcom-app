@@ -41,4 +41,10 @@
     <!-- 照合エラー -->
     <string name="collation_error">照合項目が一致しません。</string>
     <string name="collation_message">基準タグと同一格納先のタグを読み取ってください。</string>
+
+    <!-- ログアウト　button -->
+    <string name="bt_logout_title">ヒント</string>
+    <string name="bt_logout_message">ログアウトかどうか？</string>
+    <string name="bt_logout_ok">確定</string>
+    <string name="bt_logout_cancel">キャンセル</string>
 </resources>

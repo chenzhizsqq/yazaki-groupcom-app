@@ -1,9 +1,13 @@
 package com.yazaki_groupcom.app.ui.mainMenu
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainMenuBinding
+import com.yazaki_groupcom.app.ui.cuttingWork.CuttingWorkCheckActivity3
+import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 
 class MainMenuActivity : BaseActivity() {
@@ -22,6 +26,31 @@ class MainMenuActivity : BaseActivity() {
                 Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        binding.btCutting.setOnClickListener {
+            val intent =
+                Intent(this, CuttingWorkCheckActivity3::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.btLogout.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(resources.getString(R.string.bt_logout_title))
+            builder.setMessage(resources.getString(R.string.bt_logout_message))
+            builder.setPositiveButton(resources.getString(R.string.bt_logout_ok)) { dialog, which ->
+                // 点击 OK 按钮的回调
+                val intent =
+                    Intent(this, FirstActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            builder.setNegativeButton(resources.getString(R.string.bt_logout_cancel)) { dialog, which ->
+                // 点击 Cancel 按钮的回调
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 
