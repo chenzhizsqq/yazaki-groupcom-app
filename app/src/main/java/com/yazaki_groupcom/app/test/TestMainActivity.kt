@@ -40,18 +40,22 @@ class TestMainActivity : AppCompatActivity() {
         //FLAG_KEEP_SCREEN_ON  一直开着屏幕的设定
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        //以下都是测试的
-        test()
-    }
-
-    /**
-     * 以下都是测试的
-     */
-    private fun test() {
         val intent =
             Intent(this@TestMainActivity, MainActivity::class.java)
         startActivity(intent)
 
+        //以下都是测试的
+        test()
+
+        //以下都是测试成功的版本
+        testOk()
+    }
+
+
+    /**
+     * 以下都是测试成功的版本
+     */
+    private fun testOk() {
         binding.MainActivity.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, MainActivity::class.java)
@@ -67,6 +71,13 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, PwLoginActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    /**
+     * 以下都是测试的
+     */
+    private fun test() {
+        /* 以下是测试版本 */
         binding.CuttingWorkCheckActivity1.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, CuttingWorkCheckActivity1::class.java)

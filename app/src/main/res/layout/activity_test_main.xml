@@ -31,6 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="以下都是测试成功的版本"/>
+
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/MainActivity"
@@ -49,6 +54,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PwLoginActivity"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="以下都是测试的"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/CuttingWorkCheckActivity1"
