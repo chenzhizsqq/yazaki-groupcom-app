@@ -76,9 +76,11 @@
                 >
 
                 <com.yazaki_groupcom.app.base.BaseButton
+                    android:id="@+id/bt_logout"
                     style="@style/MyButtonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="5dp"
                     android:textAlignment="center"
                     android:textColor="@color/button_font_color"
                     app:bg_color="@color/purple_500"

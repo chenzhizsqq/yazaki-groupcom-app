@@ -31,7 +31,7 @@ open class BaseActivity : AppCompatActivity() {
     private var countDownTimerLogout: CountDownTimer? = null
 
     // TODO: 是否设定倒数时间
-    private val isSettingCountTimeTime = false
+    private val isSettingCountTimeTime = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -76,15 +76,16 @@
                 android:gravity="center|end">
 
                 <com.yazaki_groupcom.app.base.BaseButton
+                    android:id="@+id/bt_logout"
                     style="@style/MyButtonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ログアウト"
+                    android:padding="5dp"
                     android:textAlignment="center"
                     android:textColor="@color/button_font_color"
                     app:bg_color="@color/purple_500"
-                    android:textSize="10sp"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:textSize="14sp"
+                    android:text="ログアウト" />
             </LinearLayout>
 
         </LinearLayout>
