@@ -1,25 +1,26 @@
-package com.yazaki_groupcom.app.test.testCuttingWork
+package com.yazaki_groupcom.app.ui.cuttingEdgeKodera
 
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
-import com.yazaki_groupcom.app.databinding.ActivityCuttingWorkCheck3Binding
+import com.yazaki_groupcom.app.databinding.ActivityCuttingEdgeKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
-class CuttingWorkCheckActivity3 : BaseActivity() {
+class CuttingEdgeKoderaActivity : BaseActivity() {
 
     companion object {
-        const val TAG: String = "CuttingWorkCheckActivity3"
+        const val TAG: String = "CuttingEdgeKoderaActivity"
     }
 
-    private lateinit var binding: ActivityCuttingWorkCheck3Binding
+    //activity_cutting_edge_kodera.xml  切断工程 。(KODERA)
+    private lateinit var binding: ActivityCuttingEdgeKoderaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCuttingWorkCheck3Binding.inflate(layoutInflater)
+        binding = ActivityCuttingEdgeKoderaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.returnHome.setOnClickListener {

@@ -14,7 +14,7 @@ import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
 import com.yazaki_groupcom.app.test.testCuttingWork.TestCuttingWorkActivity
 import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity1
 import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity2
-import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity3
+import com.yazaki_groupcom.app.ui.cuttingEdgeKodera.CuttingEdgeKoderaActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
@@ -61,11 +61,6 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, MainActivity::class.java)
             startActivity(intent)
         }
-        binding.RfidLoginActivity.setOnClickListener {
-            val intent =
-                Intent(this@TestMainActivity, RfidLoginActivity::class.java)
-            startActivity(intent)
-        }
         binding.PwLoginActivity.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, PwLoginActivity::class.java)
@@ -76,6 +71,11 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, MainMenuActivity::class.java)
             startActivity(intent)
         }
+        binding.CuttingEdgeKoderaActivity.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, CuttingEdgeKoderaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     /**
@@ -83,6 +83,11 @@ class TestMainActivity : AppCompatActivity() {
      */
     private fun test() {
         /* 以下是测试版本 */
+        binding.RfidLoginActivity.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, RfidLoginActivity::class.java)
+            startActivity(intent)
+        }
         binding.CuttingWorkCheckActivity1.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, CuttingWorkCheckActivity1::class.java)
@@ -91,11 +96,6 @@ class TestMainActivity : AppCompatActivity() {
         binding.CuttingWorkCheckActivity2.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, CuttingWorkCheckActivity2::class.java)
-            startActivity(intent)
-        }
-        binding.CuttingWorkCheckActivity3.setOnClickListener {
-            val intent =
-                Intent(this@TestMainActivity, CuttingWorkCheckActivity3::class.java)
             startActivity(intent)
         }
         binding.MainMenuActivity.setOnClickListener {

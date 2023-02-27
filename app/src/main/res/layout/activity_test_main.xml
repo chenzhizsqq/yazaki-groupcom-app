@@ -36,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="以下都是测试成功的版本"/>
+            <!-- 以下都是测试成功的版本 -->
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/MainActivity"
@@ -54,6 +55,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PwLoginActivity"/>
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/CuttingEdgeKoderaActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CuttingEdgeKoderaActivity 切断工程 。(KODERA)"/>
+
+            <!-- 以下都是测试的 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="以下都是测试的"/>
+            <!-- 以下都是测试的 -->
 
             <!-- 这个可能暂时不再需要了 -->
             <Button
@@ -62,12 +76,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="RfidLoginActivity"/>
-
-            <!-- 以下都是测试的 -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="以下都是测试的"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/CuttingWorkCheckActivity1"
@@ -80,12 +88,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CuttingWorkCheckActivity2 测试样本2"/>
-            <Button
-                android:textAllCaps="false"
-                android:id="@+id/CuttingWorkCheckActivity3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CuttingWorkCheckActivity3 测试样本3"/>
             <Button
                 android:textAllCaps="false"
                 android:id="@+id/AcQrLoginActivity"

@@ -46,7 +46,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".test.testCuttingWork.CuttingWorkCheckActivity3"
+            android:name=".ui.cuttingEdgeKodera.CuttingEdgeKoderaActivity"
             android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
