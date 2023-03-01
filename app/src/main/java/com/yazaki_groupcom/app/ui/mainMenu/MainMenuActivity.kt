@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainMenuBinding
-import com.yazaki_groupcom.app.ui.cuttingEdgeKodera.CuttingEdgeKoderaActivity
+import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 
@@ -30,7 +30,7 @@ class MainMenuActivity : BaseActivity() {
 
         binding.btCutting.setOnClickListener {
             val intent =
-                Intent(this, CuttingEdgeKoderaActivity::class.java)
+                Intent(this, ProcessManageActivity::class.java)
             startActivity(intent)
             finish()
         }

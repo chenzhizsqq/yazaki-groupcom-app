@@ -1,26 +1,26 @@
-package com.yazaki_groupcom.app.ui.cuttingEdgeKodera
+package com.yazaki_groupcom.app.ui.processManage
 
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
-import com.yazaki_groupcom.app.databinding.ActivityCuttingEdgeKoderaBinding
+import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
-class CuttingEdgeKoderaActivity : BaseActivity() {
+class ProcessManageActivity : BaseActivity() {
 
     companion object {
-        const val TAG: String = "CuttingEdgeKoderaActivity"
+        const val TAG: String = "ProcessManageActivity"
     }
 
-    //activity_cutting_edge_kodera.xml  切断工程 。(KODERA)
-    private lateinit var binding: ActivityCuttingEdgeKoderaBinding
+    //activity_process_manage.xml  進捗管理
+    private lateinit var binding: ActivityProcessManageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCuttingEdgeKoderaBinding.inflate(layoutInflater)
+        binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.returnHome.setOnClickListener {

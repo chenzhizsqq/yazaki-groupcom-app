@@ -57,10 +57,10 @@
                 android:text="PwLoginActivity"/>
             <Button
                 android:textAllCaps="false"
-                android:id="@+id/CuttingEdgeKoderaActivity"
+                android:id="@+id/ProcessManageActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CuttingEdgeKoderaActivity 切断工程 。(KODERA)"/>
+                android:text="ProcessManageActivity 進捗管理"/>
 
             <!-- 以下都是测试的 -->
             <TextView
