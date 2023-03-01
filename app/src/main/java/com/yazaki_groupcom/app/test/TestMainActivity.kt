@@ -14,6 +14,7 @@ import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
 import com.yazaki_groupcom.app.test.testCuttingWork.TestCuttingWorkActivity
 import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity1
 import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity2
+import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
@@ -41,7 +42,7 @@ class TestMainActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val intent =
-            Intent(this@TestMainActivity, ProcessManageActivity::class.java)
+            Intent(this@TestMainActivity, MainKoderaActivity::class.java)
         startActivity(intent)
 
         //以下都是测试成功的版本
@@ -74,6 +75,11 @@ class TestMainActivity : AppCompatActivity() {
         binding.ProcessManageActivity.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, ProcessManageActivity::class.java)
+            startActivity(intent)
+        }
+        binding.MainKoderaActivity.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, MainKoderaActivity::class.java)
             startActivity(intent)
         }
     }
