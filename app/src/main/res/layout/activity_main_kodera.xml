@@ -156,18 +156,6 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text="C385-01" />
-
-            <TextView
-                android:background="@drawable/bg_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C373-01"  />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -201,55 +189,319 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:orientation="vertical">
 
-                <!-- Each A-->
-                <LinearLayout
+                <!-- title-->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_layout"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:text="切断指示" />
 
-                    <!-- data time-->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:layout_margin="5dp"
-                        android:text="2023/01/31  13:30" />
-
-
-                    <!-- part button-->
+                <!-- line 1 -->
+                <LinearLayout
+                    android:weightSum="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_weight="5"
+                        android:weightSum="20"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:gravity="center"
                         android:orientation="horizontal">
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/button_font_color"
-                            android:padding="10dp"
-                            android:layout_margin="10dp"
-                            android:text="更新" />
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="設備条件"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ー"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/button_font_color"
-                            android:padding="10dp"
-                            android:layout_margin="10dp"
-                            android:text="次へ" />
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="数量"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="40"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="連続切断数"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="200"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="切断納期日"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2023/02/01"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Button
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- line 2 -->
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- line 2 title-->
+                    <TextView
+                        android:background="@drawable/bg_layout_black_orange"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="電線"/>
+                    <!-- line 2 info-->
+                    <LinearLayout
+                        android:layout_weight="9"
+                        android:weightSum="29"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="グループ№"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="CI001"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="9"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="シリアル№"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="CI00123021010"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="品種"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1R7"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ｻｲｽﾞ"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="041"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="色"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="40"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:background="@drawable/bg_layout_black_grey"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="切断線長"/>
+                            <TextView
+                                android:background="@drawable/bg_layout_black"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2096"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- part button-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:padding="10dp"
+                        android:layout_margin="10dp"
+                        android:text="更新" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/button_font_color"
+                        android:padding="10dp"
+                        android:layout_margin="10dp"
+                        android:text="次へ" />
+                </LinearLayout>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
