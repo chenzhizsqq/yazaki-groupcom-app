@@ -3,6 +3,8 @@ package com.yazaki_groupcom.app.ui.kodera
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
@@ -19,6 +21,12 @@ class MainKoderaActivity : BaseActivity() {
 
     //activity_main_kodera.xml
     private lateinit var binding: ActivityMainKoderaBinding
+
+    private lateinit var koderaMainFragment: KoderaMainFragment
+    private lateinit var koderaOneFragment: KoderaOneFragment
+
+    //与MainKoderaActivity共同的ViewModel
+    private val viewModel: KoderaViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +65,44 @@ class MainKoderaActivity : BaseActivity() {
         binding.ivTest2.setImageBitmap(bitmap)
         binding.ivTest3.setImageBitmap(bitmap)
         binding.ivTest4.setImageBitmap(bitmap)
+
+
+        // Create the fragments
+        koderaMainFragment = KoderaMainFragment()
+        koderaOneFragment = KoderaOneFragment()
+
+        // Add the fragments to the FragmentManager
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.fragment_container, koderaMainFragment)
+            add(R.id.fragment_container, koderaOneFragment)
+            hide(koderaOneFragment)
+            commit()
+        }
+
+
+        viewModel.idFragment.observe(this) {
+            Log.e(TAG, "onCreate: !!! idFragment:$it", )
+            when(it){
+                "0" -> {
+
+                    supportFragmentManager.beginTransaction().apply {
+                        show(koderaMainFragment)
+                        hide(koderaOneFragment)
+                        commit()
+                    }
+                    Log.e(TAG, "!!! onCreate: 000", )
+                }
+                "1" -> {
+
+                    supportFragmentManager.beginTransaction().apply {
+                        show(koderaOneFragment)
+                        hide(koderaMainFragment)
+                        commit()
+                    }
+                    Log.e(TAG, "!!! onCreate: 111", )
+                }
+            }
+        }
     }
 
 
