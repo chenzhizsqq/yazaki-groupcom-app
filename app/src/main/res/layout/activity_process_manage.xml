@@ -509,6 +509,7 @@
                         android:gravity="center"
                         android:orientation="horizontal">
                         <com.yazaki_groupcom.app.base.BaseButton
+                            android:id="@+id/bt_update"
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -518,6 +519,7 @@
                             android:layout_margin="10dp"
                             android:text="更新" />
                         <com.yazaki_groupcom.app.base.BaseButton
+                            android:id="@+id/bt_next"
                             style="@style/MyButtonStyleSmall"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"

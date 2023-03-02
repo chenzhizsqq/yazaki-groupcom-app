@@ -7,6 +7,7 @@ import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
+import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
 class ProcessManageActivity : BaseActivity() {
@@ -46,6 +47,13 @@ class ProcessManageActivity : BaseActivity() {
             }
             val dialog = builder.create()
             dialog.show()
+        }
+
+        binding.btNext.setOnClickListener {
+            val intent =
+                Intent(this, MainKoderaActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

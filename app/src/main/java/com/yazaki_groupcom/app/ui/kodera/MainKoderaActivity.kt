@@ -2,14 +2,12 @@ package com.yazaki_groupcom.app.ui.kodera
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
-import com.yazaki_groupcom.app.databinding.ActivityMainBinding
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
-import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
+import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 
 class MainKoderaActivity : BaseActivity() {
 
@@ -17,6 +15,7 @@ class MainKoderaActivity : BaseActivity() {
         const val TAG: String = "MainKoderaActivity"
     }
 
+    //activity_main_kodera.xml
     private lateinit var binding: ActivityMainKoderaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class MainKoderaActivity : BaseActivity() {
 
         binding.returnHome.setOnClickListener {
             val intent =
-                Intent(this, MainMenuActivity::class.java)
+                Intent(this, ProcessManageActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -58,7 +57,7 @@ class MainKoderaActivity : BaseActivity() {
         super.onBackPressed()
 
         val intent =
-            Intent(this, MainMenuActivity::class.java)
+            Intent(this, ProcessManageActivity::class.java)
         startActivity(intent)
         finish()
     }
