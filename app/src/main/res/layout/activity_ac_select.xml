@@ -7,7 +7,7 @@
     tools:context=".ui.acSelect.AcSelectActivity">
 
 
-    <!-- タイトル -->
+    <!-- バナー -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"

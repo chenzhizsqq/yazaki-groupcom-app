@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.mainMenu.MainMenuActivity">
 
-    <!-- タイトル -->
+    <!-- バナー -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/titleAppBarLayout"
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- ll_title -->
+    <!-- タイトル -->
     <LinearLayout
         android:id="@+id/ll_title"
         app:layout_constraintEnd_toEndOf="parent"

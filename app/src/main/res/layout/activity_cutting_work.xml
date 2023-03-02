@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".test.testCuttingWork.TestCuttingWorkActivity">
 
-    <!-- タイトル -->
+    <!-- バナー -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +98,7 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- ll_title -->
+    <!-- タイトル -->
     <LinearLayout
         android:id="@+id/ll_title"
         app:layout_constraintEnd_toEndOf="parent"
