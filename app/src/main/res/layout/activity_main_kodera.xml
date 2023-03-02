@@ -133,6 +133,8 @@
             android:layout_width="match_parent"
             android:layout_margin="0dp"
             android:padding="0dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:layout_height="30dp"
             android:scrollbars="none">
             <LinearLayout
@@ -147,8 +149,8 @@
                     android:textColor="@color/button_font_color"
                     android:textSize="20sp"
                     android:layout_margin="1dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
                     android:text="C385-01" />
             </LinearLayout>
         </HorizontalScrollView>
@@ -171,8 +173,9 @@
         android:scrollbarThumbVertical="@color/silvery"
         android:scrollbarSize="5dp"
         android:layout_marginTop="@dimen/main_marginTop"
-        android:paddingEnd="5dp"
-        android:paddingStart="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:scrollbars="vertical"
         android:background="@drawable/bg_layout">
 
@@ -356,7 +359,7 @@
                             android:orientation="vertical">
                             <TextView
                                 android:background="@drawable/bg_layout_black_grey"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:gravity="center"
                                 android:textColor="@color/black"
                                 android:layout_width="match_parent"
@@ -748,7 +751,7 @@
                             android:orientation="vertical">
                             <TextView
                                 android:background="@drawable/bg_layout_black_grey"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:gravity="center"
                                 android:textColor="@color/black"
                                 android:layout_width="match_parent"
@@ -1140,7 +1143,7 @@
                             android:orientation="vertical">
                             <TextView
                                 android:background="@drawable/bg_layout_black_grey"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:gravity="center"
                                 android:textColor="@color/black"
                                 android:layout_width="match_parent"
@@ -1532,7 +1535,7 @@
                             android:orientation="vertical">
                             <TextView
                                 android:background="@drawable/bg_layout_black_grey"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:gravity="center"
                                 android:textColor="@color/black"
                                 android:layout_width="match_parent"

@@ -98,9 +98,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAppBarLayout"
         android:orientation="vertical"
-        android:gravity="top|start"
+        android:gravity="bottom|start"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_height"
         android:layout_margin="0dp"
         android:padding="0dp">
 
@@ -127,412 +127,356 @@
             android:paddingEnd="5dp"
             android:text="設備QRを読み取りして下さい。" />
 
+        <!-- hs_title -->
+        <HorizontalScrollView
+            android:id="@+id/hs_title"
+            android:orientation="horizontal"
+            android:gravity="top|start"
+            android:layout_width="match_parent"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_height="30dp"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:background="@drawable/ic_round_button_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/button_font_color"
+                    android:textSize="20sp"
+                    android:layout_margin="1dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="C385-01" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
     </LinearLayout>
 
-    <!-- hs_title -->
-    <HorizontalScrollView
-        android:id="@+id/hs_title"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_title"
-        android:gravity="top|start"
-        android:layout_width="match_parent"
-        android:layout_margin="0dp"
-        android:padding="0dp"
-        android:layout_height="30dp"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <TextView
-                android:background="@drawable/ic_round_button_orange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/button_font_color"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C385-01" />
-
-            <TextView
-                android:background="@drawable/bg_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C373-01"  />
-
-            <TextView
-                android:background="@drawable/bg_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C373-02"  />
-
-            <TextView
-                android:background="@drawable/bg_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C373-03"  />
-
-            <TextView
-                android:background="@drawable/bg_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_margin="1dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="C373-04"  />
-        </LinearLayout>
-    </HorizontalScrollView>
-
-
-
     <!-- 中央部 -->
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/ll_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hs_title"
+        app:layout_constraintTop_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:gravity="center"
-        android:orientation="vertical">
-        <androidx.core.widget.NestedScrollView
-            android:orientation="vertical"
-            android:gravity="center|top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadeScrollbars="false"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbarThumbVertical="@color/silvery"
-            android:scrollbarSize="5dp"
-            android:paddingEnd="5dp"
-            android:scrollbars="vertical"
-            android:background="@drawable/bg_layout">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:fadeScrollbars="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@color/silvery"
+        android:scrollbarSize="5dp"
+        android:layout_marginTop="@dimen/main_marginTop"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="vertical"
+        android:background="@drawable/bg_layout">
 
-            <!-- Main -->
+        <!-- Main -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Each A-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <!-- Each A-->
+                <!-- data time-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="5dp"
+                    android:text="2023/01/31  13:30" />
+
+                <!-- part B-->
+                <TableLayout
+                    android:id="@+id/tl_data1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="50dp"
+                    android:paddingStart="50dp"
+                    android:showDividers="middle"
+                    android:layout_margin="5dp"
+                    android:stretchColumns="*">
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="切断納期日"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="01/31" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="実績数"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="12138本" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="指示数"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="21381本" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="進捗率"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="51.7%" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <!-- part B-->
+                <TableLayout
+                    android:id="@+id/tl_data2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="50dp"
+                    android:paddingStart="50dp"
+                    android:showDividers="middle"
+                    android:layout_margin="5dp"
+                    android:stretchColumns="*">
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="切断納期日"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="01/31" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="実績数"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="12138本" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="指示数"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="21381本" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black_grey"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="進捗率"/>
+
+                        <TextView
+                            android:background="@drawable/bg_layout_black"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="51.7%" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+
+                <!-- part button-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_layout"
+                    android:padding="5dp"
                     android:gravity="center"
-                    android:orientation="vertical">
-
-                    <!-- data time-->
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:orientation="horizontal">
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:id="@+id/bt_update"
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:layout_margin="5dp"
-                        android:text="2023/01/31  13:30" />
-
-                    <!-- part B-->
-                    <TableLayout
-                        android:id="@+id/tl_data1"
-                        android:layout_width="match_parent"
+                        android:textColor="@color/button_font_color"
+                        android:padding="10dp"
+                        android:layout_margin="10dp"
+                        android:text="更新" />
+                    <com.yazaki_groupcom.app.base.BaseButton
+                        android:id="@+id/bt_next"
+                        style="@style/MyButtonStyleSmall"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:paddingEnd="50dp"
-                        android:paddingStart="50dp"
-                        android:showDividers="middle"
-                        android:layout_margin="5dp"
-                        android:stretchColumns="*">
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="切断納期日"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="01/31" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="実績数"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="12138本" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="指示数"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="21381本" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="進捗率"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="51.7%" />
-
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <!-- part B-->
-                    <TableLayout
-                        android:id="@+id/tl_data2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="50dp"
-                        android:paddingStart="50dp"
-                        android:showDividers="middle"
-                        android:layout_margin="5dp"
-                        android:stretchColumns="*">
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="切断納期日"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="01/31" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="実績数"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="12138本" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="指示数"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="21381本" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black_grey"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="進捗率"/>
-
-                            <TextView
-                                android:background="@drawable/bg_layout_black"
-                                android:gravity="center"
-                                android:textColor="@color/black"
-                                android:padding="5dp"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="51.7%" />
-
-                        </TableRow>
-
-                    </TableLayout>
-
-
-                    <!-- part button-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            android:id="@+id/bt_update"
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/button_font_color"
-                            android:padding="10dp"
-                            android:layout_margin="10dp"
-                            android:text="更新" />
-                        <com.yazaki_groupcom.app.base.BaseButton
-                            android:id="@+id/bt_next"
-                            style="@style/MyButtonStyleSmall"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/button_font_color"
-                            android:padding="10dp"
-                            android:layout_margin="10dp"
-                            android:text="次へ" />
-                    </LinearLayout>
+                        android:textColor="@color/button_font_color"
+                        android:padding="10dp"
+                        android:layout_margin="10dp"
+                        android:text="次へ" />
                 </LinearLayout>
-
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
