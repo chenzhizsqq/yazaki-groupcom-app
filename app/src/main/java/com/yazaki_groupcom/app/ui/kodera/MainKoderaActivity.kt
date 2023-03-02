@@ -8,6 +8,8 @@ import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class MainKoderaActivity : BaseActivity() {
 
@@ -47,6 +49,14 @@ class MainKoderaActivity : BaseActivity() {
             val dialog = builder.create()
             dialog.show()
         }
+
+        // 生成条形码
+        val barcodeEncoder = BarcodeEncoder()
+        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
+        binding.ivTest1.setImageBitmap(bitmap)
+        binding.ivTest2.setImageBitmap(bitmap)
+        binding.ivTest3.setImageBitmap(bitmap)
+        binding.ivTest4.setImageBitmap(bitmap)
     }
 
 

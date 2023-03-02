@@ -305,12 +305,25 @@
                                     android:text="2023/02/01"/>
                             </LinearLayout>
                         </LinearLayout>
-                        <Button
+                        <!-- 条形码 -->
+                        <LinearLayout
                             android:layout_weight="2"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1234567890"/>
+                            <ImageView
+                                android:id="@+id/iv_test1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                     <!-- line 2 -->
                     <LinearLayout
                         android:weightSum="10"
@@ -684,12 +697,25 @@
                                     android:text="2023/02/01"/>
                             </LinearLayout>
                         </LinearLayout>
-                        <Button
+                        <!-- 条形码 -->
+                        <LinearLayout
                             android:layout_weight="2"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1234567890"/>
+                            <ImageView
+                                android:id="@+id/iv_test2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                     <!-- line 2 -->
                     <LinearLayout
                         android:weightSum="10"
@@ -951,7 +977,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- part 2 -->
+                <!-- part 3 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1063,12 +1089,25 @@
                                     android:text="2023/02/01"/>
                             </LinearLayout>
                         </LinearLayout>
-                        <Button
+                        <!-- 条形码 -->
+                        <LinearLayout
                             android:layout_weight="2"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1234567890"/>
+                            <ImageView
+                                android:id="@+id/iv_test3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                     <!-- line 2 -->
                     <LinearLayout
                         android:weightSum="10"
@@ -1330,7 +1369,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- part 2 -->
+                <!-- part 4 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1442,12 +1481,25 @@
                                     android:text="2023/02/01"/>
                             </LinearLayout>
                         </LinearLayout>
-                        <Button
+                        <!-- 条形码 -->
+                        <LinearLayout
                             android:layout_weight="2"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1234567890"/>
+                            <ImageView
+                                android:id="@+id/iv_test4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                     <!-- line 2 -->
                     <LinearLayout
                         android:weightSum="10"
