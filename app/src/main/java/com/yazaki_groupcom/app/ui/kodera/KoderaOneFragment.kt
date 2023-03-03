@@ -29,7 +29,7 @@ class KoderaOneFragment : Fragment() {
     ): View {
         Log.e(TAG, "onCreateView: 111", )
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
-        binding.btTest.setOnClickListener {
+        binding.tvTitle.setOnClickListener {
             sharedVM.idFragment.value = "2"
         }
         binding.btCheck1.setOnClickListener {

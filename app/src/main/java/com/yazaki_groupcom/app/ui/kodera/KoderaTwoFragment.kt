@@ -28,7 +28,7 @@ class KoderaTwoFragment : Fragment() {
     ): View {
         Log.e(TAG, "onCreateView: 222", )
         binding = FragmentKoderaTwoBinding.inflate(inflater, container, false)
-        binding.btTest.setOnClickListener {
+        binding.tvTitle.setOnClickListener {
             sharedVM.idFragment.value = "1"
         }
         return binding.root

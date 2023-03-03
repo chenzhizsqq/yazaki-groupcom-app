@@ -11,11 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <!-- message -->
         <TextView
-            android:id="@+id/bt_test"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="main" />
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="切断指示" />
 
         <!-- part 1 -->
         <LinearLayout

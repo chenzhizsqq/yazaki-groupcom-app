@@ -66,16 +66,14 @@ class MainKoderaActivity : BaseActivity() {
     }
 
     private fun switchToFragmentOne() {
-        val koderaOneFragment = KoderaOneFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, koderaOneFragment)
+            .replace(R.id.fragment_container, KoderaOneFragment.newInstance())
             .commit()
     }
 
     private fun switchToFragmentTwo() {
-        val koderaTwoFragment = KoderaTwoFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, koderaTwoFragment)
+            .replace(R.id.fragment_container, KoderaTwoFragment.newInstance())
             .commit()
     }
 
