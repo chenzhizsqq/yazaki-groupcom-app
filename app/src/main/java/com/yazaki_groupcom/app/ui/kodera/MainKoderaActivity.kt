@@ -50,7 +50,7 @@ class MainKoderaActivity : BaseActivity() {
             dialog.show()
         }
 
-        switchToFragmentThree()
+        switchToFragmentOne()
 
         viewModel.idFragment.observe(this) {
             Log.e(TAG, "onCreate: !!! idFragment:$it", )

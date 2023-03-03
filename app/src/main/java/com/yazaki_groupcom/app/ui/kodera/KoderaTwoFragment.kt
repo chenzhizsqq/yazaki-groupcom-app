@@ -32,7 +32,7 @@ class KoderaTwoFragment : Fragment() {
             sharedVM.idFragment.value = "1"
         }
         binding.tvResult.setOnClickListener {
-            sharedVM.idFragment.value = "1"
+            sharedVM.idFragment.value = "3"
         }
         return binding.root
     }
