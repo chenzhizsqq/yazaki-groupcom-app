@@ -60,16 +60,18 @@ class ProcessManageActivity : BaseActivity() {
 
         //观察ll_titles的成员，是否点中
         for (i in 0 until binding.llTitles.childCount) {
-            val view = binding.llTitles.getChildAt(i) as TextView
+            val view = binding.llTitles.getChildAt(i)
             view.setOnClickListener {
 
                 allTitlesNotClicked()
 
-                //android:background="@drawable/bg_layout"
-                view.setBackgroundResource(R.drawable.ic_round_button_orange)
+                if (view is TextView) {
+                    //android:background="@drawable/bg_layout"
+                    view.setBackgroundResource(R.drawable.ic_round_button_orange)
 
-                //android:textColor="@color/black"
-                view.setTextColor(Color.WHITE)
+                    //android:textColor="@color/black"
+                    view.setTextColor(Color.WHITE)
+                }
             }
         }
     }
@@ -78,13 +80,15 @@ class ProcessManageActivity : BaseActivity() {
     private fun allTitlesNotClicked() {
         val linearLayout = binding.llTitles
         for (i in 0 until linearLayout.childCount) {
-            val view = linearLayout.getChildAt(i) as TextView
+            val view = linearLayout.getChildAt(i)
 
-            //android:background="@drawable/bg_layout"
-            view.setBackgroundResource(R.drawable.bg_layout)
+            if (view is TextView) {
+                //android:background="@drawable/bg_layout"
+                view.setBackgroundResource(R.drawable.bg_layout)
 
-            //android:textColor="@color/black"
-            view.setTextColor(Color.BLACK)
+                //android:textColor="@color/black"
+                view.setTextColor(Color.BLACK)
+            }
 
         }
     }
