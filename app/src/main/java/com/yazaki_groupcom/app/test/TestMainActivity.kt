@@ -42,7 +42,7 @@ class TestMainActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val intent =
-            Intent(this@TestMainActivity, MainKoderaActivity::class.java)
+            Intent(this@TestMainActivity, ProcessManageActivity::class.java)
         startActivity(intent)
 
         //以下都是测试成功的版本
