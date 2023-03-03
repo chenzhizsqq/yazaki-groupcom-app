@@ -140,6 +140,7 @@
             android:layout_height="30dp"
             android:scrollbars="none">
             <LinearLayout
+                android:id="@+id/ll_titles"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -167,45 +168,6 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:text="C373-01"  />
-
-
-                <TextView
-                    android:background="@drawable/bg_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_margin="1dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="C373-02"  />
-
-
-                <TextView
-                    android:background="@drawable/bg_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_margin="1dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="C373-03"  />
-
-
-                <TextView
-                    android:background="@drawable/bg_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_margin="1dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="C373-04"  />
             </LinearLayout>
         </HorizontalScrollView>
 

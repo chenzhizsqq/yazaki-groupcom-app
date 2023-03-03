@@ -2,7 +2,9 @@ package com.yazaki_groupcom.app.ui.processManage
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.TextView
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
@@ -54,6 +56,36 @@ class ProcessManageActivity : BaseActivity() {
                 Intent(this, MainKoderaActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        //观察ll_titles的成员，是否点中
+        for (i in 0 until binding.llTitles.childCount) {
+            val view = binding.llTitles.getChildAt(i) as TextView
+            view.setOnClickListener {
+
+                allTitlesNotClicked()
+
+                //android:background="@drawable/bg_layout"
+                view.setBackgroundResource(R.drawable.ic_round_button_orange)
+
+                //android:textColor="@color/black"
+                view.setTextColor(Color.WHITE)
+            }
+        }
+    }
+
+    //全部title没有点中。
+    private fun allTitlesNotClicked() {
+        val linearLayout = binding.llTitles
+        for (i in 0 until linearLayout.childCount) {
+            val view = linearLayout.getChildAt(i) as TextView
+
+            //android:background="@drawable/bg_layout"
+            view.setBackgroundResource(R.drawable.bg_layout)
+
+            //android:textColor="@color/black"
+            view.setTextColor(Color.BLACK)
+
         }
     }
 
