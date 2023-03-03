@@ -61,6 +61,9 @@ class MainKoderaActivity : BaseActivity() {
                 "2" -> {
                     switchToFragmentTwo()
                 }
+                "3" -> {
+                    switchToFragmentThree()
+                }
             }
         }
     }
@@ -74,6 +77,12 @@ class MainKoderaActivity : BaseActivity() {
     private fun switchToFragmentTwo() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, KoderaTwoFragment.newInstance())
+            .commit()
+    }
+
+    private fun switchToFragmentThree() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, KoderaThreeFragment.newInstance())
             .commit()
     }
 

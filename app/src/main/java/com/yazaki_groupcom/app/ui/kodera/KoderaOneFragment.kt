@@ -54,16 +54,16 @@ class KoderaOneFragment : Fragment() {
 
         //按下"检查"按钮后，去检查页面 3
         binding.btCheck1.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = "3"
         }
         binding.btCheck2.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = "3"
         }
         binding.btCheck3.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = "3"
         }
         binding.btCheck4.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = "3"
         }
 
         return binding.root
