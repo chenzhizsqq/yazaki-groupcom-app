@@ -23,6 +23,9 @@ class MainKoderaActivity : BaseActivity() {
     //与MainKoderaActivity共同的ViewModel
     private val viewModel: KoderaViewModel by viewModels()
 
+    //idFragmentのリスト
+    private val listFrag = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainKoderaBinding.inflate(layoutInflater)
@@ -55,13 +58,13 @@ class MainKoderaActivity : BaseActivity() {
         viewModel.idFragment.observe(this) {
             Log.e(TAG, "onCreate: !!! idFragment:$it", )
             when(it){
-                "1" -> {
+                1 -> {
                     switchToFragmentOne()
                 }
-                "2" -> {
+                2 -> {
                     switchToFragmentTwo()
                 }
-                "3" -> {
+                3 -> {
                     switchToFragmentThree()
                 }
             }
@@ -94,9 +97,14 @@ class MainKoderaActivity : BaseActivity() {
      * 携帯電話のリターンボタンをクリックすると特定のActivityにジャンプします。
      */
     override fun onBackPressed() {
-        super.onBackPressed()
 
-        returnBack()
+        //当idFragment回到1后，倒退按键才是退出去。要不然一直减1
+        if(viewModel.idFragment.value!! > 1 ){
+            viewModel.idFragment.value = viewModel.idFragment.value!! -1
+        }else{
+            super.onBackPressed()
+            returnBack()
+        }
     }
 
     /**

@@ -33,7 +33,7 @@ class KoderaThreeFragment : Fragment() {
         binding = FragmentKoderaThreeBinding.inflate(inflater, container, false)
 
         binding.tvTitle.setOnClickListener {
-            sharedVM.idFragment.value = "1"
+            sharedVM.idFragment.value = 1
         }
 
         return binding.root

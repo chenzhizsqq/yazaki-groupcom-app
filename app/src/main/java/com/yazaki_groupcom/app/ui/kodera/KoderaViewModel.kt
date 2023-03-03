@@ -5,6 +5,6 @@ import androidx.lifecycle.ViewModel
 
 class KoderaViewModel  : ViewModel() {
 
-    val idFragment = MutableLiveData("")
+    val idFragment = MutableLiveData(1)
 
 }

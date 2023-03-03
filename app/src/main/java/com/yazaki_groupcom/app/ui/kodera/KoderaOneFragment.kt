@@ -40,30 +40,30 @@ class KoderaOneFragment : Fragment() {
 
         //按下"条形码"按钮后，去查看页面 2
         binding.ivTest1.setOnClickListener {
-            sharedVM.idFragment.value = "3"
+            sharedVM.idFragment.value = 3
         }
         binding.ivTest2.setOnClickListener {
-            sharedVM.idFragment.value = "3"
+            sharedVM.idFragment.value = 3
         }
         binding.ivTest3.setOnClickListener {
-            sharedVM.idFragment.value = "3"
+            sharedVM.idFragment.value = 3
         }
         binding.ivTest4.setOnClickListener {
-            sharedVM.idFragment.value = "3"
+            sharedVM.idFragment.value = 3
         }
 
         //按下"检查"按钮后，去检查页面 3
         binding.btCheck1.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = 2
         }
         binding.btCheck2.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = 2
         }
         binding.btCheck3.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = 2
         }
         binding.btCheck4.setOnClickListener {
-            sharedVM.idFragment.value = "2"
+            sharedVM.idFragment.value = 2
         }
 
         return binding.root
