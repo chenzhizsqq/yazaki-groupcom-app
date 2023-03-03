@@ -1,13 +1,11 @@
 package com.yazaki_groupcom.app.ui.kodera
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 
 class KoderaOneFragment : Fragment() {

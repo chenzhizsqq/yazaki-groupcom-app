@@ -22,8 +22,8 @@ class MainKoderaActivity : BaseActivity() {
     //activity_main_kodera.xml
     private lateinit var binding: ActivityMainKoderaBinding
 
-    private lateinit var koderaMainFragment: KoderaMainFragment
-    private lateinit var koderaOneFragment: KoderaOneFragment
+    private val koderaMainFragment = KoderaMainFragment.newInstance()
+    private val koderaOneFragment = KoderaOneFragment.newInstance()
 
     //与MainKoderaActivity共同的ViewModel
     private val viewModel: KoderaViewModel by viewModels()
@@ -67,9 +67,6 @@ class MainKoderaActivity : BaseActivity() {
         binding.ivTest4.setImageBitmap(bitmap)
 
 
-        // Create the fragments
-        koderaMainFragment = KoderaMainFragment()
-        koderaOneFragment = KoderaOneFragment()
 
         // Add the fragments to the FragmentManager
         supportFragmentManager.beginTransaction().apply {
