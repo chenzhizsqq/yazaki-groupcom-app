@@ -29,9 +29,30 @@ class KoderaOneFragment : Fragment() {
     ): View {
         Log.e(TAG, "onCreateView: 111", )
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
-        binding.tvTitle.setOnClickListener {
+
+        // 生成条形码
+        val barcodeEncoder = BarcodeEncoder()
+        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
+        binding.ivTest1.setImageBitmap(bitmap)
+        binding.ivTest2.setImageBitmap(bitmap)
+        binding.ivTest3.setImageBitmap(bitmap)
+        binding.ivTest4.setImageBitmap(bitmap)
+
+        //按下"条形码"按钮后，去查看页面 2
+        binding.ivTest1.setOnClickListener {
             sharedVM.idFragment.value = "2"
         }
+        binding.ivTest2.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+        binding.ivTest3.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+        binding.ivTest4.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+
+        //按下"检查"按钮后，去检查页面 3
         binding.btCheck1.setOnClickListener {
             sharedVM.idFragment.value = "2"
         }
@@ -44,14 +65,6 @@ class KoderaOneFragment : Fragment() {
         binding.btCheck4.setOnClickListener {
             sharedVM.idFragment.value = "2"
         }
-
-        // 生成条形码
-        val barcodeEncoder = BarcodeEncoder()
-        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
-        binding.ivTest1.setImageBitmap(bitmap)
-        binding.ivTest2.setImageBitmap(bitmap)
-        binding.ivTest3.setImageBitmap(bitmap)
-        binding.ivTest4.setImageBitmap(bitmap)
 
         return binding.root
     }

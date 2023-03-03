@@ -219,7 +219,7 @@
                     android:padding="5sp"
                     android:text="電線情報"/>
 
-                <EditText
+                <TextView
                     android:background="@drawable/bg_layout_black"
                     android:textColor="@color/black"
                     android:layout_weight="3"
@@ -245,7 +245,7 @@
                     android:padding="5sp"
                     android:text="製造№"/>
 
-                <EditText
+                <TextView
                     android:background="@drawable/bg_layout_black"
                     android:textColor="@color/black"
                     android:layout_weight="3"
@@ -264,25 +264,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="3"
-                    android:background="@drawable/bg_layout_black_grey"
-                    android:gravity="center|start"
-                    android:textColor="@color/black"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:padding="5sp"
-                    android:text="照合結果"/>
-                <EditText
-                    android:layout_weight="3"
-                    android:background="@drawable/bg_layout_black"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:text="OK"/>
-            </LinearLayout>
+            <TextView
+                android:layout_weight="3"
+                android:background="@drawable/bg_layout_black_grey"
+                android:gravity="center|start"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="5sp"
+                android:text="照合結果"/>
+            <!--                <EditText-->
+            <!--                    android:layout_weight="3"-->
+            <!--                    android:background="@drawable/bg_layout_black"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:padding="5sp"-->
+            <!--                    android:text="OK"/>-->
+            <!--            <Spinner-->
+            <!--                android:id="@+id/spinner"-->
+            <!--                android:layout_weight="3"-->
+            <!--                android:background="@drawable/bg_layout_black"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:gravity="center"-->
+            <!--                android:padding="5sp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:entries="@array/checkSpinnerOption" />-->
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_weight="3"
+                android:background="@drawable/bg_layout_black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="5sp"
+                android:textColor="@color/black"
+                android:text="OK"
+                android:entries="@array/checkSpinnerOption" />
+        </LinearLayout>
 
 
     </LinearLayout>
