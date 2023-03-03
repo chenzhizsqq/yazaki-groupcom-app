@@ -18,184 +18,9 @@
             android:gravity="start"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:text="333" />
+            android:text="検査" />
 
-        <!-- line 1 -->
-        <LinearLayout
-            android:weightSum="10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-            <!-- line 2 title-->
-            <TextView
-                android:background="@drawable/bg_layout_black_orange"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="電線"/>
-            <!-- line 2 info-->
-            <LinearLayout
-                android:layout_weight="9"
-                android:weightSum="29"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_weight="6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="グループ№"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="CI001"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="9"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="シリアル№"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="CI00123021010"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="品種"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black_orange"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1R7"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ｻｲｽﾞ"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black_orange"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="041"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="色"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black_orange"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="40"/>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_weight="5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:background="@drawable/bg_layout_black_grey"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="切断線長"/>
-                    <TextView
-                        android:background="@drawable/bg_layout_black_orange"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="2096"/>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- message -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="部材タグ" />
-
-        <!-- line 2 -->
+        <!-- tl_data  -->
         <TableLayout
             android:id="@+id/tl_data"
             android:layout_width="match_parent"
@@ -203,8 +28,9 @@
             android:layout_marginBottom="10sp"
             android:showDividers="middle">
 
+            <!-- tr_title  -->
             <TableRow
-                android:layout_weight="4"
+                android:layout_weight="10"
                 android:layout_width="match_parent"
                 android:layout_height="20sp">
 
@@ -212,97 +38,111 @@
                     android:background="@drawable/bg_layout_black_grey"
                     android:gravity="center|start"
                     android:textColor="@color/black"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="電線情報"/>
+                    android:text="項目"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black"
+                    android:background="@drawable/bg_layout_black_grey"
+                    android:gravity="center|start"
                     android:textColor="@color/black"
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="1801R704140"/>
+                    android:text="下限値"/>
+
+                <TextView
+                    android:background="@drawable/bg_layout_black_grey"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text="上限値"/>
+
+                <TextView
+                    android:background="@drawable/bg_layout_black_grey"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text="測定値"/>
+
+                <TextView
+                    android:background="@drawable/bg_layout_black_grey"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text="判定"/>
 
             </TableRow>
 
+            <!-- 切断線長  -->
             <TableRow
-                android:layout_weight="4"
+                android:layout_weight="10"
                 android:layout_width="match_parent"
                 android:layout_height="20sp">
+
+                <TextView
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_layout_black"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text="切断線長"/>
 
                 <TextView
                     android:background="@drawable/bg_layout_black_grey"
                     android:gravity="center|start"
                     android:textColor="@color/black"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="製造№"/>
+                    android:text=""/>
 
                 <TextView
+                    android:background="@drawable/bg_layout_black_grey"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text=""/>
+
+                <EditText
+                    android:layout_weight="2"
                     android:background="@drawable/bg_layout_black"
                     android:textColor="@color/black"
-                    android:layout_weight="3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="004232060059"/>
+                    android:text="335"/>
+
+                <TextView
+                    android:background="@drawable/bg_layout_black_green"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:text="OK"/>
 
             </TableRow>
 
         </TableLayout>
-
-        <!-- line 3 -->
-        <LinearLayout
-            android:weightSum="12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="3"
-                android:background="@drawable/bg_layout_black_grey"
-                android:gravity="center|start"
-                android:textColor="@color/black"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:padding="5sp"
-                android:text="照合結果"/>
-            <!--                <EditText-->
-            <!--                    android:layout_weight="3"-->
-            <!--                    android:background="@drawable/bg_layout_black"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:textColor="@color/black"-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:padding="5sp"-->
-            <!--                    android:text="OK"/>-->
-            <!--            <Spinner-->
-            <!--                android:id="@+id/spinner"-->
-            <!--                android:layout_weight="3"-->
-            <!--                android:background="@drawable/bg_layout_black"-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:gravity="center"-->
-            <!--                android:padding="5sp"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:entries="@array/checkSpinnerOption" />-->
-            <TextView
-                android:id="@+id/tv_result"
-                android:layout_weight="3"
-                android:background="@drawable/bg_layout_black"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="5sp"
-                android:textColor="@color/black"
-                android:text="OK"
-                android:entries="@array/checkSpinnerOption" />
-        </LinearLayout>
 
 
     </LinearLayout>
