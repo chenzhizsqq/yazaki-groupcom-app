@@ -22,9 +22,6 @@ class MainKoderaActivity : BaseActivity() {
     //activity_main_kodera.xml
     private lateinit var binding: ActivityMainKoderaBinding
 
-    private val koderaMainFragment = KoderaMainFragment.newInstance()
-    private val koderaOneFragment = KoderaOneFragment.newInstance()
-
     //与MainKoderaActivity共同的ViewModel
     private val viewModel: KoderaViewModel by viewModels()
 
@@ -58,48 +55,33 @@ class MainKoderaActivity : BaseActivity() {
             dialog.show()
         }
 
-        // 生成条形码
-        val barcodeEncoder = BarcodeEncoder()
-        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
-        binding.ivTest1.setImageBitmap(bitmap)
-        binding.ivTest2.setImageBitmap(bitmap)
-        binding.ivTest3.setImageBitmap(bitmap)
-        binding.ivTest4.setImageBitmap(bitmap)
-
-
-
-        // Add the fragments to the FragmentManager
-        supportFragmentManager.beginTransaction().apply {
-            add(R.id.fragment_container, koderaMainFragment)
-            add(R.id.fragment_container, koderaOneFragment)
-            hide(koderaOneFragment)
-            commit()
-        }
-
+        switchToFragmentMain()
 
         viewModel.idFragment.observe(this) {
             Log.e(TAG, "onCreate: !!! idFragment:$it", )
             when(it){
                 "0" -> {
-
-                    supportFragmentManager.beginTransaction().apply {
-                        show(koderaMainFragment)
-                        hide(koderaOneFragment)
-                        commit()
-                    }
-                    Log.e(TAG, "!!! onCreate: 000", )
+                    switchToFragmentMain()
                 }
                 "1" -> {
-
-                    supportFragmentManager.beginTransaction().apply {
-                        show(koderaOneFragment)
-                        hide(koderaMainFragment)
-                        commit()
-                    }
-                    Log.e(TAG, "!!! onCreate: 111", )
+                    switchToFragmentOne()
                 }
             }
         }
+    }
+
+    private fun switchToFragmentMain() {
+        val koderaMainFragment = KoderaMainFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, koderaMainFragment)
+            .commit()
+    }
+
+    private fun switchToFragmentOne() {
+        val koderaOneFragment = KoderaOneFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, koderaOneFragment)
+            .commit()
     }
 
 

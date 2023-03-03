@@ -2,6 +2,7 @@ package com.yazaki_groupcom.app.ui.kodera
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.yazaki_groupcom.app.databinding.FragmentKoderaMainBinding
 class KoderaMainFragment : Fragment() {
 
     companion object {
+        const val TAG: String = "KoderaMainFragment"
         fun newInstance() = KoderaMainFragment()
     }
 
@@ -25,6 +27,7 @@ class KoderaMainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.e(TAG, "onCreateView: 111", )
         binding = FragmentKoderaMainBinding.inflate(inflater, container, false)
         binding.btTest.setOnClickListener {
             sharedVM.idFragment.value = "1"
