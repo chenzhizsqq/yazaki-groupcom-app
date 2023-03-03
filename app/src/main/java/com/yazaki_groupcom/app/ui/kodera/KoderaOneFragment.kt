@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 
 class KoderaOneFragment : Fragment() {
@@ -64,6 +65,12 @@ class KoderaOneFragment : Fragment() {
         }
         binding.btCheck4.setOnClickListener {
             sharedVM.idFragment.value = 2
+        }
+
+        sharedVM.isCheckOk.observeForever {
+            if (it){
+                binding.btCheckRes.changeColorByState(BaseButton.Companion.ButtonState.NORMAL.state)
+            }
         }
 
         return binding.root

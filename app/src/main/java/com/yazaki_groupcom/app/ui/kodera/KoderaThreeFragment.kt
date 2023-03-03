@@ -132,6 +132,7 @@ class KoderaThreeFragment : Fragment() {
         {
             Handler(Looper.getMainLooper()).postDelayed({
                 sharedVM.idFragment.value = 1
+                sharedVM.isCheckOk.value = true
             }, 1000) // 1000表示延时1秒钟
         }
     }

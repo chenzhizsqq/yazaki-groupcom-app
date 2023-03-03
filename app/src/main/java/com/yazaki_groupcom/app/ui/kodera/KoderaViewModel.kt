@@ -7,4 +7,6 @@ class KoderaViewModel  : ViewModel() {
 
     val idFragment = MutableLiveData(1)
 
+    val isCheckOk = MutableLiveData(false)
+
 }

@@ -401,6 +401,7 @@
                     android:gravity="right"
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
+                        android:id="@+id/bt_check_res"
                         app:bg_color="@color/silvery"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
