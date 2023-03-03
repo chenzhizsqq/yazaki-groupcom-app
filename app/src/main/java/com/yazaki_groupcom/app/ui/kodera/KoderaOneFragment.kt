@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 
 class KoderaOneFragment : Fragment() {
@@ -25,11 +27,32 @@ class KoderaOneFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.e(TAG, "onCreateView: 000", )
+        Log.e(TAG, "onCreateView: 111", )
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
         binding.btTest.setOnClickListener {
-            sharedVM.idFragment.value = "0"
+            sharedVM.idFragment.value = "2"
         }
+        binding.btCheck1.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+        binding.btCheck2.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+        binding.btCheck3.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+        binding.btCheck4.setOnClickListener {
+            sharedVM.idFragment.value = "2"
+        }
+
+        // 生成条形码
+        val barcodeEncoder = BarcodeEncoder()
+        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
+        binding.ivTest1.setImageBitmap(bitmap)
+        binding.ivTest2.setImageBitmap(bitmap)
+        binding.ivTest3.setImageBitmap(bitmap)
+        binding.ivTest4.setImageBitmap(bitmap)
+
         return binding.root
     }
 

@@ -10,8 +10,6 @@ import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
-import com.google.zxing.BarcodeFormat
-import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class MainKoderaActivity : BaseActivity() {
 
@@ -31,10 +29,7 @@ class MainKoderaActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.returnHome.setOnClickListener {
-            val intent =
-                Intent(this, ProcessManageActivity::class.java)
-            startActivity(intent)
-            finish()
+            returnBack()
         }
 
         binding.btLogout.setOnClickListener {
@@ -55,32 +50,32 @@ class MainKoderaActivity : BaseActivity() {
             dialog.show()
         }
 
-        switchToFragmentMain()
+        switchToFragmentOne()
 
         viewModel.idFragment.observe(this) {
             Log.e(TAG, "onCreate: !!! idFragment:$it", )
             when(it){
-                "0" -> {
-                    switchToFragmentMain()
-                }
                 "1" -> {
                     switchToFragmentOne()
                 }
+                "2" -> {
+                    switchToFragmentTwo()
+                }
             }
         }
-    }
-
-    private fun switchToFragmentMain() {
-        val koderaMainFragment = KoderaMainFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, koderaMainFragment)
-            .commit()
     }
 
     private fun switchToFragmentOne() {
         val koderaOneFragment = KoderaOneFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, koderaOneFragment)
+            .commit()
+    }
+
+    private fun switchToFragmentTwo() {
+        val koderaTwoFragment = KoderaTwoFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, koderaTwoFragment)
             .commit()
     }
 
@@ -91,6 +86,13 @@ class MainKoderaActivity : BaseActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
 
+        returnBack()
+    }
+
+    /**
+     * 返回键的操作
+     */
+    private fun returnBack() {
         val intent =
             Intent(this, ProcessManageActivity::class.java)
         startActivity(intent)
