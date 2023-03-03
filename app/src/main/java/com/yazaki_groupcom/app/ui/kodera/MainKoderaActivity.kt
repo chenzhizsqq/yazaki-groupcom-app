@@ -72,18 +72,21 @@ class MainKoderaActivity : BaseActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, KoderaOneFragment.newInstance())
             .commit()
+        binding.tvTitleTips.text = "切断指示を確認して、設備に入力して下さい。"
     }
 
     private fun switchToFragmentTwo() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, KoderaTwoFragment.newInstance())
             .commit()
+        binding.tvTitleTips.text = "部材照合して下さい。"
     }
 
     private fun switchToFragmentThree() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, KoderaThreeFragment.newInstance())
             .commit()
+        binding.tvTitleTips.text = "測定値を入力して下さい。"
     }
 
 

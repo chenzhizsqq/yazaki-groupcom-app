@@ -116,6 +116,7 @@
             android:text="切断工程　KODERA" />
 
         <TextView
+            android:id="@+id/tv_title_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="bottom|start"
