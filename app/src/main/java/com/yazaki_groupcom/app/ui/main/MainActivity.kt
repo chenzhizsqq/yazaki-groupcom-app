@@ -43,6 +43,7 @@ class MainActivity : BaseScanActivity() {
 
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
+            Log.e(TAG, "!!! QR:$it ", )
             binding.etQrCode.setText(it)
 
             // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
