@@ -39,12 +39,12 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         //ヒントメニューのデータの取得
         getMenuData()
 
-        binding.returnHome.setOnClickListener {
-            val intent =
-                Intent(this@PwLoginActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        binding.returnHome.setOnClickListener {
+//            val intent =
+//                Intent(this@PwLoginActivity, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         binding.etId.setOnClickListener {
             openMenu(it, R.menu.menu_items)
@@ -102,7 +102,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         popup.inflate(resId)
         popup.setOnMenuItemClickListener(this)             // リスナーの登録
 
-        if (menuStringList.count() > 0) {
+        if (menuStringList.isNotEmpty()) {
             val item1 = popup.menu.findItem(R.id.menu_item1)
             item1.title = menuStringList[0]
         }

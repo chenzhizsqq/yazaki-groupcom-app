@@ -39,11 +39,11 @@
                 android:orientation="horizontal"
                 android:paddingStart="5sp">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:gravity="center"-->
+<!--                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />-->
 
                 <TextView
                     android:layout_width="wrap_content"
