@@ -349,6 +349,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/duanzi1"
                             android:background="@drawable/bg_layout_black_grey"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -743,6 +744,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/duanzi2"
                             android:background="@drawable/bg_layout_black_grey"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -1136,6 +1138,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/duanzi3"
                             android:background="@drawable/bg_layout_black_grey"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -1529,6 +1532,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/duanzi4"
                             android:background="@drawable/bg_layout_black_grey"
                             android:textSize="12sp"
                             android:gravity="center"

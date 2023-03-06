@@ -31,6 +31,9 @@ class MainKoderaActivity : BaseActivity() {
         binding = ActivityMainKoderaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //获取上一个Activity传过来的数据
+        getExtra()
+
         binding.returnHome.setOnClickListener {
             returnBack()
         }
@@ -69,6 +72,24 @@ class MainKoderaActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * 获取上一个Activity传过来的数据
+     */
+    private fun getExtra() {
+        var duanzi_value = intent.getStringExtra("duanzi_value")
+        if (duanzi_value.isNullOrEmpty()) {
+            duanzi_value = "シース剥ぎ寸法"
+        }
+        viewModel.strDuanzi.value = duanzi_value
+
+        //("KoderaActivity_title", "C385-01")
+        var KoderaActivity_title = intent.getStringExtra("KoderaActivity_title")
+        if (KoderaActivity_title.isNullOrEmpty()) {
+            KoderaActivity_title = "C385-01"
+        }
+        binding.KoderaActivityTitle.text = KoderaActivity_title
     }
 
     private fun switchToFragmentOne() {

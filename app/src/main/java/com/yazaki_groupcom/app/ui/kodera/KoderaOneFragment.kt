@@ -53,6 +53,14 @@ class KoderaOneFragment : Fragment() {
             sharedVM.idFragment.value = 3
         }
 
+        //KoderaOneFragment中，端子显示的类型
+        sharedVM.strDuanzi.observeForever {
+            binding.duanzi1.text = it
+            binding.duanzi2.text = it
+            binding.duanzi3.text = it
+            binding.duanzi4.text = it
+        }
+
         //按下"检查"按钮后，去检查页面 3
         binding.btCheck1.setOnClickListener {
             sharedVM.idFragment.value = 2

@@ -21,6 +21,9 @@ class ProcessManageActivity : BaseActivity() {
     //activity_process_manage.xml  進捗管理
     private lateinit var binding: ActivityProcessManageBinding
 
+    var KoderaActivity_title = "C385-01"
+    var duanzi_value = "シース剥ぎ寸法"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
@@ -54,6 +57,8 @@ class ProcessManageActivity : BaseActivity() {
         binding.btNext.setOnClickListener {
             val intent =
                 Intent(this, MainKoderaActivity::class.java)
+            intent.putExtra("KoderaActivity_title", KoderaActivity_title)
+            intent.putExtra("duanzi_value", duanzi_value)
             startActivity(intent)
             finish()
         }
@@ -71,6 +76,16 @@ class ProcessManageActivity : BaseActivity() {
 
                     //android:textColor="@color/black"
                     view.setTextColor(Color.WHITE)
+
+                    KoderaActivity_title = view.text.toString()
+
+                    val firstFourChars = view.text.substring(0, 4)
+                    if (firstFourChars == "C385"){
+                        duanzi_value = "シース剥ぎ寸法"
+                    }
+                    if (firstFourChars == "C373"){
+                        duanzi_value = "皮むき寸法"
+                    }
                 }
             }
         }

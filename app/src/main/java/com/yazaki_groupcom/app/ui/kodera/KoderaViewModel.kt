@@ -9,4 +9,7 @@ class KoderaViewModel  : ViewModel() {
 
     val isCheckOk = MutableLiveData(false)
 
+    //KoderaOneFragment中，端子显示的类型
+    val strDuanzi = MutableLiveData("シース剥ぎ寸法")
+
 }

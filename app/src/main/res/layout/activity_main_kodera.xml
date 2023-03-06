@@ -143,6 +143,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/KoderaActivity_title"
                     android:background="@drawable/ic_round_button_orange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
