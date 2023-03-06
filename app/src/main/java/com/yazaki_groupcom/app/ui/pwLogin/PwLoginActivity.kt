@@ -2,6 +2,8 @@ package com.yazaki_groupcom.app.ui.pwLogin
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -9,16 +11,17 @@ import androidx.appcompat.widget.PopupMenu
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
-import com.yazaki_groupcom.app.base.BaseActivity
+import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityPwLoginBinding
 import com.yazaki_groupcom.app.db.User
 import com.yazaki_groupcom.app.ui.main.MainActivity
+import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PwLoginActivity : BaseActivity(), PopupMenu.OnMenuItemClickListener {
+class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
     companion object {
         const val TAG: String = "PwLoginActivity"
     }
@@ -72,6 +75,23 @@ class PwLoginActivity : BaseActivity(), PopupMenu.OnMenuItemClickListener {
             deleteAll()
         }
         //添加的测试end
+
+        //扫码功能，通过扫码能够知道id和密码。
+        //スキャン後に取得されたデータ
+        baseScanViewModel.dataText.observe(this) {
+            Log.e(MainActivity.TAG, "!!! QR:$it ", )
+            binding.etId.setText(it)
+            binding.etPw.setText(it)
+
+            // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
+            if (it.isNotBlank() && it.isNotEmpty()){
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val intent = Intent(this, MainMenuActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }, 1000) // 1000表示延时1秒钟
+            }
+        }
     }
 
     /**

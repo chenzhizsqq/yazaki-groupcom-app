@@ -7,8 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
-import com.yazaki_groupcom.app.test.*
-import com.yazaki_groupcom.app.ui.main.MainActivity
+import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 
 class FirstActivity : AppCompatActivity() {
     companion object {
@@ -60,7 +59,7 @@ class FirstActivity : AppCompatActivity() {
         binding.llMain.visibility = View.GONE
         viewModel.isLoading.value = true
         val intent =
-            Intent(this@FirstActivity, MainActivity::class.java)
+            Intent(this@FirstActivity, PwLoginActivity::class.java)
         startActivity(intent)
         finish()
     }
