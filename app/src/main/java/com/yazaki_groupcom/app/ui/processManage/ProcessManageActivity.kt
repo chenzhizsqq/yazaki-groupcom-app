@@ -14,8 +14,9 @@ import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
-import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProcessManageActivity : BaseScanActivity() {
 
@@ -108,6 +109,7 @@ class ProcessManageActivity : BaseScanActivity() {
     private fun mvvmSetting() {
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
+        //扫码后
         viewModel.isScanned.observe(this) {
             if (it) {
                 //tvHint
@@ -117,6 +119,11 @@ class ProcessManageActivity : BaseScanActivity() {
                 binding.hsTitle.visibility = View.VISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
+
+                val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
+                val currentDate = Date()
+                val formattedDate = dateFormat.format(currentDate)
+                binding.tvDateTime.text = "取得タイミング：$formattedDate"
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
