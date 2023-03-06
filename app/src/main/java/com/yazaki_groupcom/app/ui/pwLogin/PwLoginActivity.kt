@@ -79,7 +79,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         //扫码功能，通过扫码能够知道id和密码。
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
-            Log.e(MainActivity.TAG, "!!! QR:$it ", )
+            Log.e(TAG, "!!! QR:$it ", )
             binding.etId.setText(it)
             binding.etPw.setText(it)
 

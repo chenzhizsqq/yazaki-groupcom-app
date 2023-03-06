@@ -4,15 +4,20 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
+import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
+import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
-class ProcessManageActivity : BaseActivity() {
+class ProcessManageActivity : BaseScanActivity() {
 
     companion object {
         const val TAG: String = "ProcessManageActivity"
@@ -23,6 +28,9 @@ class ProcessManageActivity : BaseActivity() {
 
     var KoderaActivity_title = "C385-01"
     var duanzi_value = "シース剥ぎ寸法"
+
+    //ProcessViewModel
+    lateinit var viewModel: ProcessViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +95,46 @@ class ProcessManageActivity : BaseActivity() {
                         duanzi_value = "皮むき寸法"
                     }
                 }
+            }
+        }
+
+        //mvvmの設定
+        mvvmSetting()
+    }
+
+    /**
+     * mvvmの設定
+     */
+    private fun mvvmSetting() {
+        viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
+
+        viewModel.isScanned.observe(this) {
+            if (it) {
+                //tvHint
+                binding.tvHint.visibility = View.INVISIBLE
+
+                //hs_title
+                binding.hsTitle.visibility = View.VISIBLE
+                //ns_main
+                binding.nsMain.visibility = View.VISIBLE
+            } else {
+                //tvHint
+                binding.tvHint.visibility = View.VISIBLE
+
+                //hs_title
+                binding.hsTitle.visibility = View.INVISIBLE
+                //ns_main
+                binding.nsMain.visibility = View.INVISIBLE
+            }
+        }
+
+        //スキャン後に取得されたデータ
+        baseScanViewModel.dataText.observe(this) {
+            Log.e(TAG, "!!! QR:$it ")
+
+            // ***为了测试
+            if (it.isNotBlank() && it.isNotEmpty()) {
+                viewModel.isScanned.postValue(true)
             }
         }
     }

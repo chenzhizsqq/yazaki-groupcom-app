@@ -8,7 +8,7 @@ import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainMenuBinding
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.first.FirstActivity
-import com.yazaki_groupcom.app.ui.main.MainActivity
+import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 
 class MainMenuActivity : BaseActivity() {
     companion object {
@@ -61,7 +61,7 @@ class MainMenuActivity : BaseActivity() {
         super.onBackPressed()
 
         val intent =
-            Intent(this, MainActivity::class.java)
+            Intent(this, PwLoginActivity::class.java)
         startActivity(intent)
         finish()
     }
