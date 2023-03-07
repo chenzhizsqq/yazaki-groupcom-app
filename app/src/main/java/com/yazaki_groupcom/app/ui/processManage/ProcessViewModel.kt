@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 
 class ProcessViewModel  : ViewModel() {
 
-    //已经扫码了
-    val isScanned = MutableLiveData(false)
+    //已经更新了
+    val isUpdated = MutableLiveData(false)
 
 }

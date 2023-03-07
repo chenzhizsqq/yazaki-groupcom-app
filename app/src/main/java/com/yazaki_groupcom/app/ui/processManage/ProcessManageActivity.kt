@@ -9,7 +9,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.R
-import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
@@ -64,7 +63,7 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         binding.btUpdate.setOnClickListener {
-            viewModel.isScanned.postValue(true)
+            dataUpdate()
         }
 
         binding.btNext.setOnClickListener {
@@ -99,6 +98,8 @@ class ProcessManageActivity : BaseScanActivity() {
                     if (firstFourChars == "C373"){
                         duanzi_value = "皮むき寸法"
                     }
+
+                    dataUpdate()
                 }
             }
         }
@@ -114,7 +115,7 @@ class ProcessManageActivity : BaseScanActivity() {
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
         //扫码后
-        viewModel.isScanned.observe(this) {
+        viewModel.isUpdated.observe(this) {
             if (it) {
                 //tvHint
                 binding.tvHint.visibility = View.INVISIBLE
@@ -145,9 +146,13 @@ class ProcessManageActivity : BaseScanActivity() {
 
             // ***为了测试
             if (it.isNotBlank() && it.isNotEmpty()) {
-                viewModel.isScanned.postValue(true)
+                dataUpdate()
             }
         }
+    }
+
+    private fun dataUpdate() {
+        viewModel.isUpdated.postValue(true)
     }
 
     //全部title没有点中。
