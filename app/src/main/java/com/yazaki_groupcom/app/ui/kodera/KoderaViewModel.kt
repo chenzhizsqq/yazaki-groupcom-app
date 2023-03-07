@@ -12,4 +12,7 @@ class KoderaViewModel  : ViewModel() {
     //KoderaOneFragment中，端子显示的类型
     val strDuanzi = MutableLiveData("シース剥ぎ寸法")
 
+    //ScanDataText
+    val scanDataText = MutableLiveData("")
+
 }

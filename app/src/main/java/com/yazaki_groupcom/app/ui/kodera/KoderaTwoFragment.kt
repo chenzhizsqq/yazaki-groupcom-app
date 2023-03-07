@@ -31,6 +31,11 @@ class KoderaTwoFragment : Fragment() {
         binding.tvResult.setOnClickListener {
             sharedVM.idFragment.value = 3
         }
+
+        binding.etInfo.setText("1801R704140")
+        binding.etNumber.setText("004232060059")
+
+
         return binding.root
     }
 

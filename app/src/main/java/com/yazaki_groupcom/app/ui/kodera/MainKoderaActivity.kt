@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import com.yazaki_groupcom.app.R
-import com.yazaki_groupcom.app.base.BaseActivity
+import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 
-class MainKoderaActivity : BaseActivity() {
+class MainKoderaActivity : BaseScanActivity() {
 
     companion object {
         const val TAG: String = "MainKoderaActivity"
@@ -70,6 +70,16 @@ class MainKoderaActivity : BaseActivity() {
                 3 -> {
                     switchToFragmentThree()
                 }
+            }
+        }
+
+        //スキャン後に取得されたデータ
+        baseScanViewModel.dataText.observe(this) {
+            Log.e(TAG, "!!! QR:$it ")
+
+            // ***为了测试
+            if (it.isNotBlank() && it.isNotEmpty()) {
+                viewModel.scanDataText.value = it
             }
         }
     }
