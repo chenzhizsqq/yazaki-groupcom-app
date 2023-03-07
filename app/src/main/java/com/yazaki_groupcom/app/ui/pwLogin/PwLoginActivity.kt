@@ -51,7 +51,13 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         }
 
         binding.btIdLogin.setOnClickListener {
-            Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
+            //Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
+            Tools.showAlertDialog(
+                this,
+                "入力エラー",
+                "入力されたIDまたは\nパスワードが正しくありません",
+                null
+            )
         }
 
         //添加的测试begin
@@ -218,6 +224,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
             val userList = userDao.getAll()
 
             withContext(Dispatchers.Main) {
+
                 Tools.showErrorDialog(this@PwLoginActivity, "userList:$userList")
                 Log.e(TAG, "dataGetAll: userList:$userList")
             }
