@@ -10,6 +10,7 @@ import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
+import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 
@@ -28,6 +29,9 @@ class MainKoderaActivity : BaseScanActivity() {
     //idFragmentのリスト
     private val listFrag = ArrayList<String>()
 
+    //最後に選択したプロセス
+    private lateinit var lastSelectedProcessName :String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainKoderaBinding.inflate(layoutInflater)
@@ -41,6 +45,12 @@ class MainKoderaActivity : BaseScanActivity() {
         }
 
         binding.tvUsername.text = currentUserName
+
+        //最後に選択したプロセス
+        lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        if (lastSelectedProcessName.substring(0,4)== Equipment.C373.code){
+            viewModel.strDuanzi.value = Equipment.C373.explain
+        }
 
         binding.btLogout.setOnClickListener {
             val builder = AlertDialog.Builder(this)
