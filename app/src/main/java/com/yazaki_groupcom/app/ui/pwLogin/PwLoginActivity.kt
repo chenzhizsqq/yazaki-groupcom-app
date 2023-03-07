@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.PopupMenu
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
@@ -95,11 +96,15 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
                     binding.etId.setText(resultArray[0])
                     binding.etPw.setText(resultArray[1])
 
+                    Tools.sharedPrePut(Config.currentUserName,resultArray[2])
+
                     Handler(Looper.getMainLooper()).postDelayed({
                         val intent = Intent(this, MainMenuActivity::class.java)
                         startActivity(intent)
                         finish()
                     }, 1000) // 1000表示延时1秒钟
+                }else{
+                    Tools.sharedPrePut(Config.currentUserName,"")
                 }
 
             }

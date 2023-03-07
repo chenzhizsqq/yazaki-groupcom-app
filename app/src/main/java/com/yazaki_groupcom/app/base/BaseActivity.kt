@@ -30,6 +30,9 @@ open class BaseActivity : AppCompatActivity() {
     //カウントダウン ログアウトに移行- 倒数器logout
     private var countDownTimerLogout: CountDownTimer? = null
 
+    //現在使用中のユーザー名
+    val currentUserName = Tools.sharedPreGetString(Config.currentUserName)
+
     // TODO: 是否设定倒数时间
     private val isSettingCountTimeTime = true
 

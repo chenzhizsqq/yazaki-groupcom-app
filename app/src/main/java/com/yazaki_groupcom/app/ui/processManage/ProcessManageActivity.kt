@@ -8,7 +8,9 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
@@ -27,9 +29,6 @@ class ProcessManageActivity : BaseScanActivity() {
     //activity_process_manage.xml  進捗管理
     private lateinit var binding: ActivityProcessManageBinding
 
-    var KoderaActivity_title = "C385-01"
-    var duanzi_value = "シース剥ぎ寸法"
-
     //ll_titles の　タイトル
     private lateinit var titleTvList: ArrayList<TextView>
 
@@ -43,6 +42,8 @@ class ProcessManageActivity : BaseScanActivity() {
 
         //ll_titles の　タイトル
         titleInit()
+
+        binding.tvUsername.text = currentUserName
 
         binding.returnHome.setOnClickListener {
             val intent =
@@ -76,8 +77,6 @@ class ProcessManageActivity : BaseScanActivity() {
         binding.btNext.setOnClickListener {
             val intent =
                 Intent(this, MainKoderaActivity::class.java)
-            intent.putExtra("KoderaActivity_title", KoderaActivity_title)
-            intent.putExtra("duanzi_value", duanzi_value)
             startActivity(intent)
             finish()
         }
@@ -96,15 +95,7 @@ class ProcessManageActivity : BaseScanActivity() {
                     //android:textColor="@color/black"
                     view.setTextColor(Color.WHITE)
 
-                    KoderaActivity_title = view.text.toString()
-
-                    val firstFourChars = view.text.substring(0, 4)
-                    if (firstFourChars == "C385"){
-                        duanzi_value = "シース剥ぎ寸法"
-                    }
-                    if (firstFourChars == "C373"){
-                        duanzi_value = "皮むき寸法"
-                    }
+                    Tools.sharedPrePut(Config.lastSelectedProcessName,view.text.toString())
 
                     dataUpdate()
                 }
@@ -192,6 +183,10 @@ class ProcessManageActivity : BaseScanActivity() {
                 if (!isTvListContainName(newString)){
                     for (titleTv in titleTvList) {
                         if (titleTv.visibility == View.GONE && titleTv.text != newString) {
+                            if (isTvListAllGone()){
+                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
+                            }
+
                             titleTv.text = newString
                             titleTv.visibility = View.VISIBLE
                             break
@@ -210,6 +205,16 @@ class ProcessManageActivity : BaseScanActivity() {
             }
         }
         return false
+    }
+
+    //titleTvList里，是否全都隐藏
+    private fun isTvListAllGone(): Boolean {
+        for (titleTv in titleTvList) {
+            if (titleTv.visibility != View.GONE){
+                return false
+            }
+        }
+        return true
     }
 
     private fun dataUpdate() {

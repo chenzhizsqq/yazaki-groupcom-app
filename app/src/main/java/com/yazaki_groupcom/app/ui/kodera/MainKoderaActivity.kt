@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.ui.first.FirstActivity
@@ -37,6 +39,8 @@ class MainKoderaActivity : BaseScanActivity() {
         binding.returnHome.setOnClickListener {
             returnBack()
         }
+
+        binding.tvUsername.text = currentUserName
 
         binding.btLogout.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -88,18 +92,9 @@ class MainKoderaActivity : BaseScanActivity() {
      * 获取上一个Activity传过来的数据
      */
     private fun getExtra() {
-        var duanzi_value = intent.getStringExtra("duanzi_value")
-        if (duanzi_value.isNullOrEmpty()) {
-            duanzi_value = "シース剥ぎ寸法"
-        }
-        viewModel.strDuanzi.value = duanzi_value
-
         //("KoderaActivity_title", "C385-01")
-        var KoderaActivity_title = intent.getStringExtra("KoderaActivity_title")
-        if (KoderaActivity_title.isNullOrEmpty()) {
-            KoderaActivity_title = "C385-01"
-        }
-        binding.KoderaActivityTitle.text = KoderaActivity_title
+        binding.KoderaActivityTitle.text = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+
     }
 
     private fun switchToFragmentOne() {

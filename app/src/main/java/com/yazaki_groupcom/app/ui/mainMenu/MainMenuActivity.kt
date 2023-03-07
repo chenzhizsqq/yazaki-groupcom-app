@@ -35,6 +35,8 @@ class MainMenuActivity : BaseActivity() {
             finish()
         }
 
+        binding.tvUsername.text = currentUserName
+
         binding.btLogout.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle(resources.getString(R.string.bt_logout_title))

@@ -26,6 +26,12 @@ class Config {
 
         //默认按键背景颜色
         const val buttonBgColor = R.color.purple_500
+
+        //現在使用中のユーザー名
+        const val currentUserName = "currentUserName"
+
+        //最後に選択したプロセス
+        const val lastSelectedProcessName = "lastSelectedProcess"
     }
 
 }
