@@ -80,16 +80,22 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
             Log.e(TAG, "!!! QR:$it ", )
-            binding.etId.setText(it)
-            binding.etPw.setText(it)
 
             // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
             if (it.isNotBlank() && it.isNotEmpty()){
-                Handler(Looper.getMainLooper()).postDelayed({
-                    val intent = Intent(this, MainMenuActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }, 1000) // 1000表示延时1秒钟
+                val inputString = it
+                val resultArray = inputString.split(",")
+                if (resultArray.size==3){
+                    binding.etId.setText(resultArray[0])
+                    binding.etPw.setText(resultArray[1])
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        val intent = Intent(this, MainMenuActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }, 1000) // 1000表示延时1秒钟
+                }
+
             }
         }
     }
