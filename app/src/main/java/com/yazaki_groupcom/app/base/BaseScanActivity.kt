@@ -74,6 +74,15 @@ open class BaseScanActivity : BaseActivity() {
             intent.setAction("unitech.scanservice.start")
             sendBroadcast(intent)
         }
+
+        //国内で使用されるQR コードのほとんどはShift_JIS エンコードです。
+        Intent().also { intent ->
+            intent.setAction("unitech.scanservice.encoding")
+            intent.putExtras(Bundle().apply {
+                putInt("encoding", 3)
+            })
+            sendBroadcast(intent)
+        }
     }
 
     private fun closetScanToKey() {
