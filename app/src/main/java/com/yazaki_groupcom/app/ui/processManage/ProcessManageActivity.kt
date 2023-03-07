@@ -16,6 +16,7 @@ import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ProcessManageActivity : BaseScanActivity() {
 
@@ -29,6 +30,9 @@ class ProcessManageActivity : BaseScanActivity() {
     var KoderaActivity_title = "C385-01"
     var duanzi_value = "シース剥ぎ寸法"
 
+    //ll_titles の　タイトル
+    private lateinit var titleTvList: ArrayList<TextView>
+
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
 
@@ -36,6 +40,9 @@ class ProcessManageActivity : BaseScanActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //ll_titles の　タイトル
+        titleInit()
 
         binding.returnHome.setOnClickListener {
             val intent =
@@ -108,6 +115,39 @@ class ProcessManageActivity : BaseScanActivity() {
         mvvmSetting()
     }
 
+    //ll_titles の　タイトル
+    private fun titleInit() {
+        titleTvList = ArrayList<TextView>()
+        titleTvList.addAll(
+            listOf(
+                binding.tvEquipment0,
+                binding.tvEquipment1,
+                binding.tvEquipment2,
+                binding.tvEquipment3,
+                binding.tvEquipment4,
+                binding.tvEquipment5,
+                binding.tvEquipment6,
+                binding.tvEquipment7,
+                binding.tvEquipment8,
+                binding.tvEquipment9,
+                binding.tvEquipment10,
+                binding.tvEquipment11,
+                binding.tvEquipment12,
+                binding.tvEquipment13,
+                binding.tvEquipment14,
+                binding.tvEquipment15,
+                binding.tvEquipment16,
+                binding.tvEquipment17,
+                binding.tvEquipment18,
+                binding.tvEquipment19,
+                binding.tvEquipment20,
+            )
+        )
+        titleTvList.onEach {
+            it.visibility = View.GONE
+        }
+    }
+
     /**
      * mvvmの設定
      */
@@ -141,14 +181,35 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         //スキャン後に取得されたデータ
-        baseScanViewModel.dataText.observe(this) {
+        baseScanViewModel.dataText.observe(this) { it ->
             Log.e(TAG, "!!! QR:$it ")
 
-            // ***为了测试
             if (it.isNotBlank() && it.isNotEmpty()) {
                 dataUpdate()
+
+                //C375,C,01
+                val newString = it.replace(",", "-")
+                if (!isTvListContainName(newString)){
+                    for (titleTv in titleTvList) {
+                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
+                            titleTv.text = newString
+                            titleTv.visibility = View.VISIBLE
+                            break
+                        }
+                    }
+                }
             }
         }
+    }
+
+    //titleTvList里，是否包含那个名字
+    private fun isTvListContainName(newString: String): Boolean {
+        for (titleTv in titleTvList) {
+            if (titleTv.text == newString) {
+                return true
+            }
+        }
+        return false
     }
 
     private fun dataUpdate() {
