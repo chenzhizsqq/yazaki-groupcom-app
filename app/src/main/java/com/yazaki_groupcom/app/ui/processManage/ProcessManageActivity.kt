@@ -63,6 +63,10 @@ class ProcessManageActivity : BaseScanActivity() {
             dialog.show()
         }
 
+        binding.btUpdate.setOnClickListener {
+            viewModel.isScanned.postValue(true)
+        }
+
         binding.btNext.setOnClickListener {
             val intent =
                 Intent(this, MainKoderaActivity::class.java)
