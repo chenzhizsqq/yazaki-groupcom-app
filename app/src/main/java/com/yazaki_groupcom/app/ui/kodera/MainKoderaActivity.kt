@@ -129,13 +129,15 @@ class MainKoderaActivity : BaseScanActivity() {
      */
     override fun onBackPressed() {
 
-        //当idFragment回到1后，倒退按键才是退出去。要不然一直减1
-        if(viewModel.idFragment.value!! > 1 ){
-            viewModel.idFragment.value = viewModel.idFragment.value!! -1
-        }else{
-            super.onBackPressed()
-            returnBack()
-        }
+//        //当idFragment回到1后，倒退按键才是退出去。要不然一直减1
+//        if(viewModel.idFragment.value!! > 1 ){
+//            viewModel.idFragment.value = viewModel.idFragment.value!! -1
+//        }else{
+//            super.onBackPressed()
+//            returnBack()
+//        }
+        super.onBackPressed()
+        returnBack()
     }
 
     /**
