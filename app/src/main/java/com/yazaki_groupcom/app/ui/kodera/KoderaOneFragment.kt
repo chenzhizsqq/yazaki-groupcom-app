@@ -32,26 +32,7 @@ class KoderaOneFragment : Fragment() {
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
 
         // 生成条形码
-        val barcodeEncoder = BarcodeEncoder()
-        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
-        binding.ivTest1.setImageBitmap(bitmap)
-        binding.ivTest2.setImageBitmap(bitmap)
-        binding.ivTest3.setImageBitmap(bitmap)
-        binding.ivTest4.setImageBitmap(bitmap)
-
-        //按下"条形码"按钮后，去查看页面 2
-        binding.ivTest1.setOnClickListener {
-            sharedVM.idFragment.value = 3
-        }
-        binding.ivTest2.setOnClickListener {
-            sharedVM.idFragment.value = 3
-        }
-        binding.ivTest3.setOnClickListener {
-            sharedVM.idFragment.value = 3
-        }
-        binding.ivTest4.setOnClickListener {
-            sharedVM.idFragment.value = 3
-        }
+        //makeBarcodeEncoder()
 
         //KoderaOneFragment中，端子显示的类型
         sharedVM.strDuanzi.observeForever {
@@ -82,6 +63,18 @@ class KoderaOneFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    /**
+     * 生成条形码
+     */
+    private fun makeBarcodeEncoder() {
+        val barcodeEncoder = BarcodeEncoder()
+        val bitmap = barcodeEncoder.encodeBitmap("1234567890", BarcodeFormat.CODE_128, 1400, 300)
+        binding.ivTest1.setImageBitmap(bitmap)
+        binding.ivTest2.setImageBitmap(bitmap)
+        binding.ivTest3.setImageBitmap(bitmap)
+        binding.ivTest4.setImageBitmap(bitmap)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
