@@ -102,24 +102,26 @@
                     android:text="切断線長"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
-                    android:gravity="center|start"
+                    android:id="@+id/lower_value_1"
+                    android:background="@drawable/bg_layout_black"
                     android:textColor="@color/black"
+                    android:gravity="center|start"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="330"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
-                    android:gravity="center|start"
+                    android:id="@+id/upper_value_1"
+                    android:background="@drawable/bg_layout_black"
                     android:textColor="@color/black"
+                    android:gravity="center|start"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="340"/>
 
                 <EditText
                     android:id="@+id/et_check_1"
@@ -135,14 +137,14 @@
 
                 <TextView
                     android:id="@+id/tv_check_result_1"
-                    android:background="@drawable/bg_layout_black_green"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="OK"/>
+                    android:text=""/>
 
             </TableRow>
 
@@ -162,24 +164,26 @@
                     android:text="シース剥ぎ寸法(A)"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
+                    android:id="@+id/lower_value_2"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center|start"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="21"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
+                    android:id="@+id/upper_value_2"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center|start"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="29"/>
 
                 <EditText
                     android:id="@+id/et_check_2"
@@ -194,14 +198,14 @@
 
                 <TextView
                     android:id="@+id/tv_check_result_2"
-                    android:background="@drawable/bg_layout_black_red"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="NG"/>
+                    android:text=""/>
 
             </TableRow>
 
@@ -221,24 +225,26 @@
                     android:text="シース剥ぎ寸法(B)"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
+                    android:id="@+id/lower_value_3"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center|start"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="21"/>
 
                 <TextView
-                    android:background="@drawable/bg_layout_black_grey"
+                    android:id="@+id/upper_value_3"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center|start"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text=""/>
+                    android:text="29"/>
 
                 <EditText
                     android:id="@+id/et_check_3"
@@ -253,14 +259,14 @@
 
                 <TextView
                     android:id="@+id/tv_check_result_3"
-                    android:background="@drawable/bg_layout_black_green"
+                    android:background="@drawable/bg_layout_black"
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:layout_weight="2"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="OK"/>
+                    android:text=""/>
 
             </TableRow>
 

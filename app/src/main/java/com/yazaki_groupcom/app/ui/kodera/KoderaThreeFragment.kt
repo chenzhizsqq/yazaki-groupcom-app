@@ -48,19 +48,20 @@ class KoderaThreeFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
                 // 在这里判断EditText是否已经完成输入
                 if (s.toString().trim().isNotEmpty()) {
 
-                    if (Integer.parseInt(s.toString())>20)
+                    if (Integer.parseInt(s.toString()) in 330..340)
                     {
                         changeTextView(binding.tvCheckResult1, "OK", R.drawable.bg_layout_black_green)
                     }else{
                         changeTextView(binding.tvCheckResult1, "NG", R.drawable.bg_layout_black_red)
                     }
                 }
-            }
 
-            override fun afterTextChanged(s: Editable?) {
                 CheckAllOk()
             }
         })
@@ -71,19 +72,21 @@ class KoderaThreeFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
                 // 在这里判断EditText是否已经完成输入
                 if (s.toString().trim().isNotEmpty()) {
 
-                    if (Integer.parseInt(s.toString())>20)
+                    if (Integer.parseInt(s.toString()) in 21..29)
                     {
                         changeTextView(binding.tvCheckResult2, "OK", R.drawable.bg_layout_black_green)
                     }else{
                         changeTextView(binding.tvCheckResult2, "NG", R.drawable.bg_layout_black_red)
                     }
                 }
-            }
 
-            override fun afterTextChanged(s: Editable?) {
                 CheckAllOk()
             }
         })
@@ -94,19 +97,20 @@ class KoderaThreeFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
                 // 在这里判断EditText是否已经完成输入
                 if (s.toString().trim().isNotEmpty()) {
 
-                    if (Integer.parseInt(s.toString())>20)
+                    if (Integer.parseInt(s.toString()) in 21..29)
                     {
                         changeTextView(binding.tvCheckResult3, "OK", R.drawable.bg_layout_black_green)
                     }else{
                         changeTextView(binding.tvCheckResult3, "NG", R.drawable.bg_layout_black_red)
                     }
                 }
-            }
 
-            override fun afterTextChanged(s: Editable?) {
                 CheckAllOk()
             }
         })
