@@ -403,8 +403,8 @@
                     android:gravity="right"
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
-                        android:id="@+id/bt_check_res"
-                        app:bg_color="@color/silvery"
+                        app:button_state="invalid"
+                        android:id="@+id/bt_check_ret_1"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -799,7 +799,8 @@
                     android:gravity="right"
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
-                        app:bg_color="@color/silvery"
+                        app:button_state="invalid"
+                        android:id="@+id/bt_check_ret_2"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -1194,7 +1195,8 @@
                     android:gravity="right"
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
-                        app:bg_color="@color/silvery"
+                        app:button_state="invalid"
+                        android:id="@+id/bt_check_ret_3"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -1589,7 +1591,8 @@
                     android:gravity="right"
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
-                        app:bg_color="@color/silvery"
+                        app:button_state="invalid"
+                        android:id="@+id/bt_check_ret_4"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"

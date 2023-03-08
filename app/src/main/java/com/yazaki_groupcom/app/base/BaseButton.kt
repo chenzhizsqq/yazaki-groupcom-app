@@ -51,7 +51,8 @@ open class BaseButton : AppCompatButton {
     var isTouched = false
 
     //按钮的样式
-    private var buttonState = 0
+    var buttonState = ButtonState.NORMAL.state
+
 
     private fun initView(context: Context, attrs: AttributeSet?) {
         //获取自定义的属性值
@@ -59,7 +60,7 @@ open class BaseButton : AppCompatButton {
 
         //按钮的样式
         buttonState =
-            typedBaseButton.getInt(R.styleable.BaseButton_button_state, 0)
+            typedBaseButton.getInt(R.styleable.BaseButton_button_state, ButtonState.NORMAL.state)
         //Log.e(TAG, "!!!initView: buttonState:$buttonState", )
 
         //是否已经被选中了
@@ -75,8 +76,9 @@ open class BaseButton : AppCompatButton {
 
 //         Log.e(TAG, "changeState: name:"+this.text )
 //         Log.e(TAG, "changeState: buttonState:$_buttonState", )
-
-        when (buttonState) {
+        this.buttonState = buttonState
+        this.isClickable = true
+        when (this.buttonState) {
             ButtonState.NORMAL.state -> {
                 Log.e(TAG, "changeColorByState: 1")
 
@@ -111,6 +113,7 @@ open class BaseButton : AppCompatButton {
                 val bgColor = R.color.silvery
 
                 changeButtonColor(textColor, bgColor)
+                this.isClickable = false
             }
             else -> {
                 Log.e(TAG, "changeColorByState: else")

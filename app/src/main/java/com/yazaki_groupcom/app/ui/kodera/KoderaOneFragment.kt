@@ -1,5 +1,6 @@
 package com.yazaki_groupcom.app.ui.kodera
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 
@@ -58,11 +60,47 @@ class KoderaOneFragment : Fragment() {
 
         sharedVM.isCheckOk.observeForever {
             if (it){
-                binding.btCheckRes.changeColorByState(BaseButton.Companion.ButtonState.NORMAL.state)
+                binding.btCheckRet1.changeColorByState(1)
+            }else{
+                binding.btCheckRet1.changeColorByState(3)
             }
         }
 
+        //"检查"　"切断完了"　ボタンの設定
+        clickButtonListen(binding.btCheck1 , binding.btCheckRet1)
+        clickButtonListen(binding.btCheck2 , binding.btCheckRet2)
+        clickButtonListen(binding.btCheck3 , binding.btCheckRet3)
+        clickButtonListen(binding.btCheck4 , binding.btCheckRet4)
+
         return binding.root
+    }
+
+    /**
+     * "检查"　"切断完了"　ボタンの設定
+     */
+    private fun clickButtonListen(
+        checkBT: BaseButton,
+        checkedBT: BaseButton
+    ) {
+        checkedBT.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle(resources.getString(R.string.cut_off_title))
+            builder.setMessage(resources.getString(R.string.cut_off_message))
+            builder.setPositiveButton(resources.getString(R.string.cut_off_ok)) { dialog, which ->
+                // 点击 OK 按钮的回调
+
+                checkedBT.changeColorByState(3)
+                checkBT.changeColorByState(3)
+            }
+            builder.setNegativeButton(resources.getString(R.string.cut_off_cancel)) { dialog, which ->
+                // 点击 Cancel 按钮的回调
+            }
+            val dialog = builder.create()
+            dialog.show()
+        }
+        if (sharedVM.isCheckOk.value == false) {
+            checkedBT.changeColorByState(3)
+        }
     }
 
     /**

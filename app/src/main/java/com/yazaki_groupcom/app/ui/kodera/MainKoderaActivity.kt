@@ -48,8 +48,10 @@ class MainKoderaActivity : BaseScanActivity() {
 
         //最後に選択したプロセス
         lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
-        if (lastSelectedProcessName.substring(0,4)== Equipment.C373.code){
-            viewModel.strDuanzi.value = Equipment.C373.explain
+        if (lastSelectedProcessName.length>=4){
+            if (lastSelectedProcessName.substring(0,4)== Equipment.C373.code){
+                viewModel.strDuanzi.value = Equipment.C373.explain
+            }
         }
 
         binding.btLogout.setOnClickListener {

@@ -47,4 +47,10 @@
     <string name="bt_logout_message">ログアウトかどうか？</string>
     <string name="bt_logout_ok">確定</string>
     <string name="bt_logout_cancel">キャンセル</string>
+
+    <!-- 切断完了ボタン -->
+    <string name="cut_off_title"></string>
+    <string name="cut_off_message">本当に完了してよろしいですか？</string>
+    <string name="cut_off_ok">YES</string>
+    <string name="cut_off_cancel">NO</string>
 </resources>
