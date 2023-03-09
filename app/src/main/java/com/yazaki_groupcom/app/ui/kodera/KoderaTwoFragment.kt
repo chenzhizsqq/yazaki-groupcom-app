@@ -1,5 +1,6 @@
 package com.yazaki_groupcom.app.ui.kodera
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,8 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.activityViewModels
-import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
 
 class KoderaTwoFragment : Fragment() {
@@ -34,31 +36,101 @@ class KoderaTwoFragment : Fragment() {
             sharedVM.idFragment.value = 3
         }
 
-        sharedVM.scanDataText.value = ""
+//        sharedVM.scanDataText.value = ""
+//        sharedVM.scanDataText.observe(viewLifecycleOwner) {
+//            Log.e(TAG, " !!! QR:$it ")
+//            val str = it
+//            if (str.isNotEmpty()){
+//                if (checkQR(str)){
+//                    binding.tvResult.text = "OK"
+//                    binding.etInfo.setText(str.substring(1, 12))
+//                    binding.etNumber.setText(str.substring(24, 36))
+//
+//                    Handler(Looper.getMainLooper()).postDelayed({
+//                        sharedVM.idFragment.value = 3
+//                    }, 1000) // 1000表示延时1秒钟
+//                }else{
+//                    binding.tvResult.text = "NG"
+//                    if (str.length > 37) {
+//                        binding.etInfo.setText(str.substring(1, 12))
+//                        binding.etNumber.setText(str.substring(24, 36))
+//                    }
+//                }
+//            }
+//        }
 
-        sharedVM.scanDataText.observe(viewLifecycleOwner) {
-            Log.e(TAG, " !!! QR:$it ")
-            val str = it
-            if (str.isNotEmpty()){
-                if (checkQR(str)){
-                    binding.tvResult.text = "OK"
-                    binding.etInfo.setText(str.substring(1, 12))
-                    binding.etNumber.setText(str.substring(24, 36))
 
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        sharedVM.idFragment.value = 3
-                    }, 1000) // 1000表示延时1秒钟
-                }else{
-                    binding.tvResult.text = "NG"
-                    if (str.length > 37) {
-                        binding.etInfo.setText(str.substring(1, 12))
-                        binding.etNumber.setText(str.substring(24, 36))
-                    }
-                }
+        binding.etInfo.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                // EditText获取了焦点，正在编辑中
+            } else {
+                // EditText失去了焦点，不在编辑中
+                Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener", )
+
+                checkDataShowRet()
+            }
+        }
+
+        binding.etNumber.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                // EditText获取了焦点，正在编辑中
+            } else {
+                // EditText失去了焦点，不在编辑中
+                Log.e(TAG, "!!!: binding.etNumber setOnFocusChangeListener", )
+                checkDataShowRet()
+            }
+        }
+
+
+        binding.etNumber.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val imm =
+                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etNumber.windowToken, 0)
+
+                // 在这里处理enter键触碰事件
+                Log.e(TAG, "!!!: binding.etNumber setOnEditorActionListener 2222", )
+
+                checkDataShowRet()
+                true
+            } else {
+                false
             }
         }
 
         return binding.root
+    }
+
+    private fun checkDataShowRet() {
+        val etInfoStr = binding.etInfo.text.toString()
+        val etNumberStr = binding.etNumber.text.toString()
+        if (etInfoStr.length > 3 && etNumberStr.length > 3) {
+            val ret = checkData(etInfoStr, etNumberStr)
+            if (ret) {
+                binding.tvResult.text = "OK"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    sharedVM.idFragment.value = 3
+                }, 1000) // 1000表示延时1秒钟
+            } else {
+                binding.tvResult.text = "NG"
+            }
+        }else{
+            binding.tvResult.text = "ー"
+        }
+    }
+
+    private fun checkData(
+        etInfoStr: String,
+        etNumberStr: String
+    ): Boolean {
+        if (etInfoStr.substring(0, 3) != "180") {
+            Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener okok")
+            return false
+        }
+        if (etNumberStr.substring(0, 3) != "004") {
+            return false
+        }
+        return true
     }
 
     private fun checkQR(str: String):Boolean {
