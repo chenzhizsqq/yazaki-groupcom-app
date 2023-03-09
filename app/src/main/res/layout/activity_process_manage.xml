@@ -441,6 +441,31 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+
+        <!-- hs_title_array -->
+        <HorizontalScrollView
+            android:id="@+id/hs_title_array"
+            android:orientation="horizontal"
+            android:gravity="top|start"
+            android:layout_width="match_parent"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_layout_black_green"
+            android:scrollbars="none">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|bottom"
+                android:scrollbars="horizontal"
+                android:fadeScrollbars="false"
+                app:layoutManager="LinearLayoutManager"/>
+        </HorizontalScrollView>
+
     </LinearLayout>
 
     <!-- 中央部 -->
