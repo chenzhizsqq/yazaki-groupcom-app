@@ -104,6 +104,11 @@ class ProcessManageActivity : BaseScanActivity() {
 
         //mvvmの設定
         mvvmSetting()
+
+        //MainKoderaActivityから来ます
+        viewModel.isUpdated.postValue(true)
+
+
     }
 
     //ll_titles の　タイトル
@@ -155,11 +160,6 @@ class ProcessManageActivity : BaseScanActivity() {
                 binding.hsTitle.visibility = View.VISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
-
-                val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
-                val currentDate = Date()
-                val formattedDate = dateFormat.format(currentDate)
-                binding.tvDateTime.text = "取得タイミング：$formattedDate"
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
@@ -195,6 +195,41 @@ class ProcessManageActivity : BaseScanActivity() {
                 }
             }
         }
+
+        //processLiveDataList init
+        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
+        val currentDate = Date()
+        val formattedDate = dateFormat.format(currentDate)
+        binding.tvDateTime.text = "取得タイミング：$formattedDate"
+        var processDataArray = ArrayList<ProcessData>()
+
+        processDataArray.add(ProcessData("title",getDateTime()))
+        processDataArray.add(ProcessData("title2",getDateTime()))
+        processDataArray.add(ProcessData("title3",getDateTime()))
+        processDataArray.add(ProcessData("title4",getDateTime()))
+
+        val mProcessDataList = ProcessDataList(processDataArray)
+        viewModel.processLiveDataList.value = mProcessDataList
+
+        //processLiveData for
+        viewModel.processLiveDataList.observe(this){
+            Log.e(TAG, "!!! mvvmSetting: viewModel.processLiveData", )
+
+            it.titleArray.forEachIndexed { index, item ->
+                titleTvList[index].text = item.title
+                titleTvList[index].visibility = View.VISIBLE
+                binding.tvDateTime.text = item.data
+            }
+        }
+    }
+
+    private fun getDateTime(): String {
+        var strGetDataTime = ""
+        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
+        val currentDate = Date()
+        val formattedDate = dateFormat.format(currentDate)
+        strGetDataTime = "取得タイミング：$formattedDate"
+        return strGetDataTime
     }
 
     //titleTvList里，是否包含那个名字
