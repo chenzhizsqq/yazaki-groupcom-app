@@ -174,6 +174,20 @@ object Tools {
 
 
     /**
+     * 获取现在的日期 MMdd
+     */
+    fun getMMdd(): String {
+        if (android.os.Build.VERSION.SDK_INT >= 24) {
+            return SimpleDateFormat("yyyyMMdd").format(Date())
+        } else {
+            val tms = Calendar.getInstance()
+            return tms.get(Calendar.MONTH).toString() + "/"
+                    tms.get(Calendar.DAY_OF_MONTH).toString()
+        }
+
+    }
+
+    /**
      * 获取现在的日期
      */
     fun getDate(): String {

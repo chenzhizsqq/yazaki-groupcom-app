@@ -7,6 +7,6 @@ class ProcessViewModel  : ViewModel() {
 
     //已经更新了
     val isUpdated = MutableLiveData(false)
-    val processLiveDataList = MutableLiveData<ProcessDataList>()
+    val processLiveDataList = MutableLiveData<ArrayList<ProcessData>>()
 
 }

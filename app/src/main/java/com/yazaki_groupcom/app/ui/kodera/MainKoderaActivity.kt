@@ -64,6 +64,8 @@ class MainKoderaActivity : BaseScanActivity() {
                     Intent(this, FirstActivity::class.java)
                 startActivity(intent)
                 finish()
+
+                sendBroadcast(Intent("ProcessManageActivity"))
             }
             builder.setNegativeButton(resources.getString(R.string.bt_logout_cancel)) { dialog, which ->
                 // 点击 Cancel 按钮的回调
@@ -151,9 +153,9 @@ class MainKoderaActivity : BaseScanActivity() {
      * 返回键的操作
      */
     private fun returnBack() {
-        val intent =
-            Intent(this, ProcessManageActivity::class.java)
-        startActivity(intent)
+//        val intent =
+//            Intent(this, ProcessManageActivity::class.java)
+//        startActivity(intent)
         finish()
     }
 }

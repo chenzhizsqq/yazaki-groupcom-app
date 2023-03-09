@@ -1,7 +1,10 @@
 package com.yazaki_groupcom.app.ui.processManage
 
 import android.app.AlertDialog
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -36,28 +39,37 @@ class ProcessManageActivity : BaseScanActivity() {
 
     var processDataArray = ArrayList<ProcessData>()
 
-    var selectName = ""
-
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
+
+    private val finishReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            finish()
+        }
+    }
+
+    private var lastPosition = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
+
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
         //ll_titles の　タイトル
-        titleInit()
         mAdapter = ProcessTitleAdapter(processDataArray,this)
         binding.rvRecord.adapter = mAdapter
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecord.layoutManager = layoutManager
 
         mAdapter.setOnAdapterListener(object : ProcessTitleAdapter.OnAdapterListener {
-            override fun onClick(selectName: String) {
+            override fun onClick(selectName: String, dateTime: String, position: Int) {
                 Log.e(TAG, "onClick: $selectName", )
+                binding.tvDateTime.text = dateTime
+                lastPosition = position
 
                 Tools.sharedPrePut(Config.lastSelectedProcessName,selectName)
                 mAdapter.notifyDataSetChanged(processDataArray)
@@ -65,6 +77,27 @@ class ProcessManageActivity : BaseScanActivity() {
         })
 
         binding.tvUsername.text = currentUserName
+
+        binding.tvTest.setOnClickListener {
+            val random = Random()
+            val now = Tools.getNow()
+            processDataArray.add(ProcessData(
+                processDataArray.count()
+                ,processDataArray.count().toString()
+                ,now
+                ,getDateTime()
+                ,random.nextInt(100000)
+                ,random.nextInt(100000)
+                ,random.nextInt(100))
+            )
+            mAdapter.notifyDataSetChanged(processDataArray)
+
+            viewModel.isUpdated.postValue(true)
+
+            binding.tvDateTime.text = now
+
+            mAdapter.notifyDataSetChanged(processDataArray)
+        }
 
         binding.returnHome.setOnClickListener {
             val intent =
@@ -94,82 +127,34 @@ class ProcessManageActivity : BaseScanActivity() {
         binding.btUpdate.setOnClickListener {
             dataUpdate()
 
-
-            processDataArray.add(ProcessData(Tools.getNow(),getDateTime()))
+            if (lastPosition>-1){
+                val random = Random()
+                val data = ProcessData(
+                    processDataArray[lastPosition].index
+                    ,processDataArray[lastPosition].title
+                    ,Tools.getNow()
+                    ,getDateTime()
+                    ,random.nextInt(100000)
+                    ,random.nextInt(100000)
+                    ,random.nextInt(100)
+                )
+                binding.tvDateTime.text = data.data
+                processDataArray[lastPosition]= data
+            }
             mAdapter.notifyDataSetChanged(processDataArray)
-
-            val mProcessDataList = ProcessDataList(processDataArray)
-            viewModel.processLiveDataList.value = mProcessDataList
         }
 
         binding.btNext.setOnClickListener {
             val intent =
                 Intent(this, MainKoderaActivity::class.java)
             startActivity(intent)
-            finish()
-        }
-
-        //观察ll_titles的成员，是否点中
-        for (i in 0 until binding.llTitles.childCount) {
-            val view = binding.llTitles.getChildAt(i)
-            view.setOnClickListener {
-
-                allTitlesNotClicked()
-
-                if (view is TextView) {
-                    //android:background="@drawable/bg_layout"
-                    view.setBackgroundResource(R.drawable.ic_round_button_orange)
-
-                    //android:textColor="@color/black"
-                    view.setTextColor(Color.WHITE)
-
-                    Tools.sharedPrePut(Config.lastSelectedProcessName,view.text.toString())
-
-                    dataUpdate()
-                }
-            }
+            //finish()
         }
 
         //mvvmの設定
         mvvmSetting()
 
-        //MainKoderaActivityから来ます
-        viewModel.isUpdated.postValue(true)
 
-
-    }
-
-    //ll_titles の　タイトル
-    private fun titleInit() {
-        titleTvList = ArrayList<TextView>()
-        titleTvList.addAll(
-            listOf(
-                binding.tvEquipment0,
-                binding.tvEquipment1,
-                binding.tvEquipment2,
-                binding.tvEquipment3,
-                binding.tvEquipment4,
-                binding.tvEquipment5,
-                binding.tvEquipment6,
-                binding.tvEquipment7,
-                binding.tvEquipment8,
-                binding.tvEquipment9,
-                binding.tvEquipment10,
-                binding.tvEquipment11,
-                binding.tvEquipment12,
-                binding.tvEquipment13,
-                binding.tvEquipment14,
-                binding.tvEquipment15,
-                binding.tvEquipment16,
-                binding.tvEquipment17,
-                binding.tvEquipment18,
-                binding.tvEquipment19,
-                binding.tvEquipment20,
-            )
-        )
-        titleTvList.onEach {
-            it.visibility = View.GONE
-        }
     }
 
     /**
@@ -183,76 +168,45 @@ class ProcessManageActivity : BaseScanActivity() {
                 //tvHint
                 binding.tvHint.visibility = View.INVISIBLE
 
-                //hs_title
-                binding.hsTitle.visibility = View.VISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
 
-                //hs_title
-                binding.hsTitle.visibility = View.INVISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.INVISIBLE
             }
         }
 
         //スキャン後に取得されたデータ
-//        baseScanViewModel.dataText.observe(this) { it ->
-//            Log.e(TAG, "!!! QR:$it ")
-//
-//            if (it.isNotBlank() && it.isNotEmpty()) {
-//                dataUpdate()
-//
-//                //C375,C,01
-//                val newString = it.replace(",", "-")
-//                if (!isTvListContainName(newString)){
-//                    for (titleTv in titleTvList) {
-//                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
-//                            if (isTvListAllGone()){
-//                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
-//                            }
-//
-//                            titleTv.text = newString
-//                            titleTv.visibility = View.VISIBLE
-//                            break
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        baseScanViewModel.dataText.observe(this) { it ->
+            Log.e(TAG, "!!! QR:$it ")
 
+            if (it.isNotBlank() && it.isNotEmpty()) {
+                dataUpdate()
 
-        //processLiveDataList init
-        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
-        val currentDate = Date()
-        val formattedDate = dateFormat.format(currentDate)
-        binding.tvDateTime.text = "取得タイミング：$formattedDate"
+                //C375,C,01
+                val newString = it.replace(",", "-")
+                if (!isTvListContainName(newString)){
+                    for (titleTv in titleTvList) {
+                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
+                            if (isTvListAllGone()){
+                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
+                            }
 
-        processDataArray.add(ProcessData("title",getDateTime()))
-        processDataArray.add(ProcessData("title2",getDateTime()))
-        processDataArray.add(ProcessData("title3",getDateTime()))
-        processDataArray.add(ProcessData("title4",getDateTime()))
-
-        mAdapter.notifyDataSetChanged(processDataArray)
-
-        val mProcessDataList = ProcessDataList(processDataArray)
-        viewModel.processLiveDataList.value = mProcessDataList
-
-        //processLiveData for
-        viewModel.processLiveDataList.observe(this){
-            Log.e(TAG, "!!! mvvmSetting: viewModel.processLiveData", )
-
-            if (selectName == "" && it.titleArray.isNotEmpty()){
-                selectName = it.titleArray[0].title
-            }
-            it.titleArray.forEachIndexed { index, item ->
-                titleTvList[index].text = item.title
-                titleTvList[index].visibility = View.VISIBLE
-                binding.tvDateTime.text = item.data
+                            titleTv.text = newString
+                            titleTv.visibility = View.VISIBLE
+                            break
+                        }
+                    }
+                }
             }
         }
+
+
+
+        mAdapter.notifyDataSetChanged(processDataArray)
     }
 
     private fun getDateTime(): String {
@@ -260,7 +214,7 @@ class ProcessManageActivity : BaseScanActivity() {
         val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
-        strGetDataTime = "取得タイミング：$formattedDate"
+        strGetDataTime = "123：$formattedDate"
         return strGetDataTime
     }
 
@@ -286,23 +240,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
     private fun dataUpdate() {
         viewModel.isUpdated.postValue(true)
-    }
-
-    //全部title没有点中。
-    private fun allTitlesNotClicked() {
-        val linearLayout = binding.llTitles
-        for (i in 0 until linearLayout.childCount) {
-            val view = linearLayout.getChildAt(i)
-
-            if (view is TextView) {
-                //android:background="@drawable/bg_layout"
-                view.setBackgroundResource(R.drawable.bg_layout)
-
-                //android:textColor="@color/black"
-                view.setTextColor(Color.BLACK)
-            }
-
-        }
     }
 
     /**

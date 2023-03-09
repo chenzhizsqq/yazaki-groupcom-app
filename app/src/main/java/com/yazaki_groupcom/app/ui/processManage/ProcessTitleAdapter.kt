@@ -29,7 +29,7 @@ class ProcessTitleAdapter(
     }
 
     interface OnAdapterListener {
-        fun onClick(selectName: String)
+        fun onClick(selectName: String,dateTime :String , position: Int)
     }
 
     fun setOnAdapterListener(adapterListener: OnAdapterListener) {
@@ -64,7 +64,7 @@ class ProcessTitleAdapter(
             holder.tvEquipment.setTextColor(Color.WHITE)
             Tools.sharedPrePut(Config.lastSelectedProcessName,selectName)
 
-            listener.onClick(holder.tvEquipment.text.toString())
+            listener.onClick(holder.tvEquipment.text.toString(),list[position].data, position)
         }
     }
 
