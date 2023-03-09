@@ -36,6 +36,8 @@ class ProcessManageActivity : BaseScanActivity() {
 
     var processDataArray = ArrayList<ProcessData>()
 
+    var selectName = ""
+
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
 
@@ -44,12 +46,23 @@ class ProcessManageActivity : BaseScanActivity() {
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
+
         //ll_titles の　タイトル
         titleInit()
-        mAdapter = ProcessTitleAdapter(processDataArray)
+        mAdapter = ProcessTitleAdapter(processDataArray,this)
         binding.rvRecord.adapter = mAdapter
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecord.layoutManager = layoutManager
+
+        mAdapter.setOnAdapterListener(object : ProcessTitleAdapter.OnAdapterListener {
+            override fun onClick(selectName: String) {
+                Log.e(TAG, "onClick: $selectName", )
+
+                Tools.sharedPrePut(Config.lastSelectedProcessName,selectName)
+                mAdapter.notifyDataSetChanged(processDataArray)
+            }
+        })
 
         binding.tvUsername.text = currentUserName
 
@@ -163,7 +176,6 @@ class ProcessManageActivity : BaseScanActivity() {
      * mvvmの設定
      */
     private fun mvvmSetting() {
-        viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
         //扫码后
         viewModel.isUpdated.observe(this) {
@@ -232,6 +244,9 @@ class ProcessManageActivity : BaseScanActivity() {
         viewModel.processLiveDataList.observe(this){
             Log.e(TAG, "!!! mvvmSetting: viewModel.processLiveData", )
 
+            if (selectName == "" && it.titleArray.isNotEmpty()){
+                selectName = it.titleArray[0].title
+            }
             it.titleArray.forEachIndexed { index, item ->
                 titleTvList[index].text = item.title
                 titleTvList[index].visibility = View.VISIBLE
