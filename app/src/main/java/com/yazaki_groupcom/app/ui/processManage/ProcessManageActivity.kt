@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
@@ -31,6 +32,9 @@ class ProcessManageActivity : BaseScanActivity() {
 
     //ll_titles の　タイトル
     private lateinit var titleTvList: ArrayList<TextView>
+    private lateinit var mAdapter: ProcessTitleAdapter
+
+    var processDataArray = ArrayList<ProcessData>()
 
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
@@ -42,6 +46,10 @@ class ProcessManageActivity : BaseScanActivity() {
 
         //ll_titles の　タイトル
         titleInit()
+        mAdapter = ProcessTitleAdapter(processDataArray)
+        binding.rvRecord.adapter = mAdapter
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvRecord.layoutManager = layoutManager
 
         binding.tvUsername.text = currentUserName
 
@@ -72,6 +80,13 @@ class ProcessManageActivity : BaseScanActivity() {
 
         binding.btUpdate.setOnClickListener {
             dataUpdate()
+
+
+            processDataArray.add(ProcessData(Tools.getNow(),getDateTime()))
+            mAdapter.notifyDataSetChanged(processDataArray)
+
+            val mProcessDataList = ProcessDataList(processDataArray)
+            viewModel.processLiveDataList.value = mProcessDataList
         }
 
         binding.btNext.setOnClickListener {
@@ -172,41 +187,43 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         //スキャン後に取得されたデータ
-        baseScanViewModel.dataText.observe(this) { it ->
-            Log.e(TAG, "!!! QR:$it ")
+//        baseScanViewModel.dataText.observe(this) { it ->
+//            Log.e(TAG, "!!! QR:$it ")
+//
+//            if (it.isNotBlank() && it.isNotEmpty()) {
+//                dataUpdate()
+//
+//                //C375,C,01
+//                val newString = it.replace(",", "-")
+//                if (!isTvListContainName(newString)){
+//                    for (titleTv in titleTvList) {
+//                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
+//                            if (isTvListAllGone()){
+//                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
+//                            }
+//
+//                            titleTv.text = newString
+//                            titleTv.visibility = View.VISIBLE
+//                            break
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
-            if (it.isNotBlank() && it.isNotEmpty()) {
-                dataUpdate()
-
-                //C375,C,01
-                val newString = it.replace(",", "-")
-                if (!isTvListContainName(newString)){
-                    for (titleTv in titleTvList) {
-                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
-                            if (isTvListAllGone()){
-                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
-                            }
-
-                            titleTv.text = newString
-                            titleTv.visibility = View.VISIBLE
-                            break
-                        }
-                    }
-                }
-            }
-        }
 
         //processLiveDataList init
         val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
         binding.tvDateTime.text = "取得タイミング：$formattedDate"
-        var processDataArray = ArrayList<ProcessData>()
 
         processDataArray.add(ProcessData("title",getDateTime()))
         processDataArray.add(ProcessData("title2",getDateTime()))
         processDataArray.add(ProcessData("title3",getDateTime()))
         processDataArray.add(ProcessData("title4",getDateTime()))
+
+        mAdapter.notifyDataSetChanged(processDataArray)
 
         val mProcessDataList = ProcessDataList(processDataArray)
         viewModel.processLiveDataList.value = mProcessDataList
