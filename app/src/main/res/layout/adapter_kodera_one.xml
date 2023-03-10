@@ -221,7 +221,6 @@
                             android:layout_height="wrap_content"
                             android:text="シリアル№"/>
                         <TextView
-                            android:id="@+id/project"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -245,6 +244,7 @@
                             android:layout_height="wrap_content"
                             android:text="品種"/>
                         <TextView
+                            android:id="@+id/type"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -268,7 +268,7 @@
                             android:layout_height="wrap_content"
                             android:text="ｻｲｽﾞ"/>
                         <TextView
-                            android:id="@+id/wbs"
+                            android:id="@+id/size"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -292,7 +292,7 @@
                             android:layout_height="wrap_content"
                             android:text="色"/>
                         <TextView
-                            android:id="@+id/time"
+                            android:id="@+id/color"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -317,7 +317,7 @@
                             android:layout_height="wrap_content"
                             android:text="切断線長"/>
                         <TextView
-                            android:id="@+id/memo"
+                            android:id="@+id/long_size"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -415,7 +415,7 @@
                     >
                     <com.yazaki_groupcom.app.base.BaseButton
                         app:button_state="normal"
-                        android:id="@+id/bt_check_ret_1"
+                        android:id="@+id/bt_check_ret"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"

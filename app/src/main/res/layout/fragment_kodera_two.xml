@@ -106,6 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text="品種"/>
                     <TextView
+                        android:id="@+id/type"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -129,6 +130,7 @@
                         android:layout_height="wrap_content"
                         android:text="ｻｲｽﾞ"/>
                     <TextView
+                        android:id="@+id/size"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -152,6 +154,7 @@
                         android:layout_height="wrap_content"
                         android:text="色"/>
                     <TextView
+                        android:id="@+id/color"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -176,6 +179,7 @@
                         android:layout_height="wrap_content"
                         android:text="切断線長"/>
                     <TextView
+                        android:id="@+id/long_size"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"

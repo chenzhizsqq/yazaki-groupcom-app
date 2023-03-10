@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
 
 class KoderaTwoFragment : Fragment() {
@@ -38,6 +39,11 @@ class KoderaTwoFragment : Fragment() {
                 sharedVM.idFragment.value = 3
             }
         }
+
+        binding.type.text = Tools.sharedPreGetString("KoderaOneAdapter_type")
+        binding.size.text = Tools.sharedPreGetString("KoderaOneAdapter_size")
+        binding.color.text = Tools.sharedPreGetString("KoderaOneAdapter_color")
+        binding.longSize.text = Tools.sharedPreGetString("KoderaOneAdapter_longSize")
 
 //        sharedVM.scanDataText.value = ""
 //        sharedVM.scanDataText.observe(viewLifecycleOwner) {
