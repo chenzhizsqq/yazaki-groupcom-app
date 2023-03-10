@@ -240,7 +240,7 @@ class ProcessManageActivity : BaseScanActivity() {
             if (it.isNotBlank() && it.isNotEmpty()) {
                 dataUpdate()
 
-                //C375,C,01
+                //C373,C,01
                 val newString = it.replace(",", "-")
                 if (!isTvListContainName(newString)){
                     for (titleTv in titleTvList) {
