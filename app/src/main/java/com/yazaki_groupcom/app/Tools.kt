@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock.elapsedRealtime
@@ -20,6 +21,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.ZonedDateTime
@@ -444,6 +448,27 @@ object Tools {
             return true
         }
         return false
+    }
+
+
+    /**
+     * 用文字内容写成csv
+     */
+    fun makeCsv(fileContent: String) {
+        val currentDateTime = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(Date())
+        val fileName = "data_$currentDateTime.csv"
+
+        val downloadsDirectory =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+        val file = File(downloadsDirectory, fileName)
+
+        try {
+            val fileOutputStream = FileOutputStream(file)
+            fileOutputStream.write(fileContent.toByteArray())
+            fileOutputStream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 
 }

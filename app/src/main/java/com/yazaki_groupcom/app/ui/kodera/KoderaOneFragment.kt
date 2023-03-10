@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 
@@ -88,9 +89,20 @@ class KoderaOneFragment : Fragment() {
             builder.setMessage(resources.getString(R.string.cut_off_message))
             builder.setPositiveButton(resources.getString(R.string.cut_off_ok)) { dialog, which ->
                 // 点击 OK 按钮的回调
-
                 checkedBT.changeColorByState(3)
                 checkBT.changeColorByState(3)
+
+                //写入文件内容
+                var fileContent = ""
+                val csvStringBuilder = StringBuilder()
+                csvStringBuilder.append("Name, Age, Gender\n")
+                csvStringBuilder.append("John, 30, Male\n")
+                csvStringBuilder.append("Jane, 25, Female\n")
+                csvStringBuilder.append("Bob, 40, Male\n")
+                fileContent = csvStringBuilder.toString()
+
+                //用文字内容写成csv
+                Tools.makeCsv(fileContent)
             }
             builder.setNegativeButton(resources.getString(R.string.cut_off_cancel)) { dialog, which ->
                 // 点击 Cancel 按钮的回调
