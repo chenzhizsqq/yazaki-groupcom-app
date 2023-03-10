@@ -398,7 +398,7 @@
 
                     <com.yazaki_groupcom.app.base.BaseButton
                         app:button_state="normal"
-                        android:id="@+id/bt_check1"
+                        android:id="@+id/bt_check"
                         style="@style/MyButtonStyleSmall"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"

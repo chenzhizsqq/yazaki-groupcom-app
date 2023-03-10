@@ -19,13 +19,14 @@ class KoderaOneFragment : Fragment() {
 
     private lateinit var binding: FragmentKoderaOneBinding
 
-
-    private lateinit var koderaOneAdapter: KoderaOneAdapter
-
+    //Adapter
+    private lateinit var mAdapter: KoderaOneAdapter
     val list = ArrayList<KoderaOneData>()
 
+    //与ReportFragment联系
     //与MainActivity共同的ViewModel
     val sharedVM: KoderaViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +34,18 @@ class KoderaOneFragment : Fragment() {
     ): View {
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
 
-        koderaOneAdapter = KoderaOneAdapter()
-        koderaOneAdapter.notifyDataSetChanged(list)
-        binding.recyclerViewKoderaOne.adapter = koderaOneAdapter
+        //Adapter setting
+        mAdapter = KoderaOneAdapter()
+        mAdapter.notifyDataSetChanged(list)
+        binding.recyclerViewKoderaOne.adapter = mAdapter
+        mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{
+            override fun onClick(id: Int) {
+                Log.e(TAG, "onClick: id:$id", )
+                sharedVM.idFragment.value = 2
+            }
+        })
 
+        //Adapter data
         addData()
         addData()
         addData()
@@ -47,7 +56,7 @@ class KoderaOneFragment : Fragment() {
 
     private fun addData() {
         val koderaOneData = KoderaOneData(list.count(),list.count().toString())
-        koderaOneAdapter.notifyDataSetAdd(koderaOneData)
+        mAdapter.notifyDataSetAdd(koderaOneData)
     }
 
 

@@ -4,18 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.AdapterKoderaOneBinding
 
 
 class KoderaOneAdapter : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
     val TAG: String = "KoderaOneAdapter"
-
-
-    private lateinit var listener: OnAdapterListener
-
-    interface OnAdapterListener {
-        fun onClick(tenantid: String)
-    }
 
 
     lateinit var list: ArrayList<KoderaOneData>
@@ -35,6 +29,7 @@ class KoderaOneAdapter : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
         val wbs: TextView = binding.wbs
         val time: TextView = binding.time
         val memo: TextView = binding.memo
+        val btCheck: BaseButton = binding.btCheck
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,5 +49,17 @@ class KoderaOneAdapter : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
         holder.wbs.text = list[position].title
         holder.time.text =  list[position].title
         holder.memo.text =  list[position].title
+        holder.btCheck.setOnClickListener {
+            listener.onClick(position)
+        }
+    }
+
+    //listen
+    private lateinit var listener: OnAdapterListener
+    interface OnAdapterListener {
+        fun onClick(id: Int)
+    }
+    fun setOnAdapterListener(adapterListener: OnAdapterListener) {
+        this.listener = adapterListener
     }
 }
