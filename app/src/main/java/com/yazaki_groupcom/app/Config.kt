@@ -32,6 +32,9 @@ class Config {
 
         //最後に選択したプロセス
         const val lastSelectedProcessName = "lastSelectedProcess"
+
+        //是否测试状态
+        const val isCheckMode = true
     }
 
 }

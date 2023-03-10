@@ -30,15 +30,6 @@
             android:exported="true"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity> <!-- 测试页面的主页 -->
-        <activity
-            android:name=".test.TestMainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
 
             <!-- 起動設定 -->
             <intent-filter>
@@ -49,6 +40,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <!-- 起動設定 -->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- 测试页面的主页 -->
+        <activity
+            android:name=".test.TestMainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

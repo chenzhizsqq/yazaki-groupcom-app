@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
+import com.yazaki_groupcom.app.test.TestMainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 
 class FirstActivity : AppCompatActivity() {
@@ -58,9 +60,17 @@ class FirstActivity : AppCompatActivity() {
     private fun gotoMain() {
         binding.llMain.visibility = View.GONE
         viewModel.isLoading.value = true
-        val intent =
-            Intent(this@FirstActivity, PwLoginActivity::class.java)
-        startActivity(intent)
+
+        //是否测试状态
+        if (Config.isCheckMode){
+            val intent =
+                Intent(this@FirstActivity, TestMainActivity::class.java)
+            startActivity(intent)
+        }else{
+            val intent =
+                Intent(this@FirstActivity, PwLoginActivity::class.java)
+            startActivity(intent)
+        }
         finish()
     }
 }
