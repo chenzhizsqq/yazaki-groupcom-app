@@ -7,19 +7,19 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.databinding.ActivityTestMainBinding
 import com.yazaki_groupcom.app.db.TestRoomDaoActivity
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity1
+import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity2
+import com.yazaki_groupcom.app.test.testCuttingWork.TestCuttingWorkActivity
 import com.yazaki_groupcom.app.testScan.TestScanActivity
 import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
-import com.yazaki_groupcom.app.test.testCuttingWork.TestCuttingWorkActivity
-import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity1
-import com.yazaki_groupcom.app.test.testCuttingWork.CuttingWorkCheckActivity2
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
-import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
+import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
+import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
-import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 
 class TestMainActivity : AppCompatActivity() {
     companion object {
@@ -42,7 +42,7 @@ class TestMainActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val intent =
-            Intent(this@TestMainActivity, MainKoderaActivity::class.java)
+            Intent(this@TestMainActivity, ProcessManageActivity::class.java)
         startActivity(intent)
 
         //以下都是测试成功的版本

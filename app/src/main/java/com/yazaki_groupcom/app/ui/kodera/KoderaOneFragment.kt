@@ -27,10 +27,8 @@ class KoderaOneFragment : Fragment() {
     private lateinit var mAdapter: KoderaOneAdapter
     val list = ArrayList<KoderaOneData>()
 
-    //与ReportFragment联系
     //与MainActivity共同的ViewModel
     val sharedVM: KoderaViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

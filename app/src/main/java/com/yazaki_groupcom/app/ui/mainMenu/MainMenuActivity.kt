@@ -6,8 +6,8 @@ import android.os.Bundle
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.base.BaseActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainMenuBinding
-import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.first.FirstActivity
+import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
 
 class MainMenuActivity : BaseActivity() {

@@ -9,7 +9,6 @@ import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainBinding
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
-import com.yazaki_groupcom.app.ui.rfidLogin.RfidLoginActivity
 
 
 class MainActivity : BaseScanActivity() {
@@ -43,11 +42,11 @@ class MainActivity : BaseScanActivity() {
 
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
-            Log.e(TAG, "!!! QR:$it ", )
+            Log.e(TAG, "!!! QR:$it ")
             binding.etQrCode.setText(it)
 
             // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
-            if (it.isNotBlank() && it.isNotEmpty()){
+            if (it.isNotBlank() && it.isNotEmpty()) {
                 Handler(Looper.getMainLooper()).postDelayed({
                     val intent = Intent(this, MainMenuActivity::class.java)
                     startActivity(intent)

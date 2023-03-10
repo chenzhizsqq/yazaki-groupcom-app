@@ -44,7 +44,6 @@ class RfidLoginActivity : BaseActivity() {
         }
 
 
-
         //NFC読み取り開始
         binding.tvQrMessage.setOnClickListener {
             try {
@@ -58,7 +57,7 @@ class RfidLoginActivity : BaseActivity() {
                     //Log.e(TAG,"NFC is start" )
                 } else {
                     // NFC is not enabled, show a message to the user
-                    Toast.makeText(this,"RFID読み取りは使用できません", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "RFID読み取りは使用できません", Toast.LENGTH_SHORT).show()
                     //Log.e(TAG, "NFC is not enabled")
                 }
             } catch (e: Exception) {
@@ -85,7 +84,7 @@ class RfidLoginActivity : BaseActivity() {
                 //Log.e(TAG,"NFC is start" )
             } else {
                 // NFC is not enabled, show a message to the user
-                Toast.makeText(this,"RFID読み取りは使用できません", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "RFID読み取りは使用できません", Toast.LENGTH_SHORT).show()
                 //Log.e(TAG, "NFC is not enabled")
             }
         } catch (e: Exception) {
@@ -114,11 +113,11 @@ class RfidLoginActivity : BaseActivity() {
             //获取卡的更详细的资料
             val techList = tag?.techList
             if (techList != null) {
-                for (teach in techList){
+                for (teach in techList) {
                     Log.i(TAG, "读取NFC卡的 详细资料: teach:$teach")
 
                     //如果是：Suicaのカード : android.nfc.tech.NfcF
-                    if(teach.equals("android.nfc.tech.NfcF")){
+                    if (teach.equals("android.nfc.tech.NfcF")) {
                         procFelica(intent)
                     }
                 }
@@ -134,7 +133,9 @@ class RfidLoginActivity : BaseActivity() {
                         val messages: List<NdefMessage> = rawMessages.map { it as NdefMessage }
                         // Process the messages array.
 
-                        Log.e( TAG,"onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages"
+                        Log.e(
+                            TAG,
+                            "onNewIntent: NfcAdapter.ACTION_NDEF_DISCOVERED getMessages : $messages"
                         )
                     }
             }
@@ -191,8 +192,8 @@ class RfidLoginActivity : BaseActivity() {
             }
 
             //对于systemCode的转换处理
-            Log.i(TAG, "procFelica: systemCode.toUByteArray:${systemCode.toUByteArray()}", )
-            Log.i(TAG, "procFelica: bytesToInt(systemCodeInt) : "+bytesToInt(systemCode) )
+            Log.i(TAG, "procFelica: systemCode.toUByteArray:${systemCode.toUByteArray()}")
+            Log.i(TAG, "procFelica: bytesToInt(systemCodeInt) : " + bytesToInt(systemCode))
 
         } catch (e: Exception) {
             Log.e(TAG, "procFelica: Exception", e)

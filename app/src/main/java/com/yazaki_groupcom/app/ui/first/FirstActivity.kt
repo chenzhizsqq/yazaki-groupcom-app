@@ -62,11 +62,11 @@ class FirstActivity : AppCompatActivity() {
         viewModel.isLoading.value = true
 
         //是否测试状态
-        if (Config.isCheckMode){
+        if (Config.isCheckMode) {
             val intent =
                 Intent(this@FirstActivity, TestMainActivity::class.java)
             startActivity(intent)
-        }else{
+        } else {
             val intent =
                 Intent(this@FirstActivity, PwLoginActivity::class.java)
             startActivity(intent)

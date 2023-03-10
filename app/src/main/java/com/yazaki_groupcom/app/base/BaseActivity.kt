@@ -45,7 +45,7 @@ open class BaseActivity : AppCompatActivity() {
         // タイトルバー非表示
         supportActionBar?.hide()
 
-        if (isSettingCountTimeTime){
+        if (isSettingCountTimeTime) {
             //設定画面を開いたままにする  スリープ状態はなし sleep off
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             //スリープ時間を設定　30分間

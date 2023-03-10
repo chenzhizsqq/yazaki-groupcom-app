@@ -48,7 +48,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 //            openMenu(it, R.menu.menu_items)
 //        }
 
-        if (Config.isCheckMode){
+        if (Config.isCheckMode) {
             binding.tvTitle.setOnClickListener {
                 val intent = Intent(this, MainMenuActivity::class.java)
                 startActivity(intent)
@@ -60,16 +60,16 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
             //Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
 
 
-            if (bCheckIdPw()){
+            if (bCheckIdPw()) {
 
-                if (Tools.sharedPreGetString(Config.currentUserName).isNullOrBlank()){
-                    Tools.sharedPrePut(Config.currentUserName,"ログインID:admin")
+                if (Tools.sharedPreGetString(Config.currentUserName).isNullOrBlank()) {
+                    Tools.sharedPrePut(Config.currentUserName, "ログインID:admin")
                 }
 
                 val intent = Intent(this, MainMenuActivity::class.java)
                 startActivity(intent)
                 finish()
-            }else{
+            } else {
                 Tools.showAlertDialog(
                     this,
                     "入力エラー",
@@ -104,25 +104,25 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
         //扫码功能，通过扫码能够知道id和密码。
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
-            Log.e(TAG, "!!! QR:$it ", )
+            Log.e(TAG, "!!! QR:$it ")
 
             // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
-            if (it.isNotBlank() && it.isNotEmpty()){
+            if (it.isNotBlank() && it.isNotEmpty()) {
                 val inputString = it
                 val resultArray = inputString.split(",")
-                if (resultArray.size==3){
+                if (resultArray.size == 3) {
                     binding.etId.setText(resultArray[0])
                     binding.etPw.setText(resultArray[1])
 
-                    Tools.sharedPrePut(Config.currentUserName,resultArray[2])
+                    Tools.sharedPrePut(Config.currentUserName, resultArray[2])
 
 //                    Handler(Looper.getMainLooper()).postDelayed({
 //                        val intent = Intent(this, MainMenuActivity::class.java)
 //                        startActivity(intent)
 //                        finish()
 //                    }, 1000) // 1000表示延时1秒钟
-                }else{
-                    Tools.sharedPrePut(Config.currentUserName,"")
+                } else {
+                    Tools.sharedPrePut(Config.currentUserName, "")
                 }
 
             }
@@ -132,17 +132,17 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
     private fun bCheckIdPw(): Boolean {
 
         val etId = binding.etId.text.toString()
-        val etPw =binding.etPw.text.toString()
-        if (etId.length < 4){
+        val etPw = binding.etPw.text.toString()
+        if (etId.length < 4) {
             return false
-        }else{
+        } else {
             //test_add
             val result = etId.substring(0, 4)
-            if (result == "1234" ){
+            if (result == "1234") {
                 return true
             }
         }
-        if (etPw.length < 4){
+        if (etPw.length < 4) {
             return false
         }
 

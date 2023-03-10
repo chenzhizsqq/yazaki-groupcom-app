@@ -21,7 +21,6 @@ import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ProcessManageActivity : BaseScanActivity() {
 

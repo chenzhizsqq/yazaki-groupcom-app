@@ -12,7 +12,7 @@ import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.AdapterKoderaOneBinding
 
 
-class KoderaOneAdapter(val context: Context):RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
+class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
     val TAG: String = "KoderaOneAdapter"
 
 
@@ -23,18 +23,19 @@ class KoderaOneAdapter(val context: Context):RecyclerView.Adapter<KoderaOneAdapt
         notifyDataSetChanged()
     }
 
-    fun notifyDataSetAdd(koderaOneData:KoderaOneData) {
+    fun notifyDataSetAdd(koderaOneData: KoderaOneData) {
         this.list.add(koderaOneData)
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: AdapterKoderaOneBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(binding: AdapterKoderaOneBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val type: TextView = binding.type
         val size: TextView = binding.size
         val color: TextView = binding.color
         val longSize: TextView = binding.longSize
         val btCheck: BaseButton = binding.btCheck
-        val btCheckRet : BaseButton = binding.btCheckRet
+        val btCheckRet: BaseButton = binding.btCheckRet
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,14 +51,14 @@ class KoderaOneAdapter(val context: Context):RecyclerView.Adapter<KoderaOneAdapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.longSize.text =  list[position].title
+        holder.longSize.text = list[position].title
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
 
-            Tools.sharedPrePut("KoderaOneAdapter_type",holder.type.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_size",holder.size.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_color",holder.color.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_longSize",holder.longSize.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_type", holder.type.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_size", holder.size.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_color", holder.color.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_longSize", holder.longSize.text.toString())
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)
@@ -100,10 +101,12 @@ class KoderaOneAdapter(val context: Context):RecyclerView.Adapter<KoderaOneAdapt
 
     //listen
     private lateinit var listener: OnAdapterListener
+
     interface OnAdapterListener {
         fun onClick(id: Int)
         fun onCheck(id: Int)
     }
+
     fun setOnAdapterListener(adapterListener: OnAdapterListener) {
         this.listener = adapterListener
     }
