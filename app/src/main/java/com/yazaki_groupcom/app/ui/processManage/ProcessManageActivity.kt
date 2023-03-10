@@ -56,6 +56,8 @@ class ProcessManageActivity : BaseScanActivity() {
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
+
         registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
 
         //ll_titles の　タイトル
@@ -63,6 +65,16 @@ class ProcessManageActivity : BaseScanActivity() {
 
         //虚拟的数据
         virtualData()
+
+        if (Config.isCheckMode){
+            if (viewModel.isUpdated.value == false){
+                viewModel.isUpdated.postValue(true)
+            }else{
+                val intent =
+                    Intent(this, MainKoderaActivity::class.java)
+                startActivity(intent)
+            }
+        }
 
         binding.tvUsername.text = currentUserName
 
@@ -185,7 +197,6 @@ class ProcessManageActivity : BaseScanActivity() {
      * mvvmの設定
      */
     private fun mvvmSetting() {
-        viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
         //扫码后
         viewModel.isUpdated.observe(this) {

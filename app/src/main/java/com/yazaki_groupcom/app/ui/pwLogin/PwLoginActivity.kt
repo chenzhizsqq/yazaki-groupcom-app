@@ -48,6 +48,14 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 //            openMenu(it, R.menu.menu_items)
 //        }
 
+        if (Config.isCheckMode){
+            binding.tvTitle.setOnClickListener {
+                val intent = Intent(this, MainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+
         binding.btIdLogin.setOnClickListener {
             //Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
 
