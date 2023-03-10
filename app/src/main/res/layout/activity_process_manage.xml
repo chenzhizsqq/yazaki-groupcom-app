@@ -514,6 +514,7 @@
                             android:text="切断納期日"/>
 
                         <TextView
+                            android:id="@+id/info_date"
                             android:background="@drawable/bg_layout_black"
                             android:gravity="center"
                             android:textColor="@color/black"
@@ -541,6 +542,7 @@
                             android:text="実績数"/>
 
                         <TextView
+                            android:id="@+id/info_jisai"
                             android:background="@drawable/bg_layout_black"
                             android:gravity="center"
                             android:textColor="@color/black"
@@ -568,6 +570,7 @@
                             android:text="指示数"/>
 
                         <TextView
+                            android:id="@+id/info_zhishi"
                             android:background="@drawable/bg_layout_black"
                             android:gravity="center"
                             android:textColor="@color/black"
@@ -595,6 +598,7 @@
                             android:text="進捗率"/>
 
                         <TextView
+                            android:id="@+id/info_jinbu"
                             android:background="@drawable/bg_layout_black"
                             android:gravity="center"
                             android:textColor="@color/black"

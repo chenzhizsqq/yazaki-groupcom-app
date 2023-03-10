@@ -1,7 +1,10 @@
 package com.yazaki_groupcom.app.ui.processManage
 
 import android.app.AlertDialog
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -32,16 +35,34 @@ class ProcessManageActivity : BaseScanActivity() {
     //ll_titles の　タイトル
     private lateinit var titleTvList: ArrayList<TextView>
 
+    private lateinit var arrayListProcessData: ArrayList<ProcessData>
+
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
+
+    private val finishReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            finish()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(finishReceiver)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProcessManageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
+
         //ll_titles の　タイトル
         titleInit()
+
+        //虚拟的数据
+        virtualData()
 
         binding.tvUsername.text = currentUserName
 
@@ -78,7 +99,7 @@ class ProcessManageActivity : BaseScanActivity() {
             val intent =
                 Intent(this, MainKoderaActivity::class.java)
             startActivity(intent)
-            finish()
+            //finish()
         }
 
         //观察ll_titles的成员，是否点中
@@ -98,17 +119,33 @@ class ProcessManageActivity : BaseScanActivity() {
                     Tools.sharedPrePut(Config.lastSelectedProcessName,view.text.toString())
 
                     dataUpdate()
+
+
+                    binding.infoDate.text = arrayListProcessData[i%2].info_date
+                    binding.infoJisai.text = arrayListProcessData[i%2].info_jisai
+                    binding.infoZhishi.text = arrayListProcessData[i%2].info_zhishi
+                    binding.infoJinbu.text = arrayListProcessData[i%2].info_jinbu
                 }
             }
         }
 
         //mvvmの設定
         mvvmSetting()
+    }
 
-        //MainKoderaActivityから来ます
-        viewModel.isUpdated.postValue(true)
+    //假的数据
+    private fun virtualData() {
+        arrayListProcessData = ArrayList<ProcessData>()
 
+        val mProcessData = ProcessData("","","01/31","12138本","29981本" ,"25.7%")
+        arrayListProcessData.add(mProcessData)
+        val mProcessData2 = ProcessData("","","03/18","13823本","77381本" ,"76.7%")
+        arrayListProcessData.add(mProcessData2)
 
+        binding.infoDate.text = arrayListProcessData[0].info_date
+        binding.infoJisai.text = arrayListProcessData[0].info_jisai
+        binding.infoZhishi.text = arrayListProcessData[0].info_zhishi
+        binding.infoJinbu.text = arrayListProcessData[0].info_jinbu
     }
 
     //ll_titles の　タイトル
@@ -160,6 +197,11 @@ class ProcessManageActivity : BaseScanActivity() {
                 binding.hsTitle.visibility = View.VISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
+
+                val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
+                val currentDate = Date()
+                val formattedDate = dateFormat.format(currentDate)
+                binding.tvDateTime.text = "取得タイミング：$formattedDate"
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
@@ -195,41 +237,6 @@ class ProcessManageActivity : BaseScanActivity() {
                 }
             }
         }
-
-        //processLiveDataList init
-        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
-        val currentDate = Date()
-        val formattedDate = dateFormat.format(currentDate)
-        binding.tvDateTime.text = "取得タイミング：$formattedDate"
-        var processDataArray = ArrayList<ProcessData>()
-
-        processDataArray.add(ProcessData("title",getDateTime()))
-        processDataArray.add(ProcessData("title2",getDateTime()))
-        processDataArray.add(ProcessData("title3",getDateTime()))
-        processDataArray.add(ProcessData("title4",getDateTime()))
-
-        val mProcessDataList = ProcessDataList(processDataArray)
-        viewModel.processLiveDataList.value = mProcessDataList
-
-        //processLiveData for
-        viewModel.processLiveDataList.observe(this){
-            Log.e(TAG, "!!! mvvmSetting: viewModel.processLiveData", )
-
-            it.titleArray.forEachIndexed { index, item ->
-                titleTvList[index].text = item.title
-                titleTvList[index].visibility = View.VISIBLE
-                binding.tvDateTime.text = item.data
-            }
-        }
-    }
-
-    private fun getDateTime(): String {
-        var strGetDataTime = ""
-        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
-        val currentDate = Date()
-        val formattedDate = dateFormat.format(currentDate)
-        strGetDataTime = "取得タイミング：$formattedDate"
-        return strGetDataTime
     }
 
     //titleTvList里，是否包含那个名字

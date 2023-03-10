@@ -2,8 +2,6 @@ package com.yazaki_groupcom.app.ui.pwLogin
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -15,7 +13,6 @@ import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityPwLoginBinding
 import com.yazaki_groupcom.app.db.User
-import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,18 +44,31 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 //            finish()
 //        }
 
-        binding.etId.setOnClickListener {
-            openMenu(it, R.menu.menu_items)
-        }
+//        binding.etId.setOnClickListener {
+//            openMenu(it, R.menu.menu_items)
+//        }
 
         binding.btIdLogin.setOnClickListener {
             //Tools.showErrorDialog(this, "入力されたIDまたは\nパスワードが正しくありません")
-            Tools.showAlertDialog(
-                this,
-                "入力エラー",
-                "入力されたIDまたは\nパスワードが正しくありません",
-                null
-            )
+
+
+            if (bCheckIdPw()){
+
+                if (Tools.sharedPreGetString(Config.currentUserName).isNullOrBlank()){
+                    Tools.sharedPrePut(Config.currentUserName,"ログインID:admin")
+                }
+
+                val intent = Intent(this, MainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else{
+                Tools.showAlertDialog(
+                    this,
+                    "入力エラー",
+                    "入力されたIDまたは\nパスワードが正しくありません",
+                    null
+                )
+            }
         }
 
         //添加的测试begin
@@ -98,17 +108,37 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 
                     Tools.sharedPrePut(Config.currentUserName,resultArray[2])
 
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        val intent = Intent(this, MainMenuActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }, 1000) // 1000表示延时1秒钟
+//                    Handler(Looper.getMainLooper()).postDelayed({
+//                        val intent = Intent(this, MainMenuActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }, 1000) // 1000表示延时1秒钟
                 }else{
                     Tools.sharedPrePut(Config.currentUserName,"")
                 }
 
             }
         }
+    }
+
+    private fun bCheckIdPw(): Boolean {
+
+        val etId = binding.etId.text.toString()
+        val etPw =binding.etPw.text.toString()
+        if (etId.length < 4){
+            return false
+        }else{
+            //test_add
+            val result = etId.substring(0, 4)
+            if (result == "1234" ){
+                return true
+            }
+        }
+        if (etPw.length < 4){
+            return false
+        }
+
+        return false
     }
 
     /**
@@ -290,9 +320,9 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
     override fun onBackPressed() {
         super.onBackPressed()
 
-        val intent =
-            Intent(this@PwLoginActivity, MainActivity::class.java)
-        startActivity(intent)
+//        val intent =
+//            Intent(this@PwLoginActivity, MainActivity::class.java)
+//        startActivity(intent)
         finish()
     }
 }
