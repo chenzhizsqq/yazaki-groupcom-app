@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.databinding.FragmentKoderaThreeBinding
 
@@ -51,6 +52,16 @@ class KoderaThreeFragment : Fragment() {
         changeTextView(binding.tvCheckResult1, "", R.drawable.bg_layout_black)
         changeTextView(binding.tvCheckResult2, "", R.drawable.bg_layout_black)
         changeTextView(binding.tvCheckResult3, "", R.drawable.bg_layout_black)
+
+        if (Config.isCheckMode){
+            binding.tvTitle.setOnClickListener {
+                isCanBeCheck = false
+                Handler(Looper.getMainLooper()).postDelayed({
+                    sharedVM.idFragment.value = 1
+                    sharedVM.isCheckOk.value = true
+                }, 1000) // 1000表示延时1秒钟
+            }
+        }
 
         binding.etCheck1.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
