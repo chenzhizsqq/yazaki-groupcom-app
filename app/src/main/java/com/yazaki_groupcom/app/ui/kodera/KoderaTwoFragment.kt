@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.activityViewModels
+import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
 
 class KoderaTwoFragment : Fragment() {
@@ -32,8 +33,10 @@ class KoderaTwoFragment : Fragment() {
     ): View {
         Log.e(TAG, "onCreateView: 222", )
         binding = FragmentKoderaTwoBinding.inflate(inflater, container, false)
-        binding.tvResult.setOnClickListener {
-            sharedVM.idFragment.value = 3
+        if (Config.isCheckMode) {
+            binding.tvResult.setOnClickListener {
+                sharedVM.idFragment.value = 3
+            }
         }
 
 //        sharedVM.scanDataText.value = ""
