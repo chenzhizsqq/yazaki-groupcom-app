@@ -774,7 +774,7 @@
 
 
     <LinearLayout
-        android:id="@+id/ll_qr"
+        android:id="@+id/ll_equipment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
@@ -782,7 +782,7 @@
         android:orientation="vertical"
         android:gravity="center">
         <EditText
-            android:id="@+id/et_qr_code"
+            android:id="@+id/et_equipment_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -801,14 +801,14 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/bt_qr_code_add"
+            android:id="@+id/bt_equipment_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColor="@color/button_font_color"
             android:textSize="15sp"
             android:layout_marginBottom="@dimen/login_horizontal_margin"
-            android:text="追加"
+            android:text="確定"
             tools:ignore="TextViewEdits" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

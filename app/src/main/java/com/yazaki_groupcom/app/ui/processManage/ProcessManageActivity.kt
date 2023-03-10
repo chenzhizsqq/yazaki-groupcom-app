@@ -74,6 +74,15 @@ class ProcessManageActivity : BaseScanActivity() {
             }
         }
 
+        binding.btEquipmentConfirm.setOnClickListener {
+            if (!binding.etEquipmentId.text.isNullOrEmpty()){
+                Tools.sharedPrePut(Config.lastSelectedProcessName,binding.etEquipmentId.text.toString())
+                val intent =
+                    Intent(this, MainKoderaActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         binding.tvUsername.text = currentUserName
 
         binding.returnHome.setOnClickListener {
@@ -200,6 +209,8 @@ class ProcessManageActivity : BaseScanActivity() {
             if (it) {
                 //tvHint
                 binding.tvHint.visibility = View.INVISIBLE
+                //ll_equipment
+                binding.llEquipment.visibility = View.INVISIBLE
 
                 //hs_title
                 binding.hsTitle.visibility = View.VISIBLE
@@ -213,6 +224,8 @@ class ProcessManageActivity : BaseScanActivity() {
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
+                //ll_equipment
+                binding.llEquipment.visibility = View.VISIBLE
 
                 //hs_title
                 binding.hsTitle.visibility = View.INVISIBLE
