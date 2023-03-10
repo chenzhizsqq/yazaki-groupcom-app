@@ -35,7 +35,7 @@ class ProcessManageActivity : BaseScanActivity() {
     //ll_titles の　タイトル
     private lateinit var titleTvList: ArrayList<TextView>
 
-    private lateinit var arrayListProcessData: ArrayList<ProcessData>
+    private var arrayListProcessData = ArrayList<ProcessData>()
 
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
@@ -68,13 +68,9 @@ class ProcessManageActivity : BaseScanActivity() {
 
         if (Config.isCheckMode){
             binding.tvTitle.setOnClickListener {
-                if (viewModel.isUpdated.value == false) {
-                    viewModel.isUpdated.postValue(true)
-                } else {
-                    val random = Random()
-                    val randomNum = random.nextInt(9000) + 1000
-                    baseScanViewModel.dataText.value = randomNum.toString()
-                }
+                val intent =
+                    Intent(this, MainKoderaActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -149,7 +145,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
     //假的数据
     private fun virtualData() {
-        arrayListProcessData = ArrayList<ProcessData>()
 
         val mProcessData = ProcessData("","","01/31","12138本","29981本" ,"25.7%")
         arrayListProcessData.add(mProcessData)
