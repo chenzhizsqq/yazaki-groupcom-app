@@ -67,12 +67,14 @@ class ProcessManageActivity : BaseScanActivity() {
         virtualData()
 
         if (Config.isCheckMode){
-            if (viewModel.isUpdated.value == false){
-                viewModel.isUpdated.postValue(true)
-            }else{
-                val intent =
-                    Intent(this, MainKoderaActivity::class.java)
-                startActivity(intent)
+            binding.tvTitle.setOnClickListener {
+                if (viewModel.isUpdated.value == false) {
+                    viewModel.isUpdated.postValue(true)
+                } else {
+                    val random = Random()
+                    val randomNum = random.nextInt(9000) + 1000
+                    baseScanViewModel.dataText.value = randomNum.toString()
+                }
             }
         }
 
