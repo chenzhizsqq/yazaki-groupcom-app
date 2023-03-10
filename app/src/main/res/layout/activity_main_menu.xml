@@ -133,14 +133,14 @@
         <com.yazaki_groupcom.app.base.BaseButton
             android:id="@+id/bt_cutting"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:minWidth="120dp"
+            android:layout_weight="1"
             android:gravity="center"
+            android:minWidth="120dp"
+            android:text="切断工程"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:text="切断" />
+            android:textSize="15sp" />
 
         <com.yazaki_groupcom.app.base.BaseButton
             android:id="@+id/bt_pre_store"
