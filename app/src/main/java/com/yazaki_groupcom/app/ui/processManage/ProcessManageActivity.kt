@@ -46,6 +46,8 @@ class ProcessManageActivity : BaseScanActivity() {
         }
     }
 
+    var lastSelectTitleIndex = -1
+
     //Adapter
     private lateinit var titleAdapter: ProcessTitleAdapter
 
@@ -61,15 +63,19 @@ class ProcessManageActivity : BaseScanActivity() {
 
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
+        //虚拟的数据
+        virtualData()
+
         //title Adapter setting
         titleAdapter = ProcessTitleAdapter(this)
-        titleAdapter.notifyDataSetChanged(ArrayList<String>())
         binding.rvRecord.adapter = titleAdapter
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecord.layoutManager = layoutManager
         titleAdapter.setOnAdapterListener(object :ProcessTitleAdapter.OnAdapterListener{
-            override fun onClick(id: Int) {
-                Log.e(TAG, "onClick: id:$id", )
+            override fun onClick(index: Int) {
+                Log.e(TAG, "onClick: index:$index", )
+
+                lastSelectTitleIndex = index
 
                 for (i in 0 until binding.rvRecord.childCount) {
                     val view = binding.rvRecord.getChildAt(i)
@@ -81,7 +87,7 @@ class ProcessManageActivity : BaseScanActivity() {
                         //android:textColor="@color/black"
                         view.setTextColor(Color.BLACK)
 
-                        if (id == i){
+                        if (index == i){
                             view.setBackgroundResource(R.drawable.ic_round_button_orange)
 
                             //android:textColor="@color/black"
@@ -89,15 +95,17 @@ class ProcessManageActivity : BaseScanActivity() {
                         }
 
                         Tools.sharedPrePut(Config.lastSelectedProcessName, view.text.toString())
+
+                        binding.infoDate.text = arrayListProcessData[index].info_date
+                        binding.infoJisai.text = arrayListProcessData[index].info_jisai
+                        binding.infoZhishi.text = arrayListProcessData[index].info_zhishi
+                        binding.infoJinbu.text = arrayListProcessData[index].info_jinbu
                     }
                 }
             }
         })
 
         registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
-
-        //虚拟的数据
-        virtualData()
 
         if (Config.isCheckMode){
             binding.tvTitle.setOnClickListener {
@@ -161,15 +169,6 @@ class ProcessManageActivity : BaseScanActivity() {
     //假的数据
     private fun virtualData() {
 
-        val mProcessData = ProcessData("","","01/31","12138本","29981本" ,"25.7%")
-        arrayListProcessData.add(mProcessData)
-        val mProcessData2 = ProcessData("","","03/18","13823本","77381本" ,"76.7%")
-        arrayListProcessData.add(mProcessData2)
-
-        binding.infoDate.text = arrayListProcessData[0].info_date
-        binding.infoJisai.text = arrayListProcessData[0].info_jisai
-        binding.infoZhishi.text = arrayListProcessData[0].info_zhishi
-        binding.infoJinbu.text = arrayListProcessData[0].info_jinbu
     }
 
     /**
@@ -192,6 +191,7 @@ class ProcessManageActivity : BaseScanActivity() {
                 val currentDate = Date()
                 val formattedDate = dateFormat.format(currentDate)
                 binding.tvDateTime.text = "取得タイミング：$formattedDate"
+
             } else {
                 //tvHint
                 binding.tvHint.visibility = View.VISIBLE
@@ -212,6 +212,23 @@ class ProcessManageActivity : BaseScanActivity() {
 
                 //C373,C,01
                 val newString = it.replace(",", "-")
+
+                val mProcessData = ProcessData("","","0"+(1..9).random() + "/"+(10..19).random()
+                    ,(123..10000).random().toString()+"本"
+                    ,(123..10000).random().toString()+"本"
+                    ,(1..99).random().toString()+"%"
+                )
+                arrayListProcessData.add(mProcessData)
+
+                if (lastSelectTitleIndex == -1){
+                    lastSelectTitleIndex = 0
+                    binding.infoDate.text = arrayListProcessData[lastSelectTitleIndex].info_date
+                    binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
+                    binding.infoZhishi.text = arrayListProcessData[lastSelectTitleIndex].info_zhishi
+                    binding.infoJinbu.text = arrayListProcessData[lastSelectTitleIndex].info_jinbu
+                }
+
+
                 titleAdapter.notifyDataSetAdd(newString)
             }
         }

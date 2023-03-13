@@ -2,7 +2,6 @@ package com.yazaki_groupcom.app.ui.processManage
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -17,12 +16,8 @@ class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTi
     val TAG: String = "ProcessTitleAdapter"
 
 
-    lateinit var listTitle: ArrayList<String>
-
-    fun notifyDataSetChanged(list: ArrayList<String>) {
-        this.listTitle = list
-        notifyDataSetChanged()
-    }
+    var listTitle = ArrayList<String>()
+    var selectIndex = -1
 
     fun notifyDataSetAdd(title: String) {
         this.listTitle.add(title)
@@ -57,6 +52,7 @@ class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTi
             holder.tvEquipment.setBackgroundResource(R.drawable.bg_layout)
             holder.tvEquipment.setTextColor(Color.BLACK)
             listener.onClick(position)
+            selectIndex = position
 
         }
     }
@@ -65,7 +61,7 @@ class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTi
     private lateinit var listener: OnAdapterListener
 
     interface OnAdapterListener {
-        fun onClick(id: Int)
+        fun onClick(index: Int)
     }
 
     fun setOnAdapterListener(adapterListener: OnAdapterListener) {
