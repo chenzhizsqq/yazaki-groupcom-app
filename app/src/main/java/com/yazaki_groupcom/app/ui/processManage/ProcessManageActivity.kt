@@ -85,10 +85,17 @@ class ProcessManageActivity : BaseScanActivity() {
         binding.tvUsername.text = currentUserName
 
         binding.returnHome.setOnClickListener {
-            val intent =
-                Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-            finish()
+            if(viewModel.isUpdated.value == false){
+                val intent =
+                    Intent(this, MainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else{
+                val intent =
+                    Intent(this, ProcessManageActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
         binding.btLogout.setOnClickListener {
@@ -306,9 +313,16 @@ class ProcessManageActivity : BaseScanActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
 
-        val intent =
-            Intent(this, MainMenuActivity::class.java)
-        startActivity(intent)
-        finish()
+        if(viewModel.isUpdated.value == false){
+            val intent =
+                Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }else{
+            val intent =
+                Intent(this, ProcessManageActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
