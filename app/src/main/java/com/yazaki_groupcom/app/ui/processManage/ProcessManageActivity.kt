@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
@@ -45,6 +46,9 @@ class ProcessManageActivity : BaseScanActivity() {
         }
     }
 
+    //Adapter
+    private lateinit var titleAdapter: ProcessTitleAdapter
+
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(finishReceiver)
@@ -57,10 +61,40 @@ class ProcessManageActivity : BaseScanActivity() {
 
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
-        registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
+        //title Adapter setting
+        titleAdapter = ProcessTitleAdapter(this)
+        titleAdapter.notifyDataSetChanged(ArrayList<String>())
+        binding.rvRecord.adapter = titleAdapter
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvRecord.layoutManager = layoutManager
+        titleAdapter.setOnAdapterListener(object :ProcessTitleAdapter.OnAdapterListener{
+            override fun onClick(id: Int) {
+                Log.e(TAG, "onClick: id:$id", )
 
-        //ll_titles の　タイトル
-        titleInit()
+                for (i in 0 until binding.rvRecord.childCount) {
+                    val view = binding.rvRecord.getChildAt(i)
+
+                    if (view is TextView) {
+                        //android:background="@drawable/bg_layout"
+                        view.setBackgroundResource(R.drawable.bg_layout)
+
+                        //android:textColor="@color/black"
+                        view.setTextColor(Color.BLACK)
+
+                        if (id == i){
+                            view.setBackgroundResource(R.drawable.ic_round_button_orange)
+
+                            //android:textColor="@color/black"
+                            view.setTextColor(Color.WHITE)
+                        }
+
+                        Tools.sharedPrePut(Config.lastSelectedProcessName, view.text.toString())
+                    }
+                }
+            }
+        })
+
+        registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
 
         //虚拟的数据
         virtualData()
@@ -120,33 +154,6 @@ class ProcessManageActivity : BaseScanActivity() {
             //finish()
         }
 
-        //观察ll_titles的成员，是否点中
-        for (i in 0 until binding.llTitles.childCount) {
-            val view = binding.llTitles.getChildAt(i)
-            view.setOnClickListener {
-
-                allTitlesNotClicked()
-
-                if (view is TextView) {
-                    //android:background="@drawable/bg_layout"
-                    view.setBackgroundResource(R.drawable.ic_round_button_orange)
-
-                    //android:textColor="@color/black"
-                    view.setTextColor(Color.WHITE)
-
-                    Tools.sharedPrePut(Config.lastSelectedProcessName,view.text.toString())
-
-                    dataUpdate()
-
-
-                    binding.infoDate.text = arrayListProcessData[i%2].info_date
-                    binding.infoJisai.text = arrayListProcessData[i%2].info_jisai
-                    binding.infoZhishi.text = arrayListProcessData[i%2].info_zhishi
-                    binding.infoJinbu.text = arrayListProcessData[i%2].info_jinbu
-                }
-            }
-        }
-
         //mvvmの設定
         mvvmSetting()
     }
@@ -165,39 +172,6 @@ class ProcessManageActivity : BaseScanActivity() {
         binding.infoJinbu.text = arrayListProcessData[0].info_jinbu
     }
 
-    //ll_titles の　タイトル
-    private fun titleInit() {
-        titleTvList = ArrayList<TextView>()
-        titleTvList.addAll(
-            listOf(
-                binding.tvEquipment0,
-                binding.tvEquipment1,
-                binding.tvEquipment2,
-                binding.tvEquipment3,
-                binding.tvEquipment4,
-                binding.tvEquipment5,
-                binding.tvEquipment6,
-                binding.tvEquipment7,
-                binding.tvEquipment8,
-                binding.tvEquipment9,
-                binding.tvEquipment10,
-                binding.tvEquipment11,
-                binding.tvEquipment12,
-                binding.tvEquipment13,
-                binding.tvEquipment14,
-                binding.tvEquipment15,
-                binding.tvEquipment16,
-                binding.tvEquipment17,
-                binding.tvEquipment18,
-                binding.tvEquipment19,
-                binding.tvEquipment20,
-            )
-        )
-        titleTvList.onEach {
-            it.visibility = View.GONE
-        }
-    }
-
     /**
      * mvvmの設定
      */
@@ -211,8 +185,6 @@ class ProcessManageActivity : BaseScanActivity() {
                 //ll_equipment
                 binding.llEquipment.visibility = View.INVISIBLE
 
-                //hs_title
-                binding.hsTitle.visibility = View.VISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
 
@@ -226,8 +198,6 @@ class ProcessManageActivity : BaseScanActivity() {
                 //ll_equipment
                 binding.llEquipment.visibility = View.VISIBLE
 
-                //hs_title
-                binding.hsTitle.visibility = View.INVISIBLE
                 //ns_main
                 binding.nsMain.visibility = View.INVISIBLE
             }
@@ -242,19 +212,7 @@ class ProcessManageActivity : BaseScanActivity() {
 
                 //C373,C,01
                 val newString = it.replace(",", "-")
-                if (!isTvListContainName(newString)){
-                    for (titleTv in titleTvList) {
-                        if (titleTv.visibility == View.GONE && titleTv.text != newString) {
-                            if (isTvListAllGone()){
-                                Tools.sharedPrePut(Config.lastSelectedProcessName,newString)
-                            }
-
-                            titleTv.text = newString
-                            titleTv.visibility = View.VISIBLE
-                            break
-                        }
-                    }
-                }
+                titleAdapter.notifyDataSetAdd(newString)
             }
         }
     }
@@ -281,23 +239,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
     private fun dataUpdate() {
         viewModel.isUpdated.postValue(true)
-    }
-
-    //全部title没有点中。
-    private fun allTitlesNotClicked() {
-        val linearLayout = binding.llTitles
-        for (i in 0 until linearLayout.childCount) {
-            val view = linearLayout.getChildAt(i)
-
-            if (view is TextView) {
-                //android:background="@drawable/bg_layout"
-                view.setBackgroundResource(R.drawable.bg_layout)
-
-                //android:textColor="@color/black"
-                view.setTextColor(Color.BLACK)
-            }
-
-        }
     }
 
     /**
