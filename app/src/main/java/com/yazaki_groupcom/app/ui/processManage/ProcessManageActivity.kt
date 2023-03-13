@@ -32,9 +32,6 @@ class ProcessManageActivity : BaseScanActivity() {
     //activity_process_manage.xml  進捗管理
     private lateinit var binding: ActivityProcessManageBinding
 
-    //ll_titles の　タイトル
-    private lateinit var titleTvList: ArrayList<TextView>
-
     private var arrayListProcessData = ArrayList<ProcessData>()
 
     //ProcessViewModel
@@ -100,6 +97,7 @@ class ProcessManageActivity : BaseScanActivity() {
                         binding.infoJisai.text = arrayListProcessData[index].info_jisai
                         binding.infoZhishi.text = arrayListProcessData[index].info_zhishi
                         binding.infoJinbu.text = arrayListProcessData[index].info_jinbu
+                        binding.tvDateTime.text =  arrayListProcessData[index].data
                     }
                 }
             }
@@ -152,7 +150,7 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         binding.btUpdate.setOnClickListener {
-            dataUpdate()
+            viewModel.isUpdated.postValue(true)
         }
 
         binding.btNext.setOnClickListener {
@@ -178,6 +176,7 @@ class ProcessManageActivity : BaseScanActivity() {
 
         //扫码后
         viewModel.isUpdated.observe(this) {
+            Log.e(TAG, "mvvmSetting: isUpdated : $it", )
             if (it) {
                 //tvHint
                 binding.tvHint.visibility = View.INVISIBLE
@@ -187,10 +186,13 @@ class ProcessManageActivity : BaseScanActivity() {
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
 
-                val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
-                val currentDate = Date()
-                val formattedDate = dateFormat.format(currentDate)
-                binding.tvDateTime.text = "取得タイミング：$formattedDate"
+                arrayListProcessData[lastSelectTitleIndex].data = getDataTime()
+
+                binding.infoDate.text = arrayListProcessData[lastSelectTitleIndex].info_date
+                binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
+                binding.infoZhishi.text = arrayListProcessData[lastSelectTitleIndex].info_zhishi
+                binding.infoJinbu.text = arrayListProcessData[lastSelectTitleIndex].info_jinbu
+                binding.tvDateTime.text =  arrayListProcessData[lastSelectTitleIndex].data
 
             } else {
                 //tvHint
@@ -207,13 +209,12 @@ class ProcessManageActivity : BaseScanActivity() {
         baseScanViewModel.dataText.observe(this) { it ->
             Log.e(TAG, "!!! QR:$it ")
 
-            if (it.isNotBlank() && it.isNotEmpty()) {
-                dataUpdate()
+            if (it.isNotBlank() && it.isNotEmpty() && !isHaveTitle(it)) {
 
                 //C373,C,01
                 val newString = it.replace(",", "-")
 
-                val mProcessData = ProcessData("","","0"+(1..9).random() + "/"+(10..19).random()
+                val mProcessData = ProcessData(it,getDataTime(),"0"+(1..9).random() + "/"+(10..19).random()
                     ,(123..10000).random().toString()+"本"
                     ,(123..10000).random().toString()+"本"
                     ,(1..99).random().toString()+"%"
@@ -226,36 +227,31 @@ class ProcessManageActivity : BaseScanActivity() {
                     binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
                     binding.infoZhishi.text = arrayListProcessData[lastSelectTitleIndex].info_zhishi
                     binding.infoJinbu.text = arrayListProcessData[lastSelectTitleIndex].info_jinbu
+                    binding.tvDateTime.text = arrayListProcessData[lastSelectTitleIndex].data
                 }
 
-
                 titleAdapter.notifyDataSetAdd(newString)
+
+                viewModel.isUpdated.postValue(true)
             }
         }
     }
 
-    //titleTvList里，是否包含那个名字
-    private fun isTvListContainName(newString: String): Boolean {
-        for (titleTv in titleTvList) {
-            if (titleTv.text == newString) {
+    private fun isHaveTitle(title:String):Boolean{
+        arrayListProcessData.forEach {
+            if (it.title == title){
                 return true
             }
         }
         return false
     }
 
-    //titleTvList里，是否全都隐藏
-    private fun isTvListAllGone(): Boolean {
-        for (titleTv in titleTvList) {
-            if (titleTv.visibility != View.GONE){
-                return false
-            }
-        }
-        return true
-    }
-
-    private fun dataUpdate() {
-        viewModel.isUpdated.postValue(true)
+    private fun getDataTime(): String {
+        var getDataTime = ""
+        val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+        val currentDate = Date()
+        getDataTime = dateFormat.format(currentDate)
+        return "取得タイミング：" + getDataTime
     }
 
     /**

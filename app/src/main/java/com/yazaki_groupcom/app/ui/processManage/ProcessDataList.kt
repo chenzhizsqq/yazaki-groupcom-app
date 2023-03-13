@@ -10,7 +10,3 @@ data class ProcessData(
     val info_zhishi:String ,
     val info_jinbu:String ,
 )
-
-data class ProcessDataList(
-    var titleArray: ArrayList<ProcessData>,
-)
