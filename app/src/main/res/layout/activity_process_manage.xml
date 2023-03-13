@@ -479,8 +479,9 @@
         android:id="@+id/ll_equipment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
         <EditText
@@ -491,10 +492,10 @@
             android:layout_marginEnd="@dimen/login_horizontal_margin"
             android:layout_marginStart="@dimen/login_horizontal_margin"
             android:layout_marginTop="30dp"
+            android:inputType="textEmailAddress"
             android:hint="設備ID"
             android:autofillHints=""
             android:background="@drawable/bg_edittext"
-            android:inputType="text"
             android:singleLine="true"
             android:minHeight="48dp"
             android:textColor="@color/black"
