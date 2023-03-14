@@ -17,8 +17,10 @@ import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
+import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
+import com.yazaki_groupcom.app.ui.komax.MainKomaxActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -107,9 +109,16 @@ class ProcessManageActivity : BaseScanActivity() {
 
         if (Config.isCheckMode){
             binding.tvTitle.setOnClickListener {
-                val intent =
-                    Intent(this, MainKoderaActivity::class.java)
-                startActivity(intent)
+                if (isKX488()){
+                    Log.e(TAG, "onCreate: isKX488", )
+                    val intent =
+                        Intent(this, MainKomaxActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    val intent =
+                        Intent(this, MainKoderaActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
@@ -161,14 +170,38 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         binding.btNext.setOnClickListener {
-            val intent =
-                Intent(this, MainKoderaActivity::class.java)
-            startActivity(intent)
+
+            if (isKX488()){
+                Log.e(TAG, "onCreate: isKX488", )
+                val intent =
+                    Intent(this, MainKomaxActivity::class.java)
+                startActivity(intent)
+            }else{
+                val intent =
+                    Intent(this, MainKoderaActivity::class.java)
+                startActivity(intent)
+            }
+
+//            val intent =
+//                Intent(this, MainKoderaActivity::class.java)
+//            startActivity(intent)
             //finish()
         }
 
         //mvvmの設定
         mvvmSetting()
+    }
+
+    private fun isKX488(): Boolean {
+        Log.e(TAG, "isKX488: start", )
+        val lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        Log.e(TAG, "lastSelectedProcessName: $lastSelectedProcessName", )
+        if (lastSelectedProcessName.length >= 4) {
+            if (lastSelectedProcessName.substring(0, 5) == Equipment.KX488.code) {
+                return true
+            }
+        }
+        return false
     }
 
     //假的数据
