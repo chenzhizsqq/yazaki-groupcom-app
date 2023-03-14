@@ -63,7 +63,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
             if (bCheckIdPw()) {
 
                 if (Tools.sharedPreGetString(Config.currentUserName).isNullOrBlank()) {
-                    Tools.sharedPrePut(Config.currentUserName, "ログインID:admin")
+                    Tools.sharedPrePut(Config.currentUserName, "admin")
                 }
 
                 val intent = Intent(this, MainMenuActivity::class.java)

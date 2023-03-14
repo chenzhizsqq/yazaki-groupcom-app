@@ -109,26 +109,15 @@ class ProcessManageActivity : BaseScanActivity() {
 
         if (Config.isCheckMode){
             binding.tvTitle.setOnClickListener {
-                if (isKX488()){
-                    Log.e(TAG, "onCreate: isKX488", )
-                    val intent =
-                        Intent(this, MainKomaxActivity::class.java)
-                    startActivity(intent)
-                }else{
-                    val intent =
-                        Intent(this, MainKoderaActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent =
+                    Intent(this, MainKomaxActivity::class.java)
+                startActivity(intent)
             }
         }
 
         binding.btEquipmentConfirm.setOnClickListener {
-            if (!binding.etEquipmentId.text.isNullOrEmpty()){
-                Tools.sharedPrePut(Config.lastSelectedProcessName,binding.etEquipmentId.text.toString())
-                val intent =
-                    Intent(this, MainKoderaActivity::class.java)
-                startActivity(intent)
-            }
+            Tools.sharedPrePut(Config.lastSelectedProcessName,binding.etEquipmentId.text.toString())
+            nextPage()
         }
 
         binding.tvUsername.text = currentUserName
@@ -171,32 +160,46 @@ class ProcessManageActivity : BaseScanActivity() {
 
         binding.btNext.setOnClickListener {
 
-            if (isKX488()){
-                Log.e(TAG, "onCreate: isKX488", )
-                val intent =
-                    Intent(this, MainKomaxActivity::class.java)
-                startActivity(intent)
-            }else{
-                val intent =
-                    Intent(this, MainKoderaActivity::class.java)
-                startActivity(intent)
-            }
-
-//            val intent =
-//                Intent(this, MainKoderaActivity::class.java)
-//            startActivity(intent)
-            //finish()
+            nextPage()
         }
 
         //mvvmの設定
         mvvmSetting()
     }
 
+    private fun nextPage() {
+
+        val lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        if (
+            (lastSelectedProcessName.length>=4 && lastSelectedProcessName.substring(0, 4) == Equipment.C385.code)
+            ||(lastSelectedProcessName.length>=4 && lastSelectedProcessName.substring(0, 4) == Equipment.C373.code)
+            ||(lastSelectedProcessName.length>=5 && lastSelectedProcessName.substring(0, 5) == Equipment.KX488.code)
+            ){
+            if (isKX488()) {
+                Log.e(TAG, "onCreate: isKX488")
+                val intent =
+                    Intent(this, MainKomaxActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent =
+                    Intent(this, MainKoderaActivity::class.java)
+                startActivity(intent)
+            }
+        }else{
+            Tools.showAlertDialog(
+                this,
+                "入力エラー",
+                "設備のIDが正しくありません",
+                null
+            )
+        }
+    }
+
     private fun isKX488(): Boolean {
         Log.e(TAG, "isKX488: start", )
         val lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
         Log.e(TAG, "lastSelectedProcessName: $lastSelectedProcessName", )
-        if (lastSelectedProcessName.length >= 4) {
+        if (lastSelectedProcessName.length >= 5) {
             if (lastSelectedProcessName.substring(0, 5) == Equipment.KX488.code) {
                 return true
             }
