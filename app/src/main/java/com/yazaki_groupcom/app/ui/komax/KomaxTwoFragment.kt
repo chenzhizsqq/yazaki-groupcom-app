@@ -113,8 +113,14 @@ class KomaxTwoFragment : Fragment() {
     private fun checkDataShowRet() {
         val etInfoStr = binding.etInfo.text.toString()
         val etNumberStr = binding.etNumber.text.toString()
-        if (etInfoStr.length > 3 && etNumberStr.length > 3) {
-            val ret = checkData(etInfoStr, etNumberStr)
+        val etInfoStr2 = binding.etInfo2.text.toString()
+        val etNumberStr2 = binding.etNumber2.text.toString()
+        if (etInfoStr.length >= 3 && etNumberStr.length >= 3 && etInfoStr2.length >= 3 && etNumberStr2.length >= 3) {
+            val ret = checkData(
+                etInfoStr,
+                etNumberStr,
+                etInfoStr2,
+                etNumberStr2)
             if (ret) {
                 binding.tvResult.text = "OK"
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -130,13 +136,21 @@ class KomaxTwoFragment : Fragment() {
 
     private fun checkData(
         etInfoStr: String,
-        etNumberStr: String
+        etNumberStr: String,
+        etInfoStr2: String,
+        etNumberStr2: String,
     ): Boolean {
-        if (etInfoStr.substring(0, 3) != "180") {
+        if (etInfoStr.substring(0, 3) != "711") {
             Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener okok")
             return false
         }
-        if (etNumberStr.substring(0, 3) != "004") {
+        if (etNumberStr.substring(0, 3) != "230") {
+            return false
+        }
+        if (etInfoStr2.substring(0, 3) != "711") {
+            return false
+        }
+        if (etNumberStr2.substring(0, 3) != "P-1") {
             return false
         }
         return true

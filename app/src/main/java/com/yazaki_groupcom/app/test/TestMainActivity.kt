@@ -15,6 +15,7 @@ import com.yazaki_groupcom.app.ui.acQrLogin.AcQrLoginActivity
 import com.yazaki_groupcom.app.ui.acSelect.AcSelectActivity
 import com.yazaki_groupcom.app.ui.acUpdate.AcUpdateActivity
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
+import com.yazaki_groupcom.app.ui.komax.MainKomaxActivity
 import com.yazaki_groupcom.app.ui.main.MainActivity
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
@@ -42,7 +43,7 @@ class TestMainActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val intent =
-            Intent(this@TestMainActivity, ProcessManageActivity::class.java)
+            Intent(this@TestMainActivity, MainKomaxActivity::class.java)
         startActivity(intent)
 
         //以下都是测试成功的版本
