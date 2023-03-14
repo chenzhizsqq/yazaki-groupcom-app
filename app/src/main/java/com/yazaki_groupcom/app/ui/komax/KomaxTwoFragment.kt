@@ -14,7 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.Tools
-import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
+import com.yazaki_groupcom.app.databinding.FragmentKomaxTwoBinding
 
 class KomaxTwoFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class KomaxTwoFragment : Fragment() {
         fun newInstance() = KomaxTwoFragment()
     }
 
-    private lateinit var binding: FragmentKoderaTwoBinding
+    private lateinit var binding: FragmentKomaxTwoBinding
 
     //与MainActivity共同的ViewModel
     val sharedVM: KomaxViewModel by activityViewModels()
@@ -33,7 +33,7 @@ class KomaxTwoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         Log.e(TAG, "onCreateView: 222", )
-        binding = FragmentKoderaTwoBinding.inflate(inflater, container, false)
+        binding = FragmentKomaxTwoBinding.inflate(inflater, container, false)
         if (Config.isCheckMode) {
             binding.tvResult.setOnClickListener {
                 sharedVM.idFragment.value = 3

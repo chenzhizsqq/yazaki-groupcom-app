@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
+import com.yazaki_groupcom.app.databinding.FragmentKomaxOneBinding
 import java.util.ArrayList
 
 class KomaxOneFragment : Fragment() {
@@ -17,7 +17,7 @@ class KomaxOneFragment : Fragment() {
         fun newInstance() = KomaxOneFragment()
     }
 
-    private lateinit var binding: FragmentKoderaOneBinding
+    private lateinit var binding: FragmentKomaxOneBinding
 
     //Adapter
     private lateinit var mAdapter: KomaxOneAdapter
@@ -30,7 +30,7 @@ class KomaxOneFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
+        binding = FragmentKomaxOneBinding.inflate(inflater, container, false)
 
         //Adapter setting
         mAdapter = KomaxOneAdapter(requireActivity())

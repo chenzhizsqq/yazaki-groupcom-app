@@ -9,7 +9,7 @@ import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
-import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
+import com.yazaki_groupcom.app.databinding.ActivityMainKomaxBinding
 import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 
@@ -20,7 +20,7 @@ class MainKomaxActivity : BaseScanActivity() {
     }
 
     //activity_main_kodera.xml
-    private lateinit var binding: ActivityMainKoderaBinding
+    private lateinit var binding: ActivityMainKomaxBinding
 
     //与MainKoderaActivity共同的ViewModel
     private val viewModel: KomaxViewModel by viewModels()
@@ -33,7 +33,7 @@ class MainKomaxActivity : BaseScanActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainKoderaBinding.inflate(layoutInflater)
+        binding = ActivityMainKomaxBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //获取上一个Activity传过来的数据

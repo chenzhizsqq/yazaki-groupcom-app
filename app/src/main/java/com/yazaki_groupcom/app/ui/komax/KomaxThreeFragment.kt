@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
-import com.yazaki_groupcom.app.databinding.FragmentKoderaThreeBinding
+import com.yazaki_groupcom.app.databinding.FragmentKomaxThreeBinding
 
 class KomaxThreeFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class KomaxThreeFragment : Fragment() {
         fun newInstance() = KomaxThreeFragment()
     }
 
-    private lateinit var binding: FragmentKoderaThreeBinding
+    private lateinit var binding: FragmentKomaxThreeBinding
 
     //与MainActivity共同的ViewModel
     private val sharedVM: KomaxViewModel by activityViewModels()
@@ -39,7 +39,7 @@ class KomaxThreeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentKoderaThreeBinding.inflate(inflater, container, false)
+        binding = FragmentKomaxThreeBinding.inflate(inflater, container, false)
 
         binding.tvTitle.setOnClickListener {
             sharedVM.idFragment.value = 1

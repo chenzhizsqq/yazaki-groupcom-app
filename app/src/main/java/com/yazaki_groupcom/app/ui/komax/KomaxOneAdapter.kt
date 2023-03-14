@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseButton
-import com.yazaki_groupcom.app.databinding.AdapterKoderaOneBinding
+import com.yazaki_groupcom.app.databinding.AdapterKomaxOneBinding
 
 
 class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapter.ViewHolder>() {
@@ -28,7 +28,7 @@ class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapt
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: AdapterKoderaOneBinding) :
+    inner class ViewHolder(binding: AdapterKomaxOneBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val type: TextView = binding.type
         val size: TextView = binding.size
@@ -40,7 +40,7 @@ class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            AdapterKoderaOneBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            AdapterKomaxOneBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val viewHolder = ViewHolder(binding)
 
         return viewHolder
