@@ -113,7 +113,7 @@ class KoderaTwoFragment : Fragment() {
     private fun checkDataShowRet() {
         val etInfoStr = binding.etInfo.text.toString()
         val etNumberStr = binding.etNumber.text.toString()
-        if (etInfoStr.length > 3 && etNumberStr.length > 3) {
+        if (etInfoStr.length >= 3 && etNumberStr.length >= 3) {
             val ret = checkData(etInfoStr, etNumberStr)
             if (ret) {
                 binding.tvResult.text = "OK"
