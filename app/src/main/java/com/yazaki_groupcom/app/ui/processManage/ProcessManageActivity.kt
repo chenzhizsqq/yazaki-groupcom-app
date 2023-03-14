@@ -106,6 +106,7 @@ class ProcessManageActivity : BaseScanActivity() {
         registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
 
         if (Config.isCheckMode){
+            Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key,"KX488-K-01")
             binding.tvTitle.setOnClickListener {
                 val intent =
                     Intent(this, MainKomaxActivity::class.java)
