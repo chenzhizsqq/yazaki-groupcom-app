@@ -8,36 +8,37 @@
 
     <!-- バナー -->
     <com.google.android.material.appbar.AppBarLayout
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/titleAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_banner_height"
-        android:layout_marginTop="0dp"
-        app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:contentInsetEnd="0dp"
+        >
         <LinearLayout
             android:id="@+id/ll_top"
+            android:background="@color/phone_top_menu_bg"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/phone_top_menu_bg"
-            android:baselineAligned="false"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:contentInsetEnd="0dp"
-            app:contentInsetStart="0dp">
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:id="@+id/returnHome"
                 android:layout_width="1dp"
+                android:layout_weight="2"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|start"
+                android:paddingStart="5sp"
                 android:orientation="horizontal"
-                android:paddingStart="5sp">
+                android:gravity="center|start"
+                >
 
 <!--                <ImageView-->
 <!--                    android:layout_width="30dp"-->
@@ -53,29 +54,33 @@
                     android:text="製造工程管理\nSystem"/>
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="1dp"
+                android:layout_weight="3"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
-
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxEms="8"
+                    android:text="ログインID："
+                    android:textColor="@color/phone_button_color"/>
                 <TextView
                     android:id="@+id/tv_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxEms="8"
                     android:text="12345678"
-                    android:textColor="@color/phone_button_color"
-                    android:textSize="20sp" />
+                    android:textColor="@color/phone_button_color" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="1dp"
+                android:layout_weight="2"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:gravity="center|end"
                 android:paddingEnd="5dp"
-                android:gravity="center|end">
+                >
 
                 <com.yazaki_groupcom.app.base.BaseButton
                     android:id="@+id/bt_logout"
