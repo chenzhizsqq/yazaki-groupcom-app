@@ -114,7 +114,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
                     binding.etId.setText(resultArray[0])
                     binding.etPw.setText(resultArray[1])
 
-                    Tools.sharedPrePut(Config.currentUserName, resultArray[2])
+                    Tools.sharedPrePut(Config.currentUserName, resultArray[0])
 
 //                    Handler(Looper.getMainLooper()).postDelayed({
 //                        val intent = Intent(this, MainMenuActivity::class.java)
@@ -137,8 +137,10 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
             return false
         } else {
             //test_add
-            val result = etId.substring(0, 4)
-            if (result == "1234") {
+            if (etId.length == 4){
+                return true
+            }
+            if (etId.length == 8){
                 return true
             }
         }

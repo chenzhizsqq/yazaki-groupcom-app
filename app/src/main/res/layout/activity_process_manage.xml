@@ -49,8 +49,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/phone_button_color"
-                    android:textSize="20sp"
-                    android:text="作業者"/>
+                    android:textSize="14sp"
+                    android:text="製造工程管理\nSystem"/>
 
             </LinearLayout>
             <LinearLayout
@@ -64,9 +64,10 @@
                     android:id="@+id/tv_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ログインID:admin"
+                    android:maxEms="8"
+                    android:text="12345678"
                     android:textColor="@color/phone_button_color"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1dp"
