@@ -18,6 +18,7 @@ import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
 import com.yazaki_groupcom.app.enum.Equipment
+import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import com.yazaki_groupcom.app.ui.kodera.MainKoderaActivity
 import com.yazaki_groupcom.app.ui.komax.MainKomaxActivity
@@ -93,7 +94,7 @@ class ProcessManageActivity : BaseScanActivity() {
                             view.setTextColor(Color.WHITE)
                         }
 
-                        Tools.sharedPrePut(Config.lastSelectedProcessName, view.text.toString())
+                        Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key, view.text.toString())
 
                         binding.infoDate.text = arrayListProcessData[index].info_date
                         binding.infoJisai.text = arrayListProcessData[index].info_jisai
@@ -116,7 +117,7 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         binding.btEquipmentConfirm.setOnClickListener {
-            Tools.sharedPrePut(Config.lastSelectedProcessName,binding.etEquipmentId.text.toString())
+            Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key,binding.etEquipmentId.text.toString())
             nextPage()
         }
 
@@ -169,7 +170,7 @@ class ProcessManageActivity : BaseScanActivity() {
 
     private fun nextPage() {
 
-        val lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        val lastSelectedProcessName = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
         if (
             (lastSelectedProcessName.length>=4 && lastSelectedProcessName.substring(0, 4) == Equipment.C385.code)
             ||(lastSelectedProcessName.length>=4 && lastSelectedProcessName.substring(0, 4) == Equipment.C373.code)
@@ -197,7 +198,7 @@ class ProcessManageActivity : BaseScanActivity() {
 
     private fun isKX488(): Boolean {
         Log.e(TAG, "isKX488: start", )
-        val lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        val lastSelectedProcessName = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
         Log.e(TAG, "lastSelectedProcessName: $lastSelectedProcessName", )
         if (lastSelectedProcessName.length >= 5) {
             if (lastSelectedProcessName.substring(0, 5) == Equipment.KX488.code) {

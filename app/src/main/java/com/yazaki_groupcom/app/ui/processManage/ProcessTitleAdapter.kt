@@ -10,6 +10,7 @@ import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.databinding.AdapterProcessTitleBinding
+import com.yazaki_groupcom.app.enum.ShareKey
 
 
 class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTitleAdapter.ViewHolder>() {
@@ -46,14 +47,14 @@ class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTi
         if (listTitle.size == 1){
             holder.tvEquipment.setBackgroundResource(R.drawable.ic_round_button_orange)
             holder.tvEquipment.setTextColor(Color.WHITE)
-            Tools.sharedPrePut(Config.lastSelectedProcessName, holder.tvEquipment.text.toString())
+            Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key, holder.tvEquipment.text.toString())
         }
         holder.tvEquipment.setOnClickListener {
             holder.tvEquipment.setBackgroundResource(R.drawable.bg_layout)
             holder.tvEquipment.setTextColor(Color.BLACK)
             listener.onClick(position)
             selectIndex = position
-            Tools.sharedPrePut(Config.lastSelectedProcessName,holder.tvEquipment.text.toString())
+            Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key,holder.tvEquipment.text.toString())
 
         }
     }

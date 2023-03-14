@@ -13,6 +13,7 @@ import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityPwLoginBinding
 import com.yazaki_groupcom.app.db.User
+import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -62,8 +63,8 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 
             if (bCheckIdPw()) {
 
-                if (Tools.sharedPreGetString(Config.currentUserName).isNullOrBlank()) {
-                    Tools.sharedPrePut(Config.currentUserName, "admin")
+                if (Tools.sharedPreGetString(ShareKey.CurrentUserName.key).isNullOrBlank()) {
+                    Tools.sharedPrePut(ShareKey.CurrentUserName.key, "admin")
                 }
 
                 val intent = Intent(this, MainMenuActivity::class.java)
@@ -114,7 +115,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
                     binding.etId.setText(resultArray[0])
                     binding.etPw.setText(resultArray[1])
 
-                    Tools.sharedPrePut(Config.currentUserName, resultArray[0])
+                    Tools.sharedPrePut(ShareKey.CurrentUserName.key, resultArray[0])
 
 //                    Handler(Looper.getMainLooper()).postDelayed({
 //                        val intent = Intent(this, MainMenuActivity::class.java)
@@ -122,7 +123,7 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 //                        finish()
 //                    }, 1000) // 1000表示延时1秒钟
                 } else {
-                    Tools.sharedPrePut(Config.currentUserName, "")
+                    Tools.sharedPrePut(ShareKey.CurrentUserName.key, "")
                 }
 
             }

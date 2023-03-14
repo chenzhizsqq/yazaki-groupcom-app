@@ -11,6 +11,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.Tools
+import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 import kotlinx.coroutines.CoroutineExceptionHandler
 
@@ -31,7 +32,7 @@ open class BaseActivity : AppCompatActivity() {
     private var countDownTimerLogout: CountDownTimer? = null
 
     //現在使用中のユーザー名
-    val currentUserName = Tools.sharedPreGetString(Config.currentUserName).take(8)
+    val currentUserName = Tools.sharedPreGetString(ShareKey.CurrentUserName.key).take(8)
 
     // TODO: 是否设定倒数时间
     private val isSettingCountTimeTime = true

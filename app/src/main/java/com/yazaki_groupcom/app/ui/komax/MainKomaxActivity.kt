@@ -11,6 +11,7 @@ import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKomaxBinding
 import com.yazaki_groupcom.app.enum.Equipment
+import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.first.FirstActivity
 
 class MainKomaxActivity : BaseScanActivity() {
@@ -46,7 +47,7 @@ class MainKomaxActivity : BaseScanActivity() {
         binding.tvUsername.text = currentUserName
 
         //最後に選択したプロセス
-        lastSelectedProcessName = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        lastSelectedProcessName = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
         if (lastSelectedProcessName.length>=4){
             if (lastSelectedProcessName.substring(0,4)== Equipment.C373.code){
                 viewModel.strDuanzi.value = Equipment.C373.explain
@@ -106,7 +107,7 @@ class MainKomaxActivity : BaseScanActivity() {
      */
     private fun getExtra() {
         //("KoderaActivity_title", "C385-01")
-        binding.KoderaActivityTitle.text = Tools.sharedPreGetString(Config.lastSelectedProcessName)
+        binding.KoderaActivityTitle.text = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
 
     }
 
