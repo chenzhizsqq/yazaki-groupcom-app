@@ -153,6 +153,9 @@ class ProcessManageActivity : BaseScanActivity() {
         }
 
         binding.btUpdate.setOnClickListener {
+            if (lastSelectTitleIndex < arrayListProcessData.size && lastSelectTitleIndex>=0){
+                arrayListProcessData[lastSelectTitleIndex].data = getDataTime()
+            }
             viewModel.isUpdated.postValue(true)
         }
 
@@ -221,8 +224,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
                 //ns_main
                 binding.nsMain.visibility = View.VISIBLE
-
-                arrayListProcessData[lastSelectTitleIndex].data = getDataTime()
 
                 binding.infoDate.text = arrayListProcessData[lastSelectTitleIndex].info_date
                 binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
