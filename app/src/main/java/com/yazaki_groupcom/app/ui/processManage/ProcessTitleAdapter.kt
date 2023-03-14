@@ -53,6 +53,7 @@ class ProcessTitleAdapter(val context: Context) : RecyclerView.Adapter<ProcessTi
             holder.tvEquipment.setTextColor(Color.BLACK)
             listener.onClick(position)
             selectIndex = position
+            Tools.sharedPrePut(Config.lastSelectedProcessName,holder.tvEquipment.text.toString())
 
         }
     }
