@@ -40,10 +40,10 @@ class KomaxTwoFragment : Fragment() {
             }
         }
 
-        binding.type.text = Tools.sharedPreGetString("KomaxOneAdapter_type")
-        binding.size.text = Tools.sharedPreGetString("KomaxOneAdapter_size")
-        binding.color.text = Tools.sharedPreGetString("KomaxOneAdapter_color")
-        binding.longSize.text = Tools.sharedPreGetString("KomaxOneAdapter_longSize")
+//        binding.type.text = Tools.sharedPreGetString("KomaxOneAdapter_type")
+//        binding.size.text = Tools.sharedPreGetString("KomaxOneAdapter_size")
+//        binding.color.text = Tools.sharedPreGetString("KomaxOneAdapter_color")
+//        binding.longSize.text = Tools.sharedPreGetString("KomaxOneAdapter_longSize")
 
 //        sharedVM.scanDataText.value = ""
 //        sharedVM.scanDataText.observe(viewLifecycleOwner) {
