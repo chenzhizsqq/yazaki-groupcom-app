@@ -40,10 +40,10 @@ class KomaxTwoFragment : Fragment() {
             }
         }
 
-        binding.type.text = Tools.sharedPreGetString("KoderaOneAdapter_type")
-        binding.size.text = Tools.sharedPreGetString("KoderaOneAdapter_size")
-        binding.color.text = Tools.sharedPreGetString("KoderaOneAdapter_color")
-        binding.longSize.text = Tools.sharedPreGetString("KoderaOneAdapter_longSize")
+        binding.type.text = Tools.sharedPreGetString("KomaxOneAdapter_type")
+        binding.size.text = Tools.sharedPreGetString("KomaxOneAdapter_size")
+        binding.color.text = Tools.sharedPreGetString("KomaxOneAdapter_color")
+        binding.longSize.text = Tools.sharedPreGetString("KomaxOneAdapter_longSize")
 
 //        sharedVM.scanDataText.value = ""
 //        sharedVM.scanDataText.observe(viewLifecycleOwner) {
@@ -140,19 +140,6 @@ class KomaxTwoFragment : Fragment() {
             return false
         }
         return true
-    }
-
-    private fun checkQR(str: String):Boolean {
-        //QR:P1801R706930Z;17Q300030TO04232060059Z;23V88516D20230206Z;6Y Z;3Y001Z;52P1R7Z;53P069Z;54P30Z;11BR
-        if (str.length > 37) {
-            if (str.substring(1, 4) != "180"){
-                return false
-            }
-            return str.substring(17, 21) == "3000"
-        } else {
-            return false
-        }
-        return false
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

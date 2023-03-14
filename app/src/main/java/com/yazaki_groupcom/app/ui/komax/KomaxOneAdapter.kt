@@ -55,10 +55,10 @@ class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapt
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
 
-            Tools.sharedPrePut("KoderaOneAdapter_type", holder.type.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_size", holder.size.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_color", holder.color.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_longSize", holder.longSize.text.toString())
+            Tools.sharedPrePut("KomaxOneAdapter_type", holder.type.text.toString())
+            Tools.sharedPrePut("KomaxOneAdapter_size", holder.size.text.toString())
+            Tools.sharedPrePut("KomaxOneAdapter_color", holder.color.text.toString())
+            Tools.sharedPrePut("KomaxOneAdapter_longSize", holder.longSize.text.toString())
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)
