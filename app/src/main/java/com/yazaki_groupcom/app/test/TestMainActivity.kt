@@ -83,6 +83,11 @@ class TestMainActivity : AppCompatActivity() {
                 Intent(this@TestMainActivity, MainKoderaActivity::class.java)
             startActivity(intent)
         }
+        binding.MainKomaxActivity.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, MainKomaxActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     /**

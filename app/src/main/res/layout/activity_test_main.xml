@@ -67,6 +67,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MainKoderaActivity \n切断工程_画面イメージ(KODERA)"/>
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/MainKomaxActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MainKomaxActivity \n切断工程_画面イメージ(KOMAX)"/>
             <!-- 以下都是测试的 -->
             <TextView
                 android:layout_width="match_parent"
