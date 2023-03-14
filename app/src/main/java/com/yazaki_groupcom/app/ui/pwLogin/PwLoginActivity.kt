@@ -65,6 +65,8 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 
                 if (Tools.sharedPreGetString(ShareKey.CurrentUserName.key).isNullOrBlank()) {
                     Tools.sharedPrePut(ShareKey.CurrentUserName.key, "admin")
+                }else{
+                    Tools.sharedPrePut(ShareKey.CurrentUserName.key, binding.etId.text.toString())
                 }
 
                 val intent = Intent(this, MainMenuActivity::class.java)
