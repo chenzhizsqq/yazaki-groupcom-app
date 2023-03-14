@@ -63,9 +63,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
         viewModel = ViewModelProvider(this)[ProcessViewModel::class.java]
 
-        //虚拟的数据
-        virtualData()
-
         //title Adapter setting
         titleAdapter = ProcessTitleAdapter(this)
         binding.rvRecord.adapter = titleAdapter
@@ -189,7 +186,7 @@ class ProcessManageActivity : BaseScanActivity() {
         }else{
             Tools.showAlertDialog(
                 this,
-                "入力エラー",
+                "エラー",
                 "設備のIDが正しくありません",
                 null
             )
@@ -206,11 +203,6 @@ class ProcessManageActivity : BaseScanActivity() {
             }
         }
         return false
-    }
-
-    //假的数据
-    private fun virtualData() {
-
     }
 
     /**
@@ -255,30 +247,40 @@ class ProcessManageActivity : BaseScanActivity() {
         baseScanViewModel.dataText.observe(this) { it ->
             Log.e(TAG, "!!! QR:$it ")
 
-            if (it.isNotBlank() && it.isNotEmpty() && !isHaveTitle(it)) {
-
-                //C373,C,01
-                val newString = it.replace(",", "-")
-
-                val mProcessData = ProcessData(it,getDataTime(),"0"+(1..9).random() + "/"+(10..19).random()
-                    ,(123..10000).random().toString()+"本"
-                    ,(123..10000).random().toString()+"本"
-                    ,(1..99).random().toString()+"%"
+            if(arrayListProcessData.size >= 2){
+                Tools.showAlertDialog(
+                    this,
+                    "エラー",
+                    "最大設備２つまでです",
+                    null
                 )
-                arrayListProcessData.add(mProcessData)
+            }else{
 
-                if (lastSelectTitleIndex == -1){
-                    lastSelectTitleIndex = 0
-                    binding.infoDate.text = arrayListProcessData[lastSelectTitleIndex].info_date
-                    binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
-                    binding.infoZhishi.text = arrayListProcessData[lastSelectTitleIndex].info_zhishi
-                    binding.infoJinbu.text = arrayListProcessData[lastSelectTitleIndex].info_jinbu
-                    binding.tvDateTime.text = arrayListProcessData[lastSelectTitleIndex].data
+                if (it.isNotBlank() && it.isNotEmpty() && !isHaveTitle(it)) {
+                    //C373,C,01
+                    val newString = it.replace(",", "-")
+
+                    val mProcessData = ProcessData(it,getDataTime(),"0"+(1..9).random() + "/"+(10..19).random()
+                        ,(123..10000).random().toString()+"本"
+                        ,(123..10000).random().toString()+"本"
+                        ,(1..99).random().toString()+"%"
+                    )
+                    arrayListProcessData.add(mProcessData)
+
+                    if (lastSelectTitleIndex == -1){
+                        lastSelectTitleIndex = 0
+                        binding.infoDate.text = arrayListProcessData[lastSelectTitleIndex].info_date
+                        binding.infoJisai.text = arrayListProcessData[lastSelectTitleIndex].info_jisai
+                        binding.infoZhishi.text = arrayListProcessData[lastSelectTitleIndex].info_zhishi
+                        binding.infoJinbu.text = arrayListProcessData[lastSelectTitleIndex].info_jinbu
+                        binding.tvDateTime.text = arrayListProcessData[lastSelectTitleIndex].data
+                    }
+
+                    titleAdapter.notifyDataSetAdd(newString)
+
+                    viewModel.isUpdated.postValue(true)
                 }
 
-                titleAdapter.notifyDataSetAdd(newString)
-
-                viewModel.isUpdated.postValue(true)
             }
         }
     }
