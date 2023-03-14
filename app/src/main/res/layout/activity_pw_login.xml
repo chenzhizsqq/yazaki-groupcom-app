@@ -96,7 +96,7 @@
             android:layout_margin="10dp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="製造工程管理システム" />
+            android:text="製造実行端末ソフト" />
 
     </LinearLayout>
 
