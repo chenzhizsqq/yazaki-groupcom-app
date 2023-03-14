@@ -11,9 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
-import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.databinding.FragmentKomaxTwoBinding
 
 class KomaxTwoFragment : Fragment() {
@@ -28,6 +28,8 @@ class KomaxTwoFragment : Fragment() {
     //与MainActivity共同的ViewModel
     val sharedVM: KomaxViewModel by activityViewModels()
 
+    private lateinit var editTextArray : ArrayList<EditText>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +39,43 @@ class KomaxTwoFragment : Fragment() {
         if (Config.isCheckMode) {
             binding.tvResult.setOnClickListener {
                 sharedVM.idFragment.value = 3
+            }
+        }
+
+        editTextArray = ArrayList<EditText>()
+        editTextArray.add(binding.etInfo)
+        editTextArray.add(binding.etInfo2)
+        editTextArray.add(binding.etNumber)
+        editTextArray.add(binding.etNumber2)
+
+        editTextArray.forEach {
+            it.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    // EditText获取了焦点，正在编辑中
+                    Log.e(TAG, "!!!: forEach setOnFocusChangeListene yes :id:"+it.id )
+
+                } else {
+                    // EditText失去了焦点，不在编辑中
+                    Log.e(TAG, "!!!: forEach setOnFocusChangeListene false :id:"+it.id )
+
+                    checkDataShowRet()
+                }
+            }
+
+            it.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    val imm =
+                        requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(it.windowToken, 0)
+
+                    // 在这里处理enter键触碰事件
+                    Log.e(TAG, "!!! EEE: forEach setOnEditorActionListener :id:"+it.id )
+
+                    checkDataShowRet()
+                    true
+                } else {
+                    false
+                }
             }
         }
 
@@ -69,43 +108,43 @@ class KomaxTwoFragment : Fragment() {
 //        }
 
 
-        binding.etInfo.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                // EditText获取了焦点，正在编辑中
-            } else {
-                // EditText失去了焦点，不在编辑中
-                Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener", )
-
-                checkDataShowRet()
-            }
-        }
-
-        binding.etNumber.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                // EditText获取了焦点，正在编辑中
-            } else {
-                // EditText失去了焦点，不在编辑中
-                Log.e(TAG, "!!!: binding.etNumber setOnFocusChangeListener", )
-                checkDataShowRet()
-            }
-        }
-
-
-        binding.etNumber.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                val imm =
-                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(binding.etNumber.windowToken, 0)
-
-                // 在这里处理enter键触碰事件
-                Log.e(TAG, "!!!: binding.etNumber setOnEditorActionListener 2222", )
-
-                checkDataShowRet()
-                true
-            } else {
-                false
-            }
-        }
+//        binding.etInfo.setOnFocusChangeListener { _, hasFocus ->
+//            if (hasFocus) {
+//                // EditText获取了焦点，正在编辑中
+//            } else {
+//                // EditText失去了焦点，不在编辑中
+//                Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener", )
+//
+//                checkDataShowRet()
+//            }
+//        }
+//
+//        binding.etNumber.setOnFocusChangeListener { _, hasFocus ->
+//            if (hasFocus) {
+//                // EditText获取了焦点，正在编辑中
+//            } else {
+//                // EditText失去了焦点，不在编辑中
+//                Log.e(TAG, "!!!: binding.etNumber setOnFocusChangeListener", )
+//                checkDataShowRet()
+//            }
+//        }
+//
+//
+//        binding.etNumber.setOnEditorActionListener { _, actionId, _ ->
+//            if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                val imm =
+//                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//                imm.hideSoftInputFromWindow(binding.etNumber.windowToken, 0)
+//
+//                // 在这里处理enter键触碰事件
+//                Log.e(TAG, "!!!: binding.etNumber setOnEditorActionListener 2222", )
+//
+//                checkDataShowRet()
+//                true
+//            } else {
+//                false
+//            }
+//        }
 
         return binding.root
     }
@@ -116,7 +155,7 @@ class KomaxTwoFragment : Fragment() {
         val etInfoStr2 = binding.etInfo2.text.toString()
         val etNumberStr2 = binding.etNumber2.text.toString()
         if (etInfoStr.length >= 3 && etNumberStr.length >= 3 && etInfoStr2.length >= 3 && etNumberStr2.length >= 3) {
-            val ret = checkData(
+            val ret = checkDataResult(
                 etInfoStr,
                 etNumberStr,
                 etInfoStr2,
@@ -134,23 +173,26 @@ class KomaxTwoFragment : Fragment() {
         }
     }
 
-    private fun checkData(
+    private fun checkDataResult(
         etInfoStr: String,
         etNumberStr: String,
         etInfoStr2: String,
         etNumberStr2: String,
     ): Boolean {
         if (etInfoStr.substring(0, 3) != "711") {
-            Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener okok")
+            Log.e(TAG, "!!!: binding.etInfoStr checkData != \"711\"")
             return false
         }
         if (etNumberStr.substring(0, 3) != "230") {
+            Log.e(TAG, "!!!: binding.etNumberStr checkData != \"230\"")
             return false
         }
         if (etInfoStr2.substring(0, 3) != "711") {
+            Log.e(TAG, "!!!: binding.etInfoStr2 checkData != \"711\"")
             return false
         }
         if (etNumberStr2.substring(0, 3) != "P-1") {
+            Log.e(TAG, "!!!: binding.etNumberStr2 checkData != \"P-1\"")
             return false
         }
         return true
