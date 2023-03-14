@@ -40,18 +40,17 @@
                 android:gravity="center|start"
                 >
 
-<!--                <ImageView-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:gravity="center"-->
-<!--                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />-->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/phone_button_color"
-                    android:textSize="14sp"
-                    android:text="製造工程管理\nSystem"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_launcher_arrow_left_foreground" />
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textColor="@color/phone_button_color"-->
+                <!--                    android:textSize="14sp"-->
+                <!--                    android:text="製造工程管理\nSystem"/>-->
 
             </LinearLayout>
             <LinearLayout

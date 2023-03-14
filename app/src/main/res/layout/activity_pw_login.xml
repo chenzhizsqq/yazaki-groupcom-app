@@ -37,34 +37,35 @@
                 android:layout_height="30dp"
                 android:paddingStart="5sp"
                 android:orientation="horizontal"
-                android:gravity="start"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/manage_system"
-                    android:textSize="@dimen/title_bar_return_font"
-                    android:textColor="@color/phone_button_color"
-                    android:gravity="center|start"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                android:orientation="vertical"
-                android:gravity="end"
+                android:gravity="center"
                 >
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/terminal_software"
                     android:paddingEnd="5sp"
                     android:textSize="@dimen/title_bar_return_font"
                     android:textColor="@color/ic_app_icon_background"
-                    android:gravity="center|end"
+                    android:gravity="center"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Ver."
+                    android:textSize="@dimen/title_bar_return_font"
+                    android:textColor="@color/ic_app_icon_background"
+                    android:gravity="center"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/app_version"
+                    android:textSize="@dimen/title_bar_return_font"
+                    android:textColor="@color/ic_app_icon_background"
+                    android:gravity="center"
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 

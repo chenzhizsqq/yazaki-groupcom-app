@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">yazaki-groupcom-app</string>
     <string name="login">ログイン</string>
+    <string name="app_version">1.1.0</string>
 
     <string name="rfid_login">RFID\nログイン</string>
     <string name="id_login">ID入力\nログイン</string>
     <string name="manage_system">製造工程管理System</string>
-    <string name="terminal_software">製造実行端末ソフト</string>
+    <string name="terminal_software">製造工程管理Sys</string>
 
     <string name="yes">はい</string>
     <string name="no">いいえ</string>

@@ -21,12 +21,12 @@ class MainMenuActivity : BaseActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.returnHome.setOnClickListener {
-//            val intent =
-//                Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        binding.returnHome.setOnClickListener {
+            val intent =
+                Intent(this, PwLoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         binding.btCutting.setOnClickListener {
             val intent =
