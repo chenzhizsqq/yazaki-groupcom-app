@@ -40,11 +40,6 @@ class KoderaThreeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentKoderaThreeBinding.inflate(inflater, container, false)
-
-        binding.tvTitle.setOnClickListener {
-            sharedVM.idFragment.value = 1
-        }
-
         isCanBeCheck = true
         changeTextView(binding.etCheck1, "", R.drawable.bg_layout_black)
         changeTextView(binding.etCheck2, "", R.drawable.bg_layout_black)
