@@ -69,13 +69,18 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
                 //写入文件内容
                 var fileContent = ""
                 val csvStringBuilder = StringBuilder()
-                csvStringBuilder.append("Name, Age, Gender\n")
-                csvStringBuilder.append("John, 30, Male\n")
-                csvStringBuilder.append("Jane, 25, Female\n")
-                csvStringBuilder.append("Bob, 40, Male\n")
-                fileContent = csvStringBuilder.toString()
+
+                val type = holder.type.text
+                csvStringBuilder.append("$type\n")
+                val size = holder.size.text
+                csvStringBuilder.append("$size\n")
+                val color = holder.color.text
+                csvStringBuilder.append("$color\n")
+                val longSize = holder.longSize.text
+                csvStringBuilder.append("$longSize\n")
 
                 //用文字内容写成csv
+                fileContent = csvStringBuilder.toString()
                 Tools.makeCsv(fileContent)
 
                 //change state
