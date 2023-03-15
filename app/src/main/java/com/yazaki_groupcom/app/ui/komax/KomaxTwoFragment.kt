@@ -16,7 +16,7 @@ import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.databinding.FragmentKomaxTwoBinding
 
-class KomaxTwoFragment : Fragment() {
+class KomaxTwoFragment() : Fragment() {
 
     companion object {
         const val TAG: String = "KomaxTwoFragment"
@@ -52,11 +52,9 @@ class KomaxTwoFragment : Fragment() {
             it.setOnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
                     // EditText获取了焦点，正在编辑中
-                    Log.e(TAG, "!!!: forEach setOnFocusChangeListene yes :id:"+it.id )
 
                 } else {
                     // EditText失去了焦点，不在编辑中
-                    Log.e(TAG, "!!!: forEach setOnFocusChangeListene false :id:"+it.id )
 
                     checkDataShowRet()
                 }
@@ -69,7 +67,6 @@ class KomaxTwoFragment : Fragment() {
                     imm.hideSoftInputFromWindow(it.windowToken, 0)
 
                     // 在这里处理enter键触碰事件
-                    Log.e(TAG, "!!! EEE: forEach setOnEditorActionListener :id:"+it.id )
 
                     checkDataShowRet()
                     true
@@ -79,10 +76,17 @@ class KomaxTwoFragment : Fragment() {
             }
         }
 
-//        binding.type.text = Tools.sharedPreGetString("KomaxOneAdapter_type")
-//        binding.size.text = Tools.sharedPreGetString("KomaxOneAdapter_size")
-//        binding.color.text = Tools.sharedPreGetString("KomaxOneAdapter_color")
-//        binding.longSize.text = Tools.sharedPreGetString("KomaxOneAdapter_longSize")
+        sharedVM.komaxTwoData.observe(requireActivity()) {
+            binding.terminalNumber1.text = it.terminal_number_1
+            binding.skinSize1.text = it.skin_size_1
+            binding.applicator1.text = it.applicator_1
+            binding.partsNumber1.text = it.parts_number_1
+
+            binding.terminalNumber2.text = it.terminal_number_2
+            binding.skinSize2.text = it.skin_size_2
+            binding.applicator2.text = it.applicator_2
+            binding.partsNumber2.text = it.parts_number_2
+        }
 
 //        sharedVM.scanDataText.value = ""
 //        sharedVM.scanDataText.observe(viewLifecycleOwner) {
@@ -180,19 +184,15 @@ class KomaxTwoFragment : Fragment() {
         etNumberStr2: String,
     ): Boolean {
         if (etInfoStr.substring(0, 3) != "711") {
-            Log.e(TAG, "!!!: binding.etInfoStr checkData != \"711\"")
             return false
         }
         if (etNumberStr.substring(0, 3) != "230") {
-            Log.e(TAG, "!!!: binding.etNumberStr checkData != \"230\"")
             return false
         }
         if (etInfoStr2.substring(0, 3) != "711") {
-            Log.e(TAG, "!!!: binding.etInfoStr2 checkData != \"711\"")
             return false
         }
         if (etNumberStr2.substring(0, 3) != "P-1") {
-            Log.e(TAG, "!!!: binding.etNumberStr2 checkData != \"P-1\"")
             return false
         }
         return true

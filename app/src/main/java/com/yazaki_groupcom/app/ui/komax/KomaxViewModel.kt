@@ -15,4 +15,16 @@ class KomaxViewModel  : ViewModel() {
     //ScanDataText
     val scanDataText = MutableLiveData("")
 
+    //KomaxTwoData
+    val komaxTwoData = MutableLiveData(KomaxTwoData(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ))
+
 }

@@ -12,7 +12,7 @@ import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.AdapterKomaxOneBinding
 
 
-class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapter.ViewHolder>() {
+class KomaxOneAdapter(val context: Context,private val viewModel: KomaxViewModel) : RecyclerView.Adapter<KomaxOneAdapter.ViewHolder>() {
     val TAG: String = "KomaxOneAdapter"
 
 
@@ -36,6 +36,16 @@ class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapt
         val longSize: TextView = binding.longSize
         val btCheck: BaseButton = binding.btCheck
         val btCheckRet: BaseButton = binding.btCheckRet
+
+        val terminal_number_1 :TextView = binding.terminalNumber1
+        val skin_size_1 :TextView = binding.skinSize1
+        val applicator_1 :TextView = binding.applicator1
+        val parts_number_1 :TextView = binding.partsNumber1
+
+        val terminal_number_2 :TextView = binding.terminalNumber1
+        val skin_size_2 :TextView = binding.skinSize2
+        val applicator_2 :TextView = binding.applicator2
+        val parts_number_2 :TextView = binding.partsNumber2
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,10 +65,19 @@ class KomaxOneAdapter(val context: Context) : RecyclerView.Adapter<KomaxOneAdapt
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
 
-            Tools.sharedPrePut("KomaxOneAdapter_type", holder.type.text.toString())
-            Tools.sharedPrePut("KomaxOneAdapter_size", holder.size.text.toString())
-            Tools.sharedPrePut("KomaxOneAdapter_color", holder.color.text.toString())
-            Tools.sharedPrePut("KomaxOneAdapter_longSize", holder.longSize.text.toString())
+            //放送数据给 KomaxViewModel
+            val twoData = KomaxTwoData(
+                holder.terminal_number_1.text.toString(),
+                holder.skin_size_1.text.toString(),
+                holder.applicator_1.text.toString(),
+                holder.parts_number_1.text.toString(),
+
+                holder.terminal_number_2.text.toString(),
+                holder.skin_size_2.text.toString(),
+                holder.applicator_2.text.toString(),
+                holder.parts_number_2.text.toString(),
+            )
+            viewModel.komaxTwoData.postValue(twoData)
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)

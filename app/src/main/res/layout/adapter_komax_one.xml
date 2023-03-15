@@ -538,6 +538,7 @@
                             android:layout_height="wrap_content"
                             android:text="端子品番"/>
                         <TextView
+                            android:id="@+id/terminal_number_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -562,6 +563,7 @@
                             android:layout_height="wrap_content"
                             android:text="皮むき寸法"/>
                         <TextView
+                            android:id="@+id/skin_size_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -586,6 +588,7 @@
                             android:layout_height="wrap_content"
                             android:text="アプリケータ"/>
                         <TextView
+                            android:id="@+id/applicator_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -610,6 +613,7 @@
                             android:layout_height="wrap_content"
                             android:text="部品品番1"/>
                         <TextView
+                            android:id="@+id/parts_number_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -663,6 +667,7 @@
                             android:layout_height="wrap_content"
                             android:text="端子品番"/>
                         <TextView
+                            android:id="@+id/terminal_number_2"
                             android:background="@drawable/bg_layout_black_orange_light"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -687,6 +692,7 @@
                             android:layout_height="wrap_content"
                             android:text="皮むき寸法"/>
                         <TextView
+                            android:id="@+id/skin_size_2"
                             android:background="@drawable/bg_layout_black_orange_light"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -711,6 +717,7 @@
                             android:layout_height="wrap_content"
                             android:text="アプリケータ"/>
                         <TextView
+                            android:id="@+id/applicator_2"
                             android:background="@drawable/bg_layout_black_orange_light"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -735,6 +742,7 @@
                             android:layout_height="wrap_content"
                             android:text="部品品番1"/>
                         <TextView
+                            android:id="@+id/parts_number_2"
                             android:background="@drawable/bg_layout_black_orange_light"
                             android:textSize="12sp"
                             android:gravity="center"
