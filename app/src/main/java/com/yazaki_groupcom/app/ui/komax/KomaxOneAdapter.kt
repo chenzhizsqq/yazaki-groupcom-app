@@ -30,12 +30,27 @@ class KomaxOneAdapter(val context: Context,private val viewModel: KomaxViewModel
 
     inner class ViewHolder(binding: AdapterKomaxOneBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val type: TextView = binding.type
-        val size: TextView = binding.size
-        val color: TextView = binding.color
-        val longSize: TextView = binding.longSize
         val btCheck: BaseButton = binding.btCheck
         val btCheckRet: BaseButton = binding.btCheckRet
+
+        val facilityRequirements: TextView = binding.facilityRequirements
+        val amount: TextView = binding.amount
+        val cuttingAmount: TextView = binding.cuttingAmount
+        val cuttingDate: TextView = binding.cuttingDate
+
+        val group_number_1 :TextView = binding.groupNumber1
+        val cereal_number_1 :TextView = binding.cerealNumber1
+        val variety_1 :TextView = binding.variety1
+        val size_1 :TextView = binding.size1
+        val color_1 :TextView = binding.color1
+        val cutting_line_length_1 :TextView = binding.cuttingLineLength1
+
+        val group_number_2 :TextView = binding.groupNumber2
+        val cereal_number_2 :TextView = binding.cerealNumber2
+        val variety_2 :TextView = binding.variety2
+        val size_2 :TextView = binding.size2
+        val color_2 :TextView = binding.color2
+        val cutting_line_length_2 :TextView = binding.cuttingLineLength2
 
         val terminal_number_1 :TextView = binding.terminalNumber1
         val skin_size_1 :TextView = binding.skinSize1
@@ -61,7 +76,7 @@ class KomaxOneAdapter(val context: Context,private val viewModel: KomaxViewModel
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.longSize.text = list[position].title
+        holder.cuttingDate.text = list[position].title
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
 
@@ -89,14 +104,14 @@ class KomaxOneAdapter(val context: Context,private val viewModel: KomaxViewModel
                 var fileContent = ""
                 val csvStringBuilder = StringBuilder()
 
-                val type = holder.type.text
-                csvStringBuilder.append("$type\n")
-                val size = holder.size.text
-                csvStringBuilder.append("$size\n")
-                val color = holder.color.text
-                csvStringBuilder.append("$color\n")
-                val longSize = holder.longSize.text
-                csvStringBuilder.append("$longSize\n")
+                val facilityRequirements = holder.facilityRequirements.text
+                csvStringBuilder.append("$facilityRequirements\n")
+                val amount = holder.amount.text
+                csvStringBuilder.append("$amount\n")
+                val cuttingAmount = holder.cuttingAmount.text
+                csvStringBuilder.append("$cuttingAmount\n")
+                val cuttingDate = holder.cuttingDate.text
+                csvStringBuilder.append("$cuttingDate\n")
 
                 //用文字内容写成csv
                 fileContent = csvStringBuilder.toString()
@@ -107,10 +122,10 @@ class KomaxOneAdapter(val context: Context,private val viewModel: KomaxViewModel
                 holder.btCheckRet.changeColorByState(3)
 
                 //change color
-                holder.type.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.size.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.color.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.longSize.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.facilityRequirements.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.amount.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.cuttingAmount.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.cuttingDate.setBackgroundResource(R.drawable.bg_layout_black)
 
 
             }
