@@ -33,7 +33,7 @@ class KomaxOneFragment : Fragment() {
         binding = FragmentKomaxOneBinding.inflate(inflater, container, false)
 
         //Adapter setting
-        mAdapter = KomaxOneAdapter(requireActivity())
+        mAdapter = KomaxOneAdapter(requireActivity(),sharedVM)
         mAdapter.notifyDataSetChanged(list)
         binding.recyclerViewKoderaOne.adapter = mAdapter
         mAdapter.setOnAdapterListener(object :KomaxOneAdapter.OnAdapterListener{

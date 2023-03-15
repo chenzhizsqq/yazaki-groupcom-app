@@ -7,7 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.yazaki_groupcom.app.Config
-import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.databinding.ActivityFirstBinding
 import com.yazaki_groupcom.app.test.TestMainActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
@@ -48,12 +47,6 @@ class FirstActivity : AppCompatActivity() {
                 }
             }
         }
-
-        Tools.addPermission(this,"android.permission.MANAGE_EXTERNAL_STORAGE")
-        Tools.addPermission(this,"android.permission.WRITE_EXTERNAL_STORAGE")
-        Tools.addPermission(this,"android.permission.INTERNET")
-        Tools.addPermission(this,"android.permission.NFC")
-        Tools.addPermission(this,"android.permission.ACCESS_NETWORK_STATE")
 
         //去到第一个页面上
         gotoMain()
