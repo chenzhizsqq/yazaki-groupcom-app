@@ -425,6 +425,19 @@ object Tools {
         ) == PackageManager.PERMISSION_GRANTED
 
 
+    fun addPermission(activity: Activity,permission: String) {
+        if (!checkSinglePermission(permission)
+        ) {
+            ActivityCompat.requestPermissions(
+                activity,
+                arrayOf(permission
+                ),
+                Config.REQUEST_CODE_LOCATION_KEY
+            )
+        }
+    }
+
+
     fun checkLocationPermission(activity: Activity) {
         if (!checkSinglePermission(Manifest.permission.ACCESS_COARSE_LOCATION)
             || !checkSinglePermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -455,14 +468,14 @@ object Tools {
      * 用文字内容写成csv
      */
     fun makeCsv(fileContent: String) {
-        val currentDateTime = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(Date())
-        val fileName = "data_$currentDateTime.csv"
-
-        val downloadsDirectory =
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val file = File(downloadsDirectory, fileName)
-
         try {
+            val currentDateTime = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(Date())
+            val fileName = "data_$currentDateTime.csv"
+
+            val downloadsDirectory =
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            val file = File(downloadsDirectory, fileName)
+
             val fileOutputStream = FileOutputStream(file)
             fileOutputStream.write(fileContent.toByteArray())
             fileOutputStream.close()
