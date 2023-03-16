@@ -147,7 +147,7 @@
 
             </TableRow>
 
-            <!-- シース剥ぎ寸法(A)  -->
+            <!-- 1側シース剥ぎ寸法  -->
             <TableRow
                 android:layout_weight="10"
                 android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="シース剥ぎ寸法(A)"/>
+                    android:text="1側シース剥ぎ寸法"/>
 
                 <TextView
                     android:id="@+id/lower_value_2"
@@ -208,7 +208,7 @@
 
             </TableRow>
 
-            <!-- シース剥ぎ寸法(B)  -->
+            <!-- 2側シース剥ぎ寸法  -->
             <TableRow
                 android:layout_weight="10"
                 android:layout_width="match_parent"
@@ -221,7 +221,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:padding="5sp"
-                    android:text="シース剥ぎ寸法(B)"/>
+                    android:text="2側シース剥ぎ寸法"/>
 
                 <TextView
                     android:id="@+id/lower_value_3"

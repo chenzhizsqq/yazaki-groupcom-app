@@ -184,13 +184,13 @@
                 <!-- line 2 info-->
                 <LinearLayout
                     android:layout_weight="9"
-                    android:weightSum="29"
+                    android:weightSum="30"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_weight="6"
+                        android:layout_weight="5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -201,7 +201,7 @@
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="グループ№"/>
+                            android:text="背番号"/>
                         <TextView
                             android:id="@+id/group_number_1"
                             android:background="@drawable/bg_layout_black"
@@ -262,7 +262,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_weight="3"
+                        android:layout_weight="5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -273,7 +273,7 @@
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="ｻｲｽﾞ"/>
+                            android:text="サイズ"/>
                         <TextView
                             android:id="@+id/size_1"
                             android:background="@drawable/bg_layout_black"
@@ -355,13 +355,13 @@
                 <!-- line 2 info-->
                 <LinearLayout
                     android:layout_weight="9"
-                    android:weightSum="29"
+                    android:weightSum="30"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_weight="6"
+                        android:layout_weight="5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -372,7 +372,7 @@
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="グループ№"/>
+                            android:text="背番号"/>
                         <TextView
                             android:id="@+id/group_number_2"
                             android:background="@drawable/bg_layout_black"
@@ -433,7 +433,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_weight="3"
+                        android:layout_weight="5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -444,7 +444,7 @@
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="ｻｲｽﾞ"/>
+                            android:text="サイズﾞ"/>
                         <TextView
                             android:id="@+id/size_2"
                             android:background="@drawable/bg_layout_black"
