@@ -219,7 +219,7 @@ class ProcessManageActivity : BaseScanActivity() {
             Log.e(TAG, "mvvmSetting: isUpdated : $it", )
             if (it) {
                 //tvHint
-                binding.tvHint.visibility = View.INVISIBLE
+                //binding.tvHint.visibility = View.INVISIBLE
                 //ll_equipment
                 binding.llEquipment.visibility = View.INVISIBLE
 
@@ -234,7 +234,7 @@ class ProcessManageActivity : BaseScanActivity() {
 
             } else {
                 //tvHint
-                binding.tvHint.visibility = View.VISIBLE
+                //binding.tvHint.visibility = View.VISIBLE
                 //ll_equipment
                 binding.llEquipment.visibility = View.VISIBLE
 

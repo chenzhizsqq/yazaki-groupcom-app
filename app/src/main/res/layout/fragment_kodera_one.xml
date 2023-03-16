@@ -6,20 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.kodera.KoderaOneFragment">
 
-
-    <!-- message -->
-    <TextView
-        android:id="@+id/tv_title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="start"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:text="切断指示" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_kodera_one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layoutManager="LinearLayoutManager" />
+        android:orientation="vertical">
+        <!-- message -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="切断指示" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_kodera_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layoutManager="LinearLayoutManager" />
+    </LinearLayout>
 </FrameLayout>
