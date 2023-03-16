@@ -128,6 +128,7 @@
 
         <EditText
             android:id="@+id/et_id"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -137,7 +138,6 @@
             android:hint="ID"
             android:autofillHints=""
             android:background="@drawable/bg_edittext"
-            android:inputType="text"
             android:singleLine="true"
             android:minHeight="48dp"
             android:textColor="@color/black"
