@@ -155,6 +155,12 @@
                 android:text="TestRetrofitActivity"/>
             <Button
                 android:textAllCaps="false"
+                android:id="@+id/TestRetrofitActivity2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TestRetrofitActivity2"/>
+            <Button
+                android:textAllCaps="false"
                 android:id="@+id/TestNfcActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

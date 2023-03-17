@@ -143,6 +143,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".test.TestRetrofitActivity2"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".test.TestSmartRefreshLayoutActivity"
             android:exported="false"
             android:screenOrientation="portrait">
