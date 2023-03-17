@@ -28,7 +28,7 @@ class Config {
         const val buttonBgColor = R.color.purple_500
 
         //是否测试状态
-        const val isCheckMode = true
+        const val isCheckMode = false
     }
 
 }
