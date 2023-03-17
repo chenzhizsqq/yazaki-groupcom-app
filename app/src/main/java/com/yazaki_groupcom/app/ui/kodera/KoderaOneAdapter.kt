@@ -129,11 +129,11 @@ class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>)
                 //holder.btCheckRet.changeColorByState(3)
 
                 //change color
+                holder.amount.setBackgroundResource(R.drawable.bg_layout_black)
                 holder.variety1.setBackgroundResource(R.drawable.bg_layout_black)
                 holder.size1.setBackgroundResource(R.drawable.bg_layout_black)
                 holder.color1.setBackgroundResource(R.drawable.bg_layout_black)
                 holder.cuttingLineLength1.setBackgroundResource(R.drawable.bg_layout_black)
-
 
             }
             builder.setNegativeButton(context.resources.getString(R.string.cut_off_cancel)) { dialog, which ->
