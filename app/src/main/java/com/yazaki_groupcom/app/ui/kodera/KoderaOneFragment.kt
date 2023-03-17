@@ -52,9 +52,9 @@ class KoderaOneFragment : Fragment() {
         })
 
         testData()
+        testData2()
         testData()
-        testData()
-        testData()
+        testData2()
 
         return binding.root
     }
@@ -78,11 +78,42 @@ class KoderaOneFragment : Fragment() {
             "2096",
             "80",
 
+            0,
             1,
             1,
             1,
-            1,
-            1,
+            0,
+
+            false
+        )
+        listKoderaData.add(koderaOneData)
+        addData(listKoderaData[listKoderaData.count()-1])
+    }
+
+    private fun testData2() {
+        //Adapter data
+
+        val koderaOneData = KoderaEachData(
+            mAdapter.itemCount,
+            "",
+            "ー",
+            "40",
+            "200",
+            "2023/02/01",
+
+            "CI001",
+            "CI00123021010",
+            "1R7",
+            "041",
+            "40",
+            "2096",
+            "80",
+
+            2,
+            0,
+            0,
+            0,
+            2,
 
             false
         )

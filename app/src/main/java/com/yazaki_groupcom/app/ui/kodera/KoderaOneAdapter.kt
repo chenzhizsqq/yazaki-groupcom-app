@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.R
@@ -89,7 +90,13 @@ class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>)
         holder.color1.text = list[position].color1
         holder.cuttingLineLength1.text = list[position].cuttingLineLength1
 
-            holder.dimensions.text = list[position].dimensions
+        holder.dimensions.text = list[position].dimensions
+
+        changeColorByState(this.list[position].amountState, holder.amount)
+        changeColorByState(this.list[position].variety1State, holder.variety1)
+        changeColorByState(this.list[position].size1State, holder.size1)
+        changeColorByState(this.list[position].color1State, holder.color1)
+        changeColorByState(this.list[position].cuttingLineLength1State, holder.cuttingLineLength1)
 
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
@@ -135,6 +142,23 @@ class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>)
             val dialog = builder.create()
             dialog.show()
             listener.onCheck(position)
+        }
+    }
+
+    private fun changeColorByState(
+        state: Int,
+        textView: TextView
+    ) {
+        when (state) {
+            1 -> {
+                textView.setBackgroundResource(R.drawable.bg_layout_black_red)
+            }
+            2 -> {
+                textView.setBackgroundResource(R.drawable.bg_layout_black_yellow)
+            }
+            else -> {
+                textView.setBackgroundResource(R.drawable.bg_layout_black)
+            }
         }
     }
 
