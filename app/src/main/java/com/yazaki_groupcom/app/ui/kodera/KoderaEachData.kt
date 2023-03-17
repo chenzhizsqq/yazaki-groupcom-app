@@ -1,7 +1,9 @@
 package com.yazaki_groupcom.app.ui.kodera
 
 //KomaxTwoFragment的数据
-data class KoderaTwoData(
+data class KoderaEachData(
+    var id: Int,
+    var title: String,
 
     var facility: String,
     var amount: String,
@@ -14,4 +16,13 @@ data class KoderaTwoData(
     var size1: String,
     var color1: String,
     var cuttingLineLength1: String,
+    var dimensions: String,
+
+    var amountState: Int,
+    var variety1State: Int,
+    var size1State: Int,
+    var color1State: Int,
+    var cuttingLineLength1State: Int,
+
+    var isCheckOver : Boolean
 )

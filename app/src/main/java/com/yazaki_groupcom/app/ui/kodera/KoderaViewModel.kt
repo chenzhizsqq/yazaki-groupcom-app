@@ -9,6 +9,8 @@ class KoderaViewModel  : ViewModel() {
 
     val isCheckOk = MutableLiveData(false)
 
+    val checkOverIdList = MutableLiveData(ArrayList<Int>())
+
     //KoderaOneFragment中，端子显示的类型
     val strDuanzi = MutableLiveData("シース剥ぎ寸法")
 
@@ -16,8 +18,9 @@ class KoderaViewModel  : ViewModel() {
     val scanDataText = MutableLiveData("")
 
     //KomaxTwoData
-    val koderaTwoData = MutableLiveData(
-        KoderaTwoData(
+    val koderaEachData = MutableLiveData(
+        KoderaEachData(
+            -1,
             "",
             "",
             "",
@@ -28,7 +31,15 @@ class KoderaViewModel  : ViewModel() {
             "",
             "",
             "",
-    )
+            "",
+            "",
+            0,
+            0,
+            0,
+            0,
+            0,
+            false
+        )
     )
 
 }

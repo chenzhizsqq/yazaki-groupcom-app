@@ -42,10 +42,6 @@ class KoderaThreeFragment : Fragment() {
     ): View? {
         binding = FragmentKoderaThreeBinding.inflate(inflater, container, false)
 
-        binding.tvTitle.setOnClickListener {
-            sharedVM.idFragment.value = 1
-        }
-
         isCanBeCheck = true
         changeTextView(binding.etCheck1, "", R.drawable.bg_layout_black)
         changeTextView(binding.etCheck2, "", R.drawable.bg_layout_black)
@@ -215,6 +211,7 @@ class KoderaThreeFragment : Fragment() {
                 delay(1000L) // 延迟1秒钟
                 sharedVM.idFragment.value = 1
                 sharedVM.isCheckOk.value = true
+                sharedVM.koderaEachData.value?.id?.let { sharedVM.checkOverIdList.value?.add(it) }
             }
         }
     }

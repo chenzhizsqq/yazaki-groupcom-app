@@ -1,17 +1,12 @@
 package com.yazaki_groupcom.app.ui.kodera
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.fragment.app.activityViewModels
-import com.yazaki_groupcom.app.R
-import com.yazaki_groupcom.app.Tools
-import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.FragmentKoderaOneBinding
 import java.util.ArrayList
 
@@ -26,7 +21,7 @@ class KoderaOneFragment : Fragment() {
 
     //Adapter
     private lateinit var mAdapter: KoderaOneAdapter
-    val list = ArrayList<KoderaOneData>()
+    val listKoderaData = ArrayList<KoderaEachData>()
 
     //与MainActivity共同的ViewModel
     val sharedVM: KoderaViewModel by activityViewModels()
@@ -38,13 +33,14 @@ class KoderaOneFragment : Fragment() {
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
 
         //Adapter setting
-        mAdapter = KoderaOneAdapter(requireActivity(),sharedVM)
-        mAdapter.notifyDataSetChanged(list)
+        mAdapter = KoderaOneAdapter(requireActivity(),ArrayList<KoderaEachData>())
         binding.recyclerViewKoderaOne.adapter = mAdapter
         mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{
             override fun onClick(id: Int) {
                 Log.e(TAG, "onClick: id:$id", )
                 sharedVM.idFragment.value = 2
+
+                sharedVM.koderaEachData.postValue(listKoderaData[id])
             }
 
             /**
@@ -55,17 +51,46 @@ class KoderaOneFragment : Fragment() {
             }
         })
 
-        //Adapter data
-        addData()
-        addData()
-        addData()
-        addData()
+        testData()
+        testData()
+        testData()
+        testData()
 
         return binding.root
     }
 
-    private fun addData() {
-        val koderaOneData = KoderaOneData(list.count(),list.count().toString())
+    private fun testData() {
+        //Adapter data
+
+        val koderaOneData = KoderaEachData(
+            mAdapter.itemCount,
+            "",
+            "ー",
+            "40",
+            "200",
+            "2023/02/01",
+
+            "CI001",
+            "CI00123021010",
+            "1R7",
+            "041",
+            "40",
+            "2096",
+            "80",
+
+            1,
+            1,
+            1,
+            1,
+            1,
+
+            false
+        )
+        listKoderaData.add(koderaOneData)
+        addData(listKoderaData[listKoderaData.count()-1])
+    }
+
+    private fun addData(koderaOneData : KoderaEachData) {
         mAdapter.notifyDataSetAdd(koderaOneData)
     }
 

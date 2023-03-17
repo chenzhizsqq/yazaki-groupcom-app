@@ -2,8 +2,6 @@ package com.yazaki_groupcom.app.ui.kodera
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,8 +44,6 @@ class KoderaTwoFragment : Fragment() {
             }
         }
 
-
-
         editTextArray = ArrayList<EditText>()
         editTextArray.add(binding.etInfo)
         editTextArray.add(binding.etNumber)
@@ -80,7 +76,7 @@ class KoderaTwoFragment : Fragment() {
             }
         }
 
-        sharedVM.koderaTwoData.observe(requireActivity()) {
+        sharedVM.koderaEachData.observe(requireActivity()) {
             binding.groupNumber1.text = it.groupNumber1
             binding.cerealNumber1.text = it.cerealNumber1
             binding.variety1.text = it.variety1

@@ -2,6 +2,7 @@ package com.yazaki_groupcom.app.ui.kodera
 
 import android.app.AlertDialog
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -14,21 +15,8 @@ import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.enum.ShareKey
 
 
-class KoderaOneAdapter(val context: Context,private val viewModel: KoderaViewModel) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
+class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
     val TAG: String = "KoderaOneAdapter"
-
-
-    lateinit var list: ArrayList<KoderaOneData>
-
-    fun notifyDataSetChanged(list: ArrayList<KoderaOneData>) {
-        this.list = list
-        notifyDataSetChanged()
-    }
-
-    fun notifyDataSetAdd(koderaOneData: KoderaOneData) {
-        this.list.add(koderaOneData)
-        notifyDataSetChanged()
-    }
 
     inner class ViewHolder(binding: AdapterKoderaOneBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -44,9 +32,22 @@ class KoderaOneAdapter(val context: Context,private val viewModel: KoderaViewMod
         val size1: TextView = binding.size1
         val color1: TextView = binding.color1
         val cuttingLineLength1: TextView = binding.cuttingLineLength1
+        val dimensions:TextView = binding.dimensions
 
         val btCheck: BaseButton = binding.btCheck
         val btCheckRet: BaseButton = binding.btCheckRet
+    }
+
+
+    fun notifyDataSetChanged(list: ArrayList<KoderaEachData>) {
+        this.list = list
+        notifyDataSetChanged()
+    }
+
+    fun notifyDataSetAdd(koderaEachData: KoderaEachData) {
+        this.list.add(koderaEachData)
+        Log.e(TAG, "notifyDataSetAdd: $list", )
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -73,23 +74,25 @@ class KoderaOneAdapter(val context: Context,private val viewModel: KoderaViewMod
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+
+
+        holder.facility.text = list[position].facility
+        holder.amount.text = list[position].amount
+        holder.cuttingAmount.text = list[position].cuttingAmount
+        holder.cuttingDate.text = list[position].cuttingDate
+
+        holder.groupNumber1.text = list[position].groupNumber1
+        holder.cerealNumber1.text = list[position].cerealNumber1
+        holder.variety1.text = list[position].variety1
+        holder.size1.text = list[position].size1
+        holder.color1.text = list[position].color1
+        holder.cuttingLineLength1.text = list[position].cuttingLineLength1
+
+            holder.dimensions.text = list[position].dimensions
+
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
-            //放送数据给 KomaxViewModel
-            val twoData = KoderaTwoData(
-                holder.facility.text.toString(),
-                holder.amount.text.toString(),
-                holder.cuttingAmount.text.toString(),
-                holder.cuttingDate.text.toString(),
-
-                holder.groupNumber1.text.toString(),
-                holder.cerealNumber1.text.toString(),
-                holder.variety1.text.toString(),
-                holder.size1.text.toString(),
-                holder.color1.text.toString(),
-                holder.cuttingLineLength1.text.toString(),
-            )
-            viewModel.koderaTwoData.postValue(twoData)
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)
@@ -115,7 +118,7 @@ class KoderaOneAdapter(val context: Context,private val viewModel: KoderaViewMod
 //                Tools.makeCsv(fileContent)
 
                 //change state
-                holder.btCheck.changeColorByState(3)
+                holder.btCheckRet.changeColorByState(3)
                 //holder.btCheckRet.changeColorByState(3)
 
                 //change color
