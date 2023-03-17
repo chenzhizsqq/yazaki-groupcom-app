@@ -15,4 +15,20 @@ class KoderaViewModel  : ViewModel() {
     //ScanDataText
     val scanDataText = MutableLiveData("")
 
+    //KomaxTwoData
+    val koderaTwoData = MutableLiveData(
+        KoderaTwoData(
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+    )
+    )
+
 }

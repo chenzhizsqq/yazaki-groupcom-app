@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
@@ -37,7 +38,7 @@ class KoderaOneFragment : Fragment() {
         binding = FragmentKoderaOneBinding.inflate(inflater, container, false)
 
         //Adapter setting
-        mAdapter = KoderaOneAdapter(requireActivity())
+        mAdapter = KoderaOneAdapter(requireActivity(),sharedVM)
         mAdapter.notifyDataSetChanged(list)
         binding.recyclerViewKoderaOne.adapter = mAdapter
         mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{

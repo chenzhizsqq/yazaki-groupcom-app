@@ -11,10 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import com.yazaki_groupcom.app.Config
-import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
+import java.util.ArrayList
 
 class KoderaTwoFragment : Fragment() {
 
@@ -24,6 +25,8 @@ class KoderaTwoFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentKoderaTwoBinding
+
+    private lateinit var editTextArray : ArrayList<EditText>
 
     //与MainActivity共同的ViewModel
     val sharedVM: KoderaViewModel by activityViewModels()
@@ -40,10 +43,10 @@ class KoderaTwoFragment : Fragment() {
             }
         }
 
-        binding.type.text = Tools.sharedPreGetString("KoderaOneAdapter_type")
-        binding.size.text = Tools.sharedPreGetString("KoderaOneAdapter_size")
-        binding.color.text = Tools.sharedPreGetString("KoderaOneAdapter_color")
-        binding.longSize.text = Tools.sharedPreGetString("KoderaOneAdapter_longSize")
+//        binding.type.text = Tools.sharedPreGetString("KoderaOneAdapter_type")
+//        binding.size.text = Tools.sharedPreGetString("KoderaOneAdapter_size")
+//        binding.color.text = Tools.sharedPreGetString("KoderaOneAdapter_color")
+//        binding.longSize.text = Tools.sharedPreGetString("KoderaOneAdapter_longSize")
 
 //        sharedVM.scanDataText.value = ""
 //        sharedVM.scanDataText.observe(viewLifecycleOwner) {
@@ -69,62 +72,69 @@ class KoderaTwoFragment : Fragment() {
 //        }
 
 
-        binding.etInfo.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                // EditText获取了焦点，正在编辑中
-            } else {
-                // EditText失去了焦点，不在编辑中
-                Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener", )
+        editTextArray = ArrayList<EditText>()
+        editTextArray.add(binding.etInfo)
+        editTextArray.add(binding.etNumber)
 
-                checkDataShowRet()
+        editTextArray.forEach {
+            it.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    // EditText获取了焦点，正在编辑中
+
+                } else {
+                    // EditText失去了焦点，不在编辑中
+
+                    checkDataShowRet()
+                }
+            }
+
+            it.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    val imm =
+                        requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(it.windowToken, 0)
+
+                    // 在这里处理enter键触碰事件
+
+                    checkDataShowRet()
+                    true
+                } else {
+                    false
+                }
             }
         }
 
-        binding.etNumber.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                // EditText获取了焦点，正在编辑中
-            } else {
-                // EditText失去了焦点，不在编辑中
-                Log.e(TAG, "!!!: binding.etNumber setOnFocusChangeListener", )
-                checkDataShowRet()
-            }
-        }
-
-
-        binding.etNumber.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                val imm =
-                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(binding.etNumber.windowToken, 0)
-
-                // 在这里处理enter键触碰事件
-                Log.e(TAG, "!!!: binding.etNumber setOnEditorActionListener 2222", )
-
-                checkDataShowRet()
-                true
-            } else {
-                false
-            }
+        sharedVM.koderaTwoData.observe(requireActivity()) {
+            binding.groupNumber1.text = it.groupNumber1
+            binding.cerealNumber1.text = it.cerealNumber1
+            binding.variety1.text = it.variety1
+            binding.size1.text = it.size1
+            binding.color1.text = it.color1
+            binding.cuttingLineLength1.text = it.cuttingLineLength1
         }
 
         return binding.root
     }
 
     private fun checkDataShowRet() {
-        val etInfoStr = binding.etInfo.text.toString()
-        val etNumberStr = binding.etNumber.text.toString()
-        if (etInfoStr.length >= 3 && etNumberStr.length >= 3) {
-            val ret = checkData(etInfoStr, etNumberStr)
-            if (ret) {
-                binding.tvResult.text = "OK"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    sharedVM.idFragment.value = 3
-                }, 1000) // 1000表示延时1秒钟
+        try {
+            val etInfoStr = binding.etInfo.text.toString()
+            val etNumberStr = binding.etNumber.text.toString()
+            if (etInfoStr.length >= 3 && etNumberStr.length >= 3) {
+                val ret = checkData(etInfoStr, etNumberStr)
+                if (ret) {
+                    binding.tvResult.text = "OK"
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        sharedVM.idFragment.value = 3
+                    }, 1000) // 1000表示延时1秒钟
+                } else {
+                    binding.tvResult.text = "NG"
+                }
             } else {
-                binding.tvResult.text = "NG"
+                binding.tvResult.text = "ー"
             }
-        }else{
-            binding.tvResult.text = "ー"
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

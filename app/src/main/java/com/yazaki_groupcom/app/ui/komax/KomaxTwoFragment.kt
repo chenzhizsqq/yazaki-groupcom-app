@@ -154,26 +154,32 @@ class KomaxTwoFragment() : Fragment() {
     }
 
     private fun checkDataShowRet() {
-        val etInfoStr = binding.etInfo.text.toString()
-        val etNumberStr = binding.etNumber.text.toString()
-        val etInfoStr2 = binding.etInfo2.text.toString()
-        val etNumberStr2 = binding.etNumber2.text.toString()
-        if (etInfoStr.length >= 3 && etNumberStr.length >= 3 && etInfoStr2.length >= 3 && etNumberStr2.length >= 3) {
-            val ret = checkDataResult(
-                etInfoStr,
-                etNumberStr,
-                etInfoStr2,
-                etNumberStr2)
-            if (ret) {
-                binding.tvResult.text = "OK"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    sharedVM.idFragment.value = 3
-                }, 1000) // 1000表示延时1秒钟
+
+        try {
+            val etInfoStr = binding.etInfo.text.toString()
+            val etNumberStr = binding.etNumber.text.toString()
+            val etInfoStr2 = binding.etInfo2.text.toString()
+            val etNumberStr2 = binding.etNumber2.text.toString()
+            if (etInfoStr.length >= 3 && etNumberStr.length >= 3 && etInfoStr2.length >= 3 && etNumberStr2.length >= 3) {
+                val ret = checkDataResult(
+                    etInfoStr,
+                    etNumberStr,
+                    etInfoStr2,
+                    etNumberStr2
+                )
+                if (ret) {
+                    binding.tvResult.text = "OK"
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        sharedVM.idFragment.value = 3
+                    }, 1000) // 1000表示延时1秒钟
+                } else {
+                    binding.tvResult.text = "NG"
+                }
             } else {
-                binding.tvResult.text = "NG"
+                binding.tvResult.text = "ー"
             }
-        }else{
-            binding.tvResult.text = "ー"
+        }catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

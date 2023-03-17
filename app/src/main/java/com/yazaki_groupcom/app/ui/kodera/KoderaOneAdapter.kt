@@ -14,7 +14,7 @@ import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.enum.ShareKey
 
 
-class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
+class KoderaOneAdapter(val context: Context,private val viewModel: KoderaViewModel) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
     val TAG: String = "KoderaOneAdapter"
 
 
@@ -32,10 +32,19 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
 
     inner class ViewHolder(binding: AdapterKoderaOneBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        val facility: TextView = binding.facility
+        val amount: TextView = binding.amount
+        val cuttingAmount: TextView = binding.cuttingAmount
+        val cuttingDate: TextView = binding.cuttingDate
+        val groupNumber1: TextView = binding.groupNumber1
+        val cerealNumber1: TextView = binding.cerealNumber1
+
         val variety1: TextView = binding.variety1
         val size1: TextView = binding.size1
         val color1: TextView = binding.color1
         val cuttingLineLength1: TextView = binding.cuttingLineLength1
+
         val btCheck: BaseButton = binding.btCheck
         val btCheckRet: BaseButton = binding.btCheckRet
     }
@@ -66,11 +75,21 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
+            //放送数据给 KomaxViewModel
+            val twoData = KoderaTwoData(
+                holder.facility.text.toString(),
+                holder.amount.text.toString(),
+                holder.cuttingAmount.text.toString(),
+                holder.cuttingDate.text.toString(),
 
-            Tools.sharedPrePut("KoderaOneAdapter_type", holder.variety1.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_size", holder.size1.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_color", holder.color1.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_longSize", holder.cuttingLineLength1.text.toString())
+                holder.groupNumber1.text.toString(),
+                holder.cerealNumber1.text.toString(),
+                holder.variety1.text.toString(),
+                holder.size1.text.toString(),
+                holder.color1.text.toString(),
+                holder.cuttingLineLength1.text.toString(),
+            )
+            viewModel.koderaTwoData.postValue(twoData)
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)

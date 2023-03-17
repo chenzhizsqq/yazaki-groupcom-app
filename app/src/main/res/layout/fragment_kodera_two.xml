@@ -60,6 +60,7 @@
                         android:layout_height="wrap_content"
                         android:text="背番号"/>
                     <TextView
+                        android:id="@+id/group_number_1"
                         android:background="@drawable/bg_layout_black"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -83,6 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="シリアル№"/>
                     <TextView
+                        android:id="@+id/cereal_number_1"
                         android:background="@drawable/bg_layout_black"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -106,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:text="品種"/>
                     <TextView
-                        android:id="@+id/type"
+                        android:id="@+id/variety_1"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -130,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:text="サイズ"/>
                     <TextView
-                        android:id="@+id/size"
+                        android:id="@+id/size_1"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -154,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:text="色"/>
                     <TextView
-                        android:id="@+id/color"
+                        android:id="@+id/color_1"
                         android:background="@drawable/bg_layout_black_orange"
                         android:textSize="12sp"
                         android:gravity="center"
@@ -179,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:text="切断線長"/>
                     <TextView
-                        android:id="@+id/long_size"
+                        android:id="@+id/cutting_line_length_1"
                         android:background="@drawable/bg_layout_black"
                         android:textSize="12sp"
                         android:gravity="center"
