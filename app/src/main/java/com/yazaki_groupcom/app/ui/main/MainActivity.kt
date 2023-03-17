@@ -2,13 +2,14 @@ package com.yazaki_groupcom.app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainBinding
 import com.yazaki_groupcom.app.ui.mainMenu.MainMenuActivity
 import com.yazaki_groupcom.app.ui.pwLogin.PwLoginActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class MainActivity : BaseScanActivity() {
@@ -47,11 +48,13 @@ class MainActivity : BaseScanActivity() {
 
             // ***为了测试，能够扫描一秒后马上跳去MainMenuActivity
             if (it.isNotBlank() && it.isNotEmpty()) {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    val intent = Intent(this, MainMenuActivity::class.java)
+
+                val intent = Intent(this, MainMenuActivity::class.java)
+                lifecycleScope.launch {
+                    delay(1000L) // 延迟1秒钟
                     startActivity(intent)
                     finish()
-                }, 1000) // 1000表示延时1秒钟
+                }
             }
         }
 

@@ -13,8 +13,11 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.databinding.FragmentKomaxTwoBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class KomaxTwoFragment() : Fragment() {
 
@@ -88,67 +91,6 @@ class KomaxTwoFragment() : Fragment() {
             binding.partsNumber2.text = it.parts_number_2
         }
 
-//        sharedVM.scanDataText.value = ""
-//        sharedVM.scanDataText.observe(viewLifecycleOwner) {
-//            Log.e(TAG, " !!! QR:$it ")
-//            val str = it
-//            if (str.isNotEmpty()){
-//                if (checkQR(str)){
-//                    binding.tvResult.text = "OK"
-//                    binding.etInfo.setText(str.substring(1, 12))
-//                    binding.etNumber.setText(str.substring(24, 36))
-//
-//                    Handler(Looper.getMainLooper()).postDelayed({
-//                        sharedVM.idFragment.value = 3
-//                    }, 1000) // 1000表示延时1秒钟
-//                }else{
-//                    binding.tvResult.text = "NG"
-//                    if (str.length > 37) {
-//                        binding.etInfo.setText(str.substring(1, 12))
-//                        binding.etNumber.setText(str.substring(24, 36))
-//                    }
-//                }
-//            }
-//        }
-
-
-//        binding.etInfo.setOnFocusChangeListener { _, hasFocus ->
-//            if (hasFocus) {
-//                // EditText获取了焦点，正在编辑中
-//            } else {
-//                // EditText失去了焦点，不在编辑中
-//                Log.e(TAG, "!!!: binding.etInfo setOnFocusChangeListener", )
-//
-//                checkDataShowRet()
-//            }
-//        }
-//
-//        binding.etNumber.setOnFocusChangeListener { _, hasFocus ->
-//            if (hasFocus) {
-//                // EditText获取了焦点，正在编辑中
-//            } else {
-//                // EditText失去了焦点，不在编辑中
-//                Log.e(TAG, "!!!: binding.etNumber setOnFocusChangeListener", )
-//                checkDataShowRet()
-//            }
-//        }
-//
-//
-//        binding.etNumber.setOnEditorActionListener { _, actionId, _ ->
-//            if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                val imm =
-//                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                imm.hideSoftInputFromWindow(binding.etNumber.windowToken, 0)
-//
-//                // 在这里处理enter键触碰事件
-//                Log.e(TAG, "!!!: binding.etNumber setOnEditorActionListener 2222", )
-//
-//                checkDataShowRet()
-//                true
-//            } else {
-//                false
-//            }
-//        }
 
         return binding.root
     }
@@ -169,9 +111,10 @@ class KomaxTwoFragment() : Fragment() {
                 )
                 if (ret) {
                     binding.tvResult.text = "OK"
-                    Handler(Looper.getMainLooper()).postDelayed({
+                    lifecycleScope.launch {
+                        delay(1000L) // 延迟1秒钟
                         sharedVM.idFragment.value = 3
-                    }, 1000) // 1000表示延时1秒钟
+                    }
                 } else {
                     binding.tvResult.text = "NG"
                 }

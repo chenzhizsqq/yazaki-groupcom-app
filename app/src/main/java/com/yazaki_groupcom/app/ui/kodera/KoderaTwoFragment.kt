@@ -13,8 +13,11 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.ArrayList
 
 class KoderaTwoFragment : Fragment() {
@@ -43,33 +46,6 @@ class KoderaTwoFragment : Fragment() {
             }
         }
 
-//        binding.type.text = Tools.sharedPreGetString("KoderaOneAdapter_type")
-//        binding.size.text = Tools.sharedPreGetString("KoderaOneAdapter_size")
-//        binding.color.text = Tools.sharedPreGetString("KoderaOneAdapter_color")
-//        binding.longSize.text = Tools.sharedPreGetString("KoderaOneAdapter_longSize")
-
-//        sharedVM.scanDataText.value = ""
-//        sharedVM.scanDataText.observe(viewLifecycleOwner) {
-//            Log.e(TAG, " !!! QR:$it ")
-//            val str = it
-//            if (str.isNotEmpty()){
-//                if (checkQR(str)){
-//                    binding.tvResult.text = "OK"
-//                    binding.etInfo.setText(str.substring(1, 12))
-//                    binding.etNumber.setText(str.substring(24, 36))
-//
-//                    Handler(Looper.getMainLooper()).postDelayed({
-//                        sharedVM.idFragment.value = 3
-//                    }, 1000) // 1000表示延时1秒钟
-//                }else{
-//                    binding.tvResult.text = "NG"
-//                    if (str.length > 37) {
-//                        binding.etInfo.setText(str.substring(1, 12))
-//                        binding.etNumber.setText(str.substring(24, 36))
-//                    }
-//                }
-//            }
-//        }
 
 
         editTextArray = ArrayList<EditText>()
@@ -124,9 +100,10 @@ class KoderaTwoFragment : Fragment() {
                 val ret = checkData(etInfoStr, etNumberStr)
                 if (ret) {
                     binding.tvResult.text = "OK"
-                    Handler(Looper.getMainLooper()).postDelayed({
+                    lifecycleScope.launch {
+                        delay(1000L) // 延迟1秒钟
                         sharedVM.idFragment.value = 3
-                    }, 1000) // 1000表示延时1秒钟
+                    }
                 } else {
                     binding.tvResult.text = "NG"
                 }

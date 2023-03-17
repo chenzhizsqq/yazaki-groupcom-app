@@ -119,11 +119,6 @@ class PwLoginActivity : BaseScanActivity(), PopupMenu.OnMenuItemClickListener {
 
                     Tools.sharedPrePut(ShareKey.CurrentUserName.key, resultArray[0])
 
-//                    Handler(Looper.getMainLooper()).postDelayed({
-//                        val intent = Intent(this, MainMenuActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
-//                    }, 1000) // 1000表示延时1秒钟
                 } else {
                     Tools.sharedPrePut(ShareKey.CurrentUserName.key, "")
                 }

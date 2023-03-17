@@ -2,8 +2,6 @@ package com.yazaki_groupcom.app.ui.kodera
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +10,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.databinding.FragmentKoderaThreeBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class KoderaThreeFragment : Fragment() {
 
@@ -56,10 +57,11 @@ class KoderaThreeFragment : Fragment() {
         if (Config.isCheckMode){
             binding.tvTitle.setOnClickListener {
                 isCanBeCheck = false
-                Handler(Looper.getMainLooper()).postDelayed({
+                lifecycleScope.launch {
+                    delay(1000L) // 延迟1秒钟
                     sharedVM.idFragment.value = 1
                     sharedVM.isCheckOk.value = true
-                }, 1000) // 1000表示延时1秒钟
+                }
             }
         }
 
@@ -180,14 +182,15 @@ class KoderaThreeFragment : Fragment() {
      * すべてデフォルトに戻す
      */
     private fun allChange2Default() {
-        Handler(Looper.getMainLooper()).postDelayed({
+        lifecycleScope.launch {
+            delay(1000L) // 延迟1秒钟
             changeTextView(binding.etCheck1, "", R.drawable.bg_layout_black)
             changeTextView(binding.etCheck2, "", R.drawable.bg_layout_black)
             changeTextView(binding.etCheck3, "", R.drawable.bg_layout_black)
             changeTextView(binding.tvCheckResult1, "", R.drawable.bg_layout_black)
             changeTextView(binding.tvCheckResult2, "", R.drawable.bg_layout_black)
             changeTextView(binding.tvCheckResult3, "", R.drawable.bg_layout_black)
-        }, 1000) // 1000表示延时1秒钟
+        }
     }
 
     private fun changeTextView(
@@ -208,10 +211,11 @@ class KoderaThreeFragment : Fragment() {
             && binding.tvCheckResult3.text.equals("OK")
         ) {
             isCanBeCheck = false
-            Handler(Looper.getMainLooper()).postDelayed({
+            lifecycleScope.launch {
+                delay(1000L) // 延迟1秒钟
                 sharedVM.idFragment.value = 1
                 sharedVM.isCheckOk.value = true
-            }, 1000) // 1000表示延时1秒钟
+            }
         }
     }
 }
