@@ -10,6 +10,8 @@ import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseButton
 import com.yazaki_groupcom.app.databinding.AdapterKoderaOneBinding
+import com.yazaki_groupcom.app.enum.Equipment
+import com.yazaki_groupcom.app.enum.ShareKey
 
 
 class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
@@ -42,6 +44,17 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
         val binding =
             AdapterKoderaOneBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val viewHolder = ViewHolder(binding)
+
+        //最後に選択したプロセス
+        val  lastSelectedProcessName = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
+        if (lastSelectedProcessName.length>=4){
+            if (lastSelectedProcessName.substring(0,4)== Equipment.C373.code){
+                binding.duanzi1.text = Equipment.C373.explain
+            }
+            if (lastSelectedProcessName.substring(0,4)== Equipment.C385.code){
+                binding.duanzi1.text = Equipment.C385.explain
+            }
+        }
 
         return viewHolder
     }
