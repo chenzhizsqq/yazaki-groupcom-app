@@ -30,10 +30,10 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
 
     inner class ViewHolder(binding: AdapterKoderaOneBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val type: TextView = binding.type
-        val size: TextView = binding.size
-        val color: TextView = binding.color
-        val longSize: TextView = binding.longSize
+        val variety1: TextView = binding.variety1
+        val size1: TextView = binding.size1
+        val color1: TextView = binding.color1
+        val cuttingLineLength1: TextView = binding.cuttingLineLength1
         val btCheck: BaseButton = binding.btCheck
         val btCheckRet: BaseButton = binding.btCheckRet
     }
@@ -51,14 +51,13 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.longSize.text = list[position].title
         holder.btCheck.setOnClickListener {
             listener.onClick(position)
 
-            Tools.sharedPrePut("KoderaOneAdapter_type", holder.type.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_size", holder.size.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_color", holder.color.text.toString())
-            Tools.sharedPrePut("KoderaOneAdapter_longSize", holder.longSize.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_type", holder.variety1.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_size", holder.size1.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_color", holder.color1.text.toString())
+            Tools.sharedPrePut("KoderaOneAdapter_longSize", holder.cuttingLineLength1.text.toString())
         }
         holder.btCheckRet.setOnClickListener {
             val builder = AlertDialog.Builder(context)
@@ -66,32 +65,32 @@ class KoderaOneAdapter(val context: Context) : RecyclerView.Adapter<KoderaOneAda
             builder.setMessage(context.resources.getString(R.string.cut_off_message))
             builder.setPositiveButton(context.resources.getString(R.string.cut_off_ok)) { dialog, which ->
 
-                //写入文件内容
-                var fileContent = ""
-                val csvStringBuilder = StringBuilder()
-
-                val type = holder.type.text
-                csvStringBuilder.append("$type\n")
-                val size = holder.size.text
-                csvStringBuilder.append("$size\n")
-                val color = holder.color.text
-                csvStringBuilder.append("$color\n")
-                val longSize = holder.longSize.text
-                csvStringBuilder.append("$longSize\n")
-
-                //用文字内容写成csv
-                fileContent = csvStringBuilder.toString()
-                Tools.makeCsv(fileContent)
+//                //写入文件内容
+//                var fileContent = ""
+//                val csvStringBuilder = StringBuilder()
+//
+//                val type = holder.type.text
+//                csvStringBuilder.append("$type\n")
+//                val size = holder.size.text
+//                csvStringBuilder.append("$size\n")
+//                val color = holder.color.text
+//                csvStringBuilder.append("$color\n")
+//                val longSize = holder.longSize.text
+//                csvStringBuilder.append("$longSize\n")
+//
+//                //用文字内容写成csv
+//                fileContent = csvStringBuilder.toString()
+//                Tools.makeCsv(fileContent)
 
                 //change state
                 holder.btCheck.changeColorByState(3)
-                holder.btCheckRet.changeColorByState(3)
+                //holder.btCheckRet.changeColorByState(3)
 
                 //change color
-                holder.type.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.size.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.color.setBackgroundResource(R.drawable.bg_layout_black)
-                holder.longSize.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.variety1.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.size1.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.color1.setBackgroundResource(R.drawable.bg_layout_black)
+                holder.cuttingLineLength1.setBackgroundResource(R.drawable.bg_layout_black)
 
 
             }

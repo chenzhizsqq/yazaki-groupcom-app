@@ -61,6 +61,7 @@
                             android:layout_height="wrap_content"
                             android:text="設備条件"/>
                         <TextView
+                            android:id="@+id/facility"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -84,6 +85,7 @@
                             android:layout_height="wrap_content"
                             android:text="数量"/>
                         <TextView
+                            android:id="@+id/amount"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -107,6 +109,7 @@
                             android:layout_height="wrap_content"
                             android:text="連続切断数"/>
                         <TextView
+                            android:id="@+id/cutting_amount"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -130,6 +133,7 @@
                             android:layout_height="wrap_content"
                             android:text="切断納期日"/>
                         <TextView
+                            android:id="@+id/cutting_date"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -198,6 +202,7 @@
                             android:layout_height="wrap_content"
                             android:text="背番号"/>
                         <TextView
+                            android:id="@+id/group_number_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -221,6 +226,7 @@
                             android:layout_height="wrap_content"
                             android:text="シリアル№"/>
                         <TextView
+                            android:id="@+id/cereal_number_1"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -244,7 +250,7 @@
                             android:layout_height="wrap_content"
                             android:text="品種"/>
                         <TextView
-                            android:id="@+id/type"
+                            android:id="@+id/variety_1"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -268,7 +274,7 @@
                             android:layout_height="wrap_content"
                             android:text="サイズ"/>
                         <TextView
-                            android:id="@+id/size"
+                            android:id="@+id/size_1"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -292,7 +298,7 @@
                             android:layout_height="wrap_content"
                             android:text="色"/>
                         <TextView
-                            android:id="@+id/color"
+                            android:id="@+id/color_1"
                             android:background="@drawable/bg_layout_black_orange"
                             android:textSize="12sp"
                             android:gravity="center"
@@ -317,8 +323,8 @@
                             android:layout_height="wrap_content"
                             android:text="切断線長"/>
                         <TextView
-                            android:id="@+id/long_size"
-                            android:background="@drawable/bg_layout_black_orange"
+                            android:id="@+id/cutting_line_length_1"
+                            android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="@color/black"
@@ -369,6 +375,7 @@
                             android:layout_height="wrap_content"
                             android:text="シース剥ぎ寸法"/>
                         <TextView
+                            android:id="@+id/dimensions"
                             android:background="@drawable/bg_layout_black"
                             android:textSize="12sp"
                             android:gravity="center"

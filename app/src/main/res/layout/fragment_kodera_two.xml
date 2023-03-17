@@ -180,7 +180,7 @@
                         android:text="切断線長"/>
                     <TextView
                         android:id="@+id/long_size"
-                        android:background="@drawable/bg_layout_black_orange"
+                        android:background="@drawable/bg_layout_black"
                         android:textSize="12sp"
                         android:gravity="center"
                         android:textColor="@color/black"
