@@ -151,7 +151,7 @@ class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>)
     ) {
         when (state) {
             1 -> {
-                textView.setBackgroundResource(R.drawable.bg_layout_black_red)
+                textView.setBackgroundResource(R.drawable.bg_layout_black_orange_light)
             }
             2 -> {
                 textView.setBackgroundResource(R.drawable.bg_layout_black_yellow)

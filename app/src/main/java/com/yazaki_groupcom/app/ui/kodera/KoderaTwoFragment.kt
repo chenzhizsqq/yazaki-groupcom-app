@@ -85,6 +85,35 @@ class KoderaTwoFragment : Fragment() {
             binding.cuttingLineLength1.text = it.cuttingLineLength1
         }
 
+        sharedVM.scanDataText.observe(viewLifecycleOwner) {
+            Log.e(TAG, " !!! QR:$it ")
+            val str = it
+            if (str.isNotEmpty()){
+                if (checkQR(str)){
+                    binding.tvResult.text = "OK"
+                    binding.etInfo.setText(str.substring(1, 12))
+                    binding.etNumber.setText(str.substring(24, 36))
+
+//                    lifecycleScope.launch {
+//                        delay(1000L) // 延迟1秒钟
+//                        sharedVM.idFragment.value = 3
+//                    }
+                }else{
+                    binding.tvResult.text = "NG"
+                    if (str.length > 37) {
+                        binding.etInfo.setText(str.substring(1, 12))
+                        binding.etNumber.setText(str.substring(24, 36))
+                    }
+                }
+            }
+        }
+
+        if (binding.tvResult.text == "OK") {
+            binding.tvResult.setOnClickListener {
+                sharedVM.idFragment.value = 3
+            }
+        }
+
         return binding.root
     }
 

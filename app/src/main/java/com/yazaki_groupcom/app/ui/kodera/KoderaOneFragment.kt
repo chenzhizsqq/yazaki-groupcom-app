@@ -63,7 +63,7 @@ class KoderaOneFragment : Fragment() {
         //Adapter data
 
         val koderaOneData = KoderaEachData(
-            mAdapter.itemCount,
+            mAdapter.list.count(),
             "",
             "ー",
             "40",
@@ -93,8 +93,9 @@ class KoderaOneFragment : Fragment() {
     private fun testData2() {
         //Adapter data
 
+
         val koderaOneData = KoderaEachData(
-            mAdapter.itemCount,
+            mAdapter.list.count(),
             "",
             "ー",
             "40",
