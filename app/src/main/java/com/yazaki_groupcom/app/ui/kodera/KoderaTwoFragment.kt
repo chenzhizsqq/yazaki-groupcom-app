@@ -40,7 +40,7 @@ class KoderaTwoFragment : Fragment() {
         binding = FragmentKoderaTwoBinding.inflate(inflater, container, false)
         if (Config.isCheckMode) {
             binding.tvResult.setOnClickListener {
-                //sharedVM.idFragment.value = 3
+                sharedVM.idFragment.value = 3
             }
         }
 
@@ -110,7 +110,7 @@ class KoderaTwoFragment : Fragment() {
 
         if (binding.tvResult.text == "OK") {
             binding.tvResult.setOnClickListener {
-                //sharedVM.idFragment.value = 3
+                sharedVM.idFragment.value = 3
             }
         }
 
@@ -127,7 +127,7 @@ class KoderaTwoFragment : Fragment() {
                     binding.tvResult.text = "OK"
                     lifecycleScope.launch {
                         delay(1000L) // 延迟1秒钟
-                        //sharedVM.idFragment.value = 3
+                        sharedVM.idFragment.value = 3
                     }
                 } else {
                     binding.tvResult.text = "NG"

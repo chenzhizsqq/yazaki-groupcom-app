@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityMainKomaxBinding
@@ -64,7 +65,7 @@ class MainKomaxActivity : BaseScanActivity() {
                 startActivity(intent)
                 finish()
 
-                sendBroadcast(Intent("ProcessManageActivity"))
+                ThisApp.finishActivities()
             }
             builder.setNegativeButton(resources.getString(R.string.bt_logout_cancel)) { dialog, which ->
                 // 点击 Cancel 按钮的回调

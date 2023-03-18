@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
+import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityProcessManageBinding
@@ -40,12 +41,6 @@ class ProcessManageActivity : BaseScanActivity() {
     //ProcessViewModel
     lateinit var viewModel: ProcessViewModel
 
-    private val finishReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            finish()
-        }
-    }
-
     var lastSelectTitleIndex = -1
 
     //Adapter
@@ -53,7 +48,6 @@ class ProcessManageActivity : BaseScanActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        unregisterReceiver(finishReceiver)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,14 +97,13 @@ class ProcessManageActivity : BaseScanActivity() {
             }
         })
 
-        registerReceiver(finishReceiver, IntentFilter("ProcessManageActivity"))
-
         if (Config.isCheckMode){
             Tools.sharedPrePut(ShareKey.LastSelectedProcessName.key,"C385-C-02")
             binding.tvTitle.setOnClickListener {
                 val intent =
                     Intent(this, MainKoderaActivity::class.java)
                 startActivity(intent)
+                ThisApp.activities.add(this)
             }
         }
 

@@ -187,6 +187,7 @@
         android:scrollbars="vertical"
         android:background="@drawable/bg_layout">
 
+        <!-- Main -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,6 +215,7 @@
                     android:gravity="center"
                     app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

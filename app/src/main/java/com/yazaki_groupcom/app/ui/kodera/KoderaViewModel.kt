@@ -4,6 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class KoderaViewModel  : ViewModel() {
+    val gotoNext = MutableLiveData(false)
+
+    val idFragment = MutableLiveData(2)
 
     val isCheckOk = MutableLiveData(false)
 

@@ -1,9 +1,11 @@
 package com.yazaki_groupcom.app
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.yazaki_groupcom.app.db.AppDatabase
@@ -11,6 +13,7 @@ import com.yazaki_groupcom.app.db.AppDatabase
 class ThisApp : Application() {
 
     companion object {
+        const val TAG: String = "ThisApp"
 
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
@@ -33,6 +36,21 @@ class ThisApp : Application() {
             }
         }
 
+        //存活的activities
+        val activities = mutableListOf<Activity>()
+
+        /**
+         * 清除所有存活的activities
+         */
+        fun finishActivities(){
+            try {
+                for (activity in activities) {
+                    activity.finish()
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "finishActivities: ",e )
+            }
+        }
 
         /**
          * 共有keyコミットのString
