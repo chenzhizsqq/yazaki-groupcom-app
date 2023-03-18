@@ -27,16 +27,41 @@ class MainKoderaActivity : BaseScanActivity() {
     //与MainKoderaActivity共同的ViewModel
     private val viewModel: KoderaViewModel by viewModels()
 
-    //idFragmentのリスト
-    private val listFrag = ArrayList<String>()
-
     //最後に選択したプロセス
     private lateinit var lastSelectedProcessName :String
+
+    //Adapter
+    private lateinit var mAdapter: KoderaOneAdapter
+    val listKoderaData = java.util.ArrayList<KoderaEachData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainKoderaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //Adapter setting
+        mAdapter = KoderaOneAdapter(this, java.util.ArrayList<KoderaEachData>())
+        binding.recyclerViewKoderaOne.adapter = mAdapter
+        mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{
+            override fun onClick(id: Int) {
+                Log.e(TAG, "onClick: id:$id", )
+
+                viewModel.koderaEachData.postValue(listKoderaData[id])
+            }
+
+            /**
+             * "检查"　"切断完了"　ボタンの設定
+             */
+            override fun onCheck(id: Int) {
+                Log.e(TAG, "onCheck: id:$id", )
+            }
+        })
+
+        testData()
+        testData2()
+        testData()
+        testData2()
 
         //获取上一个Activity传过来的数据
         getExtra()
@@ -75,23 +100,6 @@ class MainKoderaActivity : BaseScanActivity() {
             dialog.show()
         }
 
-        switchToFragmentOne()
-
-        viewModel.idFragment.observe(this) {
-            Log.e(TAG, "onCreate: !!! idFragment:$it", )
-            when(it){
-                1 -> {
-                    switchToFragmentOne()
-                }
-                2 -> {
-                    switchToFragmentTwo()
-                }
-                3 -> {
-                    switchToFragmentThree()
-                }
-            }
-        }
-
         //スキャン後に取得されたデータ
         baseScanViewModel.dataText.observe(this) {
             Log.e(TAG, "!!! QR:$it ")
@@ -112,25 +120,73 @@ class MainKoderaActivity : BaseScanActivity() {
 
     }
 
-    private fun switchToFragmentOne() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, KoderaOneFragment.newInstance())
-            .commit()
-        binding.tvTitleTips.text = "切断指示を確認して、設備に入力して下さい。"
+
+    private fun testData() {
+        //Adapter data
+
+        val koderaOneData = KoderaEachData(
+            mAdapter.list.count(),
+            "",
+            "ー",
+            "40",
+            "200",
+            "2023/02/01",
+
+            "CI001",
+            "CI00123021010",
+            "1R7",
+            "041",
+            "40",
+            "2096",
+            "80",
+
+            0,
+            1,
+            1,
+            1,
+            0,
+
+            false
+        )
+        listKoderaData.add(koderaOneData)
+        addData(listKoderaData[listKoderaData.count()-1])
     }
 
-    private fun switchToFragmentTwo() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, KoderaTwoFragment.newInstance())
-            .commit()
-        binding.tvTitleTips.text = "部材照合して下さい。"
+    private fun testData2() {
+        //Adapter data
+
+
+        val koderaOneData = KoderaEachData(
+            mAdapter.list.count(),
+            "",
+            "ー",
+            "40",
+            "200",
+            "2023/02/01",
+
+            "CI001",
+            "CI00123021010",
+            "1R7",
+            "041",
+            "40",
+            "2096",
+            "80",
+
+            2,
+            0,
+            0,
+            0,
+            2,
+
+            false
+        )
+        listKoderaData.add(koderaOneData)
+        addData(listKoderaData[listKoderaData.count()-1])
     }
 
-    private fun switchToFragmentThree() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, KoderaThreeFragment.newInstance())
-            .commit()
-        binding.tvTitleTips.text = "測定値を入力して下さい。"
+
+    private fun addData(koderaOneData : KoderaEachData) {
+        mAdapter.notifyDataSetAdd(koderaOneData)
     }
 
 

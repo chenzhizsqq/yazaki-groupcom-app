@@ -55,7 +55,7 @@ class KoderaThreeFragment : Fragment() {
                 isCanBeCheck = false
                 lifecycleScope.launch {
                     delay(1000L) // 延迟1秒钟
-                    sharedVM.idFragment.value = 1
+                    //sharedVM.idFragment.value = 1
                     sharedVM.isCheckOk.value = true
                 }
             }
@@ -209,7 +209,7 @@ class KoderaThreeFragment : Fragment() {
             isCanBeCheck = false
             lifecycleScope.launch {
                 delay(1000L) // 延迟1秒钟
-                sharedVM.idFragment.value = 1
+                //sharedVM.idFragment.value = 1
                 sharedVM.isCheckOk.value = true
                 sharedVM.koderaEachData.value?.id?.let { sharedVM.checkOverIdList.value?.add(it) }
             }

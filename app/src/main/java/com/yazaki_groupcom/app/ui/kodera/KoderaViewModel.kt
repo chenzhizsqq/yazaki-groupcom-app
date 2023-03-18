@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 
 class KoderaViewModel  : ViewModel() {
 
-    val idFragment = MutableLiveData(1)
-
     val isCheckOk = MutableLiveData(false)
 
     val checkOverIdList = MutableLiveData(ArrayList<Int>())

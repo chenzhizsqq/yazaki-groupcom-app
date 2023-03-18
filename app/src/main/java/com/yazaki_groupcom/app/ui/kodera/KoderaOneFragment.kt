@@ -38,7 +38,7 @@ class KoderaOneFragment : Fragment() {
         mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{
             override fun onClick(id: Int) {
                 Log.e(TAG, "onClick: id:$id", )
-                sharedVM.idFragment.value = 2
+                //sharedVM.idFragment.value = 2
 
                 sharedVM.koderaEachData.postValue(listKoderaData[id])
             }
