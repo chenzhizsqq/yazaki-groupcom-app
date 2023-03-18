@@ -165,6 +165,12 @@ class TestMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.TestRetrofitActivity2.setOnClickListener {
+            val intent =
+                Intent(this@TestMainActivity, TestRetrofitActivity2::class.java)
+            startActivity(intent)
+        }
+
         binding.TestNfcActivity.setOnClickListener {
             val intent =
                 Intent(this@TestMainActivity, TestNfcActivity::class.java)
