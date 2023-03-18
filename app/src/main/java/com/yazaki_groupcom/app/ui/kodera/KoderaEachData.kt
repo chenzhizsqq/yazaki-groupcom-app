@@ -1,6 +1,6 @@
 package com.yazaki_groupcom.app.ui.kodera
 
-//KomaxTwoFragment的数据
+//Kodera的EachData数据
 data class KoderaEachData(
     var id: Int,
     var title: String,

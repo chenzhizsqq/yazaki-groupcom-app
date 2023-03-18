@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
@@ -14,7 +13,6 @@ import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.first.FirstActivity
-import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 
 class MainKoderaActivity : BaseScanActivity() {
 
@@ -26,31 +24,31 @@ class MainKoderaActivity : BaseScanActivity() {
     private lateinit var binding: ActivityMainKoderaBinding
 
     //与MainKoderaActivity共同的ViewModel
-    private val viewModel: KoderaViewModel by viewModels()
+    val viewModel: KoderaViewModel by viewModels()
 
     //最後に選択したプロセス
     private lateinit var lastSelectedProcessName :String
 
     //Adapter
     private lateinit var mAdapter: KoderaOneAdapter
-    val listKoderaData = java.util.ArrayList<KoderaEachData>()
+    val listKoderaData = ArrayList<KoderaEachData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainKoderaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         //Adapter setting
-        mAdapter = KoderaOneAdapter(this, java.util.ArrayList<KoderaEachData>())
+        mAdapter = KoderaOneAdapter(this, ArrayList())
         binding.recyclerViewKoderaOne.adapter = mAdapter
         mAdapter.setOnAdapterListener(object :KoderaOneAdapter.OnAdapterListener{
             override fun onClick(id: Int) {
-                Log.e(TAG, "onClick: id:$id", )
+                Log.e(TAG, "onClick: id:$id")
 
                 viewModel.gotoNext.postValue(true)
-                viewModel.koderaEachData.postValue(listKoderaData[id])
 
+                val appViewModel = (application as ThisApp).appViewModel
+                appViewModel.koderaEachData = listKoderaData[id]
             }
 
             /**
@@ -172,7 +170,7 @@ class MainKoderaActivity : BaseScanActivity() {
             mAdapter.list.count(),
             "",
             "ー",
-            "40",
+            "20",
             "200",
             "2023/02/01",
 
@@ -181,7 +179,7 @@ class MainKoderaActivity : BaseScanActivity() {
             "1R7",
             "041",
             "40",
-            "2096",
+            "1000",
             "80",
 
             2,

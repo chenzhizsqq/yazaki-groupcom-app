@@ -56,7 +56,9 @@ class KoderaThreeFragment : Fragment() {
                 lifecycleScope.launch {
                     delay(1000L) // 延迟1秒钟
                     //sharedVM.idFragment.value = 1
-                    sharedVM.isCheckOk.value = true
+                    //sharedVM.isCheckOk.value = true
+                    val activity = activity
+                    activity?.finish()
                 }
             }
         }
@@ -210,8 +212,10 @@ class KoderaThreeFragment : Fragment() {
             lifecycleScope.launch {
                 delay(1000L) // 延迟1秒钟
                 //sharedVM.idFragment.value = 1
-                sharedVM.isCheckOk.value = true
-                sharedVM.koderaEachData.value?.id?.let { sharedVM.checkOverIdList.value?.add(it) }
+                //sharedVM.isCheckOk.value = true
+                // 获取Fragment所依附的Activity实例
+                val activity = activity
+                activity?.finish()
             }
         }
     }

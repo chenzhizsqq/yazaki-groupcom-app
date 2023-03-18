@@ -1,11 +1,9 @@
 package com.yazaki_groupcom.app.ui.kodera
 
 import android.app.AlertDialog
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yazaki_groupcom.app.R
@@ -16,7 +14,10 @@ import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.enum.ShareKey
 
 
-class KoderaOneAdapter(val context: Context,var list: ArrayList<KoderaEachData>) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
+class KoderaOneAdapter(
+    private val context: MainKoderaActivity,
+    var list: ArrayList<KoderaEachData>
+) : RecyclerView.Adapter<KoderaOneAdapter.ViewHolder>() {
     val TAG: String = "KoderaOneAdapter"
 
     inner class ViewHolder(binding: AdapterKoderaOneBinding) :

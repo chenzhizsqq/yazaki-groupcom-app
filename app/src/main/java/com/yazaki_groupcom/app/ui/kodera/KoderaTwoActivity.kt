@@ -5,17 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import com.yazaki_groupcom.app.Config
 import com.yazaki_groupcom.app.R
 import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.Tools
 import com.yazaki_groupcom.app.base.BaseScanActivity
 import com.yazaki_groupcom.app.databinding.ActivityKoderaTwoBinding
-import com.yazaki_groupcom.app.databinding.ActivityMainKoderaBinding
 import com.yazaki_groupcom.app.enum.Equipment
 import com.yazaki_groupcom.app.enum.ShareKey
 import com.yazaki_groupcom.app.ui.first.FirstActivity
-import com.yazaki_groupcom.app.ui.processManage.ProcessManageActivity
 
 class KoderaTwoActivity : BaseScanActivity() {
 
@@ -102,16 +99,17 @@ class KoderaTwoActivity : BaseScanActivity() {
      */
     private fun getExtra() {
         //("KoderaActivity_title", "C385-01")
-        binding.KoderaActivityTitle.text = Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
+        binding.KoderaActivityTitle.text =
+            Tools.sharedPreGetString(ShareKey.LastSelectedProcessName.key)
 
     }
 
-    private fun switchToFragmentOne() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, KoderaOneFragment.newInstance())
-            .commit()
-        binding.tvTitleTips.text = "切断指示を確認して、設備に入力して下さい。"
-    }
+//    private fun switchToFragmentOne() {
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container, KoderaOneFragment.newInstance())
+//            .commit()
+//        binding.tvTitleTips.text = "切断指示を確認して、設備に入力して下さい。"
+//    }
 
     private fun switchToFragmentTwo() {
         supportFragmentManager.beginTransaction()

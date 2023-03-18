@@ -6,11 +6,18 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.yazaki_groupcom.app.db.AppDatabase
 
 class ThisApp : Application() {
+
+    val appViewModel: AppViewModel by lazy {
+        ViewModelProvider.AndroidViewModelFactory.getInstance(
+            this
+        ).create(AppViewModel::class.java)
+    }
 
     companion object {
         const val TAG: String = "ThisApp"

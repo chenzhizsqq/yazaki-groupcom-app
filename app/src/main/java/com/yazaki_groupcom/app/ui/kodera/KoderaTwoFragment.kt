@@ -3,20 +3,20 @@ package com.yazaki_groupcom.app.ui.kodera
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.yazaki_groupcom.app.Config
+import com.yazaki_groupcom.app.ThisApp
 import com.yazaki_groupcom.app.databinding.FragmentKoderaTwoBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.ArrayList
 
 class KoderaTwoFragment : Fragment() {
 
@@ -27,22 +27,31 @@ class KoderaTwoFragment : Fragment() {
 
     private lateinit var binding: FragmentKoderaTwoBinding
 
-    private lateinit var editTextArray : ArrayList<EditText>
+    private lateinit var editTextArray: ArrayList<EditText>
 
     //与MainActivity共同的ViewModel
     val sharedVM: KoderaViewModel by activityViewModels()
+
+    val appViewModel = (ThisApp.context as ThisApp).appViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.e(TAG, "onCreateView: 222", )
+        Log.e(TAG, "onCreateView: 222")
         binding = FragmentKoderaTwoBinding.inflate(inflater, container, false)
         if (Config.isCheckMode) {
             binding.tvResult.setOnClickListener {
                 sharedVM.idFragment.value = 3
             }
         }
+
+        binding.groupNumber1.text = appViewModel.koderaEachData.groupNumber1
+        binding.cerealNumber1.text = appViewModel.koderaEachData.cerealNumber1
+        binding.variety1.text = appViewModel.koderaEachData.variety1
+        binding.size1.text = appViewModel.koderaEachData.size1
+        binding.color1.text = appViewModel.koderaEachData.color1
+        binding.cuttingLineLength1.text = appViewModel.koderaEachData.cuttingLineLength1
 
         editTextArray = ArrayList<EditText>()
         editTextArray.add(binding.etInfo)
@@ -76,14 +85,6 @@ class KoderaTwoFragment : Fragment() {
             }
         }
 
-        sharedVM.koderaEachData.observe(requireActivity()) {
-            binding.groupNumber1.text = it.groupNumber1
-            binding.cerealNumber1.text = it.cerealNumber1
-            binding.variety1.text = it.variety1
-            binding.size1.text = it.size1
-            binding.color1.text = it.color1
-            binding.cuttingLineLength1.text = it.cuttingLineLength1
-        }
 
         sharedVM.scanDataText.observe(viewLifecycleOwner) {
             Log.e(TAG, " !!! QR:$it ")
