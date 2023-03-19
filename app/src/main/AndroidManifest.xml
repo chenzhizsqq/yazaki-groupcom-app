@@ -53,105 +53,7 @@
                 android:value="" />
         </activity> <!-- 测试页面的主页 -->
         <activity
-            android:name=".test.TestMainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.processManage.ProcessManageActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestScannerSettingsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestScannerSettingsBaseActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestComposeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_test_compose"
-            android:theme="@style/Theme.Yazakigroupcomapp">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestButtonActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestDatePickerActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestNfcActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".testScan.TestScanActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestScanServiceActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestRetrofitActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestSmartRefreshLayoutActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.testCuttingWork.TestCuttingWorkActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -167,47 +69,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".test.TestMvvmSqlActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.TestSqlActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.acUpdate.AcUpdateActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.acSelect.AcSelectActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.acQrLogin.AcQrLoginActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.mainMenu.MainMenuActivity"
             android:exported="false"
             android:screenOrientation="portrait">
@@ -218,24 +79,6 @@
         <activity
             android:name=".ui.pwLogin.PwLoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.testCuttingWork.CuttingWorkCheckActivity1"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test.testCuttingWork.CuttingWorkCheckActivity2"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">
             <meta-data

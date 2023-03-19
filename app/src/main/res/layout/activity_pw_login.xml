@@ -179,55 +179,7 @@
             android:text="ログイン"
             tools:ignore="TextViewEdits" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center|top"
-        android:background="@color/white"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/dataGetAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:text="dataGetAll"
-            tools:ignore="TextViewEdits" />
-        <Button
-            android:id="@+id/dataInsert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:text="dataInsert"
-            tools:ignore="TextViewEdits" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center|top"
-        android:background="@color/white"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/getUsersList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:text="getUsersList"
-            tools:ignore="TextViewEdits" />
-        <Button
-            android:id="@+id/deleteAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:text="deleteAll"
-            tools:ignore="TextViewEdits" />
-    </LinearLayout>
 
     </LinearLayout>
 
